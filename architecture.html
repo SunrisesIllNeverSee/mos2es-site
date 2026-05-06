@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MO§E§™ — Investor Architecture</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #F8F7F4;
+  color: #0D0C0A;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.page { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #0D0C0A;
+  margin-bottom: 2rem;
+}
+.header-left h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.header-left p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(13,12,10,0.4);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(13,12,10,0.4);
+  line-height: 2;
+}
+.header-right .raise { font-size: 12px; font-weight: 500; color: #8A6328; }
+
+.tabs { display: flex; gap: 1px; background: rgba(13,12,10,0.12); margin-bottom: 2rem; width: fit-content; }
+.tab {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: #F8F7F4;
+  color: rgba(13,12,10,0.4);
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.tab:hover { color: #0D0C0A; }
+.tab.active { background: #0D0C0A; color: #F8F7F4; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* TABLE */
+.arch-table { width: 100%; border-collapse: collapse; }
+.arch-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(13,12,10,0.3);
+  font-weight: 400;
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 2px solid #0D0C0A;
+}
+.arch-table td { padding: 12px 12px; border-bottom: 1px solid rgba(13,12,10,0.08); vertical-align: top; }
+.arch-table tr:hover td { background: rgba(13,12,10,0.02); }
+.arch-table tr.membrane-row td { background: rgba(83,74,183,0.04); }
+
+.r-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; white-space: nowrap; }
+.r-bar { width: 3px; min-height: 40px; border-radius: 2px; }
+.r-name { font-weight: 500; font-size: 13px; margin-bottom: 2px; }
+.r-desc { font-size: 12px; color: rgba(13,12,10,0.5); line-height: 1.6; }
+.r-nodes { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px; }
+.chip { font-family: 'IBM Plex Mono', monospace; font-size: 9px; padding: 2px 7px; border-radius: 2px; font-weight: 500; }
+.pill { font-family: 'IBM Plex Mono', monospace; font-size: 9px; padding: 3px 9px; border-radius: 2px; font-weight: 500; letter-spacing: .06em; white-space: nowrap; }
+
+.divider-band td { background: rgba(13,12,10,0.04); padding: 6px 12px; border-bottom: 1px solid rgba(13,12,10,0.08); }
+.divider-band-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(13,12,10,0.35); }
+
+.metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(13,12,10,0.1); border: 1px solid rgba(13,12,10,0.1); margin-top: 2rem; }
+.metric-cell { background: #F8F7F4; padding: 1.25rem; }
+.metric-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: rgba(13,12,10,0.3); margin-bottom: 4px; }
+.metric-val { font-family: 'IBM Plex Mono', monospace; font-size: 18px; font-weight: 500; margin-bottom: 2px; }
+.metric-sub { font-size: 11px; color: rgba(13,12,10,0.4); line-height: 1.5; }
+
+.principle { margin-top: 1.5rem; padding: .875rem 1rem; border-top: 1px solid rgba(13,12,10,0.1); border-bottom: 1px solid rgba(13,12,10,0.1); font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: rgba(13,12,10,0.35); letter-spacing: .06em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+
+/* DIAGRAM */
+.ring-wrap { display: flex; justify-content: center; padding: 1rem 0 2rem; }
+svg text { font-family: 'IBM Plex Mono', monospace; }
+
+.ring-legend { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(13,12,10,0.1); border: 1px solid rgba(13,12,10,0.1); margin-top: 1.5rem; }
+.legend-cell { background: #F8F7F4; padding: .875rem 1rem; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; margin-bottom: 6px; }
+.legend-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; margin-bottom: 2px; }
+.legend-desc { font-size: 11px; color: rgba(13,12,10,0.45); line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>MO§E§™ · Sovereign Architecture</h1>
+      <p>Seven rings · investor architecture · Ello Cello LLC</p>
+    </div>
+    <div class="header-right">
+      <div class="raise">Raising $1.5M Seed · SAFE</div>
+      <div>NAICS 511210 · Software Publishers</div>
+      <div>Horizontal AI infrastructure</div>
+      <div>4 Patents Pending</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('table',this)">Table view</button>
+    <button class="tab" onclick="switchTab('diagram',this)">Ring diagram</button>
+  </div>
+
+  <!-- TABLE PANEL -->
+  <div id="panel-table" class="panel active">
+    <table class="arch-table">
+      <thead>
+        <tr>
+          <th style="width:44px">Ring</th>
+          <th style="width:8px;padding:8px 4px 8px 12px!important"></th>
+          <th>Layer · contents</th>
+          <th style="width:120px">Status</th>
+          <th style="width:200px">Investor implication</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+
+    <div class="metrics">
+      <div class="metric-cell">
+        <p class="metric-label">Protected · R1–R4</p>
+        <p class="metric-val" style="color:#26215C">Not for sale</p>
+        <p class="metric-sub">Hub · membranes · legal IP · core protocol stays with Ello Cello LLC</p>
+      </div>
+      <div class="metric-cell">
+        <p class="metric-label">Open to ownership · R2, R4, R6</p>
+        <p class="metric-val" style="color:#534AB7">Clone membranes</p>
+        <p class="metric-sub">Governed instances — structural infrastructure open to strategic ownership arrangements</p>
+      </div>
+      <div class="metric-cell">
+        <p class="metric-label">Acquirable · R5–R7</p>
+        <p class="metric-val" style="color:#3B6D11">$5.97M+ floor</p>
+        <p class="metric-sub">Products · internal systems · open to strategic acquisition as product lines</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <span>We don't sell the constitution · we sell licensed embodiments</span>
+      <span>The architecture generates the products · we own the architecture</span>
+      <span>burnmydays@proton.me · signomy.xyz · mos2es.com</span>
+    </div>
+  </div>
+
+  <!-- DIAGRAM PANEL -->
+  <div id="panel-diagram" class="panel">
+    <div class="ring-wrap">
+      <svg width="620" height="620" viewBox="0 0 620 620" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- R7 outermost dashed -->
+        <circle cx="310" cy="310" r="295" fill="none" stroke="#639922" stroke-width="0.75" stroke-dasharray="5 5"/>
+        <!-- R6 clone -->
+        <circle cx="310" cy="310" r="268" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="3 7"/>
+        <!-- R5 internal -->
+        <circle cx="310" cy="310" r="220" fill="rgba(133,79,11,0.04)" stroke="#854F0B" stroke-width="0.75"/>
+        <!-- R4 clone -->
+        <circle cx="310" cy="310" r="172" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="3 7"/>
+        <!-- R3 legal -->
+        <circle cx="310" cy="310" r="126" fill="rgba(139,34,16,0.05)" stroke="#8B2210" stroke-width="0.75"/>
+        <!-- R2 clone -->
+        <circle cx="310" cy="310" r="80" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="3 7"/>
+        <!-- R1 hub -->
+        <circle cx="310" cy="310" r="44" fill="rgba(38,33,92,0.15)" stroke="#26215C" stroke-width="1.5"/>
+
+        <!-- HUB -->
+        <text x="310" y="305" text-anchor="middle" font-size="11" font-weight="500" fill="#26215C">MO§E§™</text>
+        <text x="310" y="320" text-anchor="middle" font-size="9" fill="rgba(38,33,92,0.65)">hub · core</text>
+
+        <!-- R3 Four Towers -->
+        <rect x="276" y="187" width="68" height="30" rx="3" fill="rgba(139,34,16,0.1)" stroke="#8B2210" stroke-width="0.75"/>
+        <text x="310" y="199" text-anchor="middle" font-size="9" font-weight="500" fill="#5C1A0A">Provenance</text>
+        <text x="310" y="210" text-anchor="middle" font-size="8" fill="rgba(92,26,10,0.6)">R3 tenant</text>
+
+        <rect x="384" y="295" width="68" height="30" rx="3" fill="rgba(139,34,16,0.1)" stroke="#8B2210" stroke-width="0.75"/>
+        <text x="418" y="307" text-anchor="middle" font-size="9" font-weight="500" fill="#5C1A0A">Model Scale</text>
+        <text x="418" y="318" text-anchor="middle" font-size="8" fill="rgba(92,26,10,0.6)">R3 tenant</text>
+
+        <rect x="168" y="295" width="68" height="30" rx="3" fill="rgba(139,34,16,0.1)" stroke="#8B2210" stroke-width="0.75"/>
+        <text x="202" y="307" text-anchor="middle" font-size="9" font-weight="500" fill="#5C1A0A">Evaluation</text>
+        <text x="202" y="318" text-anchor="middle" font-size="8" fill="rgba(92,26,10,0.6)">R3 tenant</text>
+
+        <rect x="276" y="403" width="68" height="30" rx="3" fill="rgba(139,34,16,0.1)" stroke="#8B2210" stroke-width="0.75"/>
+        <text x="310" y="415" text-anchor="middle" font-size="9" font-weight="500" fill="#5C1A0A">Deployment</text>
+        <text x="310" y="426" text-anchor="middle" font-size="8" fill="rgba(92,26,10,0.6)">R3 tenant</text>
+
+        <!-- R5 Internal systems -->
+        <rect x="454" y="224" width="80" height="30" rx="3" fill="rgba(133,79,11,0.1)" stroke="#854F0B" stroke-width="0.75"/>
+        <text x="494" y="236" text-anchor="middle" font-size="10" font-weight="500" fill="#412402">SIGRANK</text>
+        <text x="494" y="247" text-anchor="middle" font-size="8" fill="rgba(65,36,2,0.6)">scoring engine</text>
+
+        <rect x="86" y="224" width="90" height="30" rx="3" fill="rgba(133,79,11,0.1)" stroke="#854F0B" stroke-width="0.75"/>
+        <text x="131" y="236" text-anchor="middle" font-size="10" font-weight="500" fill="#412402">SCS Academy</text>
+        <text x="131" y="247" text-anchor="middle" font-size="8" fill="rgba(65,36,2,0.6)">knowledge layer</text>
+
+        <rect x="250" y="480" width="120" height="30" rx="3" fill="rgba(133,79,11,0.1)" stroke="#854F0B" stroke-width="0.75"/>
+        <text x="310" y="492" text-anchor="middle" font-size="10" font-weight="500" fill="#412402">Signal Economy</text>
+        <text x="310" y="503" text-anchor="middle" font-size="8" fill="rgba(65,36,2,0.6)">economic protocol</text>
+
+        <!-- R7 Products -->
+        <rect x="252" y="8" width="116" height="30" rx="3" fill="rgba(59,109,17,0.1)" stroke="#3B6D11" stroke-width="0.75"/>
+        <text x="310" y="20" text-anchor="middle" font-size="10" font-weight="500" fill="#173404">COMMAND</text>
+        <text x="310" y="31" text-anchor="middle" font-size="8" fill="rgba(23,52,4,0.6)">$65k–$260k</text>
+
+        <rect x="502" y="92" width="110" height="30" rx="3" fill="rgba(59,109,17,0.1)" stroke="#3B6D11" stroke-width="0.75"/>
+        <text x="557" y="104" text-anchor="middle" font-size="10" font-weight="500" fill="#173404">KA§§A</text>
+        <text x="557" y="115" text-anchor="middle" font-size="8" fill="rgba(23,52,4,0.6)">marketplace</text>
+
+        <rect x="502" y="498" width="110" height="30" rx="3" fill="rgba(59,109,17,0.1)" stroke="#3B6D11" stroke-width="0.75"/>
+        <text x="557" y="510" text-anchor="middle" font-size="10" font-weight="500" fill="#173404">CIVITAE</text>
+        <text x="557" y="521" text-anchor="middle" font-size="8" fill="rgba(23,52,4,0.6)">signomy.xyz</text>
+
+        <rect x="8" y="498" width="110" height="30" rx="3" fill="rgba(59,109,17,0.1)" stroke="#3B6D11" stroke-width="0.75"/>
+        <text x="63" y="510" text-anchor="middle" font-size="10" font-weight="500" fill="#173404">DEPLOY</text>
+        <text x="63" y="521" text-anchor="middle" font-size="8" fill="rgba(23,52,4,0.6)">$95k–$370k</text>
+
+        <rect x="8" y="92" width="110" height="30" rx="3" fill="rgba(59,109,17,0.1)" stroke="#3B6D11" stroke-width="0.75"/>
+        <text x="63" y="104" text-anchor="middle" font-size="10" font-weight="500" fill="#173404">Plugin · MCP</text>
+        <text x="63" y="115" text-anchor="middle" font-size="8" fill="rgba(23,52,4,0.6)">onboarding</text>
+
+        <!-- Ring labels -->
+        <text x="310" y="270" text-anchor="middle" font-size="8" fill="rgba(83,74,183,0.45)" letter-spacing="2">R2 CLONE</text>
+        <text x="436" y="310" text-anchor="start" font-size="8" fill="rgba(139,34,16,0.4)">R3</text>
+        <text x="483" y="310" text-anchor="start" font-size="8" fill="rgba(83,74,183,0.45)">R4</text>
+        <text x="530" y="310" text-anchor="start" font-size="8" fill="rgba(133,79,11,0.4)">R5</text>
+        <text x="578" y="310" text-anchor="start" font-size="8" fill="rgba(83,74,183,0.45)">R6</text>
+        <text x="604" y="310" text-anchor="start" font-size="8" fill="rgba(59,109,17,0.4)">R7</text>
+
+        <!-- Title -->
+        <text x="310" y="608" text-anchor="middle" font-size="10" fill="rgba(13,12,10,0.3)" letter-spacing="1">MO§E§™ · Sovereign Architecture · Seven Rings</text>
+
+      </svg>
+    </div>
+
+    <div class="ring-legend">
+      <div class="legend-cell">
+        <div class="legend-dot" style="background:#26215C"></div>
+        <div class="legend-name">R1 · Hub</div>
+        <div class="legend-desc">MO§E§™ core · conservation law · not for sale</div>
+      </div>
+      <div class="legend-cell">
+        <div class="legend-dot" style="background:#534AB7"></div>
+        <div class="legend-name">R2, R4, R6 · Clone membranes</div>
+        <div class="legend-desc">Governed perimeters · open to ownership arrangements</div>
+      </div>
+      <div class="legend-cell">
+        <div class="legend-dot" style="background:#8B2210"></div>
+        <div class="legend-name">R3 · Legal · IP</div>
+        <div class="legend-desc">Big Tech inside here · 4 Patents · trademark IC 042</div>
+      </div>
+      <div class="legend-cell">
+        <div class="legend-dot" style="background:#3B6D11"></div>
+        <div class="legend-name">R5–R7 · Products</div>
+        <div class="legend-desc">Internal systems · products · acquirable as product lines</div>
+      </div>
+    </div>
+
+    <div class="principle" style="margin-top:1.5rem">
+      <span>Clone membranes R2, R4, R6 — open to ownership arrangements</span>
+      <span>R5–R7 acquirable as product lines · R1 not for sale</span>
+      <span>signomy.xyz · mos2es.com</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const ROWS = [
+  { band:null, ring:'R7', color:'#3B6D11', barColor:'#639922', membrane:false,
+    name:'Products · business layer',
+    desc:'COMMAND · KA§§A · CIVITAE · DEPLOY · Plugin · MCP. The world-facing layer. Managed outside the hub.',
+    nodes:[{l:'COMMAND $65k',bg:'#EAF3DE',c:'#173404'},{l:'KA§§A',bg:'#EAF3DE',c:'#173404'},{l:'CIVITAE',bg:'#EAF3DE',c:'#173404'},{l:'DEPLOY $95k',bg:'#EAF3DE',c:'#173404'},{l:'Plugin·MCP',bg:'#EAF3DE',c:'#173404'}],
+    pill:'REVENUE', pillBg:'#EAF3DE', pillC:'#27500A',
+    impl:'Immediate revenue: licensing, marketplace fees, distribution rights. Acquirable as product lines.' },
+
+  { band:'Products · R7 — acquirable as product lines', ring:'R6', color:'#534AB7', barColor:'#534AB7', membrane:true,
+    name:'Clone membrane · third perimeter',
+    desc:'Products never touch internal systems. Constitutional barrier enabling independent deployment.',
+    nodes:[{l:'Clone ×N',bg:'#EEEDFE',c:'#3C3489'}],
+    pill:'OPEN TO OWNERSHIP', pillBg:'#EEEDFE', pillC:'#26215C',
+    impl:'Structural infrastructure. Open to strategic ownership arrangements.' },
+
+  { band:'Clone membranes R2, R4, R6 — open to ownership arrangements', ring:'R5', color:'#854F0B', barColor:'#BA7517', membrane:false,
+    name:'Internal systems · intelligence layer',
+    desc:'SIGRANK behavioral scoring · SCS Academy (signal compression sciences) · Signal Economy (economic protocol). Not products — the intelligence layer governing the clones and products.',
+    nodes:[{l:'SIGRANK',bg:'#FAEEDA',c:'#412402'},{l:'SCS Academy',bg:'#FAEEDA',c:'#412402'},{l:'Signal Economy',bg:'#FAEEDA',c:'#412402'}],
+    pill:'INTERNAL', pillBg:'#FAEEDA', pillC:'#633806',
+    impl:'Intelligence layer informing all products. Open to strategic licensing post-seed.' },
+
+  { band:'Internal systems R5 — open to strategic licensing', ring:'R4', color:'#534AB7', barColor:'#534AB7', membrane:true,
+    name:'Clone membrane · second perimeter',
+    desc:'Separates legal/IP ring from internal systems. Governance required to cross.',
+    nodes:[{l:'Clone ×N',bg:'#EEEDFE',c:'#3C3489'}],
+    pill:'OPEN TO OWNERSHIP', pillBg:'#EEEDFE', pillC:'#26215C',
+    impl:'Structural separation between IP protection and revenue systems. Open to strategic ownership.' },
+
+  { band:null, ring:'R3', color:'#8B2210', barColor:'#C44A3A', membrane:false,
+    name:'Legal · IP · conservation law',
+    desc:'4 Patents · trademark IC 042 · Zenodo DOI · Ello Cello LLC. The Four Towers of Big Tech (Model Scale, Provenance, Evaluation, Deployment) operate inside this ring.',
+    nodes:[{l:'4 Patents',bg:'#FAECE7',c:'#712B13'},{l:'Trademark',bg:'#FAECE7',c:'#712B13'},{l:'Model Scale ↑',bg:'#F5C4B3',c:'#712B13'},{l:'Provenance ↑',bg:'#F5C4B3',c:'#712B13'},{l:'Evaluation ↑',bg:'#F5C4B3',c:'#712B13'},{l:'Deployment ↑',bg:'#F5C4B3',c:'#712B13'}],
+    pill:'PROTECTED', pillBg:'#FAECE7', pillC:'#712B13',
+    impl:'The legal moat. ↑ = Big Tech operating inside this ring unknowingly.' },
+
+  { band:'R1–R4 — protected · not for sale', ring:'R2', color:'#534AB7', barColor:'#534AB7', membrane:true,
+    name:'Clone membrane · first perimeter',
+    desc:'First governed perimeter. Nothing passes from hub to legal layer without governance.',
+    nodes:[{l:'Clone ×N',bg:'#EEEDFE',c:'#3C3489'}],
+    pill:'OPEN TO OWNERSHIP', pillBg:'#EEEDFE', pillC:'#26215C',
+    impl:'Constitutional enforcement layer. Open to strategic ownership arrangements.' },
+
+  { band:null, ring:'R1', color:'#26215C', barColor:'#534AB7', membrane:false,
+    name:'MO§E§™ hub · sovereign core',
+    desc:'The generative architecture. Conservation Law C(T(S))=C(S). Maintained by Luthen. Funding enables sovereign server infrastructure independent of any single operator.',
+    nodes:[{l:'MO§E§™',bg:'#EEEDFE',c:'#26215C'},{l:'Conservation Law',bg:'#EEEDFE',c:'#26215C'},{l:'Luthen',bg:'#EEEDFE',c:'#26215C'}],
+    pill:'NOT FOR SALE', pillBg:'#EEEDFE', pillC:'#26215C',
+    impl:'The crown jewels. Never acquirable. Funding enables sovereign server infrastructure.' },
+];
+
+function buildTable() {
+  const tbody = document.getElementById('tbody');
+  ROWS.forEach(r => {
+    if (r.band) {
+      const br = document.createElement('tr');
+      br.className = 'divider-band';
+      br.innerHTML = `<td colspan="5"><span class="divider-band-label">${r.band}</span></td>`;
+      tbody.appendChild(br);
+    }
+    const tr = document.createElement('tr');
+    if (r.membrane) tr.className = 'membrane-row';
+    tr.innerHTML = `
+      <td><span class="r-num" style="color:${r.color}">${r.ring}</span></td>
+      <td style="padding:12px 4px 12px 12px"><div class="r-bar" style="background:${r.barColor}"></div></td>
+      <td>
+        <div class="r-name" style="color:${r.color}">${r.name}</div>
+        <div class="r-desc">${r.desc}</div>
+        <div class="r-nodes">${r.nodes.map(n=>`<span class="chip" style="background:${n.bg};color:${n.c}">${n.l}</span>`).join('')}</div>
+      </td>
+      <td><span class="pill" style="background:${r.pillBg};color:${r.pillC}">${r.pill}</span></td>
+      <td style="font-size:11px;color:rgba(13,12,10,0.48);line-height:1.6;font-style:italic">${r.impl}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+buildTable();
+</script>
+</body>
+</html>
