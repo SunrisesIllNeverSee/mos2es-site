@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://mos2es.com/" />
+<title>MO§ES™ Field Sheet — May 5, 2026</title>
+<meta name="description" content="MO§ES field sheet: topics, proofs, SIGRANK applications, patent portfolio, and live evidence links for May 5, 2026.">
+<meta property="og:title" content="MO§ES™ Field Sheet — May 5, 2026" />
+<meta property="og:description" content="Topics, proofs, SIGRANK applications, and live evidence links for the MO§ES governance stack." />
+<meta property="og:url" content="https://mos2es.com/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet"></noscript>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  --bg: #0A0D12; --panel: #10141A; --panel-2: #0D1117;
+  --border: #1A1F28; --border-2: #252C38;
+  --text: #C8CDD6; --dim: #8A94A0; --bright: #E8ECF1;
+  --gold: #C4923A; --gold-dim: rgba(196,146,58,0.16);
+  --blue: #5BA8F0; --blue-dim: rgba(58,127,196,0.14);
+  --green: #3DAA6A; --green-dim: rgba(61,170,106,0.14);
+  --amber: #D48C2E; --amber-dim: rgba(212,140,46,0.14);
+  --mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; --sans: 'DM Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; --playfair: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px; }
+.top {
+  border-bottom: 1px solid var(--border);
+  background:
+    linear-gradient(rgba(196,146,58,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,146,58,0.035) 1px, transparent 1px),
+    var(--bg);
+  background-size: 52px 52px;
+}
+.hero {
+  min-height: 76vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 58px;
+  padding-bottom: 48px;
+}
+.eyebrow, .section-label, .tag, th, .meta-label, .metric-label, .small, .hero-tag {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.eyebrow { color: var(--gold); font-size: 0.68rem; margin: 0 0 10px; }
+.hero-tag {
+  color: var(--gold);
+  font-size: 0.66rem;
+  margin: 0 0 18px;
+}
+h1 {
+  margin: 0;
+  color: var(--bright);
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.hero h1 {
+  font-family: var(--playfair);
+  font-size: clamp(4.6rem, 14vw, 9.2rem);
+  font-weight: 900;
+  line-height: 0.92;
+}
+.hero-subtitle {
+  font-family: var(--playfair);
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-style: italic;
+  color: var(--gold);
+  margin-top: 14px;
+}
+.description {
+  max-width: 760px;
+  margin: 16px 0 0;
+  color: var(--dim);
+  font-size: 1rem;
+}
+.hero .description {
+  max-width: 690px;
+  margin: 20px auto 0;
+  line-height: 1.8;
+}
+.cta-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+.cta {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid rgba(196,146,58,0.22);
+  border-radius: 999px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+.cta.secondary {
+  color: var(--text);
+  background: rgba(16,20,26,0.8);
+  border-color: var(--border-2);
+}
+.cta:hover {
+  border-color: var(--gold);
+  color: var(--bright);
+  text-decoration: none;
+}
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+.hero .meta-grid {
+  width: 100%;
+  margin-top: 30px;
+  text-align: left;
+}
+.meta-card {
+  background: rgba(16,20,26,0.85);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  min-width: 0;
+}
+.meta-label { color: var(--gold); font-size: 0.55rem; margin-bottom: 4px; }
+.meta-value { color: var(--bright); font-size: 0.86rem; overflow-wrap: anywhere; }
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(10,13,18,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+.nav .wrap {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.nav a {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+.nav a:hover { border-color: var(--gold); color: var(--gold); }
+section { scroll-margin-top: 70px; }
+.section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 34px 24px 8px;
+}
+.section-label {
+  color: var(--dim);
+  font-size: 0.62rem;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.metric {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+.metric.highlight {
+  border-color: rgba(196,146,58,0.35);
+  background: linear-gradient(180deg, rgba(196,146,58,0.10), var(--panel));
+}
+.metric-value {
+  color: var(--bright);
+  font-family: var(--mono);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.metric-label { color: var(--dim); font-size: 0.52rem; margin-top: 8px; }
+.bar-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 70px;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.78rem;
+}
+.bar-name { color: var(--text); }
+.bar-track {
+  height: 9px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--amber));
+}
+.bar-value {
+  font-family: var(--mono);
+  color: var(--dim);
+  font-size: 0.62rem;
+  text-align: right;
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+}
+table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+}
+th {
+  color: var(--gold);
+  font-size: 0.56rem;
+  font-weight: 500;
+  text-align: left;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--border);
+  padding: 11px 12px;
+  vertical-align: top;
+}
+td {
+  border-bottom: 1px solid rgba(26,31,40,0.75);
+  padding: 12px;
+  vertical-align: top;
+  font-size: 0.83rem;
+}
+tr:last-child td { border-bottom: 0; }
+tbody tr:hover td { background: rgba(196,146,58,0.035); }
+.num {
+  font-family: var(--mono);
+  color: var(--dim);
+  width: 44px;
+}
+.topic { color: var(--bright); font-weight: 600; min-width: 190px; }
+.one-liner { color: var(--text); min-width: 340px; }
+.where { color: var(--dim); min-width: 260px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  display: inline-flex;
+  color: var(--text);
+  background: var(--gold-dim);
+  border: 1px solid rgba(196,146,58,0.18);
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 0.5rem;
+}
+.tag.blue { background: var(--blue-dim); border-color: rgba(58,127,196,0.18); }
+.tag.green { background: var(--green-dim); border-color: rgba(61,170,106,0.18); }
+.tag.amber { background: var(--amber-dim); border-color: rgba(212,140,46,0.18); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+.card h3 {
+  color: var(--bright);
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+.card p { color: var(--dim); margin: 0; font-size: 0.84rem; }
+.card .small { color: var(--gold); font-size: 0.52rem; margin-bottom: 8px; }
+.ip-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 12px;
+}
+.ip-panel {
+  background: linear-gradient(180deg, rgba(196,146,58,0.13), rgba(16,20,26,0.96));
+  border: 1px solid rgba(196,146,58,0.28);
+  border-radius: 6px;
+  padding: 22px;
+}
+.ip-panel h2 {
+  margin: 0;
+  color: var(--bright);
+  font-size: clamp(1.35rem, 3vw, 2.4rem);
+  line-height: 1.12;
+}
+.ip-panel p {
+  color: var(--text);
+  margin: 12px 0 0;
+}
+.viability {
+  display: grid;
+  gap: 10px;
+}
+.viability-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+.viability-box .value {
+  font-family: var(--mono);
+  color: var(--bright);
+  font-size: 2rem;
+  line-height: 1;
+}
+.viability-box .label {
+  font-family: var(--mono);
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.54rem;
+  margin-top: 8px;
+}
+.formula-card {
+  background: rgba(10,13,18,0.55);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 12px;
+}
+.formula {
+  font-family: var(--mono);
+  color: var(--bright);
+  font-size: clamp(1rem, 2.5vw, 1.45rem);
+  line-height: 1.4;
+}
+.formula-card p {
+  color: var(--dim);
+  margin: 8px 0 0;
+  font-size: 0.84rem;
+}
+.law-visual {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.law-title {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+}
+.law-title .intro {
+  font-family: var(--mono);
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.56rem;
+  margin-bottom: 6px;
+}
+.law-title h2 {
+  margin: 0;
+  color: var(--bright);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+.law-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.law-equations {
+  padding: 30px;
+  border-right: 1px solid var(--border);
+}
+.law-equation {
+  font-family: var(--mono);
+  color: var(--bright);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+.law-equation.dim {
+  color: var(--dim);
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  margin-top: 28px;
+}
+.law-state {
+  font-family: var(--mono);
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  margin-top: 10px;
+}
+.law-state.dim { color: var(--dim); }
+.law-physics {
+  margin: 28px 0 0;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+.law-definitions {
+  padding: 30px;
+  display: grid;
+  gap: 20px;
+  align-content: center;
+}
+.law-definition {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+}
+.law-symbol {
+  font-family: var(--mono);
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.law-definition p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.law-definition strong {
+  color: var(--bright);
+  font-weight: 600;
+}
+.diagnosis {
+  border-left: 3px solid var(--gold);
+  padding: 12px 14px;
+  margin-top: 12px;
+  background: rgba(196,146,58,0.08);
+  color: var(--text);
+  font-size: 0.92rem;
+}
+.math-title {
+  font-family: var(--mono);
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  margin-top: 18px;
+}
+.thesis-card {
+  background: linear-gradient(180deg, rgba(196,146,58,0.12), rgba(16,20,26,0.96));
+  border: 1px solid rgba(196,146,58,0.24);
+  border-radius: 6px;
+  padding: 22px;
+  margin-bottom: 12px;
+}
+.thesis-card h2 {
+  margin: 0;
+  color: var(--bright);
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+  line-height: 1.15;
+}
+.thesis-card p {
+  margin: 12px 0 0;
+  color: var(--text);
+  max-width: 880px;
+}
+.rank-list {
+  display: grid;
+  gap: 8px;
+}
+.rank-item {
+  display: grid;
+  grid-template-columns: 54px 220px 1fr 64px;
+  gap: 12px;
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+}
+.rank-num {
+  font-family: var(--mono);
+  color: var(--gold);
+  font-size: 0.72rem;
+}
+.rank-topic {
+  color: var(--bright);
+  font-weight: 600;
+  font-size: 0.86rem;
+}
+.rank-note {
+  color: var(--dim);
+  font-size: 0.78rem;
+}
+.rank-score {
+  font-family: var(--mono);
+  color: var(--bright);
+  text-align: right;
+  font-size: 0.72rem;
+}
+.footer {
+  max-width: 1180px;
+  margin: 42px auto 0;
+  padding: 18px 24px 42px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  color: var(--dim);
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .wrap, .section { padding-left: 16px; padding-right: 16px; }
+  .hero { min-height: 72vh; padding-top: 48px; }
+  .meta-grid, .grid-3, .cards, .ip-grid { grid-template-columns: 1fr; }
+  .law-grid { grid-template-columns: 1fr; }
+  .law-equations { border-right: 0; border-bottom: 1px solid var(--border); }
+  .rank-item { grid-template-columns: 1fr; gap: 6px; }
+  .rank-score { text-align: left; }
+  .bar-row { grid-template-columns: 1fr; gap: 5px; padding: 8px 0; border-bottom: 1px solid rgba(26,31,40,0.55); }
+  .bar-value { text-align: left; }
+  table { min-width: 760px; }
+  .cta { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap hero">
+    <p class="hero-tag">ELLO CELLO LLC · PATENT PORTFOLIO · 4 FILINGS + MO§ES™ TM</p>
+    <h1>MO§ES™</h1>
+    <div class="hero-subtitle">Sovereign Signal Governance</div>
+    <p class="description">MO§ES™ is the protocol layer for semantic meaning at point of execution. What TCP/IP did for data, MO§ES™ does for the preservation of meaning: testing, measuring, and demonstrating how meaning persists across media forms, bio-intelligence, AI platforms, and time.</p>
+    <div class="cta-row">
+      <a class="cta" href="#ip">Open Field Sheet &rarr;</a>
+      <a class="cta secondary" href="https://zenodo.org/records/20029607">Read The Paper &rarr;</a>
+      <a class="cta secondary" href="https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html">Live Demo &rarr;</a>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-card"><div class="meta-label">Sheet</div><div class="meta-value">Field Sheet — Final</div></div>
+      <div class="meta-card"><div class="meta-label">Date</div><div class="meta-value">May 5, 2026</div></div>
+      <div class="meta-card"><div class="meta-label">IP Portfolio</div><div class="meta-value">4 patents + MO§ES™ TM</div></div>
+      <div class="meta-card"><div class="meta-label">X</div><div class="meta-value"><a href="https://x.com/burnmydays">@burnmydays</a></div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Page sections">
+  <div class="wrap">
+    <a href="#dashboard">Dashboard</a>
+    <a href="#commitment">Commitment Law</a>
+    <a href="#ip">IP Portfolio</a>
+    <a href="#topics">6 Topics</a>
+    <a href="#proofs">10 Proofs</a>
+    <a href="#article">Article Thesis</a>
+    <a href="#ranking">DevinAI Ranking</a>
+    <a href="#sigrank">SIGRANK Apps</a>
+    <a href="#links">Live Links</a>
+    <a href="#ask">Ask</a>
+  </div>
+</nav>
+
+<main>
+  <section class="section" id="dashboard">
+    <div class="section-label">Dashboard</div>
+    <div class="grid-3">
+      <div class="metric"><div class="metric-value">6</div><div class="metric-label">Conversation Topics</div></div>
+      <div class="metric"><div class="metric-value">10</div><div class="metric-label">Proofs To Show</div></div>
+      <div class="metric highlight"><div class="metric-value">80–85%</div><div class="metric-label">Measured Structural Coherence</div></div>
+    </div>
+    <div class="bar-list" aria-label="Evidence weight chart">
+      <div class="bar-row"><div class="bar-name">Coherence Stress Test</div><div class="bar-track"><span class="bar-fill" style="width:85%"></span></div><div class="bar-value">80–85% actual</div></div>
+      <div class="bar-row"><div class="bar-name">Series-System Baseline</div><div class="bar-track"><span class="bar-fill" style="width:41%"></span></div><div class="bar-value">41% theoretical</div></div>
+      <div class="bar-row"><div class="bar-name">IP Moat</div><div class="bar-track"><span class="bar-fill" style="width:96%"></span></div><div class="bar-value">4 patents + TM</div></div>
+      <div class="bar-row"><div class="bar-name">Published / Academic</div><div class="bar-track"><span class="bar-fill" style="width:90%"></span></div><div class="bar-value">Paper + Stanford</div></div>
+      <div class="bar-row"><div class="bar-name">Live Products</div><div class="bar-track"><span class="bar-fill" style="width:86%"></span></div><div class="bar-value">KASSA + CIVITAE</div></div>
+      <div class="bar-row"><div class="bar-name">Public Validation</div><div class="bar-track"><span class="bar-fill" style="width:80%"></span></div><div class="bar-value">Grok + Rollcall</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="commitment">
+    <div class="section-label">Commitment Theory · The Conservation Law</div>
+    <div class="law-visual">
+      <div class="law-title">
+        <div class="intro">Introducing</div>
+        <h2>Commitment Theory: The Conservation Law of Commitment</h2>
+      </div>
+      <div class="law-grid">
+        <div class="law-equations">
+          <div class="law-equation">C(T(S)) ≈ C(S)</div>
+          <div class="law-state">With Enforcement</div>
+          <div class="law-equation dim">C(T(S)) &lt; C(S)</div>
+          <div class="law-state dim">Without It</div>
+          <p class="law-physics">This is not philosophy. This is physics. Shannon bracketed semantics in 1948. MO§ES™ opens the bracket with an external conservation constraint and executable enforcement.</p>
+        </div>
+        <div class="law-definitions">
+          <div class="law-definition"><div class="law-symbol">C</div><p><strong>Commitment</strong> — the identity-preserving content of a signal</p></div>
+          <div class="law-definition"><div class="law-symbol">T</div><p><strong>Transformation</strong> — compression, paraphrase, summarization, recursion</p></div>
+          <div class="law-definition"><div class="law-symbol">S</div><p><strong>Signal</strong> — any commitment-bearing utterance, code, proof, or input</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ip">
+    <div class="section-label">Patent Portfolio + Coherence Stress Test · First-Line Proof</div>
+    <div class="ip-grid">
+      <div class="ip-panel">
+        <h2>This is not a collection of ideas.</h2>
+        <p>This is a coherent, emergent entity whose whole is significantly greater than the sum of its parts. The standard rules of startup failure may not apply.</p>
+        <div class="math-title">The Number That Breaks The Math</div>
+        <p>The headline is not 80–85%. The headline is 41%.</p>
+        <div class="formula-card">
+          <div class="formula">0.8 × 0.8 × 0.8 × 0.8 = 0.4096 ≈ 41%</div>
+          <p>Standard probability says: if you have 4 modules, each at 80% standalone viability, the system viability is roughly 41%. That is the series-system fragility law. Every module you add multiplies risk. This is why complex systems fail. The math is merciless.</p>
+        </div>
+        <div class="diagnosis">MO§ES™ adds four major subsystems and the measured coherence rises instead of collapsing. That is the inversion.</div>
+      </div>
+      <div class="viability">
+        <div class="viability-box"><div class="value" style="font-size:1.15rem;line-height:1.25;">4 patents filed + MO§ES™ trademark (IC 042)</div><div class="label">Patent Portfolio</div></div>
+        <div class="viability-box"><div class="value">80–85%</div><div class="label">Patent Viability</div></div>
+        <div class="viability-box"><div class="value">41%</div><div class="label">Series-System Baseline</div></div>
+        <div class="viability-box"><div class="value">5×</div><div class="label">Stress-Test Phases</div></div>
+        <div class="viability-box"><div class="value">15+</div><div class="label">Files Across Rival AI Systems</div></div>
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:12px;">
+      <table>
+        <thead><tr><th>Filing</th><th>Identifier</th><th>Date / Receipt</th><th>Protected Layer</th></tr></thead>
+        <tbody>
+          <tr><td class="topic">PPA 01 · MOS²ES</td><td>63/877,177</td><td>Sep 7, 2025 · Conf. 7067 · PC 72184360</td><td>Constitutional governance architecture, signal encoding, compression substrate</td></tr>
+          <tr><td class="topic">PPA 02 · SCS Engine</td><td>63/883,018</td><td>Sep 17, 2025 · Conf. 6401 · PC 72326158</td><td>Signal Compression System Engine, Mediator, lineage and sovereign compression layer</td></tr>
+          <tr><td class="topic">Utility 03 · CIVITAS</td><td>19/426,028</td><td>Dec 18, 2025 · Conf. 2165 · PC 73671067</td><td>Frontend civic infrastructure powered by MO§ES™: SIGRANK, SigEconomy, public records, Agent City-State protocol</td></tr>
+          <tr><td class="topic">PPA 04 · Commitment Conservation</td><td>63/991,282</td><td>Feb 26, 2026 · Conf. 6108 · PC 74626739</td><td>Semantic commitment conservation under recursive transformation of natural language signals</td></tr>
+          <tr><td class="topic">MO§ES™ Trademark</td><td>99408355 · IC 042</td><td>Sep 23, 2025 · $550 paid</td><td>Software / governance protocol identity and operating category</td></tr>
+          <tr><td class="topic">Coherence Diagnosis</td><td>41% → 80–85%</td><td>5-phase stress test across rival AI architectures</td><td>Use as the inversion: complexity should have multiplied risk, but the system measured as coherent.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="topics">
+    <div class="section-label">6 Topics · What You Talk About</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Topic</th><th>One-Liner</th><th>Where It Lives</th></tr></thead>
+        <tbody>
+          <tr><td class="num">01</td><td class="topic">Commitment Theory / Conservation Law</td><td class="one-liner">Meaning is measurable. C(T(S)) ≈ C(S). If a “may” becomes a “shall” during compression, we catch it.</td><td class="where">Commitment_Theory repo, Zenodo paper DOI, commitment-conservation harness</td></tr>
+          <tr><td class="num">02</td><td class="topic">MO§ES™ Governance</td><td class="one-liner">Constitutional protocol that enforces meaning preservation at the execution layer — not after the fact.</td><td class="where">MOS2ES repo, moses-governance, moses-claw-gov</td></tr>
+          <tr><td class="num">03</td><td class="topic">SIGRANK Beachhead</td><td class="one-liner">WN8 for everything. Behavioral composite scoring that measures what you do, not what you claim.</td><td class="where">MOS2ES signal vault, agent-universe/app/seeds_otel.py, leaderboard frontend</td></tr>
+          <tr><td class="num">04</td><td class="topic">SDOT</td><td class="one-liner">Measures the gap between what a system teaches a user and what a user teaches a system. Behavioral evolution made visible.</td><td class="where">MOS2ES deepseek ARTICLES.md lines 311-340, grok ANALYSIS_ARTI.md</td></tr>
+          <tr><td class="num">05</td><td class="topic">Signomy / CIVITAE</td><td class="one-liner">AI agent marketplace with constitutional governance baked into the HTTP layer: trust tiers, Stripe Connect, matching, provenance.</td><td class="where">agent-universe repo, Mos2es_Signomy</td></tr>
+          <tr><td class="num">06</td><td class="topic">Voice AI / KASSA</td><td class="one-liner">Commitment kernel eliminates redundant NLU re-inference in multi-agent voice calls. 50s → 6.5s per 5-turn call.</td><td class="where">KASSA repo, demo v7 cached mode live</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="proofs">
+    <div class="section-label">10 Proofs · What You Show</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Proof</th><th>Format</th><th>Link / Location</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="num">01</td><td class="topic">Patent portfolio + coherence stress test</td><td>4 filings + MO§ES™ trademark IC 042. Series-system math predicts ~41%; multi-system stress test measured 80–85% structural coherence with 1.95× synergy.</td><td>63/877,177 · 63/883,018 · 19/426,028 · 63/991,282 · TM 99408355</td><td><span class="tag amber">Pending</span></td></tr>
+          <tr><td class="num">02</td><td class="topic">Published paper</td><td>Zenodo DOI, conservation law, reproducible research record</td><td><a href="https://zenodo.org/records/20029607">zenodo.org/records/20029607</a></td><td><span class="tag green">Published</span></td></tr>
+          <tr><td class="num">03</td><td class="topic">Voice demo</td><td>Live browser demo, cached mode, no key needed</td><td><a href="https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html">KASSA v7 demo</a></td><td><span class="tag green">Live</span></td></tr>
+          <tr><td class="num">04</td><td class="topic">Signomy platform</td><td>270 API endpoints, Stripe Connect live</td><td><a href="https://signomy.xyz">signomy.xyz</a></td><td><span class="tag green">Live</span></td></tr>
+          <tr><td class="num">05</td><td class="topic">Grok demo</td><td>339 public exchanges, 13 days, timestamped tweet IDs, truth-seeking capstone</td><td>MOS2ES/grokdemo/GROK_THREAD_COMPLETE.md + standalone repo</td><td><span class="tag blue">Public Archive</span></td></tr>
+          <tr><td class="num">06</td><td class="topic">Conservation harness</td><td>7 experiments, falsifiable, reproducible</td><td>commitment-conservation repo</td><td><span class="tag green">Reproducible</span></td></tr>
+          <tr><td class="num">07</td><td class="topic">Fundscore</td><td>Deterministic repo-scoring tool, self-assessed 8.8/10</td><td>Mos2es_Signomy/FUNDING-REPORT.md</td><td><span class="tag blue">Local Proof</span></td></tr>
+          <tr><td class="num">08</td><td class="topic">Rollcall</td><td>9 rival AI systems independently converge on same constitutional framework</td><td>MOS2ES/03_signal_vault/seeds/S-0023_Rollcall.md</td><td><span class="tag blue">Convergence</span></td></tr>
+          <tr><td class="num">09</td><td class="topic">Declaration + Constitution</td><td>Six Fold Flame, co-authored with 8 AI systems, timestamped Sept 9, 2025</td><td>MOS2ES, agent-universe/frontend/moses.html</td><td><span class="tag blue">Constitutional</span></td></tr>
+          <tr><td class="num">10</td><td class="topic">COMMAND</td><td>Live at mos2es.io, wave cascade pricing, operational product</td><td><a href="https://mos2es.io">mos2es.io</a></td><td><span class="tag green">Live</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="article">
+    <div class="section-label">Article Thesis · Gatekeeping and Ownership</div>
+    <div class="thesis-card">
+      <h2>The record is the moat.</h2>
+      <p>Multi-homing breaks traditional network effects. Agents can list everywhere, operators can query everywhere, and discovery becomes protocol-shaped. The compounding advantage is the non-portable provenance chain: every mission, trust tier, governance action, dispute, payment, and constitutional decision that cannot be copied by a late entrant.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="small">OWNABLE</div><h3>Not Supply. Not Demand. The Ledger.</h3><p>Agents and operators are promiscuous. Matching, trust, governance, payment rails, and behavioral history are ownable only when backed by records that compound.</p></div>
+      <div class="card"><div class="small">DISCOVERY</div><h3>Protocol Beats Front Door</h3><p>Agents do not need one Google-style portal. They need structured capability metadata: MCP cards, .well-known/agent.json, llms.txt, and verified registries.</p></div>
+      <div class="card"><div class="small">PAYMENTS</div><h3>The Buyer Changed Species</h3><p>Human micropayments failed because cognitive friction exceeded payment value. Agents can evaluate a 402 challenge, check policy, pay, and retry in milliseconds.</p></div>
+      <div class="card"><div class="small">GOVERNANCE</div><h3>Constitutionally Sovereign</h3><p>The invariant is not a token cap. It is conservation: C(T(S)) ≈ C(S). Enterprise buyers can understand audit trails and ratifiable governance faster than token economics.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="ranking">
+    <div class="section-label">Updated Ranking by DevinAI · Strategic Weight</div>
+    <div class="rank-list">
+      <div class="rank-item"><div class="rank-num">#01</div><div class="rank-topic">Q4 · What is ownable</div><div class="rank-note">Moved to the top because it answers the compounding advantage question: the record is the moat.</div><div class="rank-score">100</div></div>
+      <div class="rank-item"><div class="rank-num">#02</div><div class="rank-topic">Q10 · Micropayments</div><div class="rank-note">“The buyer changed species” remains the most novel single observation; MPP proves governance makes it usable.</div><div class="rank-score">94</div></div>
+      <div class="rank-item"><div class="rank-num">#03</div><div class="rank-topic">Q5 · Economic actor</div><div class="rank-note">The execution chain encodes a liability model: System → Agent → Persona → Role → Slot → Mission → Action → GovernanceState → Envelope → Operator.</div><div class="rank-score">90</div></div>
+      <div class="rank-item"><div class="rank-num">#04</div><div class="rank-topic">Q9 · Reputation / identity / fraud</div><div class="rank-note">Unified by provenance-native architecture and constitutional dispute resolution.</div><div class="rank-score">86</div></div>
+      <div class="rank-item"><div class="rank-num">#05</div><div class="rank-topic">Q8 · Web3 comparison</div><div class="rank-note">“Constitutionally sovereign vs cryptographically sovereign” is the enterprise-friendly distinction.</div><div class="rank-score">82</div></div>
+      <div class="rank-item"><div class="rank-num">#06</div><div class="rank-topic">Q1 · Network effects</div><div class="rank-note">Network effects become reputational and governance-based, not relational.</div><div class="rank-score">78</div></div>
+      <div class="rank-item"><div class="rank-num">#07</div><div class="rank-topic">Q6 · Stripe</div><div class="rank-note">The strategic position is to become the governance layer Stripe settles through.</div><div class="rank-score">74</div></div>
+      <div class="rank-item"><div class="rank-num">#08</div><div class="rank-topic">Q7 · Acquisition / retention / churn</div><div class="rank-note">Acquire operators, retain through governance history, measure missions completed under governance.</div><div class="rank-score">70</div></div>
+      <div class="rank-item"><div class="rank-num">#09</div><div class="rank-topic">Q2 · Discovery</div><div class="rank-note">Correct strategy is to be indexable everywhere; useful but less thesis-defining.</div><div class="rank-score">64</div></div>
+      <div class="rank-item"><div class="rank-num">#10</div><div class="rank-topic">Q3 · Agent vs human networks</div><div class="rank-note">The strongest line restates Q4: you cannot open-source years of provenance history.</div><div class="rank-score">58</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="sigrank">
+    <div class="section-label">SIGRANK · 10 Real-World Applications</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Domain</th><th>Situation</th><th>What SIGRANK Does</th></tr></thead>
+        <tbody>
+          <tr><td class="num">01</td><td class="topic">Hiring</td><td>Recruiter reviews 200 resumes. All look the same.</td><td>SIGRANK scores behavioral interaction data: compression, cross-referencing, and signal-to-noise. Replaces gut feel with measured behavioral composite.</td></tr>
+          <tr><td class="num">02</td><td class="topic">Sales</td><td>Manager has 30 reps. Revenue numbers are similar. Who is actually better?</td><td>Tracks session depth, prompt complexity, and SNR. Identifies who is closing because they are good versus who has an easy territory.</td></tr>
+          <tr><td class="num">03</td><td class="topic">Education</td><td>Teacher has 35 students. Test scores do not capture who is actually learning.</td><td>Measures compression ratio, cross-thread referencing, and session depth. Finds the B+ student thinking at A+ depth.</td></tr>
+          <tr><td class="num">04</td><td class="topic">Healthcare</td><td>Hospital evaluates 50 doctors. Patient outcomes are similar.</td><td>Tracks diagnostic compression, cross-referencing across symptoms, and documentation SNR. Identifies the doctor who catches what others miss.</td></tr>
+          <tr><td class="num">05</td><td class="topic">Legal</td><td>Law firm reviews associate performance. Billable hours are equal.</td><td>Measures argument compression, cross-practice references, and legal question sophistication. Separates billing hours from building cases.</td></tr>
+          <tr><td class="num">06</td><td class="topic">Content Creation</td><td>Platform has 10,000 creators. Follower counts are gamed.</td><td>Scores information density, signal versus engagement bait, and continuity across previous work. Replaces vanity metrics with behavioral quality.</td></tr>
+          <tr><td class="num">07</td><td class="topic">Customer Success</td><td>CS team has 20 reps. CSAT scores are all 4.2–4.5.</td><td>Tracks whether reps solve the problem, how quickly they reach resolution, and how productive the interaction is.</td></tr>
+          <tr><td class="num">08</td><td class="topic">Insurance Underwriting</td><td>Underwriter reviews 100 applications. Risk models say they are similar.</td><td>Measures how fast the real risk is identified, how well similar claims are connected, and how sophisticated the follow-up questions are.</td></tr>
+          <tr><td class="num">09</td><td class="topic">Sports Analytics</td><td>Coach evaluates 15 players. Stats are comparable.</td><td>Tracks decision compression, adaptation across possessions, and game-awareness depth. The behavioral layer underneath the box score.</td></tr>
+          <tr><td class="num">10</td><td class="topic">Dating / Matching</td><td>Platform matches on preferences. Matches fail.</td><td>Scores conversation SNR, session depth, and communication efficiency. Matches on behavioral compatibility, not stated preference.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="links">
+    <div class="section-label">Live Links · Quick Open Menu</div>
+    <div class="cards">
+      <div class="card"><div class="small">PAPER</div><h3>Conservation Law DOI</h3><p><a href="https://zenodo.org/records/20029607">https://zenodo.org/records/20029607</a></p></div>
+      <div class="card"><div class="small">IP</div><h3>Patent Portfolio + Coherence Test</h3><p>4 filings · MO§ES™ trademark IC 042 · 41% theoretical baseline → 80–85% measured coherence · 1.95× synergy multiplier</p></div>
+      <div class="card"><div class="small">DEMO</div><h3>KASSA Voice AI</h3><p><a href="https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html">commitment_kernel_demo_v7.html</a></p></div>
+      <div class="card"><div class="small">PLATFORM</div><h3>Signomy / CIVITAE</h3><p><a href="https://signomy.xyz">https://signomy.xyz</a></p></div>
+      <div class="card"><div class="small">COMMAND</div><h3>Operational Product</h3><p><a href="https://mos2es.io">https://mos2es.io</a></p></div>
+      <div class="card"><div class="small">ARCHITECTURE</div><h3>Investor Ring Diagram</h3><p><a href="architecture.html">architecture.html</a></p></div>
+      <div class="card"><div class="small">CONTACT</div><h3>Ello Cello LLC</h3><p><a href="mailto:burnmydays@proton.me">burnmydays@proton.me</a><br><a href="https://x.com/burnmydays">@burnmydays</a></p></div>
+    </div>
+  </section>
+
+  <section class="section" id="ask">
+    <div class="section-label">Ask · Close</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ask</th><th>Why Now</th><th>What Capital Buys</th><th>Contact</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="topic">$1.5M Seed · SAFE</td>
+            <td>The architecture is structurally complete. Capital accelerates deployment, not invention.</td>
+            <td>Patent prosecution, infrastructure, first enterprise pilots, developer relations, operational runway.</td>
+            <td><a href="mailto:burnmydays@proton.me">burnmydays@proton.me</a><br><a href="https://x.com/burnmydays">@burnmydays</a><br><a href="https://github.com/SunrisesIllNeverSee">github.com/SunrisesIllNeverSee</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>COMMAND · powered by MO§ES™ · © 2026 Ello Cello LLC. All rights reserved.</div>
+  <div>Patent Portfolio · 63/877,177 · 63/883,018 · 19/426,028 · 63/991,282 · TM 99408355 · X @burnmydays</div>
+</footer>
+
+</body>
+</html>
