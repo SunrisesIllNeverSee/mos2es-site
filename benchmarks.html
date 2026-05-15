@@ -67,6 +67,9 @@
     .gallery img { display:block; width:100%; border:1px solid var(--border); border-radius:6px; }
     .gallery figure { display:flex; flex-direction:column; gap:6px; }
     .gallery figcaption { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); }
+    .gallery a { display:block; }
+    .gallery a img { transition: opacity .15s ease, transform .15s ease; cursor: zoom-in; }
+    .gallery a:hover img { opacity: 0.88; transform: translateY(-2px); }
 
     .downloads { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
     .downloads a { font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; border:1px solid var(--line); border-radius:999px; padding:10px 16px; color:var(--bright); background:rgba(16,20,26,.72); }
@@ -177,21 +180,12 @@
 
     <div class="label">Chart Slides — Field Comparison</div>
     <div class="gallery">
-      <figure><img src="img/benchmarks/chart_01_cache.png" alt="Cache hit rate field comparison"><figcaption>I · Cache hit rate · field comparison</figcaption></figure>
-      <figure><img src="img/benchmarks/chart_02_outin.png" alt="Output:input ratio field comparison"><figcaption>II · Output : fresh input · log scale</figcaption></figure>
-      <figure><img src="img/benchmarks/chart_03_tokens.png" alt="Tokens per task field comparison"><figcaption>III · Tokens per task · field comparison</figcaption></figure>
-      <figure><img src="img/benchmarks/chart_04_time.png" alt="Time per task field comparison"><figcaption>IV · Time per task · field comparison</figcaption></figure>
-      <figure><img src="img/benchmarks/chart_05_loc.png" alt="Cost per LOC field comparison"><figcaption>V · Cost per LOC · all field + MO§ES · log scale</figcaption></figure>
-      <figure><img src="img/benchmarks/card_06_combined.png" alt="Combined kernels and inputs summary"><figcaption>VI · Kernels and inputs · combined</figcaption></figure>
-    </div>
-
-    <div class="label">Stat Cards — Single-Kernel</div>
-    <div class="gallery">
-      <figure><img src="img/benchmarks/card_01_cache.png" alt="Cache 96.88%"><figcaption>Cache hit rate · 96·88%</figcaption></figure>
-      <figure><img src="img/benchmarks/card_02_outin.png" alt="Out:In 31.7x"><figcaption>Output : input · 31·7×</figcaption></figure>
-      <figure><img src="img/benchmarks/card_03_tokens.png" alt="Tokens 767K"><figcaption>Tokens per task · 767K</figcaption></figure>
-      <figure><img src="img/benchmarks/card_04_time.png" alt="Time 1.84 min"><figcaption>Time per task · 1·84 min</figcaption></figure>
-      <figure><img src="img/benchmarks/card_05_loc.png" alt="$/LOC $0.0007"><figcaption>$ per LOC · ·0007</figcaption></figure>
+      <figure><a href="img/benchmarks/chart_01_cache.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_01_cache.png" alt="Cache hit rate field comparison"></a><figcaption>I · Cache hit rate · field comparison</figcaption></figure>
+      <figure><a href="img/benchmarks/chart_02_outin.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_02_outin.png" alt="Output:input ratio field comparison"></a><figcaption>II · Output : fresh input · log scale</figcaption></figure>
+      <figure><a href="img/benchmarks/chart_03_tokens.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_03_tokens.png" alt="Tokens per task field comparison"></a><figcaption>III · Tokens per task · field comparison</figcaption></figure>
+      <figure><a href="img/benchmarks/chart_04_time.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_04_time.png" alt="Time per task field comparison"></a><figcaption>IV · Time per task · field comparison</figcaption></figure>
+      <figure><a href="img/benchmarks/chart_05_loc.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_05_loc.png" alt="Cost per LOC field comparison"></a><figcaption>V · Cost per LOC · all field + MO§ES · log scale</figcaption></figure>
+      <figure><a href="img/benchmarks/card_06_combined.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/card_06_combined.png" alt="Combined kernels and inputs summary"></a><figcaption>VI · Kernels and inputs · combined</figcaption></figure>
     </div>
 
     <div class="label">Downloads</div>
