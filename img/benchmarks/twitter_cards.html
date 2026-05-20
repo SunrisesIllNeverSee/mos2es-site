@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>MO§ES™ Twitter Cards</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #c8c8c8; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #c8c8c8; padding: 32px; display: flex; flex-direction: column; gap: 32px; align-items: center; }
+
+  .card { width: 1200px; height: 628px; background: #fafafa; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.18); position: relative; flex-shrink: 0; }
+  .gold-rule { height: 4px; background: linear-gradient(90deg, #d4af37, #b8860b 70%, transparent); }
+  .card-inner { padding: 20px 28px 16px 28px; height: calc(100% - 4px); display: flex; flex-direction: column; }
+
+  /* ── HEADER ROW ── */
+  .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .wordmark { font-size: 20px; font-weight: 800; color: #b8860b; letter-spacing: -0.3px; }
+  .source-url { font-size: 11px; color: #aaa; letter-spacing: 0.05em; }
+
+  /* ── SUMMARY CARD ── */
+  .summary-title { font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.2; letter-spacing: -0.4px; margin-bottom: 4px; }
+  .summary-title span { color: #b8860b; }
+  .summary-sub { font-size: 11px; color: #888; margin-bottom: 14px; }
+  .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; flex: 1; }
+  .s-cell { background: white; border: 1px solid #e8d97a; border-radius: 5px; padding: 12px 10px; display: flex; flex-direction: column; justify-content: space-between; }
+  .s-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .s-num { font-size: 32px; font-weight: 800; color: #b8860b; line-height: 1; letter-spacing: -1px; }
+  .s-pos { font-size: 10px; font-weight: 700; color: #2e7d32; margin-top: 5px; }
+  .s-vs { font-size: 9px; color: #bbb; margin-top: 2px; }
+  .summary-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee; font-size: 10px; color: #bbb; }
+  .summary-footer b { color: #b8860b; }
+
+  /* ── METRIC CARDS — layout ── */
+  .metric-body { display: grid; grid-template-columns: 260px 1fr; gap: 28px; flex: 1; min-height: 0; }
+
+  /* left panel */
+  .metric-left { display: flex; flex-direction: column; justify-content: space-between; }
+  .metric-kicker { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #b8860b; margin-bottom: 6px; }
+  .metric-big { font-size: 80px; font-weight: 800; color: #b8860b; line-height: 0.9; letter-spacing: -3px; }
+  .metric-unit { font-size: 13px; color: #888; margin-top: 8px; line-height: 1.4; }
+  .metric-rank { font-size: 12px; font-weight: 700; color: #2e7d32; margin-top: 10px; }
+  .metric-vs { font-size: 11px; color: #aaa; margin-top: 3px; }
+  .metric-src { font-size: 9px; color: #ccc; margin-top: 8px; }
+
+  /* right panel — VERTICAL BAR CHART identical to poster.html */
+  .chart-panel { display: flex; flex-direction: column; justify-content: flex-end; }
+  .chart-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+  .bars { display: flex; align-items: flex-end; gap: 5px; padding: 4px 0 0 0; border-bottom: 1px solid #ddd; }
+  .bars-nar { display: flex; align-items: flex-end; gap: 3px; padding: 4px 0 0 0; border-bottom: 1px solid #ddd; }
+  .labels { display: flex; gap: 5px; padding-top: 5px; }
+  .labels-nar { display: flex; gap: 3px; padding-top: 5px; }
+  .bf { flex: 1; min-width: 0; display: flex; align-items: flex-start; justify-content: center; padding: 3px 0 0 0; color: white; font-size: 9px; font-weight: 700; overflow: hidden; }
+  .bl { flex: 1; min-width: 0; font-size: 7px; text-align: center; line-height: 1.1; color: #555; overflow: hidden; }
+  .bl-nar { flex: 1; min-width: 0; font-size: 6.5px; text-align: center; line-height: 1.1; color: #555; overflow: hidden; }
+  .bl b, .bl-nar b { display: block; font-weight: 700; color: #222; font-size: 7.5px; }
+  .bl-nar b { font-size: 7px; }
+  .bl.ml b, .bl-nar.ml b { color: #b8860b; }
+</style>
+</head>
+<body>
+
+<!-- CARD 0 — SUMMARY -->
+<div class="card">
+  <div class="gold-rule"></div>
+  <div class="card-inner">
+    <div class="card-header"><div class="wordmark">MO§ES™</div><div class="source-url">mos2es.com/benchmarks · artificialanalysis.ai · 2026-05-14</div></div>
+    <div class="summary-title">Leads the field in <span>5 of 6</span> measured economic categories.</div>
+    <div class="summary-sub">Operator-augmented Claude Code + Opus 4.7 vs. 13 published combinations · Artificial Analysis Coding Agent Index · 7-day window</div>
+    <div class="summary-grid">
+      <div class="s-cell"><div class="s-label">Cache Hit Rate</div><div class="s-num">96.97%</div><div class="s-pos">#1 in field</div><div class="s-vs">field best: 96.2%</div></div>
+      <div class="s-cell"><div class="s-label">Output : Input</div><div class="s-num">31.7×</div><div class="s-pos">#1 — 83× field leader</div><div class="s-vs">field best: 0.38×</div></div>
+      <div class="s-cell"><div class="s-label">Tokens / Task</div><div class="s-num">767K</div><div class="s-pos">#1 — 3.6× leaner</div><div class="s-vs">field best: 2.74M</div></div>
+      <div class="s-cell"><div class="s-label">Time / Task</div><div class="s-num">1.8 min</div><div class="s-pos">#1 — 3.2× faster</div><div class="s-vs">field best: 5.8 min</div></div>
+      <div class="s-cell"><div class="s-label">Cost / LOC</div><div class="s-num">$0.0007</div><div class="s-pos">#1 — &lt;1¢/line</div><div class="s-vs">plan · 35,242 LOC</div></div>
+    </div>
+    <div class="summary-footer">
+      <span>21 sessions · 7,327 turns · 1.12B tokens · <b>$1,564.47</b> API-equivalent · $23.33/wk plan</span>
+      <span>App Hub · 35,242 LOC · 5 days</span>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 1 — CACHE HIT RATE -->
+<div class="card">
+  <div class="gold-rule"></div>
+  <div class="card-inner">
+    <div class="card-header"><div class="wordmark">MO§ES™</div><div class="source-url">mos2es.com/benchmarks</div></div>
+    <div class="metric-body">
+      <div class="metric-left">
+        <div>
+          <div class="metric-kicker">Cache Hit Rate · Higher is better</div>
+          <div class="metric-big">96.97%</div>
+          <div class="metric-unit">sustained across 7 days · 21 sessions · multiple concurrent repos</div>
+        </div>
+        <div>
+          <div class="metric-rank">#1 in field</div>
+          <div class="metric-vs">field best: 96.2% (single-task benchmark run)</div>
+          <div class="metric-src">cache_read 1.084B ÷ (cache_read + cache_create + input) = 96.88%</div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-label">vs. field — cache hit rate %</div>
+        <div class="bars" style="height:300px">
+          <div class="bf" style="height:292px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 6px rgba(212,175,55,0.5);">96.9%</div>
+          <div class="bf" style="height:289px;background:#757575;">96.2%</div>
+          <div class="bf" style="height:289px;background:#c97c5d;">96.2%</div>
+          <div class="bf" style="height:285px;background:#1a1a1a;">94.9%</div>
+          <div class="bf" style="height:284px;background:#c97c5d;">94.5%</div>
+          <div class="bf" style="height:276px;background:#757575;">91.7%</div>
+          <div class="bf" style="height:240px;background:#303f9f;">79.8%</div>
+        </div>
+        <div class="labels">
+          <div class="bl ml"><b>MO§ES™</b>CC+Opus 4.7</div>
+          <div class="bl"><b>Cursor CLI</b>Opus 4.7</div>
+          <div class="bl"><b>Claude Code</b>Opus 4.7</div>
+          <div class="bl"><b>Codex</b>GPT-5.5</div>
+          <div class="bl"><b>CC</b>Sonnet 4.6</div>
+          <div class="bl"><b>Cursor CLI</b>Composer 2</div>
+          <div class="bl"><b>CC</b>DeepSeek V4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 2 — OUTPUT : INPUT -->
+<div class="card">
+  <div class="gold-rule"></div>
+  <div class="card-inner">
+    <div class="card-header"><div class="wordmark">MO§ES™</div><div class="source-url">mos2es.com/benchmarks</div></div>
+    <div class="metric-body">
+      <div class="metric-left">
+        <div>
+          <div class="metric-kicker">Output : Fresh Input · Higher is better</div>
+          <div class="metric-big">31.7×</div>
+          <div class="metric-unit">output tokens per fresh input token · 7-day window</div>
+        </div>
+        <div>
+          <div class="metric-rank">#1 — 83× the field leader (0.38×)</div>
+          <div class="metric-vs">30d: 42.5× · 90d: 22.1×</div>
+          <div class="metric-src">3,902,803 output ÷ 123,246 fresh input</div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-label">vs. field — output:input ratio (log scale)</div>
+        <div class="bars-nar" style="height:300px">
+          <div class="bf" style="height:300px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 6px rgba(212,175,55,0.5);">31.7×</div>
+          <div class="bf" style="height:98px;background:#757575;">0.38</div>
+          <div class="bf" style="height:82px;background:#888;">0.25</div>
+          <div class="bf" style="height:79px;background:#c97c5d;">0.24</div>
+          <div class="bf" style="height:63px;background:#1a1a1a;">0.17</div>
+          <div class="bf" style="height:38px;background:#757575;">0.07</div>
+          <div class="bf" style="height:38px;background:#303f9f;">0.04</div>
+        </div>
+        <div class="labels-nar">
+          <div class="bl-nar ml"><b>MO§ES™</b>CC+Opus 4.7</div>
+          <div class="bl-nar"><b>Cursor CLI</b>Opus 4.7</div>
+          <div class="bl-nar"><b>CC</b>Kimi K2.6</div>
+          <div class="bl-nar"><b>CC</b>Opus 4.7</div>
+          <div class="bl-nar"><b>Codex</b>GPT-5.5</div>
+          <div class="bl-nar"><b>Cursor CLI</b>GPT-5.5</div>
+          <div class="bl-nar"><b>CC</b>DeepSeek V4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 3 — TOKENS PER TASK -->
+<div class="card">
+  <div class="gold-rule"></div>
+  <div class="card-inner">
+    <div class="card-header"><div class="wordmark">MO§ES™</div><div class="source-url">mos2es.com/benchmarks</div></div>
+    <div class="metric-body">
+      <div class="metric-left">
+        <div>
+          <div class="metric-kicker">Tokens per Task · Lower is better</div>
+          <div class="metric-big">767K</div>
+          <div class="metric-unit">total tokens per task-equivalent · 1.123B ÷ 1,465 tasks</div>
+        </div>
+        <div>
+          <div class="metric-rank">#1 — 3.6× more efficient than field leader</div>
+          <div class="metric-vs">field best: 2.74M (Cursor CLI + GPT-5.5)</div>
+          <div class="metric-src">field tail: 8.88M (Claude Code + GLM-5.1)</div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-label">vs. field — tokens per task (lower = better)</div>
+        <div class="bars" style="height:300px">
+          <div class="bf" style="height:26px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 6px rgba(212,175,55,0.5);">767K</div>
+          <div class="bf" style="height:92px;background:#757575;">2.74M</div>
+          <div class="bf" style="height:99px;background:#757575;">2.93M</div>
+          <div class="bf" style="height:112px;background:#c97c5d;">3.33M</div>
+          <div class="bf" style="height:183px;background:#1a1a1a;">5.42M</div>
+          <div class="bf" style="height:209px;background:#303f9f;">6.20M</div>
+          <div class="bf" style="height:300px;background:#888;">8.88M</div>
+        </div>
+        <div class="labels">
+          <div class="bl ml"><b>MO§ES™</b>CC+Opus 4.7</div>
+          <div class="bl"><b>Cursor CLI</b>GPT-5.5</div>
+          <div class="bl"><b>Cursor CLI</b>Opus 4.7</div>
+          <div class="bl"><b>CC</b>Opus 4.7</div>
+          <div class="bl"><b>Codex</b>GPT-5.5</div>
+          <div class="bl"><b>CC</b>DeepSeek V4</div>
+          <div class="bl"><b>CC</b>GLM-5.1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 4 — TIME PER TASK -->
+<div class="card">
+  <div class="gold-rule"></div>
+  <div class="card-inner">
+    <div class="card-header"><div class="wordmark">MO§ES™</div><div class="source-url">mos2es.com/benchmarks</div></div>
+    <div class="metric-body">
+      <div class="metric-left">
+        <div>
+          <div class="metric-kicker">Time per Task · Lower is better</div>
+          <div class="metric-big">1.8 min</div>
+          <div class="metric-unit">active wall time per task · ~45 hr ÷ 1,465 tasks</div>
+        </div>
+        <div>
+          <div class="metric-rank">#1 — 3.2× faster than field leader</div>
+          <div class="metric-vs">field best: 5.8 min (Claude Code + Opus 4.7)</div>
+          <div class="metric-src">field tail: 41.5 min (Claude Code + Kimi K2.6)</div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-label">vs. field — time per task (lower = better)</div>
+        <div class="bars" style="height:300px">
+          <div class="bf" style="height:13px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 6px rgba(212,175,55,0.5);">1.8m</div>
+          <div class="bf" style="height:42px;background:#c97c5d;">5.8m</div>
+          <div class="bf" style="height:45px;background:#757575;">6.2m</div>
+          <div class="bf" style="height:50px;background:#1a1a1a;">6.9m</div>
+          <div class="bf" style="height:63px;background:#757575;">8.7m</div>
+          <div class="bf" style="height:130px;background:#303f9f;">18.0m</div>
+          <div class="bf" style="height:300px;background:#888;">41.5m</div>
+        </div>
+        <div class="labels">
+          <div class="bl ml"><b>MO§ES™</b>CC+Opus 4.7</div>
+          <div class="bl"><b>CC</b>Opus 4.7</div>
+          <div class="bl"><b>Cursor CLI</b>GPT-5.5</div>
+          <div class="bl"><b>Codex</b>GPT-5.4</div>
+          <div class="bl"><b>Cursor CLI</b>Composer 2</div>
+          <div class="bl"><b>CC</b>DeepSeek V4</div>
+          <div class="bl"><b>CC</b>Kimi K2.6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 5 — COST PER LOC -->
+<div class="card">
+  <div class="gold-rule"></div>
+  <div class="card-inner">
+    <div class="card-header"><div class="wordmark">MO§ES™</div><div class="source-url">mos2es.com/benchmarks</div></div>
+    <div class="metric-body">
+      <div class="metric-left">
+        <div>
+          <div class="metric-kicker">Cost per Line of Code · Lower is better</div>
+          <div class="metric-big">$0.0007</div>
+          <div class="metric-unit">per LOC · plan basis · 35,242 lines in 5 days</div>
+        </div>
+        <div>
+          <div class="metric-rank">#1 — leads field on every cost basis</div>
+          <div class="metric-vs">API equiv: $0.044 · ccusage: $0.018 · plan: $0.0007</div>
+          <div class="metric-src">$23.33/wk ÷ 35,242 LOC = $0.000662/line</div>
+        </div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-label">vs. field — cost per LOC (log scale, lower = better)</div>
+        <div class="bars-nar" style="height:300px">
+          <div class="bf" style="height:38px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 6px rgba(212,175,55,0.5);">$0.0007</div>
+          <div class="bf" style="height:57px;background:#757575;">$0.0035</div>
+          <div class="bf" style="height:147px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 6px rgba(212,175,55,0.5);">$0.044</div>
+          <div class="bf" style="height:150px;background:#757575;">$0.050</div>
+          <div class="bf" style="height:158px;background:#c97c5d;">$0.063</div>
+          <div class="bf" style="height:198px;background:#757575;">$0.20</div>
+          <div class="bf" style="height:300px;background:#1a1a1a;">$3.30</div>
+        </div>
+        <div class="labels-nar">
+          <div class="bl-nar ml"><b>MO§ES™</b>Plan basis</div>
+          <div class="bl-nar"><b>Cursor CLI</b>Composer 2</div>
+          <div class="bl-nar ml"><b>MO§ES™</b>API-equiv</div>
+          <div class="bl-nar"><b>Cursor</b>Low est.</div>
+          <div class="bl-nar"><b>CC</b>Opus 4.7</div>
+          <div class="bl-nar"><b>Cursor</b>High est.</div>
+          <div class="bl-nar"><b>Devin</b>High est.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body></html>

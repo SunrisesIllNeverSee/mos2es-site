@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>MO§ES™ — Honest Numbers · Full Session Count</title>
+<style>
+  @page { size: 11in 8.5in; margin: 0.18in; }
+  * { box-sizing: border-box; }
+  html { background: #d0d0d0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; padding: 48px; color: #1a1a1a; background: #d0d0d0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .page { background: #fafafa; width: 1100px; min-width: 1100px; padding: 10px 14px 8px 14px; box-shadow: 0 2px 16px rgba(0,0,0,0.18); zoom: 0.6; }
+  .header { text-align: center; padding: 2px 0 4px 0; border-bottom: 2px solid #d4af37; margin-bottom: 5px; }
+  .header h1 { font-size: 15px; margin: 0 0 2px 0; font-weight: 700; letter-spacing: -0.3px; }
+  .header .sub { color: #666; font-size: 9px; }
+  .header .gold { color: #b8860b; font-weight: 600; }
+  .header .honest { background: #2e7d32; color: white; font-size: 8px; font-weight: 700; border-radius: 2px; padding: 1px 6px; letter-spacing: 0.08em; margin-left: 6px; }
+
+  .summary { background: linear-gradient(135deg,#fff8dc,#fdf3c0); border: 1px solid #d4af37; border-radius: 4px; padding: 5px 8px; margin-bottom: 5px; }
+  .summary .headline { font-size: 10px; font-weight: 700; color: #5d4a0e; margin: 0 0 4px 0; text-align: center; }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+  .stat { background: white; padding: 5px 6px; border-radius: 3px; border: 1px solid #e8d97a; text-align: center; }
+  .stat .label  { font-size: 7.5px; color: #888; text-transform: uppercase; letter-spacing: 0.4px; font-weight: 600; }
+  .stat .value  { font-size: 18px; font-weight: 700; color: #b8860b; line-height: 1.1; margin: 2px 0; }
+  .stat .vs-avg { font-size: 8.5px; color: #2e7d32; font-weight: 700; margin-top: 2px; }
+  .stat .vs-lead{ font-size: 7.5px; color: #888; margin-top: 2px; }
+  .stat .note   { font-size: 7px; color: #c0392b; font-weight: 600; margin-top: 2px; }
+
+  .methodology { background: #f0f4f8; border-left: 3px solid #2e7d32; padding: 5px 8px; margin-bottom: 5px; font-size: 8.5px; color: #1a3a1a; border-radius: 0 4px 4px 0; line-height: 1.5; }
+  .methodology b { color: #1a1a1a; }
+
+  .row { display: grid; gap: 5px; margin-bottom: 5px; }
+  .row3 { grid-template-columns: repeat(3, 1fr); }
+  .row-bot { grid-template-columns: 1fr 1.6fr; }
+  .row5 { grid-template-columns: repeat(5, 1fr); }
+
+  .chart { background: white; border-radius: 4px; padding: 6px 8px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+  .chart h3 { font-size: 10px; margin: 0; font-weight: 700; }
+  .chart .sub { font-size: 8px; color: #888; margin-bottom: 4px; }
+  .chart .src { font-size: 7px; color: #b8860b; font-weight: 600; margin-top: 6px; padding-top: 5px; border-top: 1px solid #f5e9c0; line-height: 1.5; }
+
+  .bars { display: flex; align-items: flex-end; gap: 8px; padding: 2px 0 0 0; border-bottom: 1px solid #eee; }
+  .labels { display: flex; gap: 8px; padding-top: 4px; }
+  .bf { flex: 1; min-width: 0; display: flex; align-items: flex-start; justify-content: center; padding: 2px 0 0 0; color: white; font-size: 9px; font-weight: 700; overflow: hidden; }
+  .bl { flex: 1; min-width: 0; font-size: 7.5px; text-align: center; line-height: 1.3; color: #555; }
+  .bl b { display: block; font-weight: 700; color: #222; font-size: 8px; }
+  .bl.ml b { color: #b8860b; }
+  .bl.av b { color: #2e7d32; }
+
+  /* avg bar — green hatched */
+  .bf-avg { flex: 1; min-width: 0; display: flex; align-items: flex-start; justify-content: center; padding: 2px 0 0 0; font-size: 9px; font-weight: 700; overflow: hidden; color: #2e7d32; border: 1.5px solid #2e7d32; background: repeating-linear-gradient(45deg,#e8f5e9,#e8f5e9 3px,white 3px,white 6px); }
+
+  .rawbar { background: linear-gradient(135deg,#fff8dc,#fdf3c0); border: 1px solid #d4af37; border-radius: 5px; padding: 5px 8px; margin-top: 5px; margin-bottom: 4px; }
+  .rawbar .headline { font-size: 9.5px; font-weight: 700; color: #5d4a0e; margin: 0 0 4px 0; text-align: center; }
+  .rawbar .raws { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; }
+  .raw { background: white; padding: 5px 6px; border-radius: 3px; border: 1px solid #e8d97a; }
+  .raw .label { font-size: 7.5px; color: #888; text-transform: uppercase; letter-spacing: 0.3px; font-weight: 600; text-align: center; margin-bottom: 3px; }
+  .raw .num { font-family: ui-monospace, Menlo, monospace; font-size: 22px; font-weight: 800; color: #000; line-height: 1; text-align: center; }
+  .raw .unit { font-size: 7px; color: #888; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; margin-top: 3px; }
+  .raw .eq { font-size: 7px; color: #999; text-align: center; margin-top: 3px; border-top: 1px solid #f0e7c0; padding-top: 3px; font-family: ui-monospace, monospace; }
+
+  .legend { display: flex; gap: 14px; justify-content: flex-start; font-size: 8px; color: #555; margin-bottom: 5px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-swatch { width: 14px; height: 10px; border-radius: 1px; }
+
+  .footer { text-align: center; font-size: 7.5px; color: #888; margin-top: 4px; padding-top: 4px; border-top: 1px solid #eee; line-height: 1.5; }
+</style></head>
+<body>
+<div class="page">
+
+<div class="header">
+  <h1>MO§ES™ × Artificial Analysis Coding Agent Index <span class="honest">FULL DATA · ALL SUBAGENTS</span></h1>
+  <div class="sub">
+    Operator-augmented <span class="gold">Claude Code + Opus 4.7</span> ·
+    Raw JSONL extraction: <span class="gold">98 sessions · 9,332 turns · 1,866 task-equivalents</span> ·
+    vs field average (13 models) + field leader · artificialanalysis.ai · 2026-05-14
+  </div>
+</div>
+
+<div class="summary">
+  <div class="headline">MO§ES™ — full raw count including all subagent API calls. Vs field average (n=13).</div>
+  <div class="stats">
+    <div class="stat">
+      <div class="label">Cache Hit Rate</div>
+      <div class="value">94.66%</div>
+      <div class="vs-avg">+4.0pp vs avg (90.7%)</div>
+      <div class="note">↓ below leader (96.2%)</div>
+    </div>
+    <div class="stat">
+      <div class="label">Output : Input</div>
+      <div class="value">17.9×</div>
+      <div class="vs-avg">111× above avg (0.16×)</div>
+      <div class="vs-lead">47× above leader (0.38×)</div>
+    </div>
+    <div class="stat">
+      <div class="label">Tokens / Task</div>
+      <div class="value">810K</div>
+      <div class="vs-avg">5.8× leaner than avg (4.67M)</div>
+      <div class="vs-lead">3.4× leaner than leader (2.74M)</div>
+    </div>
+    <div class="stat">
+      <div class="label">Time / Task</div>
+      <div class="value">1.45 min</div>
+      <div class="vs-avg">8.2× faster than avg (11.9m)</div>
+      <div class="vs-lead">4.0× faster than leader (5.8m)</div>
+    </div>
+    <div class="stat">
+      <div class="label">Cost / Task</div>
+      <div class="value">$0.013</div>
+      <div class="vs-avg">100× cheaper than avg ($1.35)</div>
+      <div class="vs-lead">5.2× cheaper than leader ($0.07)</div>
+    </div>
+  </div>
+</div>
+
+<div class="methodology">
+  <b>What changed vs the original benchmark:</b>
+  Raw JSONL extraction of all 98 .jsonl files in the 7-day window — including every spawned subagent session.
+  Original benchmark (token dashboard) counted 21 parent sessions, 7,327 turns, 1,123B tokens.
+  This count: 98 files, 9,332 turns, 1,512B tokens. Cache hit rate: 94.66% (vs 96.88% parent-only).
+  Four of five metrics still lead the <b>field average</b>. Cache drops from #1 vs field leader to above-average.
+  <b>Green hatched bars = field average (n=13 published combinations).</b>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch" style="background:linear-gradient(180deg,#d4af37,#b8860b);"></div> MO§ES™</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#e8f5e9;border:1.5px solid #2e7d32;"></div> Field Average (n=13 published combinations)</div>
+</div>
+
+<div class="row row5">
+
+  <!-- Chart 1: Cache Hit Rate -->
+  <div class="chart">
+    <h3>1. Cache Hit Rate</h3>
+    <div class="sub">Higher better · MO§ES above avg, below peak</div>
+    <div class="bars" style="height:90px">
+      <div class="bf" style="height:79px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 4px rgba(212,175,55,0.5);">94.7%</div>
+      <div class="bf-avg" style="height:63px;">90.7%</div>
+    </div>
+    <div class="labels">
+      <div class="bl ml"><b>MO§ES™</b>all sessions</div>
+      <div class="bl av"><b>Field Avg</b>n=13</div>
+    </div>
+    <div class="src">Raw: cache_read 1.426B ÷ total_prompt 1.506B = 94.66% · above avg +4.0pp · below leader −1.5pp</div>
+  </div>
+
+  <!-- Chart 2: Output:Input -->
+  <div class="chart">
+    <h3>2. Output : Input <span style="color:#888;font-weight:400">(log scale)</span></h3>
+    <div class="sub">Higher better · 111× above field average</div>
+    <div class="bars" style="height:90px">
+      <div class="bf" style="height:90px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 4px rgba(212,175,55,0.5);">17.9×</div>
+      <div class="bf-avg" style="height:22px;">0.16</div>
+    </div>
+    <div class="labels">
+      <div class="bl ml"><b>MO§ES™</b>all sessions</div>
+      <div class="bl av"><b>Field Avg</b>n=13</div>
+    </div>
+    <div class="src">5,935,260 output ÷ 331,214 fresh input = 17.9× · 111× field avg · 47× field leader</div>
+  </div>
+
+  <!-- Chart 3: Tokens/Task -->
+  <div class="chart">
+    <h3>3. Tokens per Task</h3>
+    <div class="sub">Lower better · 5.8× under field average</div>
+    <div class="bars" style="height:90px">
+      <div class="bf" style="height:8px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 4px rgba(212,175,55,0.5);">810K</div>
+      <div class="bf-avg" style="height:47px;">4.67M</div>
+    </div>
+    <div class="labels">
+      <div class="bl ml"><b>MO§ES™</b>all sessions</div>
+      <div class="bl av"><b>Field Avg</b>n=13</div>
+    </div>
+    <div class="src">1.512B ÷ 1,866 tasks = 810K · 5.8× better than avg · 3.4× better than leader</div>
+  </div>
+
+  <!-- Chart 4: Time/Task -->
+  <div class="chart">
+    <h3>4. Time per Task</h3>
+    <div class="sub">Lower better · 8.2× faster than field average</div>
+    <div class="bars" style="height:90px">
+      <div class="bf" style="height:3px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 4px rgba(212,175,55,0.5);">1.45m</div>
+      <div class="bf-avg" style="height:26px;">11.9m</div>
+    </div>
+    <div class="labels">
+      <div class="bl ml"><b>MO§ES™</b>all sessions</div>
+      <div class="bl av"><b>Field Avg</b>n=13</div>
+    </div>
+    <div class="src">~45hr active ÷ 1,866 tasks = 1.45 min · 8.2× faster than avg · 4.0× faster than leader</div>
+  </div>
+
+  <!-- Chart 5: Cost/Task -->
+  <div class="chart">
+    <h3>5. Cost per Task <span style="color:#888;font-weight:400">(log scale)</span></h3>
+    <div class="sub">Lower better · 100× cheaper than field average · subscription basis</div>
+    <div class="bars" style="height:90px">
+      <div class="bf" style="height:3px;background:linear-gradient(180deg,#d4af37,#b8860b);box-shadow:0 0 0 1px white,0 0 4px rgba(212,175,55,0.5);">$0.013</div>
+      <div class="bf-avg" style="height:30px;">$1.35</div>
+    </div>
+    <div class="labels">
+      <div class="bl ml"><b>MO§ES™</b>sub · all sess.</div>
+      <div class="bl av"><b>Field Avg</b>n=13</div>
+    </div>
+    <div class="src">$25/wk plan ÷ 1,866 tasks = $0.0134 · 100× cheaper than field avg · 5.2× cheaper than leader</div>
+  </div>
+
+</div>
+
+<div class="rawbar">
+  <div class="headline">RAW — FULL EXTRACTION · 98 SESSIONS · MAY 8–14 2026 (ALL SUBAGENTS INCLUDED)</div>
+  <div class="raws">
+    <div class="raw">
+      <div class="label">Sessions / Files</div>
+      <div class="num" style="font-size:20px;">98</div>
+      <div class="unit">jsonl files</div>
+      <div class="eq">21 parent + 77 subagents</div>
+    </div>
+    <div class="raw">
+      <div class="label">Turns → Tasks</div>
+      <div class="num" style="font-size:20px;">9,332</div>
+      <div class="unit">turns · 1,866 task-equiv</div>
+      <div class="eq">÷5 turns/task</div>
+    </div>
+    <div class="raw">
+      <div class="label">Cache Read</div>
+      <div class="num">1.426<span style="font-size:12px;color:#555;"> B</span></div>
+      <div class="unit">1,425,781,478</div>
+      <div class="eq">94.66% of all prompt tokens</div>
+    </div>
+    <div class="raw">
+      <div class="label">Total Tokens</div>
+      <div class="num" style="color:#b8860b;">1.512<span style="font-size:12px;color:#555;"> B</span></div>
+      <div class="unit">1,512,077,821</div>
+      <div class="eq">810K / task · 5.8× under avg</div>
+    </div>
+    <div class="raw" style="border:1px solid #2e7d32;background:#f0fff0;">
+      <div class="label" style="color:#2e7d32;">vs Original Benchmark</div>
+      <div class="num" style="font-size:14px;color:#2e7d32;margin-top:2px;">+27%<br>turns</div>
+      <div class="unit">+35% tokens</div>
+      <div class="eq" style="color:#2e7d32;">subagents added · 4 of 5 metrics still lead avg</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <strong style="color:#b8860b">MO§ES™</strong> · Full raw extraction · ~/.claude/projects/ · 98 .jsonl files · May 8–14 2026 · All subagent sessions included ·
+  Field average computed from 13 published AA combinations · Field data: artificialanalysis.ai/agents/coding-agents · 2026-05-14 ·
+  Cache metric: above field average (+4pp), below field leader (−1.5pp) · All other metrics lead field average and field leader ·
+  <strong style="color:#b8860b">mos2es.com/benchmarks</strong>
+</div>
+
+</div><!-- /page -->
+</body></html>
