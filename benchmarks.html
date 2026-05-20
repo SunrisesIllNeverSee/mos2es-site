@@ -108,36 +108,30 @@
 
   <main class="wrap">
     <h1>Five measured kernels.<br><em>One operator.</em></h1>
-    <p class="lede">Operator-augmented Claude Code + Opus 4.7 plotted against the 13 published combinations of the <strong style="color:var(--bright)">Artificial Analysis Coding Agent Index</strong>. Seven-day measurement window. MO§ES leads every measured economic category — cache discipline, compression cascade, token efficiency, throughput, and cost per line of code shipped.</p>
+    <p class="lede">Operator-augmented Claude Code + Opus 4.7 measured against the <strong style="color:var(--bright)">Artificial Analysis Coding Agent Index</strong> field average. Seven-day window. Raw JSONL extraction across 98 session files and all subagents. MO§ES leads every measured economic category — cache discipline, compression cascade, token efficiency, throughput, and cost per line of code shipped.</p>
 
     <div class="poster-frame">
-      <iframe src="img/benchmarks/poster.html" title="MO§ES benchmark poster — live HTML" scrolling="no" loading="eager"></iframe>
+      <iframe src="img/benchmarks/poster_honest.html" title="MO§ES vs. field average — honest comparison" scrolling="no" loading="eager"></iframe>
     </div>
-    <p style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:center;margin-top:10px;">Live HTML · all charts rendered at full fidelity · <a href="img/benchmarks/poster.html" target="_blank" rel="noopener" style="color:var(--gold);">open standalone ↗</a></p>
+    <p style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:center;margin-top:10px;">Live HTML · raw JSONL · 98 session files · all subagents · 2 bars per chart · <a href="img/benchmarks/poster_honest.html" target="_blank" rel="noopener" style="color:var(--gold);">open standalone ↗</a></p>
 
-
-    <div class="label">Honest Comparison · MO§ES vs. Raw Field Average</div>
-    <a href="img/benchmarks/MOSES_UPDATED_VSRAW.png" target="_blank" rel="noopener" title="Open full-size image">
-      <img class="hero-img" src="img/benchmarks/MOSES_UPDATED_VSRAW.png" alt="MO§ES vs. field average — raw JSONL extraction across all 5 kernels" style="cursor:zoom-in;">
-    </a>
-    <p style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:center;margin-top:10px;">Raw JSONL · 98 session files · all subagents included · 2 bars per chart: <span style="color:var(--gold);">MO§ES</span> vs. field average · <a href="img/benchmarks/MOSES_UPDATED_VSRAW.pdf" target="_blank" rel="noopener" style="color:var(--gold);">download PDF ↗</a></p>
 
     <div class="label">The Five Kernels</div>
     <div class="stat-grid">
       <div class="stat-card">
         <div class="lbl">Cache hit</div>
-        <div class="val">96·88<span class="u">%</span></div>
-        <div class="pos">#1 · field 96·2%</div>
+        <div class="val">94·66<span class="u">%</span></div>
+        <div class="pos">#1 · field avg 63·82%</div>
       </div>
       <div class="stat-card">
         <div class="lbl">Out : In</div>
-        <div class="val">31·7<span class="u">×</span></div>
-        <div class="pos">#1 · 83× field leader</div>
+        <div class="val">17·9<span class="u">×</span></div>
+        <div class="pos">#1 · 47× field avg</div>
       </div>
       <div class="stat-card">
         <div class="lbl">Tokens / task</div>
-        <div class="val">767<span class="u">K</span></div>
-        <div class="pos">#1 · 3·57× more efficient</div>
+        <div class="val">810<span class="u">K</span></div>
+        <div class="pos">#1 · field avg 2·9M</div>
       </div>
       <div class="stat-card">
         <div class="lbl">Time / task</div>
@@ -185,24 +179,16 @@
       <b>AA field:</b> per-task isolated runs on SWE-Bench-Pro-Hard-AA, Terminal-Bench v2, and SWE-Atlas-QnA benchmarks. Each task = one bug/issue, agent runs in clean session. <b>MO§ES:</b> sustained operator work on a real product (Application Hub) over a 7-day measurement window (2026-05-08 → 2026-05-14) — 21 sessions, 7,327 turns, 35,242 LOC shipped in 5 build days. Task-equivalents derived from <code>7,327 ÷ 5 turns/task = 1,465 tasks</code>. <b>$/LOC:</b> AA = <code>cost_per_task ÷ 20 LOC</code> (industry SWE-Bench convention). MO§ES = <code>$23.33/wk subscription ÷ 35,242 actual LOC = $0.000662</code>. <b>The convergence of leadership across both regimes</b> — isolated benchmark runs and sustained product builds — is the structural result.
     </div>
 
-    <div class="label">Chart Slides — Field Comparison</div>
-    <div class="gallery">
-      <figure><a href="img/benchmarks/chart_01_cache.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_01_cache.png" alt="Cache hit rate field comparison"></a><figcaption>I · Cache hit rate · field comparison</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_02_outin.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_02_outin.png" alt="Output:input ratio field comparison"></a><figcaption>II · Output : fresh input · log scale</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_03_tokens.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_03_tokens.png" alt="Tokens per task field comparison"></a><figcaption>III · Tokens per task · field comparison</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_04_time.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_04_time.png" alt="Time per task field comparison"></a><figcaption>IV · Time per task · field comparison</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_05_loc.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_05_loc.png" alt="Cost per LOC field comparison"></a><figcaption>V · Cost per LOC · all field + MO§ES · log scale</figcaption></figure>
-      <figure><a href="img/benchmarks/card_06_combined.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/card_06_combined.png" alt="Combined kernels and inputs summary"></a><figcaption>VI · Kernels and inputs · combined</figcaption></figure>
+    <div class="label">Chart · MO§ES vs. Field Average</div>
+    <div class="gallery" style="grid-template-columns:1fr;">
+      <figure><a href="img/benchmarks/MOSES_UPDATED_VSRAW.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/MOSES_UPDATED_VSRAW.png" alt="MO§ES vs. field average — all 5 kernels, raw JSONL data"></a><figcaption>All five kernels · MO§ES (gold) vs. field average · raw JSONL · 98 session files · all subagents</figcaption></figure>
     </div>
 
     <div class="label">Downloads</div>
     <div class="downloads">
       <a href="img/benchmarks/MOSES_UPDATED_VSRAW.png" style="border-color:var(--gold);color:var(--gold);">Honest comparison · PNG</a>
       <a href="img/benchmarks/MOSES_UPDATED_VSRAW.pdf">Honest comparison · PDF</a>
-      <a href="img/benchmarks/MOSES_BENCHMARK_POSTER.pdf">Full poster · PDF</a>
-      <a href="img/benchmarks/poster-retina.png">Full poster · PNG 8800×6800</a>
-      <a href="img/benchmarks/summary.png">Summary card · 1200×675 PNG</a>
-      <a href="img/benchmarks/card_06_combined.png">Combined slide · PNG</a>
+      <a href="img/benchmarks/poster_honest.html" target="_blank">Live chart · HTML</a>
       <a href="https://artificialanalysis.ai/agents/coding-agents">Field source · Artificial Analysis</a>
     </div>
 
