@@ -5,216 +5,159 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MO§ES™ — Honest Comparison vs. Field Average</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #0A0D12;
-      --panel: #10141A;
-      --border: #1A1F28;
-      --line: rgba(196,146,58,.24);
-      --text: #C8CDD6;
-      --dim: #8A94A0;
-      --bright: #E8ECF1;
-      --gold: #C4923A;
-      --green: #3DAA6A;
-      --mono: 'DM Mono', ui-monospace, monospace;
-      --sans: 'DM Sans', system-ui, sans-serif;
-      --serif: 'Playfair Display', Georgia, serif;
-    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
+      background: #f5f0e8;
+      color: #1a1a1a;
+      font-family: 'DM Sans', system-ui, sans-serif;
       padding: 48px 56px;
       min-width: 1100px;
     }
 
-    /* Header */
     .header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
-      margin-bottom: 32px;
+      border-bottom: 2px solid #c4923a;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
     }
-    .header-left .brand {
-      font-family: var(--serif);
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--gold);
+    .brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 26px;
+      font-weight: 700;
+      color: #8a5c1a;
       letter-spacing: -0.02em;
     }
-    .header-left .sub {
-      font-family: var(--mono);
+    .header-sub {
+      font-family: 'DM Mono', monospace;
       font-size: 10px;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: #888;
       margin-top: 4px;
     }
     .badge {
-      font-family: var(--mono);
+      font-family: 'DM Mono', monospace;
       font-size: 9px;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      border: 1px solid var(--green);
-      color: var(--green);
+      border: 1px solid #2e7d32;
+      color: #2e7d32;
       border-radius: 999px;
-      padding: 5px 12px;
+      padding: 5px 14px;
     }
 
-    /* Legend */
     .legend {
       display: flex;
       gap: 24px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .legend-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--mono);
+      font-family: 'DM Mono', monospace;
       font-size: 10px;
-      letter-spacing: .12em;
+      letter-spacing: .1em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: #555;
     }
-    .swatch {
-      width: 28px;
-      height: 12px;
-      border-radius: 2px;
-    }
-    .swatch.gold { background: var(--gold); }
+    .swatch { width: 28px; height: 12px; border-radius: 2px; }
+    .swatch.gold { background: #c4923a; }
     .swatch.green {
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(61,170,106,0.3),
-        rgba(61,170,106,0.3) 3px,
-        transparent 3px,
-        transparent 6px
-      );
-      border: 1px solid var(--green);
+      background: repeating-linear-gradient(45deg, rgba(46,125,50,0.25), rgba(46,125,50,0.25) 3px, #fff 3px, #fff 6px);
+      border: 1.5px solid #2e7d32;
     }
 
-    /* Charts grid */
     .charts {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-bottom: 32px;
+      gap: 12px;
+      margin-bottom: 28px;
     }
     .chart {
-      background: var(--panel);
-      border: 1px solid var(--border);
+      background: #fff;
+      border: 1px solid #e0d8c8;
       border-radius: 8px;
       padding: 16px 14px 14px;
     }
     .chart-label {
-      font-family: var(--mono);
+      font-family: 'DM Mono', monospace;
       font-size: 9px;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 4px;
+      color: #aaa;
+      margin-bottom: 3px;
     }
     .chart-title {
-      font-family: var(--sans);
       font-size: 13px;
-      font-weight: 600;
-      color: var(--bright);
+      font-weight: 700;
+      color: #1a1a1a;
       margin-bottom: 16px;
-      line-height: 1.3;
     }
 
-    /* Bar chart */
     .bars-wrap {
       display: flex;
       gap: 10px;
       align-items: flex-end;
       height: 120px;
-      padding-bottom: 0;
     }
     .bar-col {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
-      height: 100%;
       justify-content: flex-end;
+      height: 100%;
     }
     .bar-val {
-      font-family: var(--mono);
-      font-size: 10px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
       font-weight: 700;
-      color: var(--bright);
+      color: #1a1a1a;
       margin-bottom: 4px;
       text-align: center;
-      line-height: 1.2;
     }
-    .bar {
-      width: 100%;
-      border-radius: 3px 3px 0 0;
-      min-height: 3px;
-      transition: height .3s;
-    }
-    .bar.gold-bar { background: var(--gold); }
+    .bar { width: 100%; border-radius: 3px 3px 0 0; min-height: 3px; }
+    .bar.gold-bar { background: #c4923a; }
     .bar.green-bar {
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(61,170,106,0.35),
-        rgba(61,170,106,0.35) 3px,
-        rgba(10,13,18,0.5) 3px,
-        rgba(10,13,18,0.5) 6px
-      );
-      border: 1px solid var(--green);
+      background: repeating-linear-gradient(45deg, rgba(46,125,50,0.3), rgba(46,125,50,0.3) 3px, #fff 3px, #fff 6px);
+      border: 1.5px solid #2e7d32;
     }
+    .bar-axis { width: 100%; height: 1px; background: #e0d8c8; }
+    .bar-names { display: flex; gap: 10px; margin-top: 6px; }
     .bar-name {
-      font-family: var(--mono);
+      flex: 1;
+      font-family: 'DM Mono', monospace;
       font-size: 8px;
-      color: var(--dim);
+      color: #999;
       text-align: center;
-      margin-top: 6px;
-      letter-spacing: .06em;
       text-transform: uppercase;
-      line-height: 1.4;
-    }
-    .bar-axis {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 0;
-    }
-    .bars-container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Delta badge */
-    .delta {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--green);
-      font-weight: 700;
-      text-align: center;
-      margin-top: 12px;
       letter-spacing: .06em;
     }
+    .delta {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: #2e7d32;
+      text-align: center;
+      margin-top: 10px;
+    }
 
-    /* Raw numbers row */
     .raw-section {
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
+      border-top: 1px solid #d8d0c0;
+      padding-top: 22px;
     }
     .raw-label {
-      font-family: var(--mono);
+      font-family: 'DM Mono', monospace;
       font-size: 9px;
-      letter-spacing: .18em;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--dim);
-      margin-bottom: 14px;
+      color: #aaa;
+      margin-bottom: 12px;
     }
     .raw-grid {
       display: grid;
@@ -222,55 +165,49 @@
       gap: 10px;
     }
     .raw-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
+      background: #fff;
+      border: 1px solid #e0d8c8;
       border-radius: 6px;
       padding: 12px;
       text-align: center;
     }
-    .raw-card.featured { border-color: var(--gold); }
-    .raw-card .r-lbl {
-      font-family: var(--mono);
+    .raw-card.featured { border-color: #c4923a; background: #fdf8f0; }
+    .r-lbl {
+      font-family: 'DM Mono', monospace;
       font-size: 8px;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--dim);
+      color: #aaa;
       margin-bottom: 6px;
     }
-    .raw-card .r-val {
-      font-family: var(--mono);
-      font-size: 20px;
+    .r-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 22px;
       font-weight: 700;
-      color: var(--bright);
+      color: #1a1a1a;
       line-height: 1;
     }
-    .raw-card.featured .r-val { color: var(--gold); }
-    .raw-card .r-sub {
-      font-family: var(--mono);
-      font-size: 8px;
-      color: var(--dim);
-      margin-top: 4px;
-    }
+    .raw-card.featured .r-val { color: #8a5c1a; }
+    .r-sub { font-family: 'DM Mono', monospace; font-size: 8px; color: #aaa; margin-top: 4px; }
 
-    /* Footer */
     .footer {
-      margin-top: 24px;
-      font-family: var(--mono);
+      margin-top: 22px;
+      font-family: 'DM Mono', monospace;
       font-size: 9px;
-      color: var(--dim);
+      color: #aaa;
       letter-spacing: .06em;
       line-height: 1.8;
-      border-top: 1px solid var(--border);
-      padding-top: 14px;
+      border-top: 1px solid #e0d8c8;
+      padding-top: 12px;
     }
   </style>
 </head>
 <body>
 
   <div class="header">
-    <div class="header-left">
+    <div>
       <div class="brand">MO§ES™</div>
-      <div class="sub">Five Measured Kernels · vs. Field Average · Raw JSONL · 98 Sessions · All Subagents</div>
+      <div class="header-sub">Five Measured Kernels · vs. Field Average · Raw JSONL · 98 Sessions · All Subagents</div>
     </div>
     <div class="badge">Honest Comparison · Full Data</div>
   </div>
@@ -281,147 +218,75 @@
   </div>
 
   <div class="charts">
-
-    <!-- I: Cache Hit Rate — higher is better -->
     <div class="chart">
       <div class="chart-label">I · Cache</div>
       <div class="chart-title">Cache Hit Rate</div>
       <div class="bars-wrap">
-        <div class="bar-col">
-          <div class="bar-val">94.66%</div>
-          <div class="bar gold-bar" style="height:116px;"></div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">63.82%</div>
-          <div class="bar green-bar" style="height:78px;"></div>
-        </div>
+        <div class="bar-col"><div class="bar-val">94.66%</div><div class="bar gold-bar" style="height:116px"></div></div>
+        <div class="bar-col"><div class="bar-val">63.82%</div><div class="bar green-bar" style="height:78px"></div></div>
       </div>
       <div class="bar-axis"></div>
-      <div style="display:flex;gap:10px;">
-        <div class="bar-name" style="flex:1">MO§ES</div>
-        <div class="bar-name" style="flex:1">Field avg</div>
-      </div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
       <div class="delta">+30.8pp · #1</div>
     </div>
 
-    <!-- II: Output:Input — higher is better -->
     <div class="chart">
       <div class="chart-label">II · Compression</div>
       <div class="chart-title">Output : Input Ratio</div>
       <div class="bars-wrap">
-        <div class="bar-col">
-          <div class="bar-val">17.9×</div>
-          <div class="bar gold-bar" style="height:116px;"></div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">0.38×</div>
-          <div class="bar green-bar" style="height:3px;"></div>
-        </div>
+        <div class="bar-col"><div class="bar-val">17.9×</div><div class="bar gold-bar" style="height:116px"></div></div>
+        <div class="bar-col"><div class="bar-val">0.38×</div><div class="bar green-bar" style="height:3px"></div></div>
       </div>
       <div class="bar-axis"></div>
-      <div style="display:flex;gap:10px;">
-        <div class="bar-name" style="flex:1">MO§ES</div>
-        <div class="bar-name" style="flex:1">Field avg</div>
-      </div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
       <div class="delta">47× field avg · #1</div>
     </div>
 
-    <!-- III: Tokens/task — lower is better, invert bars -->
     <div class="chart">
       <div class="chart-label">III · Efficiency</div>
       <div class="chart-title">Tokens per Task</div>
       <div class="bars-wrap">
-        <div class="bar-col">
-          <div class="bar-val">810K</div>
-          <div class="bar gold-bar" style="height:32px;"></div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">2.9M</div>
-          <div class="bar green-bar" style="height:116px;"></div>
-        </div>
+        <div class="bar-col"><div class="bar-val">810K</div><div class="bar gold-bar" style="height:32px"></div></div>
+        <div class="bar-col"><div class="bar-val">2.9M</div><div class="bar green-bar" style="height:116px"></div></div>
       </div>
       <div class="bar-axis"></div>
-      <div style="display:flex;gap:10px;">
-        <div class="bar-name" style="flex:1">MO§ES</div>
-        <div class="bar-name" style="flex:1">Field avg</div>
-      </div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
       <div class="delta">3.6× fewer tokens · #1</div>
     </div>
 
-    <!-- IV: Time/task — lower is better -->
     <div class="chart">
       <div class="chart-label">IV · Speed</div>
       <div class="chart-title">Time per Task</div>
       <div class="bars-wrap">
-        <div class="bar-col">
-          <div class="bar-val">1.84m</div>
-          <div class="bar gold-bar" style="height:28px;"></div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">5.79m</div>
-          <div class="bar green-bar" style="height:88px;"></div>
-        </div>
+        <div class="bar-col"><div class="bar-val">1.84m</div><div class="bar gold-bar" style="height:28px"></div></div>
+        <div class="bar-col"><div class="bar-val">5.79m</div><div class="bar green-bar" style="height:88px"></div></div>
       </div>
       <div class="bar-axis"></div>
-      <div style="display:flex;gap:10px;">
-        <div class="bar-name" style="flex:1">MO§ES</div>
-        <div class="bar-name" style="flex:1">Field avg</div>
-      </div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
       <div class="delta">3.1× faster · #1</div>
     </div>
 
-    <!-- V: Cost/LOC — lower is better -->
     <div class="chart">
       <div class="chart-label">V · Cost</div>
       <div class="chart-title">Cost per LOC</div>
       <div class="bars-wrap">
-        <div class="bar-col">
-          <div class="bar-val">$0.0007</div>
-          <div class="bar gold-bar" style="height:3px;"></div>
-        </div>
-        <div class="bar-col">
-          <div class="bar-val">$0.045</div>
-          <div class="bar green-bar" style="height:116px;"></div>
-        </div>
+        <div class="bar-col"><div class="bar-val">$0.0007</div><div class="bar gold-bar" style="height:3px"></div></div>
+        <div class="bar-col"><div class="bar-val">$0.045</div><div class="bar green-bar" style="height:116px"></div></div>
       </div>
       <div class="bar-axis"></div>
-      <div style="display:flex;gap:10px;">
-        <div class="bar-name" style="flex:1">MO§ES</div>
-        <div class="bar-name" style="flex:1">Field avg</div>
-      </div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
       <div class="delta">64× cheaper · #1</div>
     </div>
-
   </div>
 
   <div class="raw-section">
     <div class="raw-label">Raw Token Extraction · 98 Session Files · All Subagents Included</div>
     <div class="raw-grid">
-      <div class="raw-card">
-        <div class="r-lbl">Input</div>
-        <div class="r-val">123K</div>
-        <div class="r-sub">123,246 fresh</div>
-      </div>
-      <div class="raw-card">
-        <div class="r-lbl">Output</div>
-        <div class="r-val">3.9M</div>
-        <div class="r-sub">3,902,803</div>
-      </div>
-      <div class="raw-card">
-        <div class="r-lbl">Cache Create</div>
-        <div class="r-val">34.8M</div>
-        <div class="r-sub">34,826,779</div>
-      </div>
-      <div class="raw-card">
-        <div class="r-lbl">Cache Read</div>
-        <div class="r-val">1.08B</div>
-        <div class="r-sub">1,084,399,183</div>
-      </div>
-      <div class="raw-card featured">
-        <div class="r-lbl">Total</div>
-        <div class="r-val">1.12B</div>
-        <div class="r-sub">1,123,252,011</div>
-      </div>
+      <div class="raw-card"><div class="r-lbl">Input</div><div class="r-val">123K</div><div class="r-sub">123,246 fresh</div></div>
+      <div class="raw-card"><div class="r-lbl">Output</div><div class="r-val">3.9M</div><div class="r-sub">3,902,803</div></div>
+      <div class="raw-card"><div class="r-lbl">Cache Create</div><div class="r-val">34.8M</div><div class="r-sub">34,826,779</div></div>
+      <div class="raw-card"><div class="r-lbl">Cache Read</div><div class="r-val">1.08B</div><div class="r-sub">1,084,399,183</div></div>
+      <div class="raw-card featured"><div class="r-lbl">Total</div><div class="r-val">1.12B</div><div class="r-sub">1,123,252,011</div></div>
     </div>
   </div>
 
