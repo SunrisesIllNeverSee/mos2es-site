@@ -170,16 +170,7 @@
       flex-direction: column;
       justify-content: center;
     }
-    .desc-stat {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: #c4923a;
-      line-height: 1;
-      margin-bottom: 6px;
-      letter-spacing: -0.02em;
-    }
-    .desc-stat .unit { font-size: 16px; font-weight: 400; color: #aaa; }
+
     .desc-head {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
@@ -207,6 +198,61 @@
       color: #bbb;
       border-top: 1px solid #ddd6c8;
       padding-top: 10px;
+    }
+
+    /* ── Comparison table ── */
+    .comp-table-wrap {
+      margin-bottom: 22px;
+      border: 1px solid #ddd6c8;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+      font-family: 'DM Mono', monospace;
+    }
+    .comp-table thead tr {
+      background: #f0ead8;
+    }
+    .comp-table th {
+      padding: 7px 8px;
+      text-align: center;
+      font-size: 8px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #999;
+      border-right: 1px solid #ddd6c8;
+      border-bottom: 1px solid #ddd6c8;
+      font-weight: 500;
+    }
+    .comp-table th:first-child { text-align: left; width: 72px; }
+    .comp-table td {
+      padding: 8px 8px;
+      text-align: center;
+      border-right: 1px solid #e8e0d0;
+      border-bottom: 1px solid #e8e0d0;
+      font-size: 10px;
+      color: #333;
+    }
+    .comp-table tr:last-child td { border-bottom: 0; }
+    .comp-table td:last-child, .comp-table th:last-child { border-right: 0; }
+    .row-label { text-align: left !important; font-weight: 700; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+    .moses-label { color: #8a5c1a; }
+    .field-label { color: #2e7d32; }
+    .row-moses td { background: #fdf8f0; }
+    .row-field td { background: #f6faf6; }
+    .total-cell { font-weight: 700; color: #8a5c1a; }
+    .field-total { color: #c0392b !important; }
+    .na-cell { color: #ccc !important; }
+    .comp-note {
+      font-size: 8px;
+      letter-spacing: .06em;
+      color: #aaa;
+      padding: 6px 10px;
+      background: #f5f0e4;
+      border-top: 1px solid #ddd6c8;
     }
   </style>
 </head>
@@ -252,30 +298,45 @@
     </div>
   </div>
 
-  <!-- Cross-cost insert -->
-  <div class="cost-insert">
-    <div class="ci-label">Field avg cost<br>to do this work →</div>
-    <div class="ci-items">
-      <div class="ci-item">
-        <div class="ci-val">4.25B</div>
-        <div class="ci-desc">tokens needed</div>
-      </div>
-      <div class="ci-sep"></div>
-      <div class="ci-item">
-        <div class="ci-val">141.4 hrs</div>
-        <div class="ci-desc">wall-clock time</div>
-      </div>
-      <div class="ci-sep"></div>
-      <div class="ci-item">
-        <div class="ci-val">$1,585.89</div>
-        <div class="ci-desc">total cost</div>
-      </div>
-      <div class="ci-sep"></div>
-      <div class="ci-item">
-        <div class="ci-val">vs. $24.67</div>
-        <div class="ci-desc">MO§ES actual</div>
-      </div>
-    </div>
+  <!-- Comparison table -->
+  <div class="comp-table-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Input</th>
+          <th>Output</th>
+          <th>Cache Create</th>
+          <th>Cache Read</th>
+          <th>Total</th>
+          <th>Tasks / Turns</th>
+          <th>LOC</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-moses">
+          <td class="row-label moses-label">MO§ES™</td>
+          <td>123K</td>
+          <td>3.9M</td>
+          <td>34.8M</td>
+          <td>1.08B</td>
+          <td class="total-cell">1.12B</td>
+          <td>1,465 / 7,327</td>
+          <td>35,242</td>
+        </tr>
+        <tr class="row-field">
+          <td class="row-label field-label">Field avg</td>
+          <td>~3.62B</td>
+          <td>~542M</td>
+          <td class="na-cell">—</td>
+          <td>~2.93B</td>
+          <td class="total-cell field-total">~6.84B</td>
+          <td>1,465 / ~7,325</td>
+          <td>~29,300</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="comp-note">Field avg = mean of 13 published AA models · Cache Create not reported by AA · Cost: $23.33 (MO§ES) vs ~$1,846 (field) · Time: 44.9 hrs vs 141.4 hrs</div>
   </div>
 
   <div class="legend">
@@ -297,7 +358,6 @@
       <div class="delta">6.8× less fresh compute</div>
     </div>
     <div class="chart-right">
-      <div class="desc-stat">6.8<span class="unit">×</span></div>
       <div class="desc-head">Less fresh compute per session</div>
       <div class="desc-body">
         Every MO§ES session starts with <strong>5,162 tokens of governance context already cached</strong> — constitutional framework, coordination state, project history. The field starts cold every task. That 30pp gap compounds across 1,465 tasks into <strong>835K vs 123K fresh tokens</strong> total.
@@ -319,7 +379,6 @@
       <div class="delta">47× more output per input token</div>
     </div>
     <div class="chart-right">
-      <div class="desc-stat">47<span class="unit">×</span></div>
       <div class="desc-head">More output per token of fresh input</div>
       <div class="desc-body">
         To produce the same <strong>3.9M output tokens</strong>, the field average needs 10.3M input tokens. MO§ES needed 218K. The conservation cascade: cached context carries the semantic load so fresh input drives maximum output. <strong>The field average is operating at a compression loss.</strong>
@@ -333,18 +392,17 @@
       <div class="chart-label">III · Efficiency</div>
       <div class="chart-title">Tokens per Task</div>
       <div class="bars-wrap">
-        <div class="bar-col"><div class="bar-val">810K</div><div class="bar gold-bar" style="height:21px"></div></div>
-        <div class="bar-col"><div class="bar-val">2.9M</div><div class="bar green-bar" style="height:76px"></div></div>
+        <div class="bar-col"><div class="bar-val">810K</div><div class="bar gold-bar" style="height:14px"></div></div>
+        <div class="bar-col"><div class="bar-val">4.67M</div><div class="bar green-bar" style="height:76px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">3.58× fewer tokens · same output</div>
+      <div class="delta">5.8× fewer tokens · same output</div>
     </div>
     <div class="chart-right">
-      <div class="desc-stat">3.06<span class="unit">B</span></div>
       <div class="desc-head">Extra tokens the field would burn</div>
       <div class="desc-body">
-        Across 1,465 tasks: <strong>MO§ES uses 1.19B tokens. The field needs 4.25B.</strong> That 3.06B gap isn't smaller tasks — MO§ES shipped 35,242 LOC. It's reuse: governance context injected once, cached across every session, never recomputed.
+        Across 1,465 tasks: <strong>MO§ES uses 1.19B tokens. The field needs 6.84B.</strong> That 5.65B gap isn't smaller tasks — MO§ES shipped 35,242 LOC. It's reuse: governance context injected once, cached across every session, never recomputed.
       </div>
     </div>
   </div>
@@ -363,7 +421,6 @@
       <div class="delta">+96.4 hrs saved over 7 days</div>
     </div>
     <div class="chart-right">
-      <div class="desc-stat">96.4<span class="unit"> hrs</span></div>
       <div class="desc-head">Hours saved across the window</div>
       <div class="desc-body">
         <strong>44.9 hrs of compute vs 141.4 hrs</strong> for the same 1,465 tasks. The speed advantage isn't hardware — it's session bootstrapping. MO§ES sessions start with full system state already loaded. No ramp-up. No re-establishing context. <strong>Direct task engagement from message one.</strong>
@@ -385,10 +442,9 @@
       <div class="delta">64× cheaper per line shipped</div>
     </div>
     <div class="chart-right">
-      <div class="desc-stat">$1,561<span class="unit"> saved</span></div>
       <div class="desc-head">On 35,242 lines of production code</div>
       <div class="desc-body">
-        <strong>$24.67 vs $1,585.89</strong> for the same LOC output. MO§ES runs on a $23.33/week subscription — flat rate regardless of volume. The field pays per token at market rates. Token efficiency compounds the gap: <strong>even at pay-per-token pricing, the 3.58× token advantage alone would cut the field's bill by over half.</strong>
+        <strong>$24.67 vs ~$1,846</strong> for the same LOC output. MO§ES runs on a $23.33/week subscription — flat rate regardless of volume. The field pays per token at market rates. Token efficiency compounds the gap: <strong>even at pay-per-token pricing, the 3.58× token advantage alone would cut the field's bill by over half.</strong>
       </div>
     </div>
   </div>
