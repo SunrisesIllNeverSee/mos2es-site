@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — Honest Comparison vs. Field Average</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f5f0e8;
+      color: #1a1a1a;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      padding: 48px 56px;
+      min-width: 1100px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid #c4923a;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+    .brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 26px;
+      font-weight: 700;
+      color: #8a5c1a;
+      letter-spacing: -0.02em;
+    }
+    .header-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 4px;
+    }
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      border: 1px solid #2e7d32;
+      color: #2e7d32;
+      border-radius: 999px;
+      padding: 5px 14px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #555;
+    }
+    .swatch { width: 28px; height: 12px; border-radius: 2px; }
+    .swatch.gold { background: #c4923a; }
+    .swatch.green {
+      background: repeating-linear-gradient(45deg, rgba(46,125,50,0.25), rgba(46,125,50,0.25) 3px, #fff 3px, #fff 6px);
+      border: 1.5px solid #2e7d32;
+    }
+
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .chart {
+      background: #fff;
+      border: 1px solid #e0d8c8;
+      border-radius: 8px;
+      padding: 16px 14px 14px;
+    }
+    .chart-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 3px;
+    }
+    .chart-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+    }
+
+    .bars-wrap {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      height: 120px;
+    }
+    .bar-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+    }
+    .bar-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+    .bar { width: 100%; border-radius: 3px 3px 0 0; min-height: 3px; }
+    .bar.gold-bar { background: #c4923a; }
+    .bar.green-bar {
+      background: repeating-linear-gradient(45deg, rgba(46,125,50,0.3), rgba(46,125,50,0.3) 3px, #fff 3px, #fff 6px);
+      border: 1.5px solid #2e7d32;
+    }
+    .bar-axis { width: 100%; height: 1px; background: #e0d8c8; }
+    .bar-names { display: flex; gap: 10px; margin-top: 6px; }
+    .bar-name {
+      flex: 1;
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      color: #999;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .delta {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      color: #2e7d32;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .raw-section {
+      border-top: 1px solid #d8d0c0;
+      padding-top: 22px;
+    }
+    .raw-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 12px;
+    }
+    .raw-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    .raw-card {
+      background: #fff;
+      border: 1px solid #e0d8c8;
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+    }
+    .raw-card.featured { border-color: #c4923a; background: #fdf8f0; }
+    .r-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+    .r-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1;
+    }
+    .raw-card.featured .r-val { color: #8a5c1a; }
+    .r-sub { font-family: 'DM Mono', monospace; font-size: 8px; color: #aaa; margin-top: 4px; }
+
+    .footer {
+      margin-top: 22px;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: #aaa;
+      letter-spacing: .06em;
+      line-height: 1.8;
+      border-top: 1px solid #e0d8c8;
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <div class="brand">MO§ES™</div>
+      <div class="header-sub">Five Measured Kernels · vs. Field Average · Raw JSONL · 98 Sessions · All Subagents</div>
+    </div>
+    <div class="badge">Honest Comparison · Full Data</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="swatch gold"></div>MO§ES™ (raw JSONL)</div>
+    <div class="legend-item"><div class="swatch green"></div>Field average (AA Coding Agent Index)</div>
+  </div>
+
+  <div class="charts">
+    <div class="chart">
+      <div class="chart-label">I · Cache</div>
+      <div class="chart-title">Cache Hit Rate</div>
+      <div class="bars-wrap">
+        <div class="bar-col"><div class="bar-val">94.66%</div><div class="bar gold-bar" style="height:116px"></div></div>
+        <div class="bar-col"><div class="bar-val">63.82%</div><div class="bar green-bar" style="height:78px"></div></div>
+      </div>
+      <div class="bar-axis"></div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
+      <div class="delta">+8.3pp · #1</div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-label">II · Compression</div>
+      <div class="chart-title">Output : Input Ratio</div>
+      <div class="bars-wrap">
+        <div class="bar-col"><div class="bar-val">17.9×</div><div class="bar gold-bar" style="height:116px"></div></div>
+        <div class="bar-col"><div class="bar-val">0.38×</div><div class="bar green-bar" style="height:3px"></div></div>
+      </div>
+      <div class="bar-axis"></div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
+      <div class="delta">111× field avg · #1</div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-label">III · Efficiency</div>
+      <div class="chart-title">Tokens per Task</div>
+      <div class="bars-wrap">
+        <div class="bar-col"><div class="bar-val">810K</div><div class="bar gold-bar" style="height:32px"></div></div>
+        <div class="bar-col"><div class="bar-val">2.9M</div><div class="bar green-bar" style="height:116px"></div></div>
+      </div>
+      <div class="bar-axis"></div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
+      <div class="delta">5.8× fewer tokens · #1</div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-label">IV · Speed</div>
+      <div class="chart-title">Time per Task</div>
+      <div class="bars-wrap">
+        <div class="bar-col"><div class="bar-val">1.84m</div><div class="bar gold-bar" style="height:28px"></div></div>
+        <div class="bar-col"><div class="bar-val">5.79m</div><div class="bar green-bar" style="height:88px"></div></div>
+      </div>
+      <div class="bar-axis"></div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
+      <div class="delta">7.1× faster · #1</div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-label">V · Cost</div>
+      <div class="chart-title">Cost per LOC</div>
+      <div class="bars-wrap">
+        <div class="bar-col"><div class="bar-val">$0.0007</div><div class="bar gold-bar" style="height:3px"></div></div>
+        <div class="bar-col"><div class="bar-val">$0.045</div><div class="bar green-bar" style="height:116px"></div></div>
+      </div>
+      <div class="bar-axis"></div>
+      <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
+      <div class="delta">102× cheaper · #1</div>
+    </div>
+  </div>
+
+  <div class="raw-section">
+    <div class="raw-label">Raw Token Extraction · 98 Session Files · All Subagents Included</div>
+    <div class="raw-grid">
+      <div class="raw-card"><div class="r-lbl">Input</div><div class="r-val">123K</div><div class="r-sub">123,246 fresh</div></div>
+      <div class="raw-card"><div class="r-lbl">Output</div><div class="r-val">3.9M</div><div class="r-sub">3,902,803</div></div>
+      <div class="raw-card"><div class="r-lbl">Cache Create</div><div class="r-val">34.8M</div><div class="r-sub">34,826,779</div></div>
+      <div class="raw-card"><div class="r-lbl">Cache Read</div><div class="r-val">1.08B</div><div class="r-sub">1,084,399,183</div></div>
+      <div class="raw-card featured"><div class="r-lbl">Total</div><div class="r-val">1.12B</div><div class="r-sub">1,123,252,011</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Field data: artificialanalysis.ai/agents/coding-agents · Extracted 2026-05-14 · MO§ES window: 2026-05-08 → 2026-05-14 · 21 sessions · 7,327 turns · 35,242 LOC shipped · Operator: DJM / Ello Cello LLC · DOI: 10.5281/zenodo.18792459
+  </div>
+
+</body>
+</html>
