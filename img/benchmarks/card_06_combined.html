@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #f5f0e4;
+      font-family: 'DM Mono', ui-monospace, monospace;
+      width: 1200px;
+      padding: 0;
+      color: #1a1a1a;
+    }
+    .card {
+      width: 1200px;
+      padding: 22px 60px 28px;
+      background: #f5f0e4;
+    }
+
+    /* Top bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 22px;
+    }
+
+    /* Title block */
+    .title-block {
+      text-align: center;
+      margin-bottom: 20px;
+      border-top: 1px solid #c4923a;
+      padding-top: 18px;
+    }
+    .title-kicker {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    .title-main {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 26px;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
+    }
+    .title-arr { color: #c4923a; margin: 0 10px; font-style: normal; }
+
+    /* Kernels row */
+    .kernels {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-bottom: 14px;
+      border: 1px solid #ddd6c8;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .kernel-cell {
+      padding: 16px 10px 14px;
+      text-align: center;
+      border-right: 1px solid #ddd6c8;
+    }
+    .kernel-cell:last-child { border-right: 0; }
+    .k-label {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .k-val {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: #c4923a;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .k-val .unit { font-size: 26px; font-weight: 400; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: #ddd6c8;
+      margin: 18px 0;
+    }
+
+    /* Raw tokens row */
+    .raw-tokens {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1px solid #ddd6c8;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    .raw-cell {
+      padding: 14px 10px 12px;
+      text-align: center;
+      border-right: 1px solid #ddd6c8;
+    }
+    .raw-cell:last-child { border-right: 0; }
+    .r-label {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    .r-num {
+      font-size: 30px;
+      font-weight: 500;
+      color: #1a1a1a;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .r-num .m { font-size: 18px; color: #555; }
+    .r-sub {
+      font-size: 9px;
+      color: #aaa;
+      margin-top: 5px;
+      letter-spacing: .04em;
+    }
+
+    /* Footer quote */
+    .footer-quote {
+      text-align: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Bottom stats bar */
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #ddd6c8;
+      padding-top: 12px;
+      margin-bottom: 14px;
+    }
+    .bb-left {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .bb-right {
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #c4923a;
+      font-weight: 500;
+    }
+
+    /* Final footer */
+    .final-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #aaa;
+      border-top: 1px solid #ddd6c8;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <div class="top-bar">
+    <span>CERT · 06 ‹ 06</span>
+    <span>KERNEL AND INPUTS</span>
+  </div>
+
+  <div class="title-block">
+    <div class="title-kicker">VI · The Full Instrument</div>
+    <div class="title-main">five measured kernels <span class="title-arr">→</span> from five token categories</div>
+  </div>
+
+  <div class="kernels">
+    <div class="kernel-cell">
+      <div class="k-label">Cache Hit</div>
+      <div class="k-val">94·66<span class="unit">%</span></div>
+    </div>
+    <div class="kernel-cell">
+      <div class="k-label">Out : In</div>
+      <div class="k-val">17·9<span class="unit">×</span></div>
+    </div>
+    <div class="kernel-cell">
+      <div class="k-label">Tokens · Task</div>
+      <div class="k-val">810<span class="unit">k</span></div>
+    </div>
+    <div class="kernel-cell">
+      <div class="k-label">Time · Task</div>
+      <div class="k-val">1·84<span class="unit">min</span></div>
+    </div>
+    <div class="kernel-cell">
+      <div class="k-label">$ · LOC</div>
+      <div class="k-val">·0007</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="raw-tokens">
+    <div class="raw-cell">
+      <div class="r-label">Input</div>
+      <div class="r-num">123<span class="m">,246</span></div>
+      <div class="r-sub">fresh tokens in</div>
+    </div>
+    <div class="raw-cell">
+      <div class="r-label">Output</div>
+      <div class="r-num">3·90 <span class="m">m</span></div>
+      <div class="r-sub">3,902,803</div>
+    </div>
+    <div class="raw-cell">
+      <div class="r-label">Cache Create</div>
+      <div class="r-num">34·83 <span class="m">m</span></div>
+      <div class="r-sub">34,826,779</div>
+    </div>
+    <div class="raw-cell">
+      <div class="r-label">Cache Read</div>
+      <div class="r-num">1·084 <span class="m">b</span></div>
+      <div class="r-sub">1,084,399,183</div>
+    </div>
+    <div class="raw-cell">
+      <div class="r-label">Total Tokens</div>
+      <div class="r-num" style="color:#c4923a">1·123 <span class="m" style="color:#c4923a">b</span></div>
+      <div class="r-sub">1,123,252,011</div>
+    </div>
+  </div>
+
+  <div class="footer-quote">the kernel survives compression · the inputs were once the field</div>
+
+  <div class="bottom-bar">
+    <div class="bb-left">7 Day Window · 2026·05·08 → 2026·05·14</div>
+    <div class="bb-right">98 Sessions · 9,332 Turns · Raw JSONL · All Subagents</div>
+  </div>
+
+  <div class="final-footer">
+    <span>Sovereign Signal</span>
+    <span>2026·05·14 · DJM</span>
+  </div>
+
+</div>
+</body>
+</html>
