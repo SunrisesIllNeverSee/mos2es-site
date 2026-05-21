@@ -245,7 +245,7 @@
     .row-field td { background: #f6faf6; }
     .total-cell { font-weight: 700; color: #8a5c1a; }
     .field-total { color: #c0392b !important; }
-    .na-cell { color: #ccc !important; }
+    
     .comp-note {
       font-size: 8px;
       letter-spacing: .06em;
@@ -328,15 +328,15 @@
           <td class="row-label field-label">Field avg</td>
           <td>~3.62B</td>
           <td>~542M</td>
-          <td class="na-cell">—</td>
+          <td>~417M</td>
           <td>~2.93B</td>
-          <td class="total-cell field-total">~6.84B</td>
+          <td class="total-cell field-total">~7.51B</td>
           <td>1,465 / ~7,325</td>
           <td>~29,300</td>
         </tr>
       </tbody>
     </table>
-    <div class="comp-note">Field avg = mean of 13 published AA models · Cache Create not reported by AA · Cost: $23.33 (MO§ES) vs ~$1,846 (field) · Time: 44.9 hrs vs 141.4 hrs</div>
+    <div class="comp-note">Field avg = mean of 13 published AA models · Cache Create not reported by AA · Cost: $23.33 (MO§ES) vs ~$2,377 (field) · Time: 44.9 hrs vs 316 hrs · Cache Create derived from hit rate</div>
   </div>
 
   <div class="legend">
@@ -351,16 +351,16 @@
       <div class="chart-title">Cache Hit Rate</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">94.66%</div><div class="bar gold-bar" style="height:76px"></div></div>
-        <div class="bar-col"><div class="bar-val">63.82%</div><div class="bar green-bar" style="height:51px"></div></div>
+        <div class="bar-col"><div class="bar-val">86.4%</div><div class="bar green-bar" style="height:73px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">6.8× less fresh compute</div>
+      <div class="delta">+8.3pp · #1</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">Less fresh compute per session</div>
       <div class="desc-body">
-        Every MO§ES session starts with <strong>5,162 tokens of governance context already cached</strong> — constitutional framework, coordination state, project history. The field starts cold every task. That 30pp gap compounds across 1,465 tasks into <strong>835K vs 123K fresh tokens</strong> total.
+        Every MO§ES session starts with <strong>5,162 tokens of governance context already cached</strong> — constitutional framework, coordination state, project history. The field starts cold every task. That 8.3pp gap compounds: MO§ES wrote context to cache once and read it 1.08B times. The field restores more per session.
       </div>
     </div>
   </div>
@@ -372,16 +372,16 @@
       <div class="chart-title">Output : Input Ratio</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">17.9×</div><div class="bar gold-bar" style="height:76px"></div></div>
-        <div class="bar-col"><div class="bar-val">0.38×</div><div class="bar green-bar" style="height:2px"></div></div>
+        <div class="bar-col"><div class="bar-val">0.162×</div><div class="bar green-bar" style="height:1px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">47× more output per input token</div>
+      <div class="delta">111× more output per input token</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">More output per token of fresh input</div>
       <div class="desc-body">
-        To produce the same <strong>3.9M output tokens</strong>, the field average needs 10.3M input tokens. MO§ES needed 218K. The conservation cascade: cached context carries the semantic load so fresh input drives maximum output. <strong>The field average is operating at a compression loss.</strong>
+        To produce the same <strong>3.9M output tokens</strong>, the field average needs 24.1M input tokens. MO§ES needed 218K. The conservation cascade: cached context carries the semantic load so fresh input drives maximum output. <strong>The field average uses 111× more input to produce the same output.</strong>
       </div>
     </div>
   </div>
@@ -413,17 +413,17 @@
       <div class="chart-label">IV · Speed</div>
       <div class="chart-title">Time per Task</div>
       <div class="bars-wrap">
-        <div class="bar-col"><div class="bar-val">1.84m</div><div class="bar gold-bar" style="height:24px"></div></div>
-        <div class="bar-col"><div class="bar-val">5.79m</div><div class="bar green-bar" style="height:76px"></div></div>
+        <div class="bar-col"><div class="bar-val">1.84m</div><div class="bar gold-bar" style="height:11px"></div></div>
+        <div class="bar-col"><div class="bar-val">13.0m</div><div class="bar green-bar" style="height:80px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">+96.4 hrs saved over 7 days</div>
+      <div class="delta">7.1× faster · 271 hrs saved</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">Hours saved across the window</div>
       <div class="desc-body">
-        <strong>44.9 hrs of compute vs 141.4 hrs</strong> for the same 1,465 tasks. The speed advantage isn't hardware — it's session bootstrapping. MO§ES sessions start with full system state already loaded. No ramp-up. No re-establishing context. <strong>Direct task engagement from message one.</strong>
+        <strong>44.9 hrs of compute vs 316 hrs</strong> for the same 1,465 tasks. The speed advantage isn't hardware — it's session bootstrapping. MO§ES sessions start with full system state already loaded. No ramp-up. No re-establishing context. <strong>Direct task engagement from message one.</strong>
       </div>
     </div>
   </div>
@@ -439,12 +439,12 @@
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">64× cheaper per line shipped</div>
+      <div class="delta">102× cheaper per line shipped</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">On 35,242 lines of production code</div>
       <div class="desc-body">
-        <strong>$24.67 vs ~$1,846</strong> for the same LOC output. MO§ES runs on a $23.33/week subscription — flat rate regardless of volume. The field pays per token at market rates. Token efficiency compounds the gap: <strong>even at pay-per-token pricing, the 3.58× token advantage alone would cut the field's bill by over half.</strong>
+        <strong>$24.67 vs ~$2,377</strong> for the same LOC output. MO§ES runs on a $23.33/week subscription — flat rate regardless of volume. The field pays per token at market rates. Token efficiency compounds the gap: <strong>even at pay-per-token pricing, the 3.58× token advantage alone would cut the field's bill by over half.</strong>
       </div>
     </div>
   </div>
