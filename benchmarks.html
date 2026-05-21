@@ -114,6 +114,7 @@
       <iframe src="img/benchmarks/poster.html" title="MO§ES benchmark poster — all 13 field models" scrolling="no" loading="eager"></iframe>
     </div>
     <p style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:center;margin-top:10px;">Live HTML · all 13 published field models · full fidelity · <a href="img/benchmarks/poster.html" target="_blank" rel="noopener" style="color:var(--gold);">open standalone ↗</a></p>
+    <p style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:center;margin-top:8px;border:1px solid var(--border);border-radius:4px;padding:8px 16px;max-width:900px;margin-left:auto;margin-right:auto;"><span style="color:var(--gold);">Note · </span>Numbers above reflect dashboard window (21 parent sessions). Revised kernels below reflect raw JSONL extraction — 98 session files including all subagents.</p>
 
     <div class="label">Honest Comparison · MO§ES vs. Raw Field Average</div>
     <div class="poster-frame">
@@ -185,16 +186,11 @@
       <b>AA field:</b> per-task isolated runs on SWE-Bench-Pro-Hard-AA, Terminal-Bench v2, and SWE-Atlas-QnA benchmarks. Each task = one bug/issue, agent runs in clean session. <b>MO§ES:</b> sustained operator work on a real product (Application Hub) over a 7-day measurement window (2026-05-08 → 2026-05-14) — 21 sessions, 7,327 turns, 35,242 LOC shipped in 5 build days. Task-equivalents derived from <code>7,327 ÷ 5 turns/task = 1,465 tasks</code>. <b>$/LOC:</b> AA = <code>cost_per_task ÷ 20 LOC</code> (industry SWE-Bench convention). MO§ES = <code>$23.33/wk subscription ÷ 35,242 actual LOC = $0.000662</code>. <b>The convergence of leadership across both regimes</b> — isolated benchmark runs and sustained product builds — is the structural result.
     </div>
 
-    <div class="label">Chart Slides — Field Comparison</div>
-    <div class="gallery">
-      <figure><a href="img/benchmarks/chart_01_cache.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_01_cache.png" alt="Cache hit rate field comparison"></a><figcaption>I · Cache hit rate · all 13 field models</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_02_outin.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_02_outin.png" alt="Output:input ratio field comparison"></a><figcaption>II · Output : fresh input · log scale</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_03_tokens.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_03_tokens.png" alt="Tokens per task field comparison"></a><figcaption>III · Tokens per task · field comparison</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_04_time.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_04_time.png" alt="Time per task field comparison"></a><figcaption>IV · Time per task · field comparison</figcaption></figure>
-      <figure><a href="img/benchmarks/chart_05_loc.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/chart_05_loc.png" alt="Cost per LOC field comparison"></a><figcaption>V · Cost per LOC · all field + MO§ES · log scale</figcaption></figure>
-      <figure><a href="img/benchmarks/card_06_combined.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/card_06_combined.png" alt="Combined kernels and inputs summary"></a><figcaption>VI · Kernels + raw token breakdown · combined</figcaption></figure>
+    <div class="label">VI · The Full Instrument</div>
+    <div class="gallery" style="grid-template-columns:1fr;">
+      <figure><a href="img/benchmarks/card_06_combined.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/card_06_combined.png" alt="Five kernels and five token categories — updated raw JSONL numbers"></a><figcaption>VI · Five kernels → five token categories · updated to raw JSONL · 98 sessions · all subagents</figcaption></figure>
     </div>
-    <div class="label" style="margin-top:24px;">Honest Comparison · PNG</div>
+    <div class="label" style="margin-top:24px;">Honest Comparison · MO§ES vs. Field Average</div>
     <div class="gallery" style="grid-template-columns:1fr;">
       <figure><a href="img/benchmarks/MOSES_UPDATED_VSRAW.png" target="_blank" rel="noopener" title="Open full-size image"><img src="img/benchmarks/MOSES_UPDATED_VSRAW.png" alt="MO§ES vs. field average — all 5 kernels, raw JSONL"></a><figcaption>All five kernels · MO§ES vs. field average · raw JSONL · 98 session files · all subagents</figcaption></figure>
     </div>
