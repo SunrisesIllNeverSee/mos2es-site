@@ -1,3 +1,7 @@
 .netlify/
 .DS_Store
+**/.DS_Store
+
+# Claude Code internal directory (hooks, skills, local config)
+.claude/
 
