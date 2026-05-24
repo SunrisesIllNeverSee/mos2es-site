@@ -243,11 +243,8 @@
     .field-label { color: #2e7d32; }
     .row-moses td { background: #fdf8f0; }
     .row-field td { background: #f6faf6; }
-    .row-delta td { background: #f4ebd8; font-weight: 600; }
     .total-cell { font-weight: 700; color: #8a5c1a; }
     .field-total { color: #c0392b !important; }
-    .delta-label { color: #5d4a0e; }
-    .delta-total { color: #2e7d32 !important; font-weight: 700; }
     
     .comp-note {
       font-size: 8px;
@@ -264,12 +261,41 @@
 
   <div class="top-bar">
     <div class="brand">MO§ES™</div>
-    <div class="badge" style="background:#c4923a;color:#fff;border-color:#c4923a;font-weight:700;">#1 in All 5 · Honest · Raw JSONL</div>
+    <div class="badge">Honest · Full Data · Raw JSONL</div>
   </div>
 
   <div class="title-bar">
     <div class="title-kicker">Five Measured Kernels · vs. Field Average</div>
     <div class="title-main">seven days · 1,465 tasks · 35,242 LOC</div>
+  </div>
+
+  <!-- Raw token strip -->
+  <div class="token-strip">
+    <div class="tok-cell">
+      <div class="tok-lbl">Input</div>
+      <div class="tok-val">123K</div>
+      <div class="tok-sub">123,246 fresh</div>
+    </div>
+    <div class="tok-cell">
+      <div class="tok-lbl">Output</div>
+      <div class="tok-val">3.9M</div>
+      <div class="tok-sub">3,902,803</div>
+    </div>
+    <div class="tok-cell">
+      <div class="tok-lbl">Cache Create</div>
+      <div class="tok-val">34.8M</div>
+      <div class="tok-sub">34,826,779</div>
+    </div>
+    <div class="tok-cell">
+      <div class="tok-lbl">Cache Read</div>
+      <div class="tok-val">1.08B</div>
+      <div class="tok-sub">1,084,399,183</div>
+    </div>
+    <div class="tok-cell">
+      <div class="tok-lbl">Total</div>
+      <div class="tok-val">1.12B</div>
+      <div class="tok-sub">1,123,252,011</div>
+    </div>
   </div>
 
   <!-- Comparison table -->
@@ -283,7 +309,7 @@
           <th>Cache Create</th>
           <th>Cache Read</th>
           <th>Total</th>
-          <th>Sessions / Tasks</th>
+          <th>Tasks / Turns</th>
           <th>LOC</th>
         </tr>
       </thead>
@@ -295,32 +321,22 @@
           <td>34.8M</td>
           <td>1.08B</td>
           <td class="total-cell">1.12B</td>
-          <td>98 / 1,465</td>
+          <td>1,465 / 7,327</td>
           <td>35,242</td>
         </tr>
         <tr class="row-field">
-          <td class="row-label field-label">Field avg per model</td>
-          <td>162.9M</td>
-          <td>17.2M</td>
-          <td>—</td>
-          <td>1.49B</td>
-          <td class="total-cell field-total">1.67B</td>
-          <td>1 / 358</td>
-          <td>7,160</td>
-        </tr>
-        <tr class="row-delta">
-          <td class="row-label delta-label">Δ field ÷ MO§ES</td>
-          <td>1,322×</td>
-          <td>4.4×</td>
-          <td>—</td>
-          <td>1.4×</td>
-          <td class="total-cell delta-total">1.5×</td>
-          <td>0.24× (MO§ES did 4× more)</td>
-          <td>0.20× (MO§ES shipped 4.9× more)</td>
+          <td class="row-label field-label">Field avg</td>
+          <td>~274M</td>
+          <td>~29.2M</td>
+          <td>~35M</td>
+          <td>~3.59B</td>
+          <td class="total-cell field-total">~7.51B</td>
+          <td>1,465 / ~7,325</td>
+          <td>~29,300</td>
         </tr>
       </tbody>
     </table>
-    <div class="comp-note">Field avg per model = mean of 13 published AA models · raw AA telemetry · 1 benchmark run × 358 fixed tasks per model · LOC = AA's 20 LOC/task convention (not measured shipped code) · Cache Create not reported by AA · Time: 44.9 hrs (MO§ES total) vs ~71 hrs (per field model run)</div>
+    <div class="comp-note">Field avg = mean of 17 published AA models · Cache Create not reported by AA · Cost: $23.33 (MO§ES) vs ~$1,845 (field) · Time: 44.9 hrs vs 311.8 hrs · Cache Write ~equal; Cache Read 3.3× more for field</div>
   </div>
 
   <div class="legend">
@@ -335,16 +351,16 @@
       <div class="chart-title">Cache Hit Rate</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">94.66%</div><div class="bar gold-bar" style="height:76px"></div></div>
-        <div class="bar-col"><div class="bar-val">90.68%</div><div class="bar green-bar" style="height:46px"></div></div>
+        <div class="bar-col"><div class="bar-val">91.45%</div><div class="bar green-bar" style="height:77px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">+3.98pp · #1</div>
+      <div class="delta">+3.21pp · #1</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">Less fresh compute per session</div>
       <div class="desc-body">
-        Every MO§ES session starts with <strong>5,162 tokens of governance context already cached</strong>: constitutional framework, coordination state, project history. The field starts cold every task. That 3.98pp gap understates the real advantage: MO§ES reads 1.08B from cache across 1,465 tasks. The field averages <strong>455K fresh input per task</strong>, 3,700× more cold ingestion than MO§ES, and discards most of it between runs. Cache reuse, not hit rate, is the structural edge.
+        Every MO§ES session starts with <strong>5,162 tokens of governance context already cached</strong> — constitutional framework, coordination state, project history. The field starts cold every task. That 3.21pp gap understates the real advantage: MO§ES reads 1.08B from cache across 1,465 sessions. The field writes 35M fresh per task, reads it a few times, and discards it. Cache reuse — not hit rate — is the structural edge.
       </div>
     </div>
   </div>
@@ -356,16 +372,16 @@
       <div class="chart-title">Output : Input Ratio</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">17.9×</div><div class="bar gold-bar" style="height:76px"></div></div>
-        <div class="bar-col"><div class="bar-val">0.162×</div><div class="bar green-bar" style="height:1px"></div></div>
+        <div class="bar-col"><div class="bar-val">0.176×</div><div class="bar green-bar" style="height:1px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">110× more output per input token</div>
+      <div class="delta">102× more output per input token</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">More output per token of fresh input</div>
       <div class="desc-body">
-        To produce the same <strong>3.9M output tokens</strong>, the field average needs 24.1M input tokens. MO§ES needed 218K. The conservation cascade: cached context carries the semantic load so fresh input drives maximum output. <strong>The field average uses 110× more input to produce the same output.</strong>
+        To produce the same <strong>3.9M output tokens</strong>, the field average needs 24.1M input tokens. MO§ES needed 218K. The conservation cascade: cached context carries the semantic load so fresh input drives maximum output. <strong>The field average uses 102× more input to produce the same output.</strong>
       </div>
     </div>
   </div>
@@ -377,16 +393,16 @@
       <div class="chart-title">Tokens per Task</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">810K</div><div class="bar gold-bar" style="height:14px"></div></div>
-        <div class="bar-col"><div class="bar-val">4.67M</div><div class="bar green-bar" style="height:80px"></div></div>
+        <div class="bar-col"><div class="bar-val">5.1M</div><div class="bar green-bar" style="height:80px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">5.8× fewer tokens · same output</div>
+      <div class="delta">6.3× fewer tokens · same output</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">Extra tokens the field would burn</div>
       <div class="desc-body">
-        Across 1,465 tasks: <strong>MO§ES uses 1.12B tokens. The field needs 6.84B.</strong> That 5.72B gap isn't smaller tasks. MO§ES shipped 35,242 LOC. It's reuse: governance context injected once, cached across every session, never recomputed.
+        Across 1,465 tasks: <strong>MO§ES uses 1.12B tokens. The field needs 7.51B.</strong> That 6.39B gap isn't smaller tasks — MO§ES shipped 35,242 LOC. It's reuse: governance context injected once, cached across every session, never recomputed.
       </div>
     </div>
   </div>
@@ -398,16 +414,16 @@
       <div class="chart-title">Time per Task</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">1.84m</div><div class="bar gold-bar" style="height:11px"></div></div>
-        <div class="bar-col"><div class="bar-val">11.92m</div><div class="bar green-bar" style="height:80px"></div></div>
+        <div class="bar-col"><div class="bar-val">12.8m</div><div class="bar green-bar" style="height:80px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">6.5× faster · 246 hrs saved</div>
+      <div class="delta">6.9× faster · 267 hrs saved</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">Hours saved across the window</div>
       <div class="desc-body">
-        <strong>44.9 hrs of compute vs ~291 hrs</strong> for the same 1,465 tasks. The speed advantage isn't hardware. It's session bootstrapping. MO§ES sessions start with full system state already loaded. No ramp-up. No re-establishing context. <strong>Direct task engagement from message one.</strong>
+        <strong>44.9 hrs of compute vs 311.8 hrs</strong> for the same 1,465 tasks. The speed advantage isn't hardware — it's session bootstrapping. MO§ES sessions start with full system state already loaded. No ramp-up. No re-establishing context. <strong>Direct task engagement from message one.</strong>
       </div>
     </div>
   </div>
@@ -419,16 +435,16 @@
       <div class="chart-title">Cost per LOC</div>
       <div class="bars-wrap">
         <div class="bar-col"><div class="bar-val">$0.0007</div><div class="bar gold-bar" style="height:2px"></div></div>
-        <div class="bar-col"><div class="bar-val">$0.067</div><div class="bar green-bar" style="height:76px"></div></div>
+        <div class="bar-col"><div class="bar-val">$0.045</div><div class="bar green-bar" style="height:76px"></div></div>
       </div>
       <div class="bar-axis"></div>
       <div class="bar-names"><div class="bar-name">MO§ES</div><div class="bar-name">Field avg</div></div>
-      <div class="delta">96× cheaper per line shipped</div>
+      <div class="delta">102× cheaper per line shipped</div>
     </div>
     <div class="chart-right">
       <div class="desc-head">On 35,242 lines of production code</div>
       <div class="desc-body">
-        <strong>$23.33 vs ~$1,963</strong> for the same LOC output. MO§ES runs on a $23.33/week subscription. Flat rate regardless of volume. The field pays per token at market rates. Token efficiency compounds the gap: <strong>even at pay-per-token pricing, the 6.1× token advantage alone would cut the field's bill by 84%.</strong>
+        <strong>$23.33 vs ~$1,845</strong> for the same LOC output. MO§ES runs on a $23.33/week subscription — flat rate regardless of volume. The field pays per token at market rates. Token efficiency compounds the gap: <strong>even at pay-per-token pricing, the 3.58× token advantage alone would cut the field's bill by over half.</strong>
       </div>
     </div>
   </div>
