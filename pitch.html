@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — Seed Round Pitch Deck</title>
+  <meta name="description" content="MO§ES™ is the governance primitive the AI stack is missing. $1.5M SAFE seed round. 110× compression. 5.8× fewer tokens. #1 across all five kernels.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --bg: #0A0D12;
+      --bg-alt: #10141A;
+      --bg-elev: #141920;
+      --bone: #E8ECF1;
+      --bone-soft: #C8CDD6;
+      --bone-mute: #8A94A0;
+      --gray: #8A94A0;
+      --gold: #C4923A;
+      --gold-warm: #C9A24A;
+      --gold-soft: rgba(196,146,58,0.85);
+      --gold-mute: rgba(196,146,58,0.20);
+      --gold-line: rgba(196,146,58,0.32);
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+      --mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        linear-gradient(rgba(196,146,58,0.07) 1px, transparent 1px) 0 0 / 100% 80px,
+        linear-gradient(90deg, rgba(196,146,58,0.07) 1px, transparent 1px) 0 0 / 80px 100%,
+        var(--bg);
+      color: var(--bone);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* IP STRIP */
+    .ip-strip-top {
+      padding: 16px 64px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-align: center;
+      border-bottom: 1px solid rgba(196,146,58,0.12);
+      text-transform: uppercase;
+    }
+    .ip-strip-top .dot { color: rgba(196,146,58,0.45); margin: 0 12px; }
+
+    /* NAV */
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 64px; gap: 24px;
+    }
+    .nav .wordmark-mini {
+      font-family: var(--serif);
+      font-size: 22px; font-weight: 700;
+      letter-spacing: -0.005em;
+      color: var(--gold-warm);
+      text-decoration: none;
+    }
+    .nav .wordmark-mini sup {
+      font-size: 0.55em; font-weight: 500;
+      vertical-align: super; color: var(--bone-soft);
+    }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+    }
+    .nav a {
+      color: var(--bone-soft); text-decoration: none;
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      border: 1px solid rgba(196,146,58,0.22);
+      background: rgba(16,20,26,0.72);
+      border-radius: 999px; padding: 8px 11px;
+      transition: all 0.18s;
+    }
+    .nav a:hover { color: var(--gold); border-color: var(--gold); }
+    .nav a.primary-door {
+      color: var(--gold);
+      background: rgba(196,146,58,0.10);
+      border-color: rgba(196,146,58,0.45);
+    }
+    .nav a.active {
+      color: var(--gold);
+      border-color: rgba(196,146,58,0.55);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 64px 64px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px; letter-spacing: 0.18em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--bone); margin-bottom: 24px;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--bone-soft);
+      line-height: 1.7; max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex; justify-content: center;
+      gap: 48px; flex-wrap: wrap; margin-bottom: 52px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem; color: var(--gold);
+      display: block; margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.14em; color: var(--bone-mute);
+      text-transform: uppercase;
+    }
+
+    /* CTA BUTTONS */
+    .cta-group {
+      display: flex; gap: 14px;
+      justify-content: center; flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+    .btn-primary {
+      display: inline-block; padding: 15px 32px;
+      background: var(--gold); color: #000;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; font-weight: 500;
+      border-radius: 2px; transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost {
+      display: inline-block; padding: 15px 32px;
+      border: 1px solid var(--gold-line); color: var(--gold);
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--bone); }
+
+    /* DECK EMBED */
+    .deck-wrap {
+      max-width: 1100px; margin: 0 auto 80px;
+      padding: 0 32px;
+    }
+    .deck-label {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.16em; color: var(--bone-mute);
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .deck-frame {
+      width: 100%; aspect-ratio: 16 / 9;
+      border: 1px solid rgba(196,146,58,0.18);
+      background: var(--bg-elev); overflow: hidden;
+    }
+    .deck-frame iframe {
+      width: 100%; height: 100%;
+      border: none; display: block;
+    }
+    .deck-fallback {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px; padding: 48px; text-align: center;
+    }
+    .deck-fallback p { color: var(--bone-mute); font-size: 0.9rem; line-height: 1.6; }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,146,58,0.25), transparent);
+      margin: 0 64px 64px;
+    }
+
+    /* LAW BLOCK */
+    .law-block {
+      max-width: 720px; margin: 0 auto 80px;
+      padding: 56px 32px; text-align: center;
+    }
+    .law-eyebrow {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.2em; color: var(--gold-soft);
+      text-transform: uppercase; margin-bottom: 28px;
+    }
+    .law-equation {
+      font-family: var(--mono);
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      color: var(--bone); margin-bottom: 24px;
+      letter-spacing: 0.06em;
+    }
+    .law-text {
+      font-family: var(--serif); font-size: 1.05rem;
+      color: var(--bone-soft); font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(196,146,58,0.12);
+      padding: 32px 64px;
+      display: flex; justify-content: space-between;
+      align-items: flex-start; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-left {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.10em; color: var(--bone-mute);
+      line-height: 2;
+    }
+    .footer-left a { color: var(--gold); text-decoration: none; }
+    .footer-left a:hover { text-decoration: underline; }
+    .footer-ip {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.08em; color: var(--bone-mute);
+      text-align: right; line-height: 2;
+    }
+
+    @media (max-width: 700px) {
+      .ip-strip-top { padding: 12px 20px; font-size: 9px; }
+      .nav { padding: 14px 20px; }
+      .hero { padding: 48px 24px 40px; }
+      .stats { gap: 24px; }
+      .deck-wrap { padding: 0 16px; }
+      .divider { margin: 0 24px 48px; }
+      footer { padding: 24px; flex-direction: column; }
+      .footer-ip { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ip-strip-top">
+    Patent Pending 19/426,028
+    <span class="dot">·</span>
+    TM MO§ES™ IC 042
+    <span class="dot">·</span>
+    DOI 10.5281/zenodo.18792459
+  </div>
+
+  <nav class="nav">
+    <a href="index.html" class="wordmark-mini">MO§ES<sup>™</sup></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="legal.html">Legal</a>
+      <a href="press.html">Press</a>
+      <a href="field-sheet.html">Field Sheet</a>
+      <a href="pitch.html" class="active">Pitch</a>
+      <a class="primary-door" href="https://signomy.xyz/moses">Run →</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <p class="hero-eyebrow">Seed Round · $1.5M SAFE</p>
+      <h1>The AI stack has models.<br>Observability. Orchestration.<br>It has <em>no governance primitive.</em></h1>
+      <p class="hero-sub">
+        What TCP/IP did for data, MO§ES™ does for AI and Agentic Infrastructure —
+        preserving semantic meaning and intent at point of execution.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">110×</span>
+          <span class="stat-label">Compression vs field avg</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">5.8×</span>
+          <span class="stat-label">Fewer tokens per task</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">U.S. Patent filings</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Zero</span>
+          <span class="stat-label">Successful refutations</span>
+        </div>
+      </div>
+
+      <div class="cta-group">
+        <a class="btn-primary" href="mailto:burnmydays@proton.me?subject=MO%C2%A7ES%E2%84%A2%20%E2%80%94%2020-Min%20Walkthrough">
+          Book a 20-min walkthrough →
+        </a>
+        <a class="btn-ghost" href="moses-pitch-deck.pdf" target="_blank" rel="noopener">
+          Download PDF
+        </a>
+      </div>
+    </section>
+
+    <div class="deck-wrap">
+      <p class="deck-label">Pitch Deck — 10 Slides</p>
+      <div class="deck-frame">
+        <iframe
+          src="moses-pitch-deck.pdf#toolbar=0&navpanes=0&scrollbar=0"
+          title="MO§ES™ Seed Round Pitch Deck"
+          loading="lazy">
+          <div class="deck-fallback">
+            <p>Inline PDF not supported in this browser.</p>
+            <a class="btn-ghost" href="moses-pitch-deck.pdf" target="_blank" rel="noopener">Open PDF →</a>
+          </div>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <section class="law-block">
+      <p class="law-eyebrow">The Law</p>
+      <p class="law-equation">C(T(S)) ≈ C(S)</p>
+      <p class="law-text">
+        Commitment is conserved under transformation when enforcement is applied.<br>
+        The theory exists. The instrument exists. The substrate exists.<br>
+        The only question left is who deploys it first.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <a href="mailto:burnmydays@proton.me">burnmydays@proton.me</a><br>
+      716.260.0603<br>
+      <a href="index.html">mos2es.com</a>
+    </div>
+    <div class="footer-ip">
+      Patent Pending · 19/426,028<br>
+      TM MO§ES™ · IC 042 · Filed<br>
+      DOI 10.5281/zenodo.18792459
+    </div>
+  </footer>
+
+</body>
+</html>
