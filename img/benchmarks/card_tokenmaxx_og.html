@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — Tokenmaxx Receipts · Social Card 1200×630</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: #1e1e1e;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 0;
+      min-width: 1200px;
+    }
+
+    /* The fixed 1200x630 social card canvas */
+    .card {
+      width: 1200px;
+      height: 630px;
+      background:
+        radial-gradient(ellipse 1000px 600px at 100% 0%, rgba(196,146,58,0.18) 0%, rgba(196,146,58,0) 60%),
+        radial-gradient(ellipse 800px 600px at 0% 100%, rgba(220,38,38,0.10) 0%, rgba(220,38,38,0) 55%),
+        linear-gradient(180deg, #0A0D12 0%, #14181f 100%);
+      color: #E8ECF1;
+      padding: 36px 56px 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+
+    /* Grid background pattern */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(196,146,58,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,146,58,0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+    }
+    .card > * { position: relative; z-index: 1; }
+
+    /* Header row */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: #C4923A;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .brand .tm {
+      font-size: 15px;
+      vertical-align: top;
+      font-weight: 600;
+      margin-left: 2px;
+    }
+    .kicker {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: #C4923A;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      border: 1px solid #C4923A;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(196,146,58,0.08);
+    }
+
+    /* Hero label */
+    .hero-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8A94A0;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Tokenmaxx math flow */
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr 48px 1fr;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 20px;
+      padding: 6px 0 14px;
+      border-bottom: 1px solid rgba(196,146,58,0.18);
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .stat-num {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 62px;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin-bottom: 6px;
+    }
+    .stat-num.input { color: #F87171; }
+    .stat-num.output { color: #34D399; }
+    .stat-num.cache { color: #F4D17A; }
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #C8CDD6;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .stat-sub {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: #6B7280;
+      margin-top: 2px;
+      letter-spacing: 0;
+    }
+    .arrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: #C4923A;
+      line-height: 1;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    /* Raw breakdown table */
+    .breakdown-card {
+      border: 1px solid rgba(196,146,58,0.25);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.18);
+      margin-bottom: 14px;
+    }
+    .breakdown-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .breakdown-table thead tr { background: rgba(196,146,58,0.10); }
+    .breakdown-table th {
+      padding: 8px 14px;
+      text-align: right;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: #C4923A;
+      border-bottom: 1px solid rgba(196,146,58,0.20);
+    }
+    .breakdown-table th.lbl { text-align: left; color: #8A94A0; width: 180px; }
+    .breakdown-table th.codex-col { color: #60A5FA; }
+    .breakdown-table th.combined-col { color: #F4D17A; background: rgba(196,146,58,0.18); }
+    .breakdown-table th .sub {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: none;
+      color: #6B7280;
+      margin-top: 2px;
+    }
+    .breakdown-table td {
+      padding: 6px 14px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #E8ECF1;
+      border-bottom: 1px solid rgba(196,146,58,0.08);
+      text-align: right;
+    }
+    .breakdown-table td.lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #94A3B8;
+      text-align: left;
+    }
+    .breakdown-table td.combined-col {
+      color: #F4D17A;
+      background: rgba(196,146,58,0.08);
+      font-weight: 700;
+    }
+    .breakdown-table td.dash { color: #4B5563; }
+    .breakdown-table tr.total-row { background: rgba(196,146,58,0.16); }
+    .breakdown-table tr.total-row td {
+      font-size: 16px;
+      font-weight: 800;
+      color: #FFFFFF;
+      border-bottom: 0;
+      padding: 9px 14px;
+    }
+    .breakdown-table tr.total-row td.lbl { color: #C4923A; font-size: 12px; }
+    .breakdown-table tr.total-row td.combined-col {
+      color: #F4D17A;
+      background: rgba(196,146,58,0.28);
+    }
+
+    /* Receipt strip */
+    .receipt {
+      display: flex;
+      gap: 22px;
+      padding: 10px 0 0;
+      border-top: 1px solid rgba(196,146,58,0.25);
+      align-items: baseline;
+      margin-top: auto;
+    }
+    .receipt-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .receipt-val {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 17px;
+      font-weight: 700;
+      color: #E8ECF1;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .receipt-lbl {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: #6B7280;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .receipt-sep { width: 1px; height: 28px; background: rgba(196,146,58,0.18); align-self: center; }
+
+    /* Footer / URL */
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .stack {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6B7280;
+      letter-spacing: .04em;
+    }
+    .stack strong { color: #C8CDD6; font-weight: 700; }
+    .url {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #C4923A;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">MO§ES<span class="tm">™</span></div>
+    <div class="kicker">Tokenmaxx-correct · by Design</div>
+  </div>
+
+  <!-- Hero label -->
+  <div class="hero-label">Combined 7-day window · Claude Opus 4.7 + Codex · one governance frame</div>
+
+  <!-- Tokenmaxx math flow (the punchline) -->
+  <div class="flow">
+    <div class="stat">
+      <div class="stat-num input">677K</div>
+      <div class="stat-label">Fresh Input</div>
+      <div class="stat-sub">677,604 tokens · combined</div>
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="stat">
+      <div class="stat-num output">15.1M</div>
+      <div class="stat-label">Output</div>
+      <div class="stat-sub">15,105,818 · 22.3× amplified</div>
+    </div>
+
+    <div class="arrow">↺</div>
+
+    <div class="stat">
+      <div class="stat-num cache">1.28B</div>
+      <div class="stat-label">Cache</div>
+      <div class="stat-sub">1,280,099,434 · 97.23% hit</div>
+    </div>
+  </div>
+
+  <!-- Raw numbers breakdown -->
+  <div class="breakdown-card">
+    <table class="breakdown-table">
+      <thead>
+        <tr>
+          <th class="lbl">Token Bucket</th>
+          <th>Claude<span class="sub">Opus 4.7 · workhorse</span></th>
+          <th class="codex-col">Codex<span class="sub">GPT-5.3/4/5 · executor</span></th>
+          <th class="combined-col">Combined MO§ES<span class="sub">governed two-engine</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="lbl">Fresh Input</td>
+          <td>123,246</td>
+          <td>554,358</td>
+          <td class="combined-col">677,604</td>
+        </tr>
+        <tr>
+          <td class="lbl">Cache Create</td>
+          <td>34,826,779</td>
+          <td class="dash">—</td>
+          <td class="combined-col">34,826,779</td>
+        </tr>
+        <tr>
+          <td class="lbl">Cache Read</td>
+          <td>1,084,399,183</td>
+          <td>160,873,472</td>
+          <td class="combined-col">1,245,272,655</td>
+        </tr>
+        <tr>
+          <td class="lbl">Output</td>
+          <td>3,902,803</td>
+          <td>11,089,944</td>
+          <td class="combined-col">14,992,747</td>
+        </tr>
+        <tr>
+          <td class="lbl">Reasoning</td>
+          <td class="dash">—</td>
+          <td>113,071</td>
+          <td class="combined-col">113,071</td>
+        </tr>
+        <tr class="total-row">
+          <td class="lbl">Total</td>
+          <td>1,123,252,011</td>
+          <td>172,517,774</td>
+          <td class="combined-col">1,295,769,785</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Receipt strip · supporting context (LOC, time, cost, cache, sessions) -->
+  <div class="receipt">
+    <div class="receipt-item">
+      <div class="receipt-val">35,242</div>
+      <div class="receipt-lbl">LOC Shipped</div>
+    </div>
+    <div class="receipt-sep"></div>
+    <div class="receipt-item">
+      <div class="receipt-val">7 days</div>
+      <div class="receipt-lbl">5 Build Days</div>
+    </div>
+    <div class="receipt-sep"></div>
+    <div class="receipt-item">
+      <div class="receipt-val">$134.76</div>
+      <div class="receipt-lbl">Blended Cost</div>
+    </div>
+    <div class="receipt-sep"></div>
+    <div class="receipt-item">
+      <div class="receipt-val">97.23%</div>
+      <div class="receipt-lbl">Cache Hit Rate</div>
+    </div>
+    <div class="receipt-sep"></div>
+    <div class="receipt-item">
+      <div class="receipt-val">105</div>
+      <div class="receipt-lbl">Sessions Total</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-row">
+    <div class="stack">Operator-augmented · <strong>Constitutional AI Governance</strong> · Claude Opus 4.7 + Codex · governed under MO§ES™</div>
+    <div class="url">mos2es.com/benchmarks</div>
+  </div>
+
+</div>
+
+</body>
+</html>

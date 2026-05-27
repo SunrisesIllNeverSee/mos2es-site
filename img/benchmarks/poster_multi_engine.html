@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — Multi-Engine Composition vs Field Average</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #e8e4dc; }
+    body {
+      color: #1a1a1a;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+      min-width: 1500px;
+    }
+    .poster {
+      width: 1500px;
+      min-height: 950px;
+      background: #f5f0e8;
+      padding: 40px 48px 36px;
+      border-radius: 8px;
+      box-shadow: 0 12px 60px rgba(0,0,0,0.18);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid #c4923a;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+    .brand {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #8a5c1a;
+      letter-spacing: -0.03em;
+    }
+    .header-sub {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: #64748b;
+      margin-top: 8px;
+    }
+    .badge {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: #c4923a;
+      color: #fff;
+      border: 1px solid #c4923a;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-weight: 700;
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: #475569;
+    }
+    .swatch { width: 28px; height: 16px; border-radius: 3px; }
+    .swatch.fresh { background: #dc2626; }
+    .swatch.cache-create { background: #f59e0b; }
+    .swatch.cache-read { background: #cbb892; }
+    .swatch.output { background: #059669; }
+    .swatch.reasoning { background: #7c3aed; }
+
+    /* 4-column stacked bar comparison */
+    .compare-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .engine-col {
+      background: #fff;
+      border: 1px solid #e0d8c8;
+      border-radius: 8px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+    }
+    .engine-col.field {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+    .engine-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+    .engine-title {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .engine-role {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: #64748b;
+      margin-bottom: 22px;
+    }
+    .engine-col.field .engine-title { color: #059669; }
+
+    .total-display {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 72px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 0.95;
+      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+    }
+    .engine-col.field .total-display { color: #dc2626; }
+    .total-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .total-sub {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px;
+      color: #999;
+      margin-top: -10px;
+      margin-bottom: 14px;
+    }
+
+    /* Stacked bar */
+    .bar-stack {
+      width: 100%;
+      height: 260px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column-reverse;
+      overflow: hidden;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .bar-seg {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: .02em;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid rgba(255,255,255,0.5);
+    }
+    .bar-seg:first-child { border-top: 0; }
+    .bar-seg.fresh { background: #dc2626; }
+    .bar-seg.cache-create { background: #f59e0b; color: #422006; }
+    .bar-seg.cache-read { background: #cbb892; color: #4a3d1f; }
+    .bar-seg.output { background: #059669; }
+    .bar-seg.reasoning { background: #7c3aed; }
+    .bar-seg.empty { background: transparent; color: #bbb; font-size: 8px; }
+
+    /* Numeric breakdown table */
+    .breakdown {
+      background: #fff;
+      border: 1px solid #e0d8c8;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .breakdown table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .breakdown thead tr { background: #f0ead8; }
+    .breakdown th {
+      padding: 12px 12px;
+      text-align: center;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #64748b;
+      border-right: 1px solid #e0d8c8;
+      border-bottom: 1px solid #e0d8c8;
+      font-weight: 700;
+    }
+    .breakdown th:first-child { text-align: left; width: 220px; padding-left: 20px; }
+    .breakdown td {
+      padding: 12px 12px;
+      text-align: center;
+      border-right: 1px solid #efe8d8;
+      border-bottom: 1px solid #efe8d8;
+      color: #1a1a1a;
+    }
+    .breakdown td:first-child {
+      text-align: left;
+      padding-left: 20px;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 700;
+      color: #475569;
+      font-size: 13px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .breakdown tr:last-child td { border-bottom: 0; }
+    .breakdown td:last-child, .breakdown th:last-child { border-right: 0; }
+    .breakdown .total-row { background: #fef3c7; }
+    .breakdown .total-row td { font-weight: 700; color: #78350f; font-size: 17px; font-family: 'JetBrains Mono', ui-monospace, monospace; padding: 14px 12px; }
+    .breakdown .total-row td:first-child { font-family: 'Inter', system-ui, sans-serif; font-size: 14px; }
+    .breakdown .total-row td:last-child { color: #dc2626; }
+    .breakdown .field-col { background: #fef2f2; }
+    .breakdown .codex-col { background: #eff6ff; }
+    .breakdown .combined-col { background: #fffbeb; }
+
+    /* Delta callout */
+    .delta-row {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .delta-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #92400e;
+    }
+    .delta-content {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      color: #334155;
+      font-weight: 500;
+    }
+    .delta-content strong { color: #8a5c1a; font-weight: 700; }
+    .delta-content .big {
+      display: block;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 42px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .delta-content .big strong { color: #dc2626; }
+
+    /* Footer */
+    .footer {
+      margin-top: 18px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+      letter-spacing: 0;
+      line-height: 1.7;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 16px;
+    }
+    .footer .src {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .footer .src.claude { color: #8a5c1a; }
+    .footer .src.codex { color: #1e40af; }
+    .footer .src.combined { color: #92400e; }
+    .footer .src.field { color: #dc2626; }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="header">
+    <div>
+      <div class="brand">MO§ES™</div>
+      <div class="header-sub">Multi-Engine Composition · Claude + Codex · vs Artificial Analysis Field Average · 7-Day Window · 2026-05-08 → 2026-05-14</div>
+    </div>
+    <div class="badge">#1 in All 5 Kernels · Multi-Engine Receipts</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="swatch fresh"></div>Fresh Input / User Prompt</div>
+    <div class="legend-item"><div class="swatch cache-create"></div>Cache Create</div>
+    <div class="legend-item"><div class="swatch cache-read"></div>Cache Read</div>
+    <div class="legend-item"><div class="swatch output"></div>Output / Generation</div>
+    <div class="legend-item"><div class="swatch reasoning"></div>Reasoning (Codex)</div>
+  </div>
+
+  <!-- 4-column stacked bar comparison -->
+  <div class="compare-row">
+
+    <!-- CLAUDE -->
+    <div class="engine-col">
+      <div class="engine-label">Engine I · MO§ES</div>
+      <div class="engine-title">Claude Code · Opus 4.7</div>
+      <div class="engine-role">Generative Workhorse · Think + Build</div>
+      <div class="total-display">1.12B</div>
+      <div class="total-label">total tokens · 98 sessions</div>
+      <div class="bar-stack" title="Claude · 1,123,252,011 total">
+        <div class="bar-seg fresh" style="height:1px;" title="Fresh Input: 123,246 (0.01%)"></div>
+        <div class="bar-seg cache-create" style="height:8px;" title="Cache Create: 34,826,779 (3.10%)">3.10%</div>
+        <div class="bar-seg cache-read" style="height:250px;" title="Cache Read: 1,084,399,183 (96.54%)">96.54% · Cache Read</div>
+        <div class="bar-seg output" style="height:1px;" title="Output: 3,902,803 (0.35%)"></div>
+      </div>
+    </div>
+
+    <!-- CODEX -->
+    <div class="engine-col">
+      <div class="engine-label">Engine II · MO§ES</div>
+      <div class="engine-title">Codex · GPT-5.3/4/5</div>
+      <div class="engine-role">High-Cache Executor · Verify + Execute</div>
+      <div class="total-display">172.5M</div>
+      <div class="total-label">total tokens · 7 sessions</div>
+      <div class="bar-stack" title="Codex · 172,517,774 total">
+        <div class="bar-seg fresh" style="height:1px;" title="User Prompt: 554,358 (0.32%)"></div>
+        <div class="bar-seg cache-read" style="height:243px;" title="Cache Read: 160,873,472 (93.25%)">93.25% · Cache Read</div>
+        <div class="bar-seg output" style="height:15px;" title="Generation: 11,089,944 (6.43%)">6.43% · Generation</div>
+        <div class="bar-seg reasoning" style="height:1px;" title="Reasoning: 113,071 (0.07%)"></div>
+      </div>
+    </div>
+
+    <!-- COMBINED -->
+    <div class="engine-col">
+      <div class="engine-label">Combined · Governed</div>
+      <div class="engine-title">Two-Engine MO§ES</div>
+      <div class="engine-role">One Constitutional Frame · Orchestrated</div>
+      <div class="total-display">1.30B</div>
+      <div class="total-label">total tokens · 105 sessions</div>
+      <div class="bar-stack" title="Combined · 1,295,769,785 total">
+        <div class="bar-seg fresh" style="height:1px;" title="Fresh: 677,604 (0.05%)"></div>
+        <div class="bar-seg cache-create" style="height:7px;" title="Cache Create: 34,826,779 (2.69%)">2.69%</div>
+        <div class="bar-seg cache-read" style="height:249px;" title="Cache Read: 1,245,272,655 (96.10%)">96.10% · Cache Read</div>
+        <div class="bar-seg output" style="height:2px;" title="Output: 14,992,747 (1.16%)"></div>
+        <div class="bar-seg reasoning" style="height:1px;" title="Reasoning: 113,071 (0.01%)"></div>
+      </div>
+    </div>
+
+    <!-- AA FIELD AVG -->
+    <div class="engine-col field">
+      <div class="engine-label">Reference · Ungoverned</div>
+      <div class="engine-title">AA Field Avg</div>
+      <div class="engine-role">Per Model · 1 Session × 358 Tasks · n=13</div>
+      <div class="total-display">1.67B</div>
+      <div class="total-label">total tokens · 1 session per model</div>
+      <div class="bar-stack" title="AA Field Avg · 1,671,502,000 per model">
+        <div class="bar-seg fresh" style="height:25px;" title="Fresh Input: 162.9M (9.75%)">9.75% · Fresh Input</div>
+        <div class="bar-seg cache-read" style="height:232px;" title="Cached Input: 1.49B (89.22%)">89.22% · Cached Input</div>
+        <div class="bar-seg output" style="height:3px;" title="Output: 17.2M (1.03%)"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Numeric breakdown table -->
+  <div class="breakdown">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Claude (Opus 4.7)</th>
+          <th class="codex-col">Codex (GPT-5.3/4/5)</th>
+          <th class="combined-col">Combined MO§ES</th>
+          <th class="field-col">AA Field Avg per Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fresh Input</td>
+          <td>123,246</td>
+          <td class="codex-col">554,358</td>
+          <td class="combined-col">677,604</td>
+          <td class="field-col">~162,890,000</td>
+        </tr>
+        <tr>
+          <td>Cache Create</td>
+          <td>34,826,779</td>
+          <td class="codex-col">—</td>
+          <td class="combined-col">34,826,779</td>
+          <td class="field-col">— (not reported)</td>
+        </tr>
+        <tr>
+          <td>Cache Read</td>
+          <td>1,084,399,183</td>
+          <td class="codex-col">160,873,472</td>
+          <td class="combined-col">1,245,272,655</td>
+          <td class="field-col">~1,491,428,000</td>
+        </tr>
+        <tr>
+          <td>Output</td>
+          <td>3,902,803</td>
+          <td class="codex-col">11,089,944</td>
+          <td class="combined-col">14,992,747</td>
+          <td class="field-col">~17,184,000</td>
+        </tr>
+        <tr>
+          <td>Reasoning</td>
+          <td>—</td>
+          <td class="codex-col">113,071</td>
+          <td class="combined-col">113,071</td>
+          <td class="field-col">— (not reported)</td>
+        </tr>
+        <tr class="total-row">
+          <td>Total Tokens</td>
+          <td>1,123,252,011</td>
+          <td class="codex-col">172,517,774</td>
+          <td class="combined-col">1,295,769,785</td>
+          <td class="field-col">~1,671,502,000</td>
+        </tr>
+        <tr>
+          <td>Sessions</td>
+          <td>98 (21 parent + subagents)</td>
+          <td class="codex-col">7</td>
+          <td class="combined-col">105 total</td>
+          <td class="field-col">1</td>
+        </tr>
+        <tr>
+          <td>Cache Hit Rate</td>
+          <td>96.88%</td>
+          <td class="codex-col">99.66%</td>
+          <td class="combined-col">97.23%</td>
+          <td class="field-col">~89.2%</td>
+        </tr>
+        <tr>
+          <td>Output : Fresh Input</td>
+          <td>31.7×</td>
+          <td class="codex-col">20.0×</td>
+          <td class="combined-col">22.1×</td>
+          <td class="field-col">~0.105×</td>
+        </tr>
+        <tr>
+          <td>Cost (pay-per-token)</td>
+          <td>$1,564.47 (API-eq)</td>
+          <td class="codex-col">$111.43</td>
+          <td class="combined-col">$1,675.90 (API-eq)</td>
+          <td class="field-col">~$478 (358 tasks × $1.34)</td>
+        </tr>
+        <tr>
+          <td>Cost (plan basis)</td>
+          <td>$23.33 (Max plan)</td>
+          <td class="codex-col">$111.43 (no plan)</td>
+          <td class="combined-col">$134.76 (blended)</td>
+          <td class="field-col">n/a</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Delta callout -->
+  <div class="delta-row">
+    <div class="delta-label">The Headline</div>
+    <div class="delta-content">
+      <span class="big">Two governed engines use <strong>0.78×</strong> the tokens of one ungoverned model</span>
+      1.30B combined (Claude + Codex under MO§ES governance) vs 1.67B per single AA model, while shipping <strong>35,242 lines of real production code in 7 days for $134.76 blended cost</strong>, against AA's 7,160-LOC convention scalar per benchmark run. The leaderboard ranks engines individually. MO§ES orchestrates them under one governance frame.
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong style="color:#475569;">Source files:</strong>
+    <span class="src claude">truths/claude_raw_numbers.md</span> (JSONL extract · 98 sessions) ·
+    <span class="src codex">truths/codex_raw_numbers.md</span> (ccusage daily · 4 days · 7 sessions) ·
+    <span class="src combined">truths/combined_raw_numbers.md</span> (two-engine compilation) ·
+    <span class="src field">truths/aa_model_averages.md</span> (13-model AA derivation).
+    MO§ES window 2026-05-08 → 2026-05-14 · 7,327 turns · 35,242 LOC shipped · Operator: DJM / Ello Cello LLC.
+  </div>
+
+</div>
+</body>
+</html>
