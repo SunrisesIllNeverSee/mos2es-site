@@ -1,3 +1,4 @@
+/* BEGIN USAGE */
 /**
  * <deck-stage> — reusable web component for HTML decks.
  *
@@ -67,7 +68,22 @@
  * automatically tagged with:
  *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
  *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ *
+ * Speaker notes stay in sync because the component posts {slideIndexChanged: N}
+ * to the parent — just include the #speaker-notes script tag if asked for notes.
+ *
+ * Authoring guidance:
+ *   - Write slide bodies as static HTML inside <deck-stage>, with sizing via
+ *     CSS custom properties in a <style> block rather than JS constants.
+ *     Static slide markup is what lets the user click a heading in edit mode
+ *     and retype it directly; a slide rendered through <script type="text/babel">,
+ *     React, or a loop over a JS array has to round-trip every tweak through a
+ *     chat message instead. Reach for script-generated slides only when the
+ *     content genuinely needs interactive behaviour static HTML can't express.
+ *   - Do NOT set position/inset/width/height on the slide <section> elements —
+ *     the component absolutely positions every slotted child for you.
  */
+/* END USAGE */
 
 (() => {
   const DESIGN_W_DEFAULT = 1920;
