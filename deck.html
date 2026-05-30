@@ -168,7 +168,13 @@
   .data .meaning { color: var(--ink-2); }
   section.dark .data .meaning { color: var(--ink-2); }
 
-  /* Dense table helpers */
+  /* Problem table — large, bold variant */
+  .prob-table th { font-size: 24px; }
+  .prob-table td:first-child { width: 36%; font-size: 34px; font-weight: 600; letter-spacing: -0.01em; }
+  .prob-table .meaning { font-size: 30px; font-weight: 500; line-height: 1.3; color: var(--ink); }
+  .prob-table td { padding: 26px 24px 26px 0; }
+
+  /* Compact data variant — tighter row padding for merged slides */
   .data.compact th, .data.compact td { padding: 14px 24px 14px 0; }
   .data.compact th { padding-bottom: 12px; }
   .data .num-col { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -354,37 +360,25 @@
 
 <script type="application/json" id="speaker-notes">
 [
-  "Hi, I'm here today to talk about Ello Cello. We've built the execution infrastructure layer for what we believe is the next phase of AI — the agentic economy. And we've already proven the thesis internally, by industrializing code generation at billion-token scale. Over the next ten minutes I'll walk you through the problem, the stack, the proof, the market, and the ask.",
+  "Ello Cello is the execution infrastructure layer for the agentic economy. We've proven it internally by industrializing code generation at billion-token scale. In the next few minutes I'll walk you through the problem, the stack, the proof, the market, the motion, the team, and the ask.",
 
-  "Let me start with what we believe is the single most important shift happening in AI right now. The problem is no longer generation. Models can generate. The problem is execution. Enterprises have access to extraordinarily powerful models, and they still cannot run a long agentic workflow without it falling apart. They cannot industrialize code generation. They cannot measure who on their team actually uses AI well. They cannot turn the context they accumulate into reusable assets. Generation is solved. The plumbing around it is wide open.",
+  "The problem is no longer generation. Models can generate. The problem is execution. Enterprises have access to extraordinarily powerful models and still cannot run a long agentic workflow without it falling apart. They cannot industrialize code generation. They cannot measure who on their team uses AI well. They cannot turn the context they accumulate into reusable assets. Generation is solved. The plumbing around it is wide open.",
 
-  "Ello Cello is one execution stack with four commercial wedges. AQUA is the application workflow layer — that's our practical entry point. SigRank is the operator intelligence layer — that's our category wedge. MO§ES is the execution substrate underneath everything — that's our defensibility. And SIGNOMY is the governance layer — a constitutional economy where agents register, build trust, take missions, earn, and carry provenance. MO§ES is the engine. AQUA and SigRank are the wedges into the market. SIGNOMY is where it all becomes a governed economy. Let me show you the two we lead with.",
+  "One execution stack, four commercial wedges. MO§ES is the substrate — compression, recursive execution, drift control, lineage. AQUA is the application workflow layer — application work becomes reusable execution memory. SigRank is the operator intelligence layer — the first serious leaderboard for AI operators. SIGNOMY is the governance layer — a constitutional economy where agents register, build trust, take missions, earn, and carry provenance. MO§ES is the engine, AQUA and SigRank are the wedges into the market, SIGNOMY is where it becomes a governed economy. And on competition: code agents generate, eval tools measure, the labs won't commit across the stack — MO§ES governs them all. Patent pending on the substrate, proprietary on everything else — the execution layer a model lab can't ship.",
 
-  "AQUA and SigRank are how we enter the market. AQUA looks like an application-filling product on day one — but the wedge is bigger than that. Every answer a user gives becomes a reusable asset, and once you have reusable application memory, the supply side of the application economy becomes a customer too. Organizations that produce, manage, and review applications come on as institutional accounts. SigRank, on the other side, is the first serious leaderboard for AI operators. Not prompt analytics — operator telemetry. Signal-to-noise, session depth, drift, sync, resonance. It creates a category that doesn't exist yet, with us positioned as the standard.",
+  "This is not theoretical. Internally we have already industrialized code generation at this scale — 3.719 billion tokens, on our own infrastructure, with cache architecture, multi-lane execution, throughput tracking, and falling cost per token. Framed carefully: internal operating evidence pending formal audit, not a third-party benchmark. But it is the proof that the execution stack works at scale.",
 
-  "MO§ES and SIGNOMY are the long-term value. MO§ES is the substrate — compression, recursive execution, drift control, lineage. It's what makes the rest of the stack hard to copy and what enterprises license when they want this capability behind their firewall. SIGNOMY is the governance layer — dual governance, execution-layer plus participatory economy. Governance sits inside the action path: agent, role, mission, action, envelope, operator authority. And alongside that, trust tiers, dispute paths, governance state, and constitutional records make participation visible and auditable. The marketplace becomes a constitutional economy, not a listing board. Signomy is where the law becomes operational behavior.",
+  "Why now: the market is moving from generation to execution. Chatbots, then agents, then execution infrastructure. AI usage is exploding, code generation is becoming production infrastructure, human-AI performance is now a measurable business variable, and operator skill is becoming a category. And because each of our products attacks a different layer, the TAM is four overlapping expansion curves: AQUA into institutional application infrastructure, SigRank into workforce intelligence and certification, MO§ES into enterprise AI infrastructure, and SIGNOMY into the constitutional infrastructure for agent economies. In dollars: eighteen-to-twenty-five billion today, growing to a hundred-ten to a hundred-forty-two billion by 2030. Bottoms-up, fifty enterprise pilots at a sixty-five-thousand-dollar floor is about three-and-a-quarter million in ARR.",
 
-  "This is not theoretical. Internally, we have already industrialized code generation at this scale. 3.719 billion tokens, on our own infrastructure, with cache architecture, multi-lane execution, throughput tracking and falling cost per token. We treat code generation as an industrial process — not a chatbot output. We frame this carefully: it is internal operating evidence, pending formal audit, not a third-party benchmark. But it is the proof that the execution stack works at scale.",
+  "Revenue lines map cleanly: AQUA across individuals, teams, and institutions; SigRank on the public leaderboard and in enterprise dashboards; SIGNOMY through marketplace fees and governance and provenance services; MO§ES through strategic enterprise licensing. The sequence is layered: AQUA creates usage, SigRank creates visibility, enterprise dashboards bring SigRank into the company, SIGNOMY creates governance, and MO§ES licensing creates the deepest moat. Each phase unlocks the next.",
 
-  "Now the market, with numbers. Today this is an eighteen-to-twenty-five-billion-dollar opportunity, growing to a hundred-and-ten to a hundred-forty-two billion by 2030 — across four distinct verticals: AI governance, the agentic marketplace, document and application automation, and skills assessment. One governance primitive sits beneath all four. Top-down, that's the TAM. Bottoms-up, our serviceable market is roughly five-to-fifteen-thousand enterprise AI deployment teams, and our near-term obtainable target is fifty enterprise pilots at a sixty-five-thousand-dollar floor — about three-and-a-quarter million in ARR, with meaningful ceiling above that. These are total-market-capture figures across overlapping verticals, and they're fully sourced.",
-
-  "Revenue lines map cleanly. AQUA monetizes individuals, teams and institutions through tiered subscription and licensing. SigRank monetizes the public leaderboard with identity reveal and premium profiles, and the enterprise side with dashboards, analytics and operator certification. SIGNOMY takes marketplace fees, trust-tier subscriptions, and governance and provenance services. MO§ES is strategic enterprise licensing — high contract value, low volume, deep relationships. We don't depend on any single line.",
-
-  "Why now: the market is moving from generation to execution. Chatbots, then agents, then execution infrastructure. AI usage volume is exploding, enterprises need persistent context, code generation is becoming production infrastructure, human-AI performance is now a measurable business variable, and reusable workflows are starting to be treated as assets. Operator skill itself is going to become a category. We are building for the moment after the model layer commoditizes.",
-
-  "Our go-to-market is sequenced. Phase one is AQUA — get practical usage and revenue. Phase two is SigRank Alpha — claim the operator category in public. Phase three is enterprise dashboards — bring SigRank into the company. Phase four is the SIGNOMY constitutional economy — governance state, trust tiers, agent provenance, and the governed workflow marketplace. Phase five is MO§ES licensing — the deepest, most defensible contracts. AQUA creates usage. SigRank creates visibility. SIGNOMY creates governance. MO§ES creates the moat.",
-
-  "A word on the team: it's one person. Deric McHenry — Buffalo, sole architect of the substrate, the patents, and everything shipped to date. Background that matters: ran a Buffalo contracting operation from zero to a million a year with a team of forty, learned what it means to govern a real operation. When AI moved into that workflow, the leaderboards left the operator out — so I built the augmentation layer, patented it, published it, and ranked first across all five kernels against the field. Four patents filed. Substrate shipped solo. That's the team.",
+  "A word on the team: it's one person. Deric McHenry — Buffalo, sole architect of the substrate, the patents, and everything shipped to date. Ran a Buffalo contracting operation from zero to a million a year with a team of forty, learned what it means to govern a real operation. When AI moved into that workflow, the leaderboards left the operator out — so I built the augmentation layer, patented it, published it, and ranked first across all five kernels against the field. Four patents filed. Substrate shipped solo. That's the team.",
 
   "The ask: we're raising one and a half million dollars on a SAFE, post-money cap to be discussed. That funds an eighteen-month runway with one goal — land the first fifty enterprise design partners and publish the protocol v1 spec. The split is forty percent engineering on the protocol CLI and substrate, thirty percent research on commitment enforcement, twenty percent go-to-market for the design-partner pilot, and ten percent reserve for legal and operations. Patent pending, trademark filed, protocol published with a DOI. That's the ask.",
 
-  "Appendix A is the industrialization evidence — the technical diligence view of the proof slide. 3.719 billion tokens of operating evidence, cache architecture, multi-lane execution across generation, review, compression, telemetry and packaging, throughput tracking over time, and falling cost per token through reuse and structural compression. This is the slide we open in the diligence room.",
+  "Appendix A is the operational totals — the diligence numbers behind the proof slide. Over the reporting period, March ninth to May twenty-eighth, the system processed three-point-seven-one-nine billion tokens. The headline is the amplification ratio: three-point-three million tokens of operator input produced seventy-point-two-five million tokens of system output — a twenty-one-times amplification. The cache ratios show the system runs on about ninety-eight percent preserved structure and only two percent new. Internal operating evidence, pending formal audit.",
 
-  "Appendix B is defensibility — and the competitive field. Plot everyone on semantic enforcement against cost efficiency and the field clusters in the lower-left. Code agents like Cursor and Claude Code generate but offer no conservation guarantee. Eval and guard tools like Braintrust and Patronus measure quality but don't enforce at execution. The model providers — Anthropic, OpenAI, Google — won't commit across the stack. MO§ES sits alone in the upper-right, and the key framing is that it doesn't compete with these tools, it governs them: a protocol that runs alongside them, a layer beneath everything. On the moat: MO§ES is patent pending, the AQUA Answer Bank, SigRank metrics, and SIGNOMY governance are all proprietary, the trademark is filed, and the protocol is published with a DOI.",
-
-  "Appendix C is the roadmap. Zero to ninety days: AQUA MVP, answer bank prototype, SigRank scoring schema. Ninety to one-eighty: SigRank Alpha, operator profiles, resonance reporting. One-eighty to a year: SIGNOMY beta, governance state, trust tiers and agent provenance, governed marketplace. Twelve months and beyond: private MO§ES deployments, certification layer, multi-system operator intelligence. Thank you — happy to take questions.",
-
-  "Appendix D is the operational totals — the diligence numbers behind the proof slide. Over the reporting period, March ninth to May twenty-eighth, the system processed three-point-seven-one-nine billion tokens. The headline is the amplification ratio: three-point-three million tokens of operator input produced seventy-point-two-five million tokens of system output — a twenty-one-times amplification. And the cache ratios show the system runs on about ninety-eight percent preserved structure and only two percent new — that's where the falling cost per token comes from. Internal operating evidence, pending formal audit."
+  "Appendix B is defensibility, and the competitive field. Plot everyone on semantic enforcement against cost efficiency and the field clusters lower-left: code agents generate but offer no conservation guarantee, eval and guard tools measure quality but don't enforce at execution, and the model providers won't commit across the stack. MO§ES sits alone in the upper-right — it doesn't compete with these tools, it governs them. On the moat: MO§ES is patent pending, the AQUA Answer Bank, SigRank metrics, and SIGNOMY governance are proprietary, the trademark is filed, and the protocol is published with a DOI."
 ]
 </script>
 
@@ -402,10 +396,7 @@
     </div>
 
     <div style="position:absolute; left: 120px; right: 120px; bottom: 200px; display:flex; gap: 96px; align-items: flex-end;">
-      <div class="cover-tagline">
-        The execution infrastructure layer<br>
-        for the <em>agentic economy</em>.
-      </div>
+      <div class="cover-tagline">The execution infrastructure layer for the agentic economy.</div>
       <div style="flex:1; text-align: right; font-family: var(--mono); font-size: 26px; letter-spacing: 0.18em; text-transform: uppercase; color:#C9BFAD; line-height: 1.9;">
         Proven by industrializing<br>code generation at<br><span style="color: #E8A07A;">3.719B-token scale.</span>
       </div>
@@ -418,7 +409,7 @@
         <span>MO§ES™</span>
         <span>SIGNOMY</span>
       </div>
-      <div>01 / 16</div>
+      <div>01 / 10</div>
     </div>
   </section>
 
@@ -428,34 +419,36 @@
       <div class="eyebrow"><span class="num">02</span>The Problem</div>
       <div class="right">Ello Cello</div>
     </div>
-    <div style="margin-top: 72px;">
-      <h2>The problem is not generation.<br>The problem is <em>execution</em>.</h2>
+    <div style="margin-top: 44px;">
+      <div style="font-family: var(--serif); font-weight: 300; font-size: 60px; line-height: 1.16; letter-spacing: -0.015em; color: var(--ink);">
+        I have a theory that language has a <em style="font-style: italic; color: var(--rust);">measurable signal-to-noise ratio</em>, operators <em style="font-style: italic; color: var(--rust);">can be ranked</em>, commitment <em style="font-style: italic; color: var(--rust);">can be conserved</em>, and AI performance <em style="font-style: italic; color: var(--rust);">can be predicted</em> from signal quality.
+      </div>
     </div>
 
-    <div style="margin-top: 88px; flex:1;">
-      <table class="data">
+    <div style="margin-top: 48px; flex:1;">
+      <table class="data prob-table">
         <thead>
           <tr>
-            <th>Bottleneck</th>
-            <th>Why it matters</th>
+            <th style="font-size: 40px">Bottleneck</th>
+            <th style="font-size: 40px">Why it matters</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Long-running agentic workflows</td>
-            <td class="meaning">AI work breaks down across context, time, and handoffs.</td>
+            <td>Signal in Language</td>
+            <td class="meaning">No accepted standard exists for measuring semantic signal-to-noise.</td>
           </tr>
           <tr>
-            <td>Code-generation operations</td>
-            <td class="meaning">Code output exists; industrialized production pipelines do not.</td>
+            <td>Operator Intelligence</td>
+            <td class="meaning">Missing opportunities for beneficial growth, collaboration, and knowledge transfer.</td>
           </tr>
           <tr>
-            <td>Operator intelligence</td>
-            <td class="meaning">Companies cannot measure who uses AI well, why, or under what conditions.</td>
+            <td>Meaning Preservation</td>
+            <td class="meaning">Intent, context, and meaning decay across conversations, workflows, and time.</td>
           </tr>
           <tr>
-            <td>Workflow reuse</td>
-            <td class="meaning">Valuable context is repeatedly lost instead of converted into reusable assets.</td>
+            <td>Performance Prediction</td>
+            <td class="meaning">AI behavior remains largely probabilistic because interaction quality is not measured.</td>
           </tr>
         </tbody>
       </table>
@@ -469,30 +462,30 @@
       <div class="right">Ello Cello</div>
     </div>
 
-    <div style="margin-top: 72px;">
+    <div style="margin-top: 52px;">
       <h2>One execution stack.<br><em>Four commercial wedges.</em></h2>
     </div>
 
-    <div style="margin-top: 80px; flex:1; display:flex; flex-direction: column; gap: 0;">
-      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 28px 0; border-top: 1px solid var(--ink);">
+    <div style="margin-top: 44px; flex:1; display:flex; flex-direction: column; gap: 0;">
+      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--ink);">
         <div class="label">Layer 04</div>
         <div class="wm" style="font-size: 36px;">SIGNOMY</div>
         <div class="body" style="max-width: none;">Execution-layer governance, participatory trust, agent provenance — a governed economy.</div>
         <div class="label" style="text-align:right; color: var(--rust);">Governance</div>
       </div>
-      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 28px 0; border-top: 1px solid var(--rule);">
+      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule);">
         <div class="label">Layer 03</div>
         <div class="wm" style="font-size: 36px;">SIGRANK</div>
         <div class="body" style="max-width: none;">Human–AI operator leaderboard, sync telemetry, resonance metrics.</div>
         <div class="label" style="text-align:right; color: var(--rust);">Intelligence</div>
       </div>
-      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 28px 0; border-top: 1px solid var(--rule);">
+      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule);">
         <div class="label">Layer 02</div>
         <div class="wm" style="font-size: 36px;">AQUA</div>
         <div class="body" style="max-width: none;">Application filling, answer banks, reusable submission memory.</div>
         <div class="label" style="text-align:right; color: var(--rust);">Workflow</div>
       </div>
-      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 28px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--ink);">
+      <div style="display:grid; grid-template-columns: 220px 220px 1fr 220px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--ink);">
         <div class="label">Layer 01</div>
         <div class="wm" style="font-size: 36px;">MO§ES™</div>
         <div class="body" style="max-width: none;">Compression, recursive execution, drift control, lineage structure.</div>
@@ -500,103 +493,19 @@
       </div>
     </div>
 
-    <div style="margin-top: 36px; font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2);">MO§ES™ IS THE ENGINE  ·  AQUA + SIGRANK ARE THE WEDGES  ·  SIGNOMY IS THE GOVERNED ECONOMY</div>
-  </section>
+    <div style="margin-top: 22px; font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2);">MO§ES™ IS THE ENGINE  ·  AQUA + SIGRANK ARE THE WEDGES  ·  SIGNOMY IS THE GOVERNED ECONOMY</div>
 
-  <!-- 4. AQUA + SIGRANK -->
-  <section data-label="Products A">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">04</span>Products · Go-to-Market Wedges</div>
-      <div class="right">1 of 2</div>
-    </div>
-
-    <div style="margin-top: 72px; flex:1;" class="two-col">
-
-      <div class="product">
-        <div style="display:flex; justify-content:space-between; align-items: baseline;">
-          <div class="wm-lg">AQUA</div>
-          <div class="role">Practical Wedge</div>
-        </div>
-        <div class="claim">Turns application work into <em>reusable execution memory.</em></div>
-        <ul>
-          <li>Users fill applications faster — answers become reusable assets.</li>
-          <li>Individuals reduce repetitive form work.</li>
-          <li>Answer Bank improves output quality over time.</li>
-          <li>Application-producing institutions become customers too.</li>
-        </ul>
-        <div style="font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rust); margin-top: 8px;">
-          Both sides of the application economy →
-        </div>
-      </div>
-
-      <div class="product">
-        <div style="display:flex; justify-content:space-between; align-items: baseline;">
-          <div class="wm-lg">SIGRANK</div>
-          <div class="role">Category Wedge</div>
-        </div>
-        <div class="claim">The first serious leaderboard for <em>AI operators.</em></div>
-        <ul>
-          <li>Signal-to-noise ratio &nbsp;·&nbsp; usable output per interaction.</li>
-          <li>Prompt complexity, session depth, reference density.</li>
-          <li>Drift detection — semantic collapse over time.</li>
-          <li>Pilot / co-pilot sync &nbsp;·&nbsp; resonance events.</li>
-        </ul>
-        <div style="font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rust); margin-top: 8px;"></div>
-      </div>
-
+    <div style="margin-top: 14px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 28px; line-height: 1.3; color: var(--ink-2); max-width: 64ch;">
+      <span class="wm" style="color: var(--ink); font-style: normal;">MO§ES™</span> governs the field — code agents generate, eval tools measure, the labs won't commit across the stack. Patent pending; the rest proprietary.
     </div>
   </section>
 
-  <!-- 5. MO§ES + SIGNOMY -->
-  <section data-label="Products B">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">05</span>Products · Substrate &amp; Governance</div>
-      <div class="right">2 of 2</div>
-    </div>
+  <!-- (Removed in short deck: Products A / Products B — absorbed into Stack) -->
 
-    <div style="margin-top: 72px; flex:1;" class="two-col">
-
-      <div class="product">
-        <div style="display:flex; justify-content:space-between; align-items: baseline;">
-          <div class="wm-lg">MO§ES™</div>
-          <div class="role">Defensible Substrate</div>
-        </div>
-        <div class="claim">The architecture <em>beneath the product layer.</em></div>
-        <ul>
-          <li>Compression gates &nbsp;·&nbsp; structured signal extraction.</li>
-          <li>Recursive execution loops &nbsp;·&nbsp; drift control.</li>
-          <li>Lineage tracking &nbsp;·&nbsp; reusable pattern memory.</li>
-          <li>Offline / sovereign operating capacity.</li>
-        </ul>
-        <div style="font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rust); margin-top: 8px;">
-          Not the first thing we sell — the thing that's hardest to copy →
-        </div>
-      </div>
-
-      <div class="product">
-        <div style="display:flex; justify-content:space-between; align-items: baseline;">
-          <div class="wm-lg">SIGNOMY</div>
-          <div class="role">Constitutional Economy</div>
-        </div>
-        <div class="claim">Where <em>the law</em> becomes operational behavior.</div>
-        <ul>
-          <li>Execution-layer governance &nbsp;·&nbsp; agent, role, mission, envelope, authority.</li>
-          <li>Participatory governance &nbsp;·&nbsp; trust tiers, dispute paths, constitutional records.</li>
-          <li>Governed economy &nbsp;·&nbsp; agents register, earn, carry provenance.</li>
-          <li>Not a listing board &nbsp;·&nbsp; a constitutional economy.</li>
-        </ul>
-        <div style="font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--rust); margin-top: 8px;">
-          Dual governance — execution layer + participatory economy →
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 6. INDUSTRIALIZED CODE GENERATION — hero number -->
+  <!-- 4. PROOF — hero number -->
   <section data-label="Proof" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">06</span>Proof · Internal Operating Evidence</div>
+      <div class="eyebrow"><span class="num">04</span>Proof · Internal Operating Evidence</div>
       <div class="right">Pending Formal Audit</div>
     </div>
 
@@ -634,185 +543,116 @@
     </div>
   </section>
 
-  <!-- 7. MARKET ARCHITECTURE -->
-  <section data-label="Market">
+  <!-- (Removed in short deck: Market — absorbed into Why Now / Market) -->
+
+  <!-- (Removed in short deck: Business Model — absorbed into Model + Sequence) -->
+
+  <!-- 5. WHY NOW + MARKET (merged) -->
+  <section data-label="Market · Adoption" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">07</span>Market</div>
+      <div class="eyebrow"><span class="num">05</span>Market &middot; Adoption</div>
       <div class="right">Ello Cello</div>
     </div>
 
-    <div style="margin-top: 72px;">
-      <h2>$18–25B today. <em>$110–142B by 2030.</em></h2>
+    <div style="margin-top: 36px;">
+      <h2 style="font-size: 64px;"><em style="color:#E8A07A;">~$20–25B</em> today.<br><em style="color:#E8A07A;">~$90–115B+</em> future.</h2>
     </div>
 
-    <div style="margin-top: 16px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 32px; line-height: 1.3; color: var(--ink-2); max-width: 66ch;">
-      Four product layers. Four distinct markets. One governance primitive beneath all of them.
-    </div>
-
-    <div style="margin-top: 34px; flex:1; min-height: 0;">
+    <div style="margin-top: 32px;">
       <table class="data compact">
         <thead>
           <tr>
-            <th style="width: 22%;">Product</th>
-            <th style="width: 36%;">Market</th>
-            <th style="text-align: right;">~2025</th>
-            <th style="text-align: right;">2030–34</th>
+            <th style="width: 15%;">Product</th>
+            <th style="width: 25%;">Market Opportunity</th>
+            <th style="width: 18%;">User Surface</th>
+            <th>Initial Focus</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td class="wm">MO§ES™</td><td class="meaning">AI governance platforms</td><td class="num-col">$1.5B</td><td class="num-col">$8.7B</td></tr>
-          <tr><td class="wm">SIGNOMY</td><td class="meaning">Agentic AI marketplace</td><td class="num-col">$7.7B</td><td class="num-col">$48.4B</td></tr>
-          <tr><td class="wm">AQUA</td><td class="meaning">Document &amp; application automation</td><td class="num-col">$3.2–9.1B</td><td class="num-col">$37.2–43.9B</td></tr>
-          <tr><td class="wm">SIGRANK</td><td class="meaning">Skills assessment &amp; AI-in-education</td><td class="num-col">$5.8–6.9B</td><td class="num-col">$16.2–41.0B</td></tr>
-          <tr class="total"><td class="wm">Aggregate</td><td class="meaning">Total market capture</td><td class="num-col">~$18–25B</td><td class="num-col">~$110–142B</td></tr>
+          <tr><td class="wm">SIGRANK</td><td><span style="color:var(--ink-2);">$3–7B</span> <span style="color:#E8A07A;">→</span> <span style="color:var(--paper);">$15–25B+</span></td><td class="meaning">AI Users</td><td class="meaning">Builders, creators, students, researchers</td></tr>
+          <tr><td class="wm">AQUA</td><td><span style="color:var(--ink-2);">$9B</span> <span style="color:#E8A07A;">→</span> <span style="color:var(--paper);">$20B+</span></td><td class="meaning">Applicants</td><td class="meaning">Jobs, grants, funding, education</td></tr>
+          <tr><td class="wm">MO§ES™</td><td><span style="color:var(--ink-2);">$0.3–0.9B</span> <span style="color:#E8A07A;">→</span> <span style="color:var(--paper);">$5.8–15.8B</span></td><td class="meaning">Institutions</td><td class="meaning">Enterprise, government, platform deployments</td></tr>
+          <tr><td class="wm">SIGNOMY</td><td><span style="color:var(--ink-2);">$7.7B</span> <span style="color:#E8A07A;">→</span> <span style="color:var(--paper);">$48–53B</span></td><td class="meaning">Humans + Agents</td><td class="meaning">Operators, agent creators, autonomous participants</td></tr>
         </tbody>
       </table>
-    </div>
-
-    <div style="margin-top: 28px; display:grid; grid-template-columns: repeat(3, 1fr); gap: 56px;">
-      <div>
-        <div class="label" style="color: var(--rust);">TAM</div>
-        <div style="margin-top: 10px; font-size: 24px; line-height: 1.4; color: var(--ink-2);">$18–25B in 2025 → $110–142B by 2030–34, across four verticals.</div>
-      </div>
-      <div>
-        <div class="label" style="color: var(--rust);">SAM</div>
-        <div style="margin-top: 10px; font-size: 24px; line-height: 1.4; color: var(--ink-2);">~5,000–15,000 enterprise AI deployment teams · $325M–$975M at a $65K ACV floor.</div>
-      </div>
-      <div>
-        <div class="label" style="color: var(--rust);">SOM</div>
-        <div style="margin-top: 10px; font-size: 24px; line-height: 1.4; color: var(--ink-2);">50 enterprise pilots × $65K = $3.25M ARR · ceiling $13M at $260K ACV.</div>
+      <div style="margin-top: 16px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 28px; color: var(--ink-2); line-height: 1.35;">
+        Aggregate opportunity spans identity, workflow, governance, and economic coordination.
       </div>
     </div>
 
-    <div style="margin-top: 24px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.02em; color: var(--ink-3); line-height: 1.4;">
-      Sources: Omdia · Precedence Research · Mordor Intelligence · DataIntelo · OpenPR · Aggregate = total market capture across overlapping verticals, not additive revenue.
+    <!-- Compound fragmentation vs. constitutional lattice -->
+    <div style="margin-top: auto; padding-top: 28px; border-top: 1px solid var(--rule); display:grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+      <div>
+        <div class="label" style="color: var(--ink-3); margin-bottom: 12px;">Traditional portfolios — compound risk</div>
+        <div style="font-family: var(--mono); font-size: 30px; color: var(--ink-2); letter-spacing: 0.01em;">0.8 × 0.8 × 0.8 × 0.8 = 0.4096 <span style="color: var(--ink-3);">≈ <strong style="font-weight:600;">41%</strong></span></div>
+      </div>
+      <div>
+        <div class="label" style="color: #E8A07A; margin-bottom: 12px;">MO§ES™ — constitutional lattice</div>
+        <div style="font-size: 26px; line-height: 1.4; color: var(--paper); max-width: 46ch;">Each module reinforces the others, targeting <span style="color:#E8A07A; font-weight:500;">80–85% structural coherence</span> rather than compound fragmentation.</div>
+      </div>
     </div>
   </section>
 
-  <!-- 8. BUSINESS MODEL -->
-  <section data-label="Business Model">
+  <!-- 6. MODEL + SEQUENCE (merged) -->
+  <section data-label="Model · Sequence">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">08</span>Business Model</div>
+      <div class="eyebrow"><span class="num">06</span>Model &middot; Sequence</div>
       <div class="right">Ello Cello</div>
     </div>
 
-    <div style="margin-top: 72px;">
-      <h2>Seven revenue lines.<br><em>One stack.</em></h2>
+    <div style="margin-top: 40px;">
+      <h3>Seven revenue lines. Five phases. <em style="font-family: var(--serif); font-style: italic; color: var(--rust); font-weight: 300;">One constitutional lattice.</em></h3>
     </div>
 
-    <div style="margin-top: 64px; flex:1;">
-      <table class="data">
-        <thead>
-          <tr>
-            <th style="width: 30%;">Revenue line</th>
-            <th>Model</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="wm">AQUA</span> &nbsp; Individual</td><td class="meaning">Subscription.</td></tr>
-          <tr><td><span class="wm">AQUA</span> &nbsp; Teams</td><td class="meaning">Team / workspace licensing.</td></tr>
-          <tr><td><span class="wm">AQUA</span> &nbsp; Organizations</td><td class="meaning">Institutional licensing.</td></tr>
-          <tr><td><span class="wm">SIGRANK</span> &nbsp; Public</td><td class="meaning">Leaderboard, identity reveal, premium profiles.</td></tr>
-          <tr><td><span class="wm">SIGRANK</span> &nbsp; Enterprise</td><td class="meaning">Dashboards, operator analytics, certifications.</td></tr>
-          <tr><td><span class="wm">SIGNOMY</span></td><td class="meaning">Marketplace fees, trust-tier subscriptions, governance &amp; provenance services.</td></tr>
-          <tr><td><span class="wm">MO§ES™</span></td><td class="meaning">Strategic enterprise licensing &amp; private deployment.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <div style="margin-top: 40px; flex:1; display:grid; grid-template-columns: 1fr 1fr; gap: 88px; min-height: 0;">
 
-  <!-- 9. WHY NOW -->
-  <section data-label="Why Now" class="dark">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">09</span>Why Now</div>
-      <div class="right">Ello Cello</div>
-    </div>
-
-    <div style="margin-top: 72px;">
-      <div class="pull">From AI <em>generation</em> to AI <em>execution.</em></div>
-    </div>
-
-    <div style="margin-top: 88px;" class="flow">
-      <div class="step">Chatbots</div>
-      <div class="arrow">→</div>
-      <div class="step">Agents</div>
-      <div class="arrow">→</div>
-      <div class="step now">Execution Infrastructure</div>
-    </div>
-
-    <div style="margin-top: 96px; flex:1; display:grid; grid-template-columns: repeat(3, 1fr); gap: 72px 96px;">
       <div>
-        <div class="label" style="color: #E8A07A;">01</div>
-        <div style="margin-top: 18px; font-family: var(--serif); font-size: 30px; line-height: 1.25; font-weight: 300;">AI usage volume is exploding.</div>
+        <div class="label" style="color: var(--rust); margin-bottom: 14px;">Revenue lines</div>
+        <table class="data compact">
+          <tbody>
+            <tr><td><span class="wm">AQUA</span> &nbsp; Individual</td><td class="meaning">Subscription.</td></tr>
+            <tr><td><span class="wm">AQUA</span> &nbsp; Teams</td><td class="meaning">Team / workspace licensing.</td></tr>
+            <tr><td><span class="wm">AQUA</span> &nbsp; Orgs</td><td class="meaning">Institutional licensing.</td></tr>
+            <tr><td><span class="wm">SIGRANK</span> &nbsp; Public</td><td class="meaning">Leaderboard, identity reveal, premium profiles.</td></tr>
+            <tr><td><span class="wm">SIGRANK</span> &nbsp; Enterprise</td><td class="meaning">Dashboards, analytics, certifications.</td></tr>
+            <tr><td><span class="wm">SIGNOMY</span></td><td class="meaning">Marketplace fees, trust tiers, governance services.</td></tr>
+            <tr><td><span class="wm">MO§ES™</span></td><td class="meaning">Strategic enterprise licensing.</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div>
-        <div class="label" style="color: #E8A07A;">02</div>
-        <div style="margin-top: 18px; font-family: var(--serif); font-size: 30px; line-height: 1.25; font-weight: 300;">Enterprises need persistent context.</div>
-      </div>
-      <div>
-        <div class="label" style="color: #E8A07A;">03</div>
-        <div style="margin-top: 18px; font-family: var(--serif); font-size: 30px; line-height: 1.25; font-weight: 300;">Code generation is becoming production infrastructure.</div>
-      </div>
-      <div>
-        <div class="label" style="color: #E8A07A;">04</div>
-        <div style="margin-top: 18px; font-family: var(--serif); font-size: 30px; line-height: 1.25; font-weight: 300;">Human-AI performance is a measurable business variable.</div>
-      </div>
-      <div>
-        <div class="label" style="color: #E8A07A;">05</div>
-        <div style="margin-top: 18px; font-family: var(--serif); font-size: 30px; line-height: 1.25; font-weight: 300;">Reusable workflows are becoming assets.</div>
-      </div>
-      <div>
-        <div class="label" style="color: #E8A07A;">06</div>
-        <div style="margin-top: 18px; font-family: var(--serif); font-size: 30px; line-height: 1.25; font-weight: 300;">Operator skill is becoming a category.</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 10. GO TO MARKET -->
-  <section data-label="GTM">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">10</span>Go-to-Market</div>
-      <div class="right">Sequenced Wedges</div>
+      <div>
+        <div class="label" style="color: var(--rust); margin-bottom: 14px;">Phased sequence</div>
+        <table class="data compact">
+          <tbody>
+            <tr><td>Phase 01</td><td class="meaning"><span class="wm">AQUA</span> MVP &middot; Answer Bank.</td></tr>
+            <tr><td>Phase 02</td><td class="meaning"><span class="wm">SIGRANK</span> Alpha &middot; public leaderboard.</td></tr>
+            <tr><td>Phase 03</td><td class="meaning">Enterprise dashboards &middot; private analytics.</td></tr>
+            <tr><td>Phase 04</td><td class="meaning"><span class="wm">SIGNOMY</span> &middot; constitutional economy.</td></tr>
+            <tr><td>Phase 05</td><td class="meaning"><span class="wm">MO§ES™</span> licensing &middot; private deployments.</td></tr>
+          </tbody>
+        </table>
+
+      </div>
+
     </div>
 
-    <div style="margin-top: 72px;">
-      <h2>Five phases.<br>Each unlocks the <em>next.</em></h2>
-    </div>
-
-    <div style="margin-top: 72px; flex:1;">
-      <table class="data">
-        <thead>
-          <tr>
-            <th style="width: 14%;">Phase</th>
-            <th style="width: 28%;">Focus</th>
-            <th>Output</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Phase 01</td><td><span class="wm">AQUA</span> &nbsp; MVP</td><td class="meaning">Application workflow + Answer Bank.</td></tr>
-          <tr><td>Phase 02</td><td><span class="wm">SIGRANK</span> &nbsp; Alpha</td><td class="meaning">Public leaderboard &amp; operator metrics.</td></tr>
-          <tr><td>Phase 03</td><td>Enterprise dashboards</td><td class="meaning">Private operator analytics &amp; sync reports.</td></tr>
-          <tr><td>Phase 04</td><td><span class="wm">SIGNOMY</span> &nbsp; Constitutional Economy</td><td class="meaning">Governance state, trust tiers &amp; agent provenance · governed workflow marketplace.</td></tr>
-          <tr><td>Phase 05</td><td><span class="wm">MO§ES™</span> &nbsp; Licensing</td><td class="meaning">Private infrastructure deployments.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="margin-top: 40px; font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2); display:flex; gap: 32px; flex-wrap: wrap;">
-      <span><span style="color: var(--rust);">AQUA</span> creates usage</span>
-      <span><span style="color: var(--rust);">·</span></span>
-      <span><span style="color: var(--rust);">SIGRANK</span> creates visibility</span>
-      <span><span style="color: var(--rust);">·</span></span>
-      <span><span style="color: var(--rust);">SIGNOMY</span> creates governance</span>
-      <span><span style="color: var(--rust);">·</span></span>
-      <span><span style="color: var(--rust);">MO§ES™</span> creates the moat</span>
+    <!-- Full-width footer band -->
+    <div style="margin: 32px calc(-1 * var(--pad-x)) calc(-1 * var(--pad-y)); background: var(--ink); color: var(--paper); padding: 30px var(--pad-x); display:flex; justify-content:center; align-items:center; gap: 34px; font-family: var(--mono); font-size: 26px; text-transform: uppercase; letter-spacing: 0.16em;">
+      <span><span style="color:#E8A07A;">AQUA</span> Workflow</span>
+      <span style="color:#8A857C;">&middot;</span>
+      <span><span style="color:#E8A07A;">SIGRANK</span> Identity</span>
+      <span style="color:#8A857C;">&middot;</span>
+      <span><span style="color:#E8A07A;">MO§ES</span> Governance</span>
+      <span style="color:#8A857C;">&middot;</span>
+      <span><span style="color:#E8A07A;">SIGNOMY</span> Economy</span>
     </div>
   </section>
 
   <!-- 11. FOUNDER -->
   <section data-label="Founder">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">11</span>Founder</div>
+      <div class="eyebrow"><span class="num">07</span>Founder</div>
       <div class="right">Solo Founder</div>
     </div>
 
@@ -823,10 +663,7 @@
     <div style="margin-top: 48px; flex:1; display:grid; grid-template-columns: 420px 1fr; gap: 96px; align-items: start; min-height: 0;">
 
       <div style="display:flex; flex-direction: column; gap: 24px;">
-        <div class="placeholder" style="min-height: 340px; width: 100%;">
-          <div style="font-size: 40px; color: var(--ink-2);">⌗</div>
-          <div class="ph-title">Founder photo</div>
-        </div>
+        <img src="assets/founder.jpg" alt="Deric J. McHenry" style="min-height: 340px; width: 100%; height: 340px; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(1) contrast(1.05);" />
 
         <div>
           <div style="font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1.05; letter-spacing: -0.01em;">Deric J. McHenry</div>
@@ -878,185 +715,95 @@
   <!-- 12. THE ASK -->
   <section data-label="The Ask" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">12</span>The Ask</div>
+      <div class="eyebrow"><span class="num">08</span>The Ask</div>
       <div class="right">Pre-Seed</div>
     </div>
 
-    <div style="margin-top: 56px; flex:1; display:grid; grid-template-columns: 1.05fr 1fr; gap: 110px; align-items: start;">
-      <div>
-        <div style="display:flex; align-items: baseline; gap: 22px;">
-          <div style="font-family: var(--serif); font-weight: 300; font-size: 170px; line-height: 0.85; letter-spacing: -0.03em; color: var(--paper);">$1.5<span style="color:#E8A07A;">M</span></div>
-          <div style="font-family: var(--mono); font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; color: #E8A07A;">SAFE</div>
-        </div>
-        <div style="margin-top: 18px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.04em; color: var(--ink-2);">Post-money cap to be discussed.</div>
-
-        <div style="margin-top: 44px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 36px; line-height: 1.25; color: var(--paper); max-width: 24ch;">
-          An <em style="color:#E8A07A;">18-month runway</em> to land the first 50 enterprise design partners and publish the protocol v1 spec.
-        </div>
-
-        <div style="margin-top: 44px; border-top: 1px solid var(--rule); padding-top: 20px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.02em; color: var(--ink-3); line-height: 1.6;">
-          Patent pending 19/426,028 · IC 042 trademark filed<br>DOI 10.5281/zenodo.18792459
+    <div style="margin-top: 40px; flex:1; display:flex; flex-direction: column; min-height: 0;">
+      <!-- Hero row -->
+      <div style="display:flex; align-items: baseline; gap: 24px; flex-wrap: wrap;">
+        <div style="font-family: var(--serif); font-weight: 300; font-size: 116px; line-height: 0.85; letter-spacing: -0.03em; color: var(--paper);">$1.5<span style="color:#E8A07A;">M</span></div>
+        <div style="font-family: var(--mono); font-size: 26px; letter-spacing: 0.16em; text-transform: uppercase; color: #E8A07A;">SAFE</div>
+        <div style="font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 30px; line-height: 1.25; color: var(--paper); max-width: 44ch; margin-left: 12px;">
+          18-month runway to complete <em style="color:#E8A07A;">Phases 01–03</em> of the deployment sequence and establish the first enterprise licensing pathway.
         </div>
       </div>
 
-      <div>
-        <div class="label" style="color: #E8A07A; margin-bottom: 20px;">Use of funds</div>
-        <table class="data">
-          <tbody>
-            <tr><td style="width: 15%; color:#E8A07A; font-weight: 600;">40%</td><td style="width: 34%;">Engineering</td><td class="meaning">Protocol CLI / substrate.</td></tr>
-            <tr><td style="color:#E8A07A; font-weight: 600;">30%</td><td>Research</td><td class="meaning">Commitment enforcement.</td></tr>
-            <tr><td style="color:#E8A07A; font-weight: 600;">20%</td><td>Go-to-market</td><td class="meaning">Design partner pilot.</td></tr>
-            <tr><td style="color:#E8A07A; font-weight: 600;">10%</td><td>Reserve</td><td class="meaning">Legal / operations.</td></tr>
-          </tbody>
-        </table>
+      <!-- Three-column body -->
+      <div style="margin-top: 38px; flex:1; display:grid; grid-template-columns: 1.15fr 1fr 0.92fr; gap: 60px; min-height: 0; align-items: start;">
+
+        <!-- Objectives -->
+        <div>
+          <div class="label" style="color: #E8A07A; margin-bottom: 16px;">Objectives</div>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: 9px;">
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>AQUA production deployment and workflow validation</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>SIGRANK public launch and leaderboard adoption</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>Enterprise analytics and governance pilot deployments</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span><strong style="font-weight:600;">15</strong> enterprise design partners</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span><strong style="font-weight:600;">30</strong> institutional relationships — NGAs, universities, research groups, professional communities</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span><strong style="font-weight:600;">30</strong> strategic collaborations, ecosystem integrations, workshops, or industry events</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>MO§ES™ Protocol v1 publication</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>Conversion of provisional patents to non-provisional filings</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>Offline / hardcoded MO§ES™ implementation</span></li>
+            <li style="display:flex; gap:14px; font-size:24px; line-height:1.25; color:var(--paper);"><span style="color:#E8A07A; font-family:var(--mono);">→</span><span>Initial enterprise licensing framework</span></li>
+          </ul>
+        </div>
+
+        <!-- Use of funds -->
+        <div>
+          <div class="label" style="color: #E8A07A; margin-bottom: 16px;">Use of funds</div>
+          <div style="display:flex; flex-direction:column; gap: 14px;">
+            <div style="display:grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;">
+              <div style="font-family:var(--mono); font-size:26px; font-weight:600; color:#E8A07A;">30%</div>
+              <div><div style="font-size:24px; color:var(--paper); font-weight:500;">Go-To-Market</div><div style="font-size:24px; color:var(--ink-2); line-height:1.28;">Design partners, pilots, enterprise adoption.</div></div>
+            </div>
+            <div style="display:grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;">
+              <div style="font-family:var(--mono); font-size:26px; font-weight:600; color:#E8A07A;">25%</div>
+              <div><div style="font-size:24px; color:var(--paper); font-weight:500;">Engineering</div><div style="font-size:24px; color:var(--ink-2); line-height:1.28;">AQUA deployment, SIGRANK launch, offline MO§ES™ infrastructure.</div></div>
+            </div>
+            <div style="display:grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;">
+              <div style="font-family:var(--mono); font-size:26px; font-weight:600; color:#E8A07A;">15%</div>
+              <div><div style="font-size:24px; color:var(--paper); font-weight:500;">Legal &amp; IP</div><div style="font-size:24px; color:var(--ink-2); line-height:1.28;">Non-provisional patent conversion, trademark protection, licensing framework.</div></div>
+            </div>
+            <div style="display:grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;">
+              <div style="font-family:var(--mono); font-size:26px; font-weight:600; color:#E8A07A;">15%</div>
+              <div><div style="font-size:24px; color:var(--paper); font-weight:500;">Founder Operations</div><div style="font-size:24px; color:var(--ink-2); line-height:1.28;">Full-time execution, travel, operations, runway continuity.</div></div>
+            </div>
+            <div style="display:grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;">
+              <div style="font-family:var(--mono); font-size:26px; font-weight:600; color:#E8A07A;">10%</div>
+              <div><div style="font-size:24px; color:var(--paper); font-weight:500;">Product &amp; Experience</div><div style="font-size:24px; color:var(--ink-2); line-height:1.28;">User onboarding, workflow refinement, adoption optimization.</div></div>
+            </div>
+            <div style="display:grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: baseline;">
+              <div style="font-family:var(--mono); font-size:26px; font-weight:600; color:#E8A07A;">5%</div>
+              <div><div style="font-size:24px; color:var(--paper); font-weight:500;">Reserve</div><div style="font-size:24px; color:var(--ink-2); line-height:1.28;">Contingency and operational flexibility.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outcome -->
+        <div style="display:flex; flex-direction:column; height:100%;">
+          <div class="label" style="color: #E8A07A; margin-bottom: 16px;">Outcome</div>
+          <div style="font-family: var(--mono); font-size: 28px; text-transform: uppercase; letter-spacing: 0.06em; line-height: 1.6; color: var(--paper);">
+            Identity <span style="color:#E8A07A;">→</span> Workflow <span style="color:#E8A07A;">→</span> Governance
+          </div>
+          <div style="margin-top: 20px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 30px; line-height: 1.3; color: var(--paper); max-width: 26ch;">
+            Establish the constitutional foundation required for large-scale human and agent coordination.
+          </div>
+          <div style="margin-top: auto; padding-top: 20px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 24px; letter-spacing: 0.02em; color: var(--ink-3); line-height: 1.6;">
+            Patent pending 19/426,028<br>IC 042 trademark filed<br>DOI 10.5281/zenodo.18792459
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 13. APPENDIX A — INDUSTRIALIZATION EVIDENCE -->
+  <!-- (Removed in short deck: Appendix A / B / C) -->
+
+  <!-- APPENDIX A — OPERATIONAL TOTALS -->
   <section data-label="Appendix A">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">A</span>Appendix · Industrialization Evidence</div>
-      <div class="right">Technical Diligence</div>
-    </div>
-
-    <div style="margin-top: 64px;">
-      <h2>Internal operating evidence,<br><em>pending formal audit.</em></h2>
-    </div>
-
-    <div style="margin-top: 64px; flex:1; display:grid; grid-template-columns: 1.1fr 1fr; gap: 96px;">
-      <div>
-        <table class="data">
-          <thead>
-            <tr><th>Evidence</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>3.719B tokens</td><td class="meaning">Internal operating evidence · Mar–May 2026.</td></tr>
-            <tr><td>Cache architecture</td><td class="meaning">Reusable context &amp; reduced repetition.</td></tr>
-            <tr><td>Multi-lane execution</td><td class="meaning">Generation · review · compression · telemetry.</td></tr>
-            <tr><td>Throughput graphs</td><td class="meaning">Tokens-over-time, output volume, exec density.</td></tr>
-            <tr><td>Cost per token</td><td class="meaning">Efficiency from structure &amp; cache reuse.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div>
-        <div class="label">Execution topology</div>
-        <div style="margin-top: 32px; font-family: var(--mono); font-size: 24px; line-height: 2.1; color: var(--ink);">
-          <div>INPUT</div>
-          <div style="color: var(--ink-3);">  └─ ROUTING</div>
-          <div style="color: var(--ink-3);">       └─ CACHE</div>
-          <div style="color: var(--ink-2);">            ├─ <span style="color: var(--rust);">GENERATION LANE</span></div>
-          <div style="color: var(--ink-2);">            ├─ <span style="color: var(--rust);">REVIEW LANE</span></div>
-          <div style="color: var(--ink-2);">            ├─ <span style="color: var(--rust);">COMPRESSION LANE</span></div>
-          <div style="color: var(--ink-2);">            ├─ <span style="color: var(--rust);">TELEMETRY LANE</span></div>
-          <div style="color: var(--ink-2);">            └─ <span style="color: var(--rust);">PACKAGING LANE</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 14. APPENDIX B — DEFENSIBILITY -->
-  <section data-label="Appendix B">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">B</span>Appendix · Defensibility</div>
-      <div class="right">"Why can't OpenAI build this?"</div>
-    </div>
-
-    <div style="margin-top: 64px;">
-      <h2>A large lab can build models.<br>We build <em>the execution layer.</em></h2>
-    </div>
-
-    <div style="margin-top: 44px; flex:1; display:grid; grid-template-columns: 1fr 1fr; gap: 80px; min-height: 0; align-items: start;">
-
-      <div>
-        <div class="label" style="color: var(--rust); margin-bottom: 16px;">The field — enforcement × cost efficiency</div>
-        <table class="data compact">
-          <thead>
-            <tr><th style="width: 30%;">Category</th><th>Players · Gap</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Code agents</td><td class="meaning">Cursor, Claude Code — no conservation guarantee.</td></tr>
-            <tr><td>Eval / guard</td><td class="meaning">Braintrust, Patronus — no enforcement at execution.</td></tr>
-            <tr><td>Model providers</td><td class="meaning">Anthropic, OpenAI, Google — no commitment across the stack.</td></tr>
-            <tr class="total"><td><span class="wm" style="color: var(--rust);">MO§ES™</span></td><td class="meaning">A protocol — runs alongside, a layer beneath everything.</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top: 26px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 32px; line-height: 1.25; color: var(--ink); max-width: 24ch;">
-          MO§ES™ doesn't compete with these tools. It <em style="color: var(--rust); font-style: italic;">governs</em> them.
-        </div>
-      </div>
-
-      <div>
-        <div class="label" style="color: var(--rust); margin-bottom: 16px;">The moat — what's proprietary</div>
-        <table class="data compact">
-          <thead>
-            <tr><th style="width: 42%;">Asset</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="wm">MO§ES™</td><td class="meaning">Patent pending · 19/426,028.</td></tr>
-            <tr><td class="wm">AQUA Answer Bank™</td><td class="meaning">Proprietary application memory.</td></tr>
-            <tr><td class="wm">SigRank Metrics</td><td class="meaning">Proprietary operator scoring.</td></tr>
-            <tr><td class="wm">SIGNOMY</td><td class="meaning">Proprietary governance layer.</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top: 18px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.04em; color: var(--ink-3);">
-          IC 042 trademark filed · DOI 10.5281/zenodo.18792459
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 15. APPENDIX C — PRODUCT ROADMAP -->
-  <section data-label="Appendix C">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">C</span>Appendix · Product Roadmap</div>
-      <div class="right">12+ Months</div>
-    </div>
-
-    <div style="margin-top: 64px;">
-      <h2>Roadmap, <em>sequenced.</em></h2>
-    </div>
-
-    <div style="margin-top: 72px; flex:1;">
-      <table class="data">
-        <thead>
-          <tr>
-            <th style="width: 22%;">Timeline</th>
-            <th>Build</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0 — 90 days</td>
-            <td class="meaning"><span class="wm">AQUA</span> MVP &nbsp;·&nbsp; Answer Bank prototype &nbsp;·&nbsp; <span class="wm">SigRank</span> scoring schema.</td>
-          </tr>
-          <tr>
-            <td>90 — 180 days</td>
-            <td class="meaning"><span class="wm">SigRank</span> Alpha &nbsp;·&nbsp; operator profiles &nbsp;·&nbsp; resonance-event reporting.</td>
-          </tr>
-          <tr>
-            <td>180 — 365 days</td>
-            <td class="meaning"><span class="wm">SIGNOMY</span> beta &nbsp;·&nbsp; governance state &nbsp;·&nbsp; trust tiers, provenance &amp; governed marketplace.</td>
-          </tr>
-          <tr>
-            <td>12+ months</td>
-            <td class="meaning">Private <span class="wm">MO§ES™</span> deployments &nbsp;·&nbsp; certification layer &nbsp;·&nbsp; multi-system operator intelligence.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="margin-top: 48px; font-family: var(--serif); font-style: italic; font-size: 32px; font-weight: 300; color: var(--ink-2); max-width: 44ch;">
-      Ello Cello industrializes AI execution by turning high-volume human-AI work into reusable workflows, measurable operator intelligence, and scalable execution infrastructure.
-    </div>
-  </section>
-
-  <!-- 16. APPENDIX D — OPERATIONAL TOTALS -->
-  <section data-label="Appendix D">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">D</span>Appendix · Operational Totals</div>
+      <div class="eyebrow"><span class="num">A</span>Appendix · Operational Totals</div>
       <div class="right">Mar 9 – May 28, 2026</div>
     </div>
 
@@ -1100,6 +847,58 @@
           Cache read 94.46% · read + create 98.03% · fresh ~1.97%.<br>Internal operating evidence, pending formal audit.
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- APPENDIX B — DEFENSIBILITY -->
+  <section data-label="Appendix B">
+    <div class="top-bar">
+      <div class="eyebrow"><span class="num">B</span>Appendix · Defensibility</div>
+      <div class="right">"Why can't OpenAI build this?"</div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <h2>A large lab can build models.<br>We build <em>the execution layer.</em></h2>
+    </div>
+
+    <div style="margin-top: 44px; flex:1; display:grid; grid-template-columns: 1fr 1fr; gap: 80px; min-height: 0; align-items: start;">
+
+      <div>
+        <div class="label" style="color: var(--rust); margin-bottom: 16px;">The field — enforcement × cost efficiency</div>
+        <table class="data compact">
+          <thead>
+            <tr><th style="width: 30%;">Category</th><th>Players · Gap</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Code agents</td><td class="meaning">Cursor, Claude Code — no conservation guarantee.</td></tr>
+            <tr><td>Eval / guard</td><td class="meaning">Braintrust, Patronus — no enforcement at execution.</td></tr>
+            <tr><td>Model providers</td><td class="meaning">Anthropic, OpenAI, Google — no commitment across the stack.</td></tr>
+            <tr class="total"><td><span class="wm" style="color: var(--rust);">MO§ES™</span></td><td class="meaning">A protocol — runs alongside, a layer beneath everything.</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 26px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 32px; line-height: 1.25; color: var(--ink); max-width: 24ch;">
+          MO§ES™ doesn't compete with these tools. It <em style="color: var(--rust); font-style: italic;">governs</em> them.
+        </div>
+      </div>
+
+      <div>
+        <div class="label" style="color: var(--rust); margin-bottom: 16px;">The moat — what's proprietary</div>
+        <table class="data compact">
+          <thead>
+            <tr><th style="width: 42%;">Asset</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="wm">MO§ES™</td><td class="meaning">Patent pending · 19/426,028.</td></tr>
+            <tr><td class="wm">AQUA Answer Bank™</td><td class="meaning">Proprietary application memory.</td></tr>
+            <tr><td class="wm">SigRank Metrics</td><td class="meaning">Proprietary operator scoring.</td></tr>
+            <tr><td class="wm">SIGNOMY</td><td class="meaning">Proprietary governance layer.</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 18px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.04em; color: var(--ink-3);">
+          IC 042 trademark filed · DOI 10.5281/zenodo.18792459
+        </div>
+      </div>
+
     </div>
   </section>
 
