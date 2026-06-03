@@ -28,7 +28,7 @@ else
     echo "ERROR: $REPO_ROOT/$SITEMAP not found" >&2
     exit 1
   fi
-  mapfile -t URLS < <(grep -oP '(?<=<loc>)[^<]+' "$REPO_ROOT/$SITEMAP")
+  mapfile -t URLS < <(sed -n 's/.*<loc>\(.*\)<\/loc>.*/\1/p' "$REPO_ROOT/$SITEMAP")
 fi
 
 echo "Pinging ${#URLS[@]} URL(s) to ${#ENGINES[@]} engines..."
