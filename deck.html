@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
+
+
 <meta charset="utf-8">
 <title>Ello Cello — Pitch</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #F2EDE3;
@@ -177,6 +177,47 @@
   /* Compact data variant — tighter row padding for merged slides */
   .data.compact th, .data.compact td { padding: 14px 24px 14px 0; }
   .data.compact th { padding-bottom: 12px; }
+  /* Resolution slide — tighter still so six rows clear the frame */
+  .shift-table { line-height: 1.3; }
+  .shift-table.compact td, .shift-table.compact th { padding-top: 11px; padding-bottom: 11px; }
+  .shift-table td:first-child { width: 19%; padding-right: 24px; white-space: nowrap; }
+
+  /* Filter slide — quadrant plot */
+  .quad { position: relative; border: 1px solid var(--rule); background:
+      linear-gradient(var(--rule) 1px, transparent 1px) 0 0 / 100% 25%,
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px) 0 0 / 25% 100%;
+      background-color: var(--paper-2); }
+  .quad .win { position: absolute; top: 0; right: 0; width: 50%; height: 50%; background: rgba(181,66,28,0.07); }
+  .quad .axis-v { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--ink); opacity: .55; }
+  .quad .axis-h { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: var(--ink); opacity: .55; }
+  .quad .zone { position: absolute; font-family: var(--mono); font-size: 19px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .qd { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 7px; }
+  .qd .pt { width: 15px; height: 15px; border-radius: 50%; background: var(--ink-3); }
+  .qd .lb { font-family: var(--mono); font-size: 19px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
+  .qd.moses .pt { width: 26px; height: 26px; background: var(--rust); box-shadow: 0 0 0 7px rgba(181,66,28,0.16); }
+  .qd.moses .lb { color: var(--rust); font-weight: 600; font-size: 21px; letter-spacing: 0.04em; }
+  /* Filter slide — 3-step list */
+  .filter-step { display: grid; grid-template-columns: 44px 1fr; column-gap: 20px; align-items: start; padding: 15px 0; border-top: 1px solid var(--rule); }
+  .filter-step:first-of-type { border-top: 1px solid var(--ink); }
+  .filter-step .fn { font-family: var(--mono); font-size: 24px; font-weight: 600; color: var(--rust); }
+  .filter-step .fq { font-size: 33px; font-weight: 600; color: var(--ink); line-height: 1.18; letter-spacing: -0.01em; }
+  .filter-step .fa { font-size: 26px; color: var(--ink-2); line-height: 1.3; margin-top: 8px; }
+  .filter-step .fa strong { color: var(--rust); font-weight: 600; }
+
+  /* Filter slide — taxonomy spine chart */
+  .tax { position: relative; }
+  .tax-spine { position: absolute; left: 50%; top: 6px; bottom: 6px; width: 2px; transform: translateX(-50%); background: var(--rule); z-index: 0; }
+  .tax-node { position: relative; z-index: 2; background: var(--paper); border: 1px solid var(--rule); padding: 14px 26px; text-align: center; max-width: 70%; margin: 0 auto; }
+  .tax-node .tax-name { font-family: var(--serif); font-size: 31px; line-height: 1.1; color: var(--ink); letter-spacing: -0.01em; }
+  .tax-node .tax-vendors { font-family: var(--mono); font-size: 20px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; }
+  .tax-node .tax-desc { font-size: 24px; line-height: 1.28; color: var(--ink-2); margin-top: 8px; }
+  .tax-node.moses { border: 2px solid var(--rust); background: rgba(181,66,28,0.06); max-width: 76%; }
+  .tax-node.moses .tax-name { color: var(--rust); font-weight: 500; }
+  .tax-node.moses .tax-desc { color: var(--ink); }
+  .tax-axis { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; }
+  .tax-axis .end { font-family: var(--mono); font-size: 24px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+  .tax-axis .line { flex: 1; height: 2px; background: var(--ink); opacity: .55; }
+  .tax-rule { position: relative; z-index: 1; height: 1px; background: var(--rule); }
   .data .num-col { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .data tr.total td { border-top: 1px solid var(--ink); border-bottom: none; font-weight: 600; color: var(--ink); }
 
@@ -355,18 +396,29 @@
   }
   .ec-mark .dot { width: 10px; height: 10px; background: var(--rust); border-radius: 50%; display: inline-block; }
 </style>
-</head>
-<body>
+<link id="gfont-Playfair-Display" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&amp;display=swap"></head>
+<body style="">
+
+<template id="__bundler_thumbnail" data-bg-color="#1A1815">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" data-om-id="849a49e8:8">
+    <rect width="1200" height="800" fill="#1A1815" data-om-id="849a49e8:9"></rect>
+    <text x="600" y="430" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="300" font-size="200" letter-spacing="-6" fill="#F2EDE3" data-om-id="849a49e8:10">Ello Cello<tspan fill="#B5421C" data-om-id="849a49e8:11">.</tspan></text>
+    <text x="600" y="540" text-anchor="middle" font-family="ui-monospace, monospace" font-size="34" letter-spacing="14" fill="#C9BFAD" data-om-id="849a49e8:12">PITCH · 2026</text>
+  </svg>
+</template>
 
 <script type="application/json" id="speaker-notes">
 [
   "Ello Cello is the execution infrastructure layer for the agentic economy. We've proven it internally by industrializing code generation at billion-token scale. In the next few minutes I'll walk you through the problem, the stack, the proof, the market, the motion, the team, and the ask.",
 
-  "The problem is no longer generation. Models can generate. The problem is execution. Enterprises have access to extraordinarily powerful models and still cannot run a long agentic workflow without it falling apart. They cannot industrialize code generation. They cannot measure who on their team uses AI well. They cannot turn the context they accumulate into reusable assets. Generation is solved. The plumbing around it is wide open.",
+  "Here's the entire problem in one frame — the execution gap. The actual runtime execution layer is still an open point of vulnerability in AI infrastructure: there's no mechanism to monitor and enforce state integrity during inference. Every attempt to govern AI today fails in one of two ways. The Inline Proxy — Exogram, Cerone, Prisma AIRS — is reactive: it kills the process after the brain has already broken. The Frozen Brain — llm-nano-vm, Lean-Agent — is a rigid cage that suffocates intelligence with hard-coded math and flowcharts. MO§ES sits between them as the substrate: proactive, keeping the agent fluid but bound to intent. And you can classify any competitor with three questions. Is it a wrapper or interceptor? Then it's a perimeter firewall, not execution governance. Is it a container or microVM? Then it's infrastructure isolation, not logic governance. Is it a DAG or routing tree? Then it's a static cage, not a living runtime. MO§ES answers no to all three, because it governs from inside the generation loop.",
+
+  "The whole 2026 governance landscape makes one mistake: it confuses orchestration with governance. Six approaches, every one of them sitting outside the model, patching damage after it's done. The Inline Proxies — Exogram, Cerone, Prisma AIRS — intercept after the model's logic has already collapsed; they manage the explosion but never preserve the signal. The Frozen Brains — llm-nano-vm, Lean-Agent — cage the model in a rigid flowchart and shatter on the first real ambiguity. Middleware hooks like Zenity see which tool is called but are blind to the linguistic noise building in context. Infra sandboxes like Cloudflare are perimeter-only — a boxed agent still hallucinates and loops, securely. Rigid orchestration — Copilot Studio, Noma, Check Point — is fancy routing, not autonomy. And post-hoc audits like Obsidian are an autopsy: they tell you how you were breached after it already happened. None of them govern the language itself.",
+
+  "This is MO§ES, and it's a paradigm shift. Six ways we govern where the industry only fences. One — we govern the brain, not the bouncer: we work inside the token-generation loop and kill drift before a rogue call ever forms, instead of dropping packets after the logic has already corrupted. Two — we preserve fluid intellect: adaptive, multi-step reasoning bound mathematically to its intent, not caged in a 2010s state machine. Three — active signal defense: we watch the signal-to-noise ratio live during inference and stop context collapse at the root, instead of auditing after the fact. Four — complete process continuity: when an agent drifts we realign the loop to its genesis parameters, so it steers back rather than hard-blocking into a dead end; a hundred percent uptime. Five — intrinsically safe, not extrinsically fenced: the Conservation Law of Commitment makes the agent structurally unable to drift from intent. And six, the core unfair advantage — semantic information mastery: we operate inside the native architecture of language, measuring the preservation of meaning across millions of tokens. We don't police the system. We govern the meaning.",
 
   "One execution stack, four commercial wedges. MO§ES is the substrate — compression, recursive execution, drift control, lineage. AQUA is the application workflow layer — application work becomes reusable execution memory. SigRank is the operator intelligence layer — the first serious leaderboard for AI operators. SIGNOMY is the governance layer — a constitutional economy where agents register, build trust, take missions, earn, and carry provenance. MO§ES is the engine, AQUA and SigRank are the wedges into the market, SIGNOMY is where it becomes a governed economy. And on competition: code agents generate, eval tools measure, the labs won't commit across the stack — MO§ES governs them all. Patent pending on the substrate, proprietary on everything else — the execution layer a model lab can't ship.",
 
-  "This is not theoretical. Internally we have already industrialized code generation at this scale — 3.719 billion tokens, on our own infrastructure, with cache architecture, multi-lane execution, throughput tracking, and falling cost per token. Framed carefully: internal operating evidence pending formal audit, not a third-party benchmark. But it is the proof that the execution stack works at scale.",
 
   "Why now: the market is moving from generation to execution. Chatbots, then agents, then execution infrastructure. AI usage is exploding, code generation is becoming production infrastructure, human-AI performance is now a measurable business variable, and operator skill is becoming a category. And because each of our products attacks a different layer, the TAM is four overlapping expansion curves: AQUA into institutional application infrastructure, SigRank into workforce intelligence and certification, MO§ES into enterprise AI infrastructure, and SIGNOMY into the constitutional infrastructure for agent economies. In dollars: eighteen-to-twenty-five billion today, growing to a hundred-ten to a hundred-forty-two billion by 2030. Bottoms-up, fifty enterprise pilots at a sixty-five-thousand-dollar floor is about three-and-a-quarter million in ARR.",
 
@@ -376,13 +428,11 @@
 
   "The ask: we're raising one and a half million dollars on a SAFE, post-money cap to be discussed. That funds an eighteen-month runway with one goal — land the first fifty enterprise design partners and publish the protocol v1 spec. The split is forty percent engineering on the protocol CLI and substrate, thirty percent research on commitment enforcement, twenty percent go-to-market for the design-partner pilot, and ten percent reserve for legal and operations. Patent pending, trademark filed, protocol published with a DOI. That's the ask.",
 
-  "Appendix A is the operational totals — the diligence numbers behind the proof slide. Over the reporting period, March ninth to May twenty-eighth, the system processed three-point-seven-one-nine billion tokens. The headline is the amplification ratio: three-point-three million tokens of operator input produced seventy-point-two-five million tokens of system output — a twenty-one-times amplification. The cache ratios show the system runs on about ninety-eight percent preserved structure and only two percent new. Internal operating evidence, pending formal audit.",
-
-  "Appendix B is defensibility, and the competitive field. Plot everyone on semantic enforcement against cost efficiency and the field clusters lower-left: code agents generate but offer no conservation guarantee, eval and guard tools measure quality but don't enforce at execution, and the model providers won't commit across the stack. MO§ES sits alone in the upper-right — it doesn't compete with these tools, it governs them. On the moat: MO§ES is patent pending, the AQUA Answer Bank, SigRank metrics, and SIGNOMY governance are proprietary, the trademark is filed, and the protocol is published with a DOI."
+  "Appendix A is the operational totals — the diligence numbers behind the execution-evidence claims. Over the reporting period, March ninth to May twenty-eighth, the system processed three-point-seven-one-nine billion tokens. The headline is the amplification ratio: three-point-three million tokens of operator input produced seventy-point-two-five million tokens of system output — a twenty-one-times amplification. The cache ratios show the system runs on about ninety-eight percent preserved structure and only two percent new. Internal operating evidence, pending formal audit."
 ]
 </script>
 
-<deck-stage width="1920" height="1080">
+<deck-stage width="1920" height="1080" style="--deck-rail-w: 188px;">
 
   <!-- 1. COVER -->
   <section data-label="Cover" class="dark" style="padding: 0; position: relative;">
@@ -391,15 +441,15 @@
       <span class="cover-sub" style="font-size: 26px;">Pre-seed · 2026</span>
     </div>
 
-    <div style="position:absolute; left: 120px; right: 120px; top: 220px;">
-      <div class="cover-mark">Ello&nbsp;Cello<span class="amp">.</span></div>
+    <div style="position:absolute; left: 120px; right: 120px; top: 140px;">
+      <div class="cover-mark" style="font-family: Newsreader;"><span class="amp" style="font-family: Newsreader;"><span style="caret-color: rgb(242, 237, 227); color: rgb(242, 237, 227);">Ello Cello</span>.</span></div>
     </div>
 
-    <div style="position:absolute; left: 120px; right: 120px; bottom: 200px; display:flex; gap: 96px; align-items: flex-end;">
-      <div class="cover-tagline">The execution infrastructure layer for the agentic economy.</div>
-      <div style="flex:1; text-align: right; font-family: var(--mono); font-size: 26px; letter-spacing: 0.18em; text-transform: uppercase; color:#C9BFAD; line-height: 1.9;">
-        Proven by industrializing<br>code generation at<br><span style="color: #E8A07A;">3.719B-token scale.</span>
-      </div>
+    <div style="position: absolute; left: 50%; right: 120px; bottom: 150px; display: flex; flex-direction: column; gap: 6px; font-family: var(--serif); font-weight: 300; font-size: 75px; line-height: 1.5; color: var(--paper);">
+      <div style="font-size: 75px;"><em style="font-style: italic; color: rgb(232, 160, 122); font-size: 75px;">Language</em> is the medium.</div>
+      <div style="font-size: 75px;"><em style="font-style: italic; color: rgb(232, 160, 122); font-size: 75px;">Execution</em> is the problem.</div>
+      <div style="font-size: 75px;"><em style="font-style: italic; color: rgb(232, 160, 122); font-size: 75px;">Measurement</em> is the wedge.</div>
+      <div style="font-size: 75px;"><em style="font-style: italic; color: rgb(232, 160, 122); font-size: 75px;">Governance</em> is the expansion.</div>
     </div>
 
     <div class="corner" style="bottom: 64px; font-size: 24px;">
@@ -413,52 +463,226 @@
     </div>
   </section>
 
-  <!-- 2. THE EXECUTION BOTTLENECK -->
+  <!-- 2. THE PROBLEM — TAXONOMY + 3-STEP FILTER -->
   <section data-label="Problem">
     <div class="top-bar">
       <div class="eyebrow"><span class="num">02</span>The Problem</div>
-      <div class="right">Ello Cello</div>
+      <div class="right"></div>
     </div>
-    <div style="margin-top: 44px;">
-      <div style="font-family: var(--serif); font-weight: 300; font-size: 60px; line-height: 1.16; letter-spacing: -0.015em; color: var(--ink);">
-        I have a theory that language has a <em style="font-style: italic; color: var(--rust);">measurable signal-to-noise ratio</em>, operators <em style="font-style: italic; color: var(--rust);">can be ranked</em>, commitment <em style="font-style: italic; color: var(--rust);">can be conserved</em>, and AI performance <em style="font-style: italic; color: var(--rust);">can be predicted</em> from signal quality.
+
+    <div style="margin-top: 34px; flex:1; display:grid; grid-template-columns: 0.96fr 1.04fr; gap: 76px; min-height: 0; align-items: stretch;">
+
+      <!-- Left: the execution gap + filter -->
+      <div style="display:flex; flex-direction:column; min-height: 0;">
+        <h2 style="font-size: 60px; line-height: 1.06">The Execution Gap</h2>
+        <div class="body" style="margin-top: 16px; font-size: 30px; line-height: 1.38; color: var(--ink-2); max-width: 44ch">
+          The actual runtime execution layer remains an open point of vulnerability in AI infrastructure — no mechanism monitors or enforces state integrity during inference.
+        </div>
+
+        <div style="margin-top: auto; border: 1px solid var(--rule); padding: 18px 30px 24px;">
+          <div class="filter-step" style="border-top: none; padding-top: 4px;">
+            <div class="fn">01</div>
+            <div>
+              <div class="fq">Is it a wrapper or interceptor?</div>
+              <div class="fa">Then it's a <strong>perimeter firewall</strong> — not execution governance.</div>
+            </div>
+          </div>
+          <div class="filter-step">
+            <div class="fn">02</div>
+            <div>
+              <div class="fq">Is it a container or microVM?</div>
+              <div class="fa">Then it's <strong>infrastructure isolation</strong> — not logic governance.</div>
+            </div>
+          </div>
+          <div class="filter-step">
+            <div class="fn">03</div>
+            <div>
+              <div class="fq">Is it a DAG or routing tree?</div>
+              <div class="fa">Then it's a <strong>static cage</strong> — not a living runtime.</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule); font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 30px; line-height: 1.25; color: var(--ink);">
+            MO§ES™ answers <em style="font-style: italic; color: var(--rust);">no</em> to all three. It governs from <em style="font-style: italic; color: var(--rust);">inside</em> the loop.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: taxonomy chart, complete right side -->
+      <div style="display:flex; flex-direction:column; min-height: 0;">
+        <div class="tax" style="flex:1; display:flex; flex-direction:column; justify-content:space-between; min-height: 0; padding: 12px 0 16px;">
+          <div class="tax-spine"></div>
+
+          <div class="tax-node">
+            <div class="tax-name">The Inline Proxy</div>
+            <div class="tax-vendors">Exogram · Cerone · Prisma AIRS</div>
+            <div class="tax-desc">Reactive — kills the process after the brain breaks.</div>
+          </div>
+
+          <div class="tax-axis">
+            <span class="end">Reactive</span>
+            <span class="line"></span>
+            <span class="end">Proactive</span>
+          </div>
+
+          <div class="tax-node moses">
+            <div class="tax-name">The MO§ES™ Substrate</div>
+            <div class="tax-desc">Proactive — keeps the agent fluid, bound to intent.</div>
+          </div>
+
+          <div class="tax-rule"></div>
+
+          <div class="tax-node">
+            <div class="tax-name">The Frozen Brain</div>
+            <div class="tax-vendors">llm-nano-vm · Lean-Agent</div>
+            <div class="tax-desc">Rigid cages — suffocates intelligence with rigid math &amp; flowcharts.</div>
+          </div>
+        </div>
+        <div style="text-align:center; font-family: var(--mono); font-size: 24px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-top: 16px;">The Governance Matrix</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. THE LANDSCAPE — ORCHESTRATION ≠ GOVERNANCE -->
+  <section data-label="Landscape">
+    <div class="top-bar">
+      <div class="eyebrow"><span class="num">03</span>The Landscape</div>
+      <div class="right">2026 Governance Matrix</div>
+    </div>
+
+    <div style="margin-top: 36px; display:flex; align-items:flex-end; justify-content: space-between; gap: 64px;">
+      <h2 style="font-size: 72px;">Orchestration <em style="font-style:normal; color: var(--rust); font-weight: 400;">≠</em> Governance.</h2>
+      <div class="body" style="max-width: 38ch; font-size: 26px; margin-bottom: 6px;">
+        Six ways the industry tries to control AI today. Every one sits <strong style="color:var(--ink); font-weight:600;">outside the model</strong> — patching the damage after it is already done.
       </div>
     </div>
 
-    <div style="margin-top: 48px; flex:1;">
-      <table class="data prob-table">
+    <div style="margin-top: 40px; flex:1; display:grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; column-gap: 64px; row-gap: 40px; min-height: 0;">
+
+      <!-- 01 -->
+      <div style="border-top: 1px solid var(--ink); padding-top: 20px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:baseline; gap: 16px;">
+          <span style="font-family:var(--mono); font-size:24px; color:var(--rust); font-weight:600;">01</span>
+          <span style="font-size:30px; font-weight:600; letter-spacing:-0.01em; line-height:1.1;">The Inline Proxy</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase;">Exogram · Cerone · Prisma AIRS</div>
+        <div style="font-size:24px; line-height:1.32; color:var(--ink-2); max-width:40ch;"><strong style="color:var(--rust); font-weight:600;">Blast Radius Fallacy —</strong> intercepts after the model's logic has already collapsed. Manages the explosion; never preserves the signal.</div>
+      </div>
+
+      <!-- 02 -->
+      <div style="border-top: 1px solid var(--ink); padding-top: 20px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:baseline; gap: 16px;">
+          <span style="font-family:var(--mono); font-size:24px; color:var(--rust); font-weight:600;">02</span>
+          <span style="font-size:30px; font-weight:600; letter-spacing:-0.01em; line-height:1.1;">The Frozen Brain</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase;">llm-nano-vm · Lean-Agent</div>
+        <div style="font-size:24px; line-height:1.32; color:var(--ink-2); max-width:40ch;"><strong style="color:var(--rust); font-weight:600;">Intellectual Suffocation —</strong> turns a reasoning engine into a rigid flowchart. Shatters on the first real-world ambiguity.</div>
+      </div>
+
+      <!-- 03 -->
+      <div style="border-top: 1px solid var(--ink); padding-top: 20px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:baseline; gap: 16px;">
+          <span style="font-family:var(--mono); font-size:24px; color:var(--rust); font-weight:600;">03</span>
+          <span style="font-size:30px; font-weight:600; letter-spacing:-0.01em; line-height:1.1;">Middleware Hooks</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase;">Zenity · Agent Control Standard</div>
+        <div style="font-size:24px; line-height:1.32; color:var(--ink-2); max-width:40ch;"><strong style="color:var(--rust); font-weight:600;">Internal Blindness —</strong> sees which tool is called, never the linguistic noise accumulating in context before the call.</div>
+      </div>
+
+      <!-- 04 -->
+      <div style="border-top: 1px solid var(--ink); padding-top: 20px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:baseline; gap: 16px;">
+          <span style="font-family:var(--mono); font-size:24px; color:var(--rust); font-weight:600;">04</span>
+          <span style="font-size:30px; font-weight:600; letter-spacing:-0.01em; line-height:1.1;">Infra Sandboxes</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase;">Cloudflare · Project Think</div>
+        <div style="font-size:24px; line-height:1.32; color:var(--ink-2); max-width:40ch;"><strong style="color:var(--rust); font-weight:600;">Perimeter Only —</strong> a boxed agent still hallucinates, corrupts records, and loops indefinitely — securely.</div>
+      </div>
+
+      <!-- 05 -->
+      <div style="border-top: 1px solid var(--ink); padding-top: 20px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:baseline; gap: 16px;">
+          <span style="font-family:var(--mono); font-size:24px; color:var(--rust); font-weight:600;">05</span>
+          <span style="font-size:30px; font-weight:600; letter-spacing:-0.01em; line-height:1.1;">Rigid Orchestration</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase;">Copilot Studio · Noma · Check Point</div>
+        <div style="font-size:24px; line-height:1.32; color:var(--ink-2); max-width:40ch;"><strong style="color:var(--rust); font-weight:600;">Fancy Routing —</strong> not autonomy. Breaks the moment a process needs fluid, open-ended reasoning.</div>
+      </div>
+
+      <!-- 06 -->
+      <div style="border-top: 1px solid var(--ink); padding-top: 20px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:baseline; gap: 16px;">
+          <span style="font-family:var(--mono); font-size:24px; color:var(--rust); font-weight:600;">06</span>
+          <span style="font-size:30px; font-weight:600; letter-spacing:-0.01em; line-height:1.1;">Post-Hoc Audits</span>
+        </div>
+        <div style="font-family:var(--mono); font-size:24px; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase;">Obsidian Security</div>
+        <div style="font-size:24px; line-height:1.32; color:var(--ink-2); max-width:40ch;"><strong style="color:var(--rust); font-weight:600;">The Autopsy —</strong> tells you how you were breached, only after the exfiltration has already executed.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. MO§ES RESOLUTION — THE PARADIGM SHIFT -->
+  <section data-label="Resolution" class="dark">
+    <div class="top-bar">
+      <div class="eyebrow"><span class="num">04</span>The Resolution · MO§ES™ Paradigm Shift</div>
+      <div class="right">A Governed Brain</div>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <h2 style="font-size: 60px;">We don't build a better cage. We govern the meaning <em style="color:#E8A07A;">at the source.</em></h2>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <table class="data compact shift-table">
         <thead>
           <tr>
-            <th style="font-size: 40px">Bottleneck</th>
-            <th style="font-size: 40px">Why it matters</th>
+            <th style="width: 19%;">The shift</th>
+            <th style="width: 37%; color: var(--ink-3); border-bottom-color: var(--rule);">The industry</th>
+            <th style="color:#E8A07A; border-bottom-color:#E8A07A;">MO§ES™</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Signal in Language</td>
-            <td class="meaning">No accepted standard exists for measuring semantic signal-to-noise.</td>
+            <td>Brain, not bouncer</td>
+            <td class="meaning">External firewalls drop packets after the logic has already corrupted.</td>
+            <td style="color:var(--paper);">Works inside the token-generation loop — kills drift before a rogue call forms.</td>
           </tr>
           <tr>
-            <td>Operator Intelligence</td>
-            <td class="meaning">Missing opportunities for beneficial growth, collaboration, and knowledge transfer.</td>
+            <td>Fluid intellect</td>
+            <td class="meaning">Caged in 2010s state machines and brittle mathematical straitjackets.</td>
+            <td style="color:var(--paper);">Keeps adaptive, multi-step reasoning — mathematically bound to its core intent.</td>
           </tr>
           <tr>
-            <td>Meaning Preservation</td>
-            <td class="meaning">Intent, context, and meaning decay across conversations, workflows, and time.</td>
+            <td>Active signal defense</td>
+            <td class="meaning">Behavioral flags and edge hooks audit actions only after the fact.</td>
+            <td style="color:var(--paper);">Watches signal-to-noise live during inference; stops context collapse at the root.</td>
           </tr>
           <tr>
-            <td>Performance Prediction</td>
-            <td class="meaning">AI behavior remains largely probabilistic because interaction quality is not measured.</td>
+            <td>Process continuity</td>
+            <td class="meaning">A violation forces a hard block — the workflow dies in a dead end.</td>
+            <td style="color:var(--paper);">Realigns the loop to its genesis parameters — steers back, never halts. <span style="color:#E8A07A;">100% uptime.</span></td>
+          </tr>
+          <tr>
+            <td>Intrinsically safe</td>
+            <td class="meaning">Sandboxes fence the perimeter; the agent still loops and corrupts data inside.</td>
+            <td style="color:var(--paper);">The <span style="color:#E8A07A;">Conservation Law of Commitment</span> — structurally unable to drift from intent.</td>
+          </tr>
+          <tr>
+            <td>Semantic mastery</td>
+            <td class="meaning">Treats language as text strings and actions as binary API packets.</td>
+            <td style="color:var(--paper);">Governs meaning itself — locks intent to objective across millions of tokens.</td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- 3. ONE STACK FOUR WEDGES -->
+  <!-- 5. ONE STACK FOUR WEDGES -->
   <section data-label="Architecture">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">03</span>The Stack</div>
+      <div class="eyebrow"><span class="num">05</span>The Stack</div>
       <div class="right">Ello Cello</div>
     </div>
 
@@ -493,7 +717,7 @@
       </div>
     </div>
 
-    <div style="margin-top: 22px; font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2);">MO§ES™ IS THE ENGINE  ·  AQUA + SIGRANK ARE THE WEDGES  ·  SIGNOMY IS THE GOVERNED ECONOMY</div>
+    <div style="margin-top: 22px; font-family: var(--mono); font-size: 24px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-2);">MO§ES™ IS THE ENGINE &nbsp;·&nbsp; AQUA + SIGRANK ARE THE WEDGES &nbsp;·&nbsp; SIGNOMY IS THE GOVERNED ECONOMY</div>
 
     <div style="margin-top: 14px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 28px; line-height: 1.3; color: var(--ink-2); max-width: 64ch;">
       <span class="wm" style="color: var(--ink); font-style: normal;">MO§ES™</span> governs the field — code agents generate, eval tools measure, the labs won't commit across the stack. Patent pending; the rest proprietary.
@@ -502,46 +726,7 @@
 
   <!-- (Removed in short deck: Products A / Products B — absorbed into Stack) -->
 
-  <!-- 4. PROOF — hero number -->
-  <section data-label="Proof" class="dark">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">04</span>Proof · Internal Operating Evidence</div>
-      <div class="right">Pending Formal Audit</div>
-    </div>
-
-    <div style="margin-top: 80px; flex:1; display:grid; grid-template-columns: 1.1fr 1fr; gap: 96px; align-items: center;">
-      <div>
-        <div class="label" style="color: #E8A07A;">Total tokens · code production</div>
-        <div class="hero-num" style="margin-top: 32px;"><em>3.719</em><span style="color: var(--paper); font-style: normal;">B</span></div>
-        <div style="margin-top: 56px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 44px; line-height: 1.2; max-width: 18ch; color: var(--paper);">
-          Code generation, treated as an industrial process.
-        </div>
-      </div>
-
-      <div style="border-top: 1px solid var(--paper); padding-top: 32px;">
-        <table class="data">
-          <tbody>
-            <tr>
-              <td>Cache architecture</td>
-              <td class="meaning">Reusable context, repeated-work reduction.</td>
-            </tr>
-            <tr>
-              <td>Multi-lane execution</td>
-              <td class="meaning">Generation · review · compression · telemetry · packaging.</td>
-            </tr>
-            <tr>
-              <td>Throughput tracking</td>
-              <td class="meaning">Tokens-over-time and output density measured continuously.</td>
-            </tr>
-            <tr>
-              <td>Cost per token</td>
-              <td class="meaning">Falling through reuse and structural compression.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+  <!-- (Removed: Proof / Internal Operating Evidence — replaced by new narrative block 02–04) -->
 
   <!-- (Removed in short deck: Market — absorbed into Why Now / Market) -->
 
@@ -550,7 +735,7 @@
   <!-- 5. WHY NOW + MARKET (merged) -->
   <section data-label="Market · Adoption" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">05</span>Market &middot; Adoption</div>
+      <div class="eyebrow"><span class="num">06</span>Market · Adoption</div>
       <div class="right">Ello Cello</div>
     </div>
 
@@ -596,7 +781,7 @@
   <!-- 6. MODEL + SEQUENCE (merged) -->
   <section data-label="Model · Sequence">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">06</span>Model &middot; Sequence</div>
+      <div class="eyebrow"><span class="num">07</span>Model · Sequence</div>
       <div class="right">Ello Cello</div>
     </div>
 
@@ -625,11 +810,11 @@
         <div class="label" style="color: var(--rust); margin-bottom: 14px;">Phased sequence</div>
         <table class="data compact">
           <tbody>
-            <tr><td>Phase 01</td><td class="meaning"><span class="wm">AQUA</span> MVP &middot; Answer Bank.</td></tr>
-            <tr><td>Phase 02</td><td class="meaning"><span class="wm">SIGRANK</span> Alpha &middot; public leaderboard.</td></tr>
-            <tr><td>Phase 03</td><td class="meaning">Enterprise dashboards &middot; private analytics.</td></tr>
-            <tr><td>Phase 04</td><td class="meaning"><span class="wm">SIGNOMY</span> &middot; constitutional economy.</td></tr>
-            <tr><td>Phase 05</td><td class="meaning"><span class="wm">MO§ES™</span> licensing &middot; private deployments.</td></tr>
+            <tr><td>Phase 01</td><td class="meaning"><span class="wm">AQUA</span> MVP · Answer Bank.</td></tr>
+            <tr><td>Phase 02</td><td class="meaning"><span class="wm">SIGRANK</span> Alpha · public leaderboard.</td></tr>
+            <tr><td>Phase 03</td><td class="meaning">Enterprise dashboards · private analytics.</td></tr>
+            <tr><td>Phase 04</td><td class="meaning"><span class="wm">SIGNOMY</span> · constitutional economy.</td></tr>
+            <tr><td>Phase 05</td><td class="meaning"><span class="wm">MO§ES™</span> licensing · private deployments.</td></tr>
           </tbody>
         </table>
 
@@ -640,11 +825,11 @@
     <!-- Full-width footer band -->
     <div style="margin: 32px calc(-1 * var(--pad-x)) calc(-1 * var(--pad-y)); background: var(--ink); color: var(--paper); padding: 30px var(--pad-x); display:flex; justify-content:center; align-items:center; gap: 34px; font-family: var(--mono); font-size: 26px; text-transform: uppercase; letter-spacing: 0.16em;">
       <span><span style="color:#E8A07A;">AQUA</span> Workflow</span>
-      <span style="color:#8A857C;">&middot;</span>
+      <span style="color:#8A857C;">·</span>
       <span><span style="color:#E8A07A;">SIGRANK</span> Identity</span>
-      <span style="color:#8A857C;">&middot;</span>
+      <span style="color:#8A857C;">·</span>
       <span><span style="color:#E8A07A;">MO§ES</span> Governance</span>
-      <span style="color:#8A857C;">&middot;</span>
+      <span style="color:#8A857C;">·</span>
       <span><span style="color:#E8A07A;">SIGNOMY</span> Economy</span>
     </div>
   </section>
@@ -652,7 +837,7 @@
   <!-- 11. FOUNDER -->
   <section data-label="Founder">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">07</span>Founder</div>
+      <div class="eyebrow"><span class="num">08</span>Founder</div>
       <div class="right">Solo Founder</div>
     </div>
 
@@ -663,11 +848,11 @@
     <div style="margin-top: 48px; flex:1; display:grid; grid-template-columns: 420px 1fr; gap: 96px; align-items: start; min-height: 0;">
 
       <div style="display:flex; flex-direction: column; gap: 24px;">
-        <img src="assets/founder.jpg" alt="Deric J. McHenry" style="min-height: 340px; width: 100%; height: 340px; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(1) contrast(1.05);" />
+        <img src="assets/founder.jpg" alt="Deric J. McHenry" style="min-height: 340px; width: 100%; height: 340px; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(1) contrast(1.05);">
 
         <div>
           <div style="font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1.05; letter-spacing: -0.01em;">Deric J. McHenry</div>
-          <div class="label" style="margin-top: 14px;">Founder &middot; <span class="wm">MO§ES™</span></div>
+          <div class="label" style="margin-top: 14px;">Founder · <span class="wm">MO§ES™</span></div>
           <div style="margin-top: 14px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 26px; line-height: 1.3; color: var(--ink-2); max-width: 28ch;">
             Sole architect of the substrate, the patents, and everything shipped.
           </div>
@@ -715,7 +900,7 @@
   <!-- 12. THE ASK -->
   <section data-label="The Ask" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">08</span>The Ask</div>
+      <div class="eyebrow"><span class="num">09</span>The Ask</div>
       <div class="right">Pre-Seed</div>
     </div>
 
@@ -801,7 +986,7 @@
   <!-- (Removed in short deck: Appendix A / B / C) -->
 
   <!-- APPENDIX A — OPERATIONAL TOTALS -->
-  <section data-label="Appendix A">
+  <section data-label="Appendix A" data-deck-last-visible="">
     <div class="top-bar">
       <div class="eyebrow"><span class="num">A</span>Appendix · Operational Totals</div>
       <div class="right">Mar 9 – May 28, 2026</div>
@@ -850,60 +1035,11 @@
     </div>
   </section>
 
-  <!-- APPENDIX B — DEFENSIBILITY -->
-  <section data-label="Appendix B">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">B</span>Appendix · Defensibility</div>
-      <div class="right">"Why can't OpenAI build this?"</div>
-    </div>
-
-    <div style="margin-top: 48px;">
-      <h2>A large lab can build models.<br>We build <em>the execution layer.</em></h2>
-    </div>
-
-    <div style="margin-top: 44px; flex:1; display:grid; grid-template-columns: 1fr 1fr; gap: 80px; min-height: 0; align-items: start;">
-
-      <div>
-        <div class="label" style="color: var(--rust); margin-bottom: 16px;">The field — enforcement × cost efficiency</div>
-        <table class="data compact">
-          <thead>
-            <tr><th style="width: 30%;">Category</th><th>Players · Gap</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Code agents</td><td class="meaning">Cursor, Claude Code — no conservation guarantee.</td></tr>
-            <tr><td>Eval / guard</td><td class="meaning">Braintrust, Patronus — no enforcement at execution.</td></tr>
-            <tr><td>Model providers</td><td class="meaning">Anthropic, OpenAI, Google — no commitment across the stack.</td></tr>
-            <tr class="total"><td><span class="wm" style="color: var(--rust);">MO§ES™</span></td><td class="meaning">A protocol — runs alongside, a layer beneath everything.</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top: 26px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 32px; line-height: 1.25; color: var(--ink); max-width: 24ch;">
-          MO§ES™ doesn't compete with these tools. It <em style="color: var(--rust); font-style: italic;">governs</em> them.
-        </div>
-      </div>
-
-      <div>
-        <div class="label" style="color: var(--rust); margin-bottom: 16px;">The moat — what's proprietary</div>
-        <table class="data compact">
-          <thead>
-            <tr><th style="width: 42%;">Asset</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="wm">MO§ES™</td><td class="meaning">Patent pending · 19/426,028.</td></tr>
-            <tr><td class="wm">AQUA Answer Bank™</td><td class="meaning">Proprietary application memory.</td></tr>
-            <tr><td class="wm">SigRank Metrics</td><td class="meaning">Proprietary operator scoring.</td></tr>
-            <tr><td class="wm">SIGNOMY</td><td class="meaning">Proprietary governance layer.</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top: 18px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.04em; color: var(--ink-3);">
-          IC 042 trademark filed · DOI 10.5281/zenodo.18792459
-        </div>
-      </div>
-
-    </div>
-  </section>
+  <!-- (Removed: Appendix B / Defensibility — competitive contrast now lives in slides 03–04) -->
 
 </deck-stage>
 
 <script src="deck-stage.js"></script>
-</body>
-</html>
+
+
+</body></html>
