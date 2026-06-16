@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — Demo Video</title>
+  <meta name="description" content="MO§ES product demo video.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    :root{--bg:#0A0D12;--panel:#10141A;--border:#1A1F28;--line:rgba(196,146,58,.24);--text:#C8CDD6;--dim:#8A94A0;--bright:#E8ECF1;--gold:#C4923A;--mono:'DM Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif;--serif:'Playfair Display',Georgia,serif}
+    *{box-sizing:border-box;margin:0;padding:0}body{background:linear-gradient(rgba(196,146,58,.07) 1px,transparent 1px) 0 0/100% 80px,linear-gradient(90deg,rgba(196,146,58,.07) 1px,transparent 1px) 0 0/80px 100%,var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6}a{color:var(--gold);text-decoration:none}
+    .strip,.footer{font-family:var(--mono);color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:10px;border-bottom:1px solid var(--line);padding:14px 24px;text-align:center}
+    .nav{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:18px 24px;max-width:1160px;margin:auto}.brand{font-family:var(--serif);color:var(--gold);font-size:24px;font-weight:900}.links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.links a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 11px;color:var(--bright);background:rgba(16,20,26,.72)}
+    .wrap{max-width:980px;margin:auto;padding:64px 24px}h1{font-family:var(--serif);color:var(--bright);font-size:clamp(40px,8vw,80px);line-height:.95;margin-bottom:16px}.lede{max-width:720px;color:var(--dim);font-size:18px;margin-bottom:40px}
+    .player{position:relative;width:100%;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .player iframe,.player video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+    .placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px}
+    .placeholder .play{width:74px;height:74px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:rgba(196,146,58,.06)}
+    .placeholder .play svg{width:26px;height:26px;fill:var(--gold);margin-left:4px}
+    .placeholder .ph-title{font-family:var(--serif);color:var(--bright);font-size:26px}
+    .placeholder .ph-sub{font-family:var(--mono);color:var(--dim);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.chip{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--bright);background:rgba(16,20,26,.72)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}.btn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--gold);border-radius:999px;padding:13px 22px;color:var(--bg);background:var(--gold);font-weight:500;transition:opacity .15s}.btn:hover{opacity:.85}.cta .note{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+    .footer{border-top:1px solid var(--line);border-bottom:0;color:var(--dim);line-height:1.8;margin-top:56px}
+    @media(max-width:760px){.wrap{padding:48px 18px}.links{max-width:240px}.links a{font-size:9px}}
+  </style>
+</head>
+<body>
+  <div class="strip">MO§ES™ · Product Demo · Ello Cello LLC</div>
+  <nav class="nav"><div class="brand">MO§ES™</div><div class="links"><a href="index.html">Home</a><a href="benchmarks.html">Benchmarks</a><a href="architecture.html">Architecture</a><a href="papers.html">Papers</a><a href="deck.html">Deck</a><a href="https://signomy.xyz/moses">Run &rarr;</a></div></nav>
+
+  <main class="wrap">
+    <h1>Demo</h1>
+    <p class="lede">A walkthrough of MO§ES governed execution and the AQUA application workflow built on top of it.</p>
+
+    <div class="player" id="player">
+      <div class="placeholder" id="placeholder">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="ph-title">Demo video coming soon</div>
+        <div class="ph-sub">Drop is in progress</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="https://huggingface.co/spaces/build-small-hackathon/sigrank" target="_blank" rel="noopener">Try SigRank live &rarr;</a>
+      <span class="note">Runs in your browser · Hugging Face Space</span>
+    </div>
+
+    <div class="meta">
+      <span class="chip">mos2es.com</span>
+      <span class="chip">signomy.xyz</span>
+      <span class="chip">Patent pending 19/426,028</span>
+    </div>
+  </main>
+
+  <footer class="footer">Ello Cello LLC · Contact: burnmydays@proton.me</footer>
+
+  <script>
+    /* ============================================================
+       PASTE YOUR VIDEO LINK BELOW.
+       Works with: Loom share link, YouTube (watch or youtu.be),
+       Vimeo, or a direct .mp4 / .webm file URL.
+       Leave it as "" to keep the "coming soon" placeholder.
+       ============================================================ */
+    const VIDEO_URL = "https://www.loom.com/share/edc345e2e5164e20aed3acb6436a08c3";
+
+    (function () {
+      const url = (VIDEO_URL || "").trim();
+      if (!url) return; // keep placeholder
+      const player = document.getElementById("player");
+      const ph = document.getElementById("placeholder");
+
+      function embedSrc(u) {
+        try {
+          // YouTube
+          let m = u.match(/(?:youtube\.com\/.*[?&]v=|youtu\.be\/|youtube\.com\/embed\/)([A-Za-z0-9_-]{6,})/);
+          if (m) return { type: "iframe", src: "https://www.youtube.com/embed/" + m[1] };
+          // Loom
+          m = u.match(/loom\.com\/(?:share|embed)\/([A-Za-z0-9]+)/);
+          if (m) return { type: "iframe", src: "https://www.loom.com/embed/" + m[1] };
+          // Vimeo
+          m = u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+          if (m) return { type: "iframe", src: "https://player.vimeo.com/video/" + m[1] };
+          // Direct file
+          if (/\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(u)) return { type: "video", src: u };
+        } catch (e) {}
+        // Fallback: embed the URL as-is in an iframe
+        return { type: "iframe", src: u };
+      }
+
+      const e = embedSrc(url);
+      let el;
+      if (e.type === "video") {
+        el = document.createElement("video");
+        el.src = e.src; el.controls = true; el.playsInline = true; el.preload = "metadata";
+      } else {
+        el = document.createElement("iframe");
+        el.src = e.src;
+        el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+        el.allowFullscreen = true;
+      }
+      if (ph) ph.remove();
+      player.appendChild(el);
+    })();
+  </script>
+</body>
+</html>
