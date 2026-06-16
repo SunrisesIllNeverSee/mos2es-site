@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — The Governance Vacuum</title>
+  <meta name="description" content="Why AI deployments keep failing and what's missing. Four articles diagnose the same structural failure. MO§ES supplies the constitutional substrate.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --bg: #0A0D12;
+      --bg-alt: #10141A;
+      --bg-elev: #141920;
+      --bone: #E8ECF1;
+      --bone-soft: #C8CDD6;
+      --bone-mute: #8A94A0;
+      --gray: #8A94A0;
+      --gold: #C4923A;
+      --gold-warm: #C9A24A;
+      --gold-mute: rgba(196,146,58,0.20);
+      --gold-line: rgba(196,146,58,0.32);
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+      --mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--bone-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .strip {
+      font-family: var(--mono);
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 10px;
+      border-bottom: 1px solid var(--gold-line);
+      padding: 12px 24px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 24px;
+      max-width: 1160px;
+      margin: auto;
+    }
+    .brand { font-family: var(--serif); color: var(--gold); font-size: 24px; font-weight: 900; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold-line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      color: var(--bone);
+      background: rgba(16,20,26,.72);
+    }
+    .links a:hover { background: var(--gold-mute); text-decoration: none; }
+
+    .hero {
+      max-width: 800px;
+      margin: auto;
+      padding: 80px 24px 40px;
+      border-bottom: 1px solid var(--gold-line);
+    }
+    .hero-label {
+      font-family: var(--mono);
+      color: var(--gold);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      color: var(--bone);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: var(--bone-mute);
+      max-width: 640px;
+      line-height: 1.5;
+    }
+    .hero-meta {
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--bone-mute);
+      letter-spacing: .05em;
+    }
+
+    .article-body {
+      max-width: 800px;
+      margin: auto;
+      padding: 56px 24px 100px;
+    }
+
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 30px);
+      color: var(--bone);
+      font-weight: 700;
+      margin: 56px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--gold-line);
+    }
+
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--gold-warm);
+      font-weight: 600;
+      margin: 36px 0 12px;
+    }
+
+    .article-body p {
+      margin-bottom: 20px;
+      color: var(--bone-soft);
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px 24px;
+      color: var(--bone-soft);
+    }
+    .article-body li { margin-bottom: 8px; }
+
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--bg-alt);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--bone);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .source-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0 36px;
+    }
+    .source-card {
+      background: var(--bg-elev);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .source-card .src-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 6px;
+    }
+    .source-card .src-title {
+      font-weight: 600;
+      color: var(--bone);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .source-card .src-by {
+      font-size: 12px;
+      color: var(--bone-mute);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 24px 0 32px;
+    }
+    th {
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--gold-line);
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      vertical-align: top;
+      color: var(--bone-soft);
+    }
+    td:first-child { color: var(--bone); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: rgba(196,146,58,.04); }
+
+    .formula-block {
+      background: var(--bg-elev);
+      border: 1px solid var(--gold-line);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 28px 0;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 18px;
+      color: var(--bone);
+      letter-spacing: .05em;
+    }
+    .formula-block .formula-label {
+      font-size: 11px;
+      color: var(--bone-mute);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 10px;
+    }
+
+    .cta-block {
+      background: linear-gradient(135deg, rgba(196,146,58,.12), rgba(196,146,58,.04));
+      border: 1px solid var(--gold-line);
+      border-radius: 10px;
+      padding: 36px;
+      margin: 60px 0 0;
+      text-align: center;
+    }
+    .cta-block p {
+      color: var(--bone-soft);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .cta-block strong { color: var(--bone); }
+    .cta-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold-line);
+      border-radius: 999px;
+      padding: 10px 18px;
+      color: var(--bone);
+      background: rgba(16,20,26,.72);
+    }
+    .cta-links a.primary {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .cta-links a:hover { text-decoration: none; opacity: .85; }
+
+    .footnotes {
+      margin-top: 72px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .footnotes h3 {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--bone-mute);
+      margin-bottom: 16px;
+      border: none;
+      margin-top: 0;
+    }
+    .footnotes ol { margin-left: 20px; }
+    .footnotes li {
+      font-size: 13px;
+      color: var(--bone-mute);
+      margin-bottom: 8px;
+    }
+    .footnotes li a { color: var(--gold); }
+
+    footer {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--bone-mute);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      border-top: 1px solid var(--gold-line);
+      padding: 20px 24px;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 640px) {
+      .source-cards { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; }
+      .links { max-width: 240px; }
+      .links a { font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="strip">MO§ES™ · Essay · AI Governance · June 2026</div>
+
+  <nav>
+    <div class="brand">MO§ES™</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="deck.html">Deck</a>
+      <a href="press.html">Press</a>
+      <a href="https://signomy.xyz/moses">Run &rarr;</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-label">Essay &middot; Constitutional AI Governance</div>
+    <h1>The Governance Vacuum</h1>
+    <p class="hero-sub">Why AI deployments keep failing and what&rsquo;s missing. Four articles diagnose the same structural failure from different angles. None name the substrate that solves it.</p>
+    <div class="hero-meta">Deric J. McHenry &middot; Ello Cello LLC &middot; June 2026</div>
+  </div>
+
+  <main class="article-body">
+
+    <p>Every week another company announces an AI agent that can negotiate contracts, manage a portfolio, run a supplier relationship, or operate a customer service function end-to-end. The demos are impressive. The deployments are not.</p>
+
+    <p>Models are commoditizing fast. Raw capability is no longer the bottleneck. The real gap is governance: the ability to let agents act safely and autonomously as economic actors. There is still no reliable way to scope what they can touch, no immutable audit trail, and no kill switch that actually works in real time.</p>
+
+    <h2>Four Articles Exposing the Same Vacuum</h2>
+
+    <p>Four recent pieces converge on this exact governance failure from different angles:</p>
+
+    <div class="source-cards">
+      <div class="source-card">
+        <div class="src-label">Source 01</div>
+        <div class="src-title">"Agents Can&rsquo;t Transact"</div>
+        <div class="src-by">Anthony Avedissian &middot; X</div>
+      </div>
+      <div class="source-card">
+        <div class="src-label">Source 02</div>
+        <div class="src-title">"Forward Deployed Engineering 101"</div>
+        <div class="src-by">Vasuman (Varick Agents) &middot; X</div>
+      </div>
+      <div class="source-card">
+        <div class="src-label">Source 03</div>
+        <div class="src-title">"Is Software Losing Its Head?"</div>
+        <div class="src-by">Seema Amble &middot; a16z</div>
+      </div>
+      <div class="source-card">
+        <div class="src-label">Source 04</div>
+        <div class="src-title">Agent Commerce / Enterprise AI Adoption</div>
+        <div class="src-by">Aaron Wright &middot; X</div>
+      </div>
+    </div>
+
+    <p>Avedissian decomposes agent infrastructure into three planes (Trust, Market, Control) across ten layers, with ERC-8004 as the convergence schema. <em>"If autonomous agents are going to become a true asset class, they cannot just generate output. They have to transact."</em></p>
+
+    <p>Vasuman exposes the real-world chaos of scaling AI deployments: three phases (Audit, Evals, Deployment) and the gap between "demos that work" and "deployments that pass tests but still get reported broken." Manual guardrails, heuristic ROI guesses, zero constitutional constraints.</p>
+
+    <p>Amble analyzes the shift to headless architectures as incumbents (Salesforce, SAP) bypass their own UIs. Defensibility moves from UI to trust architecture, agent-to-agent permissioning, and auditability. <em>"In a fully agentic world, one of the hardest unsolved problems is: which agents are authorized to do what, on whose behalf, with what auditability?"</em></p>
+
+    <p>Wright calls out the enterprise bottleneck directly. Advanced agents excel in demos but fail at scale because they cannot legally or financially act as autonomous economic actors. No way to sign contracts, own assets, or access scoped accounts safely. The "credit bureau for software" is the missing category.</p>
+
+    <p>Read together, these four pieces diagnose the same structural failure from the perspectives of marketplaces, deployment teams, incumbents going headless, and enterprise economic agency.</p>
+
+    <h2>The Three-Plane Architecture That Still Doesn&rsquo;t Exist</h2>
+
+    <p>Avedissian&rsquo;s marketplace framework breaks agent infrastructure into three planes:</p>
+
+    <ul>
+      <li><strong>Trust Plane</strong> &mdash; Identity, authorization, reputation, and cryptographic proof of intent.</li>
+      <li><strong>Market Plane</strong> &mdash; Discovery, pricing, contracting, settlement, and risk pricing.</li>
+      <li><strong>Control Plane</strong> &mdash; Policy enforcement, audit, and real-time intervention.</li>
+    </ul>
+
+    <p>The picture each piece paints is the same: solutions remain fragmented. Startups attack the planes piecemeal. FDE teams run dozens of agents on manual workflows. Headless platforms accelerate direct agent action on data layers, multiplying risk without proper governance. The integrated substrate that connects all three planes does not exist yet.</p>
+
+    <h2>What Everyone Is Missing: The Constitutional Substrate</h2>
+
+    <p>These articles describe layers stacked on top of probabilistic, mimicry-based systems. What&rsquo;s missing is the substrate underneath: the physics that enables reliable, sovereign agentic behavior in the first place.</p>
+
+    <p>Markets do not run on intelligence alone. They run on identity, enforceable trust, verifiable commitments, contracts, settlement, and governance. Today&rsquo;s stack lacks a mathematical foundation for truth preservation across transformations. It lacks constitutional laws governing system behavior at the substrate level. It relies on fragile human supervision instead of cryptographic enforcement. It requires constant external validation instead of recursive survivability.</p>
+
+    <p>What the industry actually needs is a constitutional substrate: a self-governing computational foundation where governance is mathematical law, not policy theater. The mathematical foundation already exists. It just has not been recognized as the substrate the market is describing.</p>
+
+    <h2>The Conservation Law of Commitment: The Missing Physics</h2>
+
+    <p>In the published framework <em>"A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application"</em>, Commitment C(S) is defined as the minimal, identity-preserving content invariant under loss-inducing transformations. The conservation principle is:</p>
+
+    <div class="formula-block">
+      <div class="formula-label">Conservation Law of Commitment</div>
+      C(T(S)) = C(S) &nbsp;&nbsp; for all admissible transformations T
+    </div>
+
+    <p>This invariance is the backbone for all three planes. Trust: commitment invariance equals cryptographic proof of intent and immutable identity. Market: commitment capacity becomes the basis for real underwriting and scoring. Control: compression gates enforce invariants at every step. Governance becomes mathematical enforcement rather than after-the-fact detection.</p>
+
+    <h2>MO§ES™: The Constitutional Substrate in Action</h2>
+
+    <p>MO§ES™ is not another agent framework or governance layer. It is the self-governing computational substrate that enforces constitutional laws in real time. It delivers what the market has been describing but not building: mathematical guarantees, cryptographic enforcement, and recursive survivability.</p>
+
+    <h3>Core Constitutional Laws</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Law</th>
+          <th>What It Enforces</th>
+          <th>Pain Point Addressed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>McHenry&rsquo;s Law I</td>
+          <td>No output without prior compression &amp; resonance mapping</td>
+          <td>Authorization &amp; scoping</td>
+        </tr>
+        <tr>
+          <td>McHenry&rsquo;s Law II</td>
+          <td>Signals must inherit their origin compression cycle</td>
+          <td>Immutable audit trail</td>
+        </tr>
+        <tr>
+          <td>Blackhole Law</td>
+          <td>Drift beyond threshold triggers automatic collapse into entropy</td>
+          <td>Real-time kill switch</td>
+        </tr>
+        <tr>
+          <td>Lineage Custody Clause</td>
+          <td>Vault Artifacts cryptographically bound to origin cycle</td>
+          <td>Cryptographic identity &amp; property</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>How MO§ES™ Directly Solves the Four Articles</h3>
+
+    <p><strong>Avedissian&rsquo;s "Agents Can&rsquo;t Transact":</strong> Full native coverage across all three planes. Lineage Custody and Intent Score Vectors deliver cryptographic proof of intent. S&sup2;S Ratio plus Resonance Score become the agent credit bureau the article identifies as the winning category.</p>
+
+    <p><strong>FDE 101:</strong> SIGSYSTEM replaces manual evals and heuristic ROI guesses with quantitative signal metrics. Scar Index catches drift before production. Constitutional laws turn fragile guardrails into self-healing enforcement that operates without human supervision.</p>
+
+    <p><strong>Amble&rsquo;s Headless Piece:</strong> Defensibility moves to trust architecture through Lineage Custody. Agent-to-agent permissioning becomes governed by constitutional rules at the protocol layer. Vault Artifacts create sovereign, tradable digital property.</p>
+
+    <p><strong>Wright&rsquo;s Agent Commerce thread:</strong> Full economic agency for agents through mathematical scoping, immutable audit, automatic kill switches, and cryptographically-bound property rights. Agents can sign contracts, own assets, and access scoped accounts safely because every action is bound to an origin-cycle signature that cannot be forged or impersonated.</p>
+
+    <h2>Strategic Positioning</h2>
+
+    <p>The wedge is <strong>SIGSYSTEM CLI</strong>: a lightweight Commitment Quality Monitor any team can run today to measure drift, deployment success rate, and governance health. Proves ROI with data, not demos. Low barrier, no infrastructure changes. From there, the path is straightforward: measurement &rarr; enforcement &rarr; full MO§ES™ platform.</p>
+
+    <blockquote>FDE deploys AI. MO§ES™ governs it.</blockquote>
+
+    <p>The four articles prove the demand. The Conservation Law of Commitment supplies the physics. SIGSYSTEM supplies the instrument. MO§ES™ supplies the engineering.</p>
+
+    <p>A world where AI systems are governed by mathematical law, not perpetual human supervision. The theory exists. The instrument exists. The substrate exists. The only question left is who deploys it first.</p>
+
+    <div class="cta-block">
+      <p><strong>We are actively seeking collaboration, work, and/or funding.</strong><br>
+      If you&rsquo;re building in the agentic infrastructure stack and you&rsquo;ve felt the substrate-shaped hole these four articles describe, we should talk.</p>
+      <div class="cta-links">
+        <a href="benchmarks.html">Benchmarks</a>
+        <a href="papers.html">Conservation Law Paper</a>
+        <a href="deck.html">Deck</a>
+        <a href="https://signomy.xyz/moses" class="primary">Run MO§ES™ &rarr;</a>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <h3>Sources</h3>
+      <ol>
+        <li>Anthony Avedissian, <em>"Agents Can&rsquo;t Transact"</em> &mdash; <a href="https://x.com/antavedissian/status/2058302560629596474" target="_blank" rel="noopener">X @antavedissian</a></li>
+        <li>Vasuman, <em>"Forward Deployed Engineering 101"</em>, Varick Agents &mdash; <a href="https://x.com/vasuman/status/2057177266984226892" target="_blank" rel="noopener">X @vasuman</a></li>
+        <li>Seema Amble, <em>"Is Software Losing Its Head?"</em>, a16z, May 2026 &mdash; <a href="https://a16z.com/is-software-losing-its-head/" target="_blank" rel="noopener">a16z.com</a></li>
+        <li>Aaron Wright, <em>Agent Commerce / Enterprise AI Adoption</em>, May 2026 &mdash; <a href="https://x.com/awrigh01/status/2056841869594918918" target="_blank" rel="noopener">X @awrigh01</a></li>
+        <li>Deric J. McHenry, <em>"A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application"</em>, V.05, Zenodo, March 2026 &mdash; <a href="https://zenodo.org/records/20029607" target="_blank" rel="noopener">DOI 10.5281/zenodo.20029607</a></li>
+      </ol>
+    </div>
+
+  </main>
+
+  <footer>
+    MO§ES™ &middot; Ello Cello LLC &middot; mos2es.com &middot; burnmydays@proton.me &middot; @burnmydays
+  </footer>
+
+</body>
+</html>
