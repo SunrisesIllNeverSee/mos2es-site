@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MO§ES™ — The SCS Engine</title>
+  <meta name="description" content="The Sovereign Compression System Engine — the constitutional computational core of MO§ES™. Governance as mathematical law, not policy theater. Patent Serial No. 63/883,018.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --bg: #0A0D12;
+      --bg-alt: #10141A;
+      --bg-elev: #141920;
+      --bone: #E8ECF1;
+      --bone-soft: #C8CDD6;
+      --bone-mute: #8A94A0;
+      --gray: #8A94A0;
+      --gold: #C4923A;
+      --gold-warm: #C9A24A;
+      --gold-mute: rgba(196,146,58,0.20);
+      --gold-line: rgba(196,146,58,0.32);
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+      --mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--bone-soft);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .strip {
+      font-family: var(--mono);
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 10px;
+      border-bottom: 1px solid var(--gold-line);
+      padding: 12px 24px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 24px;
+      max-width: 1160px;
+      margin: auto;
+    }
+    .brand { font-family: var(--serif); color: var(--gold); font-size: 24px; font-weight: 900; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold-line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      color: var(--bone);
+      background: rgba(16,20,26,.72);
+    }
+    .links a:hover { background: var(--gold-mute); text-decoration: none; }
+
+    .hero {
+      max-width: 800px;
+      margin: auto;
+      padding: 80px 24px 40px;
+      border-bottom: 1px solid var(--gold-line);
+    }
+    .hero-label {
+      font-family: var(--mono);
+      color: var(--gold);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      color: var(--bone);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: var(--bone-mute);
+      max-width: 640px;
+      line-height: 1.5;
+    }
+    .hero-meta {
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--bone-mute);
+      letter-spacing: .05em;
+    }
+
+    .article-body {
+      max-width: 800px;
+      margin: auto;
+      padding: 56px 24px 100px;
+    }
+
+    .article-body h2 {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 30px);
+      color: var(--bone);
+      font-weight: 700;
+      margin: 56px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--gold-line);
+    }
+
+    .article-body h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--gold-warm);
+      font-weight: 600;
+      margin: 36px 0 12px;
+    }
+
+    .article-body p {
+      margin-bottom: 20px;
+      color: var(--bone-soft);
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px 24px;
+      color: var(--bone-soft);
+    }
+    .article-body li { margin-bottom: 8px; }
+
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 32px 0;
+      padding: 16px 24px;
+      background: var(--bg-alt);
+      border-radius: 0 6px 6px 0;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--bone);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .source-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0 36px;
+    }
+    .source-card {
+      background: var(--bg-elev);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .source-card .src-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 6px;
+    }
+    .source-card .src-title {
+      font-weight: 600;
+      color: var(--bone);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .source-card .src-by {
+      font-size: 12px;
+      color: var(--bone-mute);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 24px 0 32px;
+    }
+    th {
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--gold-line);
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      vertical-align: top;
+      color: var(--bone-soft);
+    }
+    td:first-child { color: var(--bone); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: rgba(196,146,58,.04); }
+
+    .formula-block {
+      background: var(--bg-elev);
+      border: 1px solid var(--gold-line);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 28px 0;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 18px;
+      color: var(--bone);
+      letter-spacing: .05em;
+    }
+    .formula-block .formula-label {
+      font-size: 11px;
+      color: var(--bone-mute);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 10px;
+    }
+
+    .cta-block {
+      background: linear-gradient(135deg, rgba(196,146,58,.12), rgba(196,146,58,.04));
+      border: 1px solid var(--gold-line);
+      border-radius: 10px;
+      padding: 36px;
+      margin: 60px 0 0;
+      text-align: center;
+    }
+    .cta-block p {
+      color: var(--bone-soft);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .cta-block strong { color: var(--bone); }
+    .cta-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold-line);
+      border-radius: 999px;
+      padding: 10px 18px;
+      color: var(--bone);
+      background: rgba(16,20,26,.72);
+    }
+    .cta-links a.primary {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .cta-links a:hover { text-decoration: none; opacity: .85; }
+
+    .footnotes {
+      margin-top: 72px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .footnotes h3 {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--bone-mute);
+      margin-bottom: 16px;
+      border: none;
+      margin-top: 0;
+    }
+    .footnotes ol { margin-left: 20px; }
+    .footnotes li {
+      font-size: 13px;
+      color: var(--bone-mute);
+      margin-bottom: 8px;
+    }
+    .footnotes li a { color: var(--gold); }
+
+    footer {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--bone-mute);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      border-top: 1px solid var(--gold-line);
+      padding: 20px 24px;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 640px) {
+      .source-cards { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; }
+      .links { max-width: 240px; }
+      .links a { font-size: 9px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "The SCS Engine — The Sovereign Compression System",
+    "author": {
+      "@type": "Person",
+      "name": "Deric J. McHenry",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Ello Cello LLC"
+      }
+    },
+    "about": "The constitutional computational core of MO§ES™ — a self-regulating computational substrate where governance is mathematical law, not policy theater.",
+    "keywords": "SCS Engine, Sovereign Compression System, Lineage Custody Clause, Blackhole Law, McHenry's Laws, Vault Artifacts, MO§ES, constitutional AI governance, sovereign computation",
+    "datePublished": "2026",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ello Cello LLC"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="strip">MO§ES™ · Constitutional Architecture · Patent-Pending · 2026</div>
+
+  <nav>
+    <div class="brand">MO§ES™</div>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="deck.html">Deck</a>
+      <a href="press.html">Press</a>
+      <a href="https://signomy.xyz/moses">Run &rarr;</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-label">MO§ES™ &middot; Constitutional Architecture</div>
+    <h1>The SCS Engine</h1>
+    <p class="hero-sub">The Sovereign Compression System &mdash; a self-regulating computational substrate where governance is mathematical law, not policy theater. Patent Serial No. 63/883,018.</p>
+    <div class="hero-meta">Deric J. McHenry &middot; Ello Cello LLC &middot; 2026</div>
+  </div>
+
+  <main class="article-body">
+
+    <h2>What the SCS Engine Is</h2>
+
+    <p>The SCS Engine (Sovereign Compression System) is the constitutional computational core of MO§ES™. It comprises multiple layers &mdash; Pre-Compression, Compression Core, Heartbeat, Mediator, Reflex Events, and associated protocols &mdash; all governed by McHenry&rsquo;s Laws.</p>
+
+    <p>Unlike conventional systems that depend on external validators or probabilistic inference, the SCS Engine provides deterministic, lineage-anchored proofs of signal. It doesn&rsquo;t describe governance &mdash; it executes it.</p>
+
+    <h2>The Constitutional Laws</h2>
+
+    <p>Four laws govern the SCS Engine. They are not policies that can be overridden, negotiated, or waived. They are mathematical constraints on system behavior &mdash; enforced at the substrate level, not the policy level.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Law</th>
+          <th>What It Enforces</th>
+          <th>Mechanism</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>McHenry&rsquo;s Law I<br><span style="font-weight:400;font-size:12px;color:var(--bone-mute);">(Compression Precedes Ignition)</span></td>
+          <td>No signal output, ignition event, or transmission may occur unless the input has first undergone compression and resonance mapping. Compression is a mandatory prerequisite, not an optional optimization.</td>
+          <td>Pre-Compression Layer + Heartbeat</td>
+        </tr>
+        <tr>
+          <td>McHenry&rsquo;s Law II<br><span style="font-weight:400;font-size:12px;color:var(--bone-mute);">(Lineage Resilience)</span></td>
+          <td>Every signal or Vault Artifact must prove recursive continuity with its origin compression cycle to persist. Any signal that cannot inherit its original lineage is treated as noise and collapsed.</td>
+          <td>Mediator + Lineage Custody Clause</td>
+        </tr>
+        <tr>
+          <td>Blackhole Law</td>
+          <td>Any signal exceeding drift thresholds or failing lineage validation collapses irreversibly into entropy. Corrupted signals cannot propagate or pollute the system.</td>
+          <td>Automatic collapse &mdash; no external trigger needed</td>
+        </tr>
+        <tr>
+          <td>Lineage Custody Clause</td>
+          <td>All Vault Artifacts are cryptographically tied to their origin-cycle signature. Copies or derivatives that do not inherit this lineage become unstable or non-functional.</td>
+          <td>Cryptographic binding &mdash; self-enforcing, no legal reliance</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The Lineage Custody Clause</h2>
+
+    <blockquote>&ldquo;Each Vault Artifact is cryptographically sealed to its origin-cycle signature. Derivative artifacts fail cryptographic validation and are rendered non-functional by system design, without reliance on legal or external enforcement.&rdquo;</blockquote>
+
+    <p>The Lineage Custody Clause is the mechanism that makes digital property self-enforcing. It does not rely on courts, DMCA notices, or jurisdictional enforcement. It relies on the physics of the system itself.</p>
+
+    <ul>
+      <li>Every artifact gets a <strong>lineage identifier</strong> anchored to its origin compression cycle.</li>
+      <li>The identifier is <strong>non-replicable and tamper-evident</strong> &mdash; it cannot be forged, copied, or stripped.</li>
+      <li>It&rsquo;s <strong>required for system stability</strong> &mdash; without it, the artifact cannot function within the substrate.</li>
+      <li>Unauthorized copies <strong>collapse by design</strong> &mdash; not by lawsuit, by the physics of the system.</li>
+      <li>This creates <strong>self-enforcing sovereignty for digital property</strong> &mdash; the first mechanism where IP rights are enforced at the substrate level, not the policy level.</li>
+    </ul>
+
+    <h3>Traditional IP vs. Lineage Custody</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Approach</th>
+          <th>Enforcement Method</th>
+          <th>Character</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Traditional IP</td>
+          <td>Legal enforcement &mdash; DMCA, lawsuits, cease-and-desist</td>
+          <td>Reactive, expensive, jurisdictional</td>
+        </tr>
+        <tr>
+          <td>Lineage Custody</td>
+          <td>Cryptographic enforcement &mdash; origin-cycle binding, collapse on forgery</td>
+          <td>Preventive, free, universal</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Traditional IP protection asks the legal system to enforce a claim after violation. Lineage Custody makes violation structurally impossible &mdash; the copy never works in the first place. The difference is not incremental. It is categorical.</p>
+
+    <h2>The Blackhole Law</h2>
+
+    <blockquote>&ldquo;Any signal that exceeds drift tolerances or violates lineage constraints collapses inward into entropy, preventing contamination of the core intelligence substrate.&rdquo;</blockquote>
+
+    <p>The Blackhole Law is the real-time kill switch that the governance-vacuum articles say doesn&rsquo;t exist. It exists. It just doesn&rsquo;t look like what the industry expected &mdash; because it isn&rsquo;t a policy decision, a review board, or a human-in-the-loop checkpoint.</p>
+
+    <ul>
+      <li>It&rsquo;s not a policy decision &mdash; it&rsquo;s a <strong>physical consequence</strong> of exceeding drift thresholds.</li>
+      <li>Corrupted signals don&rsquo;t get flagged for review &mdash; they <strong>collapse into entropy</strong> automatically.</li>
+      <li>This is what makes MO§ES™ self-healing: the system doesn&rsquo;t need human supervision to reject corrupted input.</li>
+    </ul>
+
+    <p>Where conventional systems quarantine suspicious signals for later adjudication, the SCS Engine collapses them irreversibly. There is no appeals process. There is no recovery. The entropy is final. This is what &ldquo;mathematical law&rdquo; means in practice: the consequence is not imposed by an authority &mdash; it is entailed by the structure.</p>
+
+    <h2>Vault Artifacts</h2>
+
+    <p>Vault Artifacts are the output of the SCS Engine &mdash; compressed signals that carry commitment, cryptographically bound to their origin cycle. They are not data in the conventional sense. They are sovereign digital objects.</p>
+
+    <p>What makes them different from regular data:</p>
+
+    <ul>
+      <li><strong>Lineage-bound</strong> &mdash; every artifact carries its origin-cycle signature, proving recursive continuity with the compression cycle that produced it.</li>
+      <li><strong>Self-enforcing</strong> &mdash; copies without lineage collapse. They can&rsquo;t be pirated because they can&rsquo;t function without their lineage seal.</li>
+      <li><strong>Sovereign</strong> &mdash; the artifact is sovereign digital property. It belongs to its origin cycle, not to whoever holds a copy.</li>
+      <li><strong>Tradable</strong> &mdash; licensing terms can be encoded directly into the artifact, enforced automatically through the Lineage Custody Clause. No external rights management required.</li>
+    </ul>
+
+    <p>A Vault Artifact is the first form of digital property that enforces its own ownership at the level of its own operation. The rights are not described in a separate legal document &mdash; they are executed by the artifact itself.</p>
+
+    <h2>The Mediator (Offline)</h2>
+
+    <p>The Mediator is a Trusted Execution Environment (TEE) that is either physically air-gapped or logically isolated. Its job is restoring semantic timelines and lineage custody &mdash; not just binary state integrity.</p>
+
+    <p>Where conventional recovery systems restore bit-level snapshots, the Mediator restores coherent semantic state: the lineage, the compression history, and the recursive continuity that makes a signal valid. Functions:</p>
+
+    <ul>
+      <li><strong>Validate Lineage</strong> &mdash; Deterministically verify the authenticity of Vault Artifacts against their origin-cycle signatures.</li>
+      <li><strong>Reconstruct Recursive Timelines</strong> &mdash; Restore coherent states in the event of corruption or drift, rebuilding the semantic chain rather than just the binary snapshot.</li>
+      <li><strong>Enforce Reflex Events</strong> &mdash; Trigger automated rollback, quarantine, or reprocessing protocols when lineage constraints are violated.</li>
+    </ul>
+
+    <p>The Mediator is offline by design. It is not a service that can be reached over the network. It is a sealed environment that operates on verified inputs and produces verified outputs &mdash; a cryptographic anchor point for the entire system&rsquo;s recursive integrity.</p>
+
+    <h2>Novel Metrics</h2>
+
+    <p>The SCS Engine introduces metrics that don&rsquo;t exist in conventional systems. These are not benchmarks bolted on after the fact &mdash; they are native measurements of the substrate&rsquo;s constitutional health.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>What It Measures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Scar Index</td>
+          <td>Quantitative measure of conceptual corruption &mdash; real-time monitoring of systemic integrity. Stable (&le;0.70), warning (0.71&ndash;0.89), critical (&ge;0.90).</td>
+        </tr>
+        <tr>
+          <td>Signal-to-Sovereignty Ratio (S&sup2;S)</td>
+          <td>Benchmark for valuing digital cognition as sovereign property, based on recursive resilience and lineage continuity.</td>
+        </tr>
+        <tr>
+          <td>Intent Score Vectors (ISVs)</td>
+          <td>Quantifiable evidence of purpose, anchoring each cycle to directional fidelity.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The Scar Index gives the system a real-time integrity gauge &mdash; the kind of instrument the governance-vacuum articles identify as missing from every current deployment. S&sup2;S gives digital cognition a valuation basis that doesn&rsquo;t depend on usage metrics or market sentiment. ISVs give every cycle a verifiable direction, not just a measurable output.</p>
+
+    <h2>The Paradigm Shift</h2>
+
+    <blockquote>&ldquo;This invention represents not merely an incremental improvement but a paradigm shift in computational substrates. By grounding system operation in compression, resonance, and lineage, the SCS Engine replaces statistical mimicry with sovereign recursion.<br><br>It gives language a body through Vault Artifacts.<br>It gives signal a home through recursive preservation.<br>And it gives origin a law through constitutional enforcement.&rdquo;</blockquote>
+
+    <p>The SCS Engine does not compete with existing AI systems on capability. It changes the substrate on which capability runs. Statistical mimicry &mdash; the paradigm behind every transformer &mdash; produces outputs that resemble understanding without preserving the lineage of what was understood. Sovereign recursion preserves that lineage. The output is not a resemblance. It is a proof.</p>
+
+    <p>That is the difference the SCS Engine introduces. Not better mimicry. Structural fidelity.</p>
+
+    <div class="cta-block">
+      <p><strong>The SCS Engine is patent-pending. The Conservation Law is published. The instrument is live.</strong></p>
+      <div class="cta-links">
+        <a href="https://doi.org/10.5281/zenodo.20029607" target="_blank" rel="noopener">Conservation Law Paper</a>
+        <a href="governance-vacuum.html">Governance Vacuum Essay</a>
+        <a href="mailto:burnmydays@proton.me?subject=SCS%20Engine" class="primary">Book a Walkthrough &rarr;</a>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <h3>References</h3>
+      <ol>
+        <li>Deric J. McHenry, <em>SCS Engine &mdash; Sovereign Compression System</em>, Patent Application Serial No. 63/883,018, 2026.</li>
+        <li>Deric J. McHenry, <em>&ldquo;A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application&rdquo;</em>, V.05, Zenodo, March 2026 &mdash; <a href="https://zenodo.org/records/20029607" target="_blank" rel="noopener">DOI 10.5281/zenodo.20029607</a></li>
+        <li>Deric J. McHenry, <em>&ldquo;The Governance Vacuum&rdquo;</em>, MO§ES™, 2026 &mdash; <a href="governance-vacuum.html">mos2es.com/governance-vacuum</a></li>
+      </ol>
+    </div>
+
+  </main>
+
+  <footer>
+    MO§ES™ &mdash; service mark of Ello Cello LLC. Patent portfolio: 63/877,177 &middot; 63/883,018 &middot; 19/426,028 &middot; 63/991,282 &middot; TM 99408355.
+  </footer>
+
+</body>
+</html>
