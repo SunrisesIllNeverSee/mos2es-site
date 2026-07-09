@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deric J. McHenry, Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:  #F2EDE3;
+      --ink:    #1A1815;
+      --subtle: #5C5852;
+      --rust:   #B5421C;
+      --rule:   #C8C3B9;
+      --rule-light: #E0DBD1;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 9pt;
+      line-height: 1.55;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.55in 0.75in 0.6in;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    .header { margin-bottom: 18px; }
+
+    .name {
+      font-family: 'Newsreader', serif;
+      font-size: 34pt;
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .name em {
+      font-style: normal;
+      color: var(--rust);
+    }
+
+    .title-line {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7.5pt;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-top: 7px;
+    }
+
+    .contact {
+      font-size: 8pt;
+      color: var(--subtle);
+      margin-top: 3px;
+    }
+
+    /* ── RULES ──────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 14px 0;
+    }
+
+    .rule-light {
+      border: none;
+      border-top: 1px solid var(--rule-light);
+      margin: 10px 0;
+    }
+
+    /* ── SECTION LABELS ─────────────────────── */
+    .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.5pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 10px;
+    }
+
+    /* ── SUMMARY ────────────────────────────── */
+    .summary {
+      font-size: 9.5pt;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+
+    /* ── EXPERIENCE ─────────────────────────── */
+    .role { margin-bottom: 18px; page-break-inside: avoid; }
+    .role-break { break-before: page; page-break-before: always; }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .role-title {
+      font-weight: 600;
+      font-size: 9.5pt;
+    }
+
+    .role-dates {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7pt;
+      color: var(--subtle);
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .role-meta {
+      font-size: 8pt;
+      color: var(--subtle);
+      font-style: italic;
+      margin-bottom: 9px;
+    }
+
+    .sub-title {
+      font-weight: 600;
+      font-size: 9pt;
+      margin: 9px 0 2px;
+    }
+
+    .sub-desc {
+      font-size: 8pt;
+      color: var(--subtle);
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    ul { padding-left: 13px; }
+
+    li {
+      font-size: 8.5pt;
+      line-height: 1.5;
+      margin-bottom: 2px;
+      color: var(--ink);
+    }
+
+    .mono { font-family: 'IBM Plex Mono', monospace; }
+
+    /* ── PATENTS TABLE ──────────────────────── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+      margin-bottom: 6px;
+    }
+
+    thead th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 6.5pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      text-align: left;
+      padding: 0 10px 5px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    tbody td {
+      padding: 4px 10px 4px 0;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule-light);
+      font-size: 8pt;
+    }
+
+    tbody td.mono {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7.5pt;
+    }
+
+    .ip-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 7pt;
+      color: var(--subtle);
+      margin-top: 5px;
+      line-height: 1.6;
+    }
+
+    /* ── TWO-COLUMN FOOTER ──────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    /* ── SKILLS ─────────────────────────────── */
+    .skills {
+      font-size: 8pt;
+      color: var(--subtle);
+      line-height: 1.75;
+    }
+
+    /* ── PRINT ──────────────────────────────── */
+    @media print {
+      body { background: white; }
+      .page { padding: 0.45in 0.65in 0.5in; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="name">Deric J. McHenry</div>
+    <div class="title-line">Founder, Ello Cello LLC &nbsp;·&nbsp; MO§ES™ Constitutional AI Governance</div>
+    <div class="contact">Buffalo, NY &nbsp;·&nbsp; 716.260.0603 &nbsp;·&nbsp; deric.mchenry@gmail.com</div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SUMMARY -->
+  <div class="label">Summary</div>
+  <p class="summary">
+    Founder of MO§ES™, execution-layer constitutional governance for AI agents. Most governance systems operate before or after execution. MO§ES operates at the point of execution. Four patent applications filed Sep 2025 – Feb 2026. Registered trademark IC 042. Conservation Law of Commitment: openly falsifiable since Feb 2026, unbroken. Benchmarks published. 14 years running DJMP Inc. ($1M+ annual, 40 employees). Board service 2006–2018. BA Sociology &amp; History, University at Buffalo.
+  </p>
+
+  <hr class="rule">
+
+  <!-- EXPERIENCE -->
+  <div class="label">Experience</div>
+
+  <!-- ELLO CELLO -->
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Ello Cello LLC, Founder &amp; Chief Architect</span>
+      <span class="role-dates">Sep 2025 – Present</span>
+    </div>
+    <div class="role-meta">Software Publishing &nbsp;·&nbsp; AI Infrastructure &nbsp;·&nbsp; Forward Deployment Engineering</div>
+
+    <div class="sub-title">MO§ES™: Execution-Layer Constitutional Governance for AI Agents</div>
+    <div class="sub-desc">Most governance systems operate before or after execution. MO§ES operates at the point of execution.</div>
+    <ul>
+      <li>Designed and built a constitutional governance harness enforcing behavioral constraints natively at the execution layer: 8 behavioral modes, 3 operational postures (SCOUT / DEFENSE / OFFENSE), SHA-256 chained audit trail</li>
+      <li>Engineered federal/state constitutional separation: sovereign Origin (DOI-anchored, immutable) &rarr; commercial policy layer (accession-based) &rarr; Ring 1 neutral protocol (ratification compact)</li>
+      <li>Built Inter-Agent Trust Layer: cross-model CoVerify testing across Claude, GPT, Grok, DeepSeek, Gemini, and others; constitutional compliance evaluated at model boundaries</li>
+      <li>Nine frontier AI models co-authored the MO§ES constitution; 3.719B tokens of operating evidence (Mar–May 2026), 21.23&times; amplification (3.31M operator input &rarr; 70.25M system output), 98% preserved structure</li>
+      <li>HAMMER: inversion coefficient measurement tool quantifying deviation from constitutional norms as a measurable signal</li>
+      <li>Benchmarks: #1 across all five kernels vs. Artificial Analysis Coding Agent Index: 94.46% cache hit, 17.9&times; output:input, $0.0007/LOC &nbsp;&middot;&nbsp; <span class="mono">mos2es.com/benchmarks</span></li>
+    </ul>
+
+    <div class="sub-title">Commitment Theory</div>
+    <ul>
+      <li>Formalized Conservation Law of Commitment: <span class="mono">C(T(S)) = C(S)</span>; semantic commitment preserved under valid transformation; measurable, falsifiable, enforceable; 5 Zenodo releases, <span class="mono">DOI 10.5281/zenodo.20029607</span> (V.05); openly falsifiable since Feb 2026; unbroken</li>
+      <li>Introduced eigencommitment: primary commitment kernel, PCA analog, ranked by semantic strength</li>
+      <li>Three extraction methods: Active (matched filter), Passive (PCA/denoising), Random (Monte Carlo n-gram)</li>
+    </ul>
+
+    <div class="sub-title">Products</div>
+    <ul>
+      <li>MO§ES™: execution-layer governance harness</li>
+      <li>AQUA: founder-first application OS; recurring structured output, compounding data asset</li>
+      <li>SIGRANK: AI operator performance index; shipping now</li>
+      <li>SIGNOMY: 270 API endpoints, Stripe Connect live</li>
+      <li>KASSA: voice-AI commitment-kernel demo</li>
+    </ul>
+  </div>
+
+  <!-- DJMP -->
+  <div class="role role-break">
+    <div class="role-header">
+      <span class="role-title">DJMP Inc., President</span>
+      <span class="role-dates">Jan 2011 – Present &nbsp;·&nbsp; Buffalo, NY</span>
+    </div>
+    <ul>
+      <li>Founded and operate a restoration and painting company; $1M+ annual revenue, 40 employees</li>
+      <li>Manage projects from $10K to $500K across restoration, construction, and general contracting</li>
+      <li>Built brand and client base over 14 years; expanded from single trade to multi-service operation</li>
+    </ul>
+  </div>
+
+  <hr class="rule-light">
+
+  <!-- INVISIBLE CHILDREN -->
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Invisible Children, Pacific Northwest Roadie</span>
+      <span class="role-dates">Internship</span>
+    </div>
+    <ul>
+      <li>Managed regional operations, Portland, OR to Vancouver, B.C.</li>
+      <li>Scheduled and hosted media presentations at high schools and universities</li>
+      <li>Coordinated national events: Vancouver, Chicago, Washington, D.C. &nbsp;&middot;&nbsp; Logistics (Salesforce)</li>
+    </ul>
+  </div>
+
+  <hr class="rule">
+
+  <!-- PATENTS & IP -->
+  <div class="label">Patents &amp; IP</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Filing</th>
+        <th>Application No.</th>
+        <th>Date</th>
+        <th>Subject</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PPA 01 &nbsp;&middot;&nbsp; MOS²ES</td>
+        <td class="mono">63/877,177</td>
+        <td class="mono">Sep 7, 2025</td>
+        <td>Constitutional governance architecture, signal encoding, compression substrate</td>
+      </tr>
+      <tr>
+        <td>PPA 02 &nbsp;&middot;&nbsp; SCS Engine</td>
+        <td class="mono">63/883,018</td>
+        <td class="mono">Sep 17, 2025</td>
+        <td>Signal Compression System, lineage and sovereign compression layer</td>
+      </tr>
+      <tr>
+        <td>Utility 03 &nbsp;&middot;&nbsp; CIVITAS</td>
+        <td class="mono">19/426,028</td>
+        <td class="mono">Dec 18, 2025</td>
+        <td>Civic infrastructure: SIGRANK, SigEconomy, public records, Agent City-State protocol</td>
+      </tr>
+      <tr>
+        <td>PPA 04 &nbsp;&middot;&nbsp; Commitment Conservation</td>
+        <td class="mono">63/991,282</td>
+        <td class="mono">Feb 26, 2026</td>
+        <td>Semantic commitment conservation under recursive transformation</td>
+      </tr>
+      <tr>
+        <td>MO§ES™ Trademark</td>
+        <td class="mono">99408355 &nbsp;&middot;&nbsp; IC 042</td>
+        <td class="mono">Sep 23, 2025</td>
+        <td>Software / governance protocol, Registered</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="ip-note">
+    Conservation Law V.05 &nbsp;&middot;&nbsp; DOI 10.5281/zenodo.20029607 &nbsp;&middot;&nbsp; 5 versioned releases &nbsp;&middot;&nbsp; openly falsifiable since Feb 2026 &nbsp;&middot;&nbsp; unbroken &nbsp;&nbsp;&nbsp; Work sample: signomy.xyz/moses
+  </div>
+
+  <hr class="rule">
+
+  <!-- BOARD + EDUCATION -->
+  <div class="two-col">
+    <div>
+      <div class="label">Board Service &amp; Governance</div>
+      <ul>
+        <li><strong>Horizon Health Services</strong>, Board Member, 2012&ndash;2018</li>
+        <li><strong>KEDS</strong>, Board Member, 2006&ndash;2008</li>
+        <li>Executive Committees &nbsp;&middot;&nbsp; Corporate Planning &nbsp;&middot;&nbsp; Roberts Rules of Order</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Education</div>
+      <ul>
+        <li><strong>BA Sociology &amp; History</strong> &nbsp;&middot;&nbsp; University at Buffalo &nbsp;&middot;&nbsp; 2009&ndash;2010</li>
+        <li>SUNY Geneseo &nbsp;&middot;&nbsp; 2006&ndash;2009</li>
+        <li>University of Hawaii at Hilo &nbsp;&middot;&nbsp; 2008</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SKILLS -->
+  <div class="label">Skills</div>
+  <div class="skills">
+    Constitutional governance architecture &nbsp;&middot;&nbsp; Execution-layer AI enforcement &nbsp;&middot;&nbsp; Multi-model compliance testing &nbsp;&middot;&nbsp; SHA-256 audit chains &nbsp;&middot;&nbsp; MCP plugin architecture &nbsp;&middot;&nbsp; Semantic signal processing &nbsp;&middot;&nbsp; Patent drafting &nbsp;&middot;&nbsp; Trademark registration &nbsp;&middot;&nbsp; Roberts Rules of Order &nbsp;&middot;&nbsp; Board governance &nbsp;&middot;&nbsp; Salesforce &nbsp;&middot;&nbsp; Strategic planning &nbsp;&middot;&nbsp; Brand development
+  </div>
+
+</div>
+</body>
+</html>

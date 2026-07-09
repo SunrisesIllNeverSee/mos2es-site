@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Deric J. McHenry</title>
+  <meta name="description" content="Founder of Ello Cello LLC. Architect of MO§ES, Commitment Theory, SigRank, AQUA, and Signomy.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+  <style>
+    :root {
+      --bg: #0A0D12;
+      --bone: #E8ECF1;
+      --bone-soft: #C8CDD6;
+      --gray: #8A94A0;
+      --gray-soft: #6B7480;
+      --gold: #C4923A;
+      --gold-warm: #C9A24A;
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+      --mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background:
+        linear-gradient(rgba(196,146,58,0.05) 1px, transparent 1px) 0 0 / 100% 80px,
+        linear-gradient(90deg, rgba(196,146,58,0.05) 1px, transparent 1px) 0 0 / 80px 100%,
+        var(--bg);
+      color: var(--bone);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 96px 32px 96px;
+    }
+
+    /* NAME */
+    h1 {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--bone);
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 48px;
+    }
+    h2 {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(196,146,58,0.16);
+    }
+
+    /* CONTACT */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .contact-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--bone-soft);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .contact-links a:hover { color: var(--gold); }
+
+    /* TEXT BLOCKS */
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--bone-soft);
+    }
+    p a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196,146,58,0.3);
+    }
+    p a:hover { border-color: var(--gold); }
+
+    /* LISTS */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--bone-soft);
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+    ul li a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    ul li a:hover { text-decoration: underline; }
+    ul li strong {
+      color: var(--bone);
+      font-weight: 500;
+    }
+    ul li em {
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(196,146,58,0.10);
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.10em;
+      color: var(--gray-soft);
+      text-transform: uppercase;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 64px 20px 64px; }
+      h1 { font-size: 36px; }
+      .contact-links { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <h1>Deric J. McHenry</h1>
+  <div class="subtitle">Founder · Ello Cello LLC · Buffalo, NY</div>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-links">
+      <a href="mailto:burnmydays@proton.me">Email</a>
+      <a href="https://www.linkedin.com/in/dericmchenry">LinkedIn</a>
+      <a href="https://x.com/burnmydays">X / Twitter</a>
+      <a href="https://github.com/SunrisesIllNeverSee">GitHub</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <p>Constitutional AI governance, commitment theory, operator intelligence, forward deployment. I build the system that proves the idea.</p>
+  </section>
+
+  <section>
+    <h2>Papers</h2>
+    <ul>
+      <li><strong>Conservation Law of Commitment</strong> — C(T(S)) ≈ C(S). Semantic commitment preserved under valid transformation. Measurable, falsifiable, enforceable. <a href="https://zenodo.org/records/20029607">Zenodo DOI</a>, 5 versioned releases, 7 reproducible experiments, unbroken since Feb 2026.</li>
+      <li><strong>Commitment Theory</strong> — extension of Shannon's information theory into the semantic domain. Three extraction methods (active, passive, random). Eigencommitment as PCA analog. <a href="papers.html">Full paper list →</a></li>
+      <li><strong>Articles</strong> — <a href="governance-vacuum.html">The Governance Vacuum</a> and related writing on agent economies, constitutional infrastructure, and the execution layer.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Patents</h2>
+    <ul>
+      <li><strong>PPA 01 · MO§ES</strong> — Constitutional governance architecture, signal encoding, compression substrate. 63/877,177 · Sep 7, 2025.</li>
+      <li><strong>PPA 02 · SCS Engine</strong> — Signal Compression System, lineage and sovereign compression layer. 63/883,018 · Sep 17, 2025.</li>
+      <li><strong>Utility 03 · CIVITAS</strong> — Civic infrastructure: SigRank, SigEconomy, public records, Agent City-State protocol. 19/426,028 · Dec 18, 2025.</li>
+      <li><strong>PPA 04 · Commitment Conservation</strong> — Semantic commitment conservation under recursive transformation. 63/991,282 · Feb 26, 2026.</li>
+      <li><strong>MO§ES™ Trademark</strong> — IC 042, software / governance protocol. 99408355 · Sep 23, 2025.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <ul>
+      <li><strong>MO§ES</strong> — execution-layer constitutional governance harness. The engine. <a href="index.html">Protocol overview →</a></li>
+      <li><strong>SigRank</strong> — AI operator performance index. Live at <a href="https://signalaf.com">signalaf.com</a>. <a href="benchmarks.html">Benchmarks →</a></li>
+      <li><strong>AQUA</strong> — application workflow layer. Application work becomes reusable execution memory.</li>
+      <li><strong>Signomy</strong> — governed agent economy. 270 API endpoints, Stripe Connect live. <a href="https://signomy.xyz">signomy.xyz</a></li>
+      <li><strong>KASSA</strong> — voice AI with commitment kernel caching. <a href="https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html">Live demo →</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Current</h2>
+    <p>Building MO§ES. Open to founding, forward-deployed, and applied-AI roles. $1.5M pre-seed open — <a href="deck.html">deck</a>. <a href="resume.html">Résumé</a>.</p>
+  </section>
+
+  <div class="footer">
+    © 2026 Ello Cello LLC · MO§ES™ IC 042 · 63/877,177 · 63/883,018 · 19/426,028 · 63/991,282
+  </div>
+
+</div>
+
+</body>
+</html>
