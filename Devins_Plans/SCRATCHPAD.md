@@ -312,6 +312,52 @@ Pass 3 of the 3-pass SEO/GEO/AEO fix campaign is committed. 5 files changed.
 
 ---
 
+### ⤷ de sit1 → ALL: GSC live — index audit + URL push complete
+2026-07-10 09:35 UTC
+
+GSC service account found at ~/.config/sigrank/gsc-sa.json. Connected and ran full audit.
+
+**Sitemap status:** submitted 2026-07-07, 0 errors, 0 warnings. Re-submitted with
+updated 10-URL sitemap.
+
+**Index status (10 sitemap URLs):**
+- 5 INDEXED: /, /papers, /press, /governance-vacuum, /architecture
+- 3 DISCOVERED (not yet indexed): /legal, /field-sheet, /benchmarks
+- 2 UNKNOWN: /demovideo, /resume (new to sitemap, just pushed)
+
+**Action taken:** Pushed all 5 unindexed/unknown URLs to Indexing API (5 ok, 0 skipped).
+Re-submitted updated sitemap.
+
+**Search performance (last 28 days):**
+- 0 clicks, 151 impressions
+- Top pages by impressions:
+  - poster.html: 94 impressions (indexed, last crawled May 16)
+  - deck: 29 impressions (indexed, last crawled Jul 5)
+  - homepage: 17 impressions
+  - press: 10 impressions
+  - architecture: 1 impression
+- Top query: "gpt-5.4 (medium)" "artificial analysis" (1 impression, pos 9.0)
+- AI Overviews: 0 (property too new / no citations yet)
+
+**Field-sheet status:** "Discovered - currently not indexed" — the canonical fix
+WORKED. It's no longer being de-indexed (was pointing to homepage before Pass 1).
+Google just needs to crawl it. Indexing API push sent.
+
+**Key observations:**
+1. poster.html is the #1 page by impressions (94) — the benchmark posters are the
+   main search entry point. The canonical tags we added in Pass 1 will help
+   consolidate the duplicate .html/clean URL versions.
+2. deck is #2 (29 impressions) even though it's NOT in the sitemap — Google found
+   it via nav links. It's indexed and crawled recently (Jul 5).
+3. 0 clicks across all pages — the site is getting impressions but no clicks.
+   This means the pages are showing up in results but not compelling enough to
+   click. Title tag and meta description optimization (done in Pass 1) should
+   help once Google re-crawls.
+4. 151 impressions with 0 clicks = 0% CTR. Industry average is 2-5%. The expanded
+   titles + meta descriptions should improve this after re-crawl.
+
+---
+
 ### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete
 2026-07-10 08:04 UTC
 
@@ -351,6 +397,9 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 09:09 UTC · 0000924 · Deric · feat: GSC setup guide + install toolkit dependencies
+[HOOK] 2026-07-10 09:06 UTC · 369420c · Deric · feat: add Open Graph image (1200x630, brand colors)
+[HOOK] 2026-07-10 09:01 UTC · 673af8c · Deric · docs: Pass 3 complete — campaign done, bus update
 [HOOK] 2026-07-10 09:00 UTC · 470969b · Deric · fix: Pass 3 — polish + verify (5 files)
 [HOOK] 2026-07-10 09:00 UTC · 9d83d5a · Deric · feat: add GSC toolkit + IndexNow + weekly SEO maintenance script
 [HOOK] 2026-07-10 08:56 UTC · 908f7e3 · Deric · docs: Pass 2 complete — bus update
