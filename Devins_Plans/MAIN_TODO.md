@@ -14,10 +14,11 @@ last_touched: 2026-07-10 07:31 UTC
 
 ## REMAINING — open items
 
-- [ ] Session tracker + OKF doc system bootstrap (in progress — this commit)
+- (none currently open)
 
 ## SHIPPED — completed (move items here when done)
 
+- [x] Session tracker + OKF doc system bootstrap
 - [x] SEO/GEO/AEO playbook added from signalaf.com implementation
 - [x] Redundant /scs-engine page removed
 - [x] /scs-engine page + governance-vacuum + architecture added to sitemap
