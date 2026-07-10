@@ -24,8 +24,8 @@ the [SCRATCHPAD.md](Devins_Plans/SCRATCHPAD.md) tail (the live bus) →
 This repo runs multiple parallel sessions.
 
 **Org structure:**
-- **DEVIN** = primary development session. Operates out of mos2es-site.
-- **DEVIN2** = secondary/parallel session. Operates out of mos2es-site or sibling repos.
+- **de sit1** = primary development session. Operates out of mos2es-site.
+- **de sit2** = secondary/parallel session. Operates out of mos2es-site or sibling repos.
 - **OWNER** = Deric J. McHenry. Mediates through sessions.
 
 To stop coordination from disappearing between sessions:

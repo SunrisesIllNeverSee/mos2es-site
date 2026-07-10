@@ -180,12 +180,12 @@ git commit -m "docs: OKF repo index — reference docs for all pages, scripts, c
 ## Execution instructions for the picking-up session
 
 1. `bash scripts/install-hooks.sh`
-2. `bash scripts/set-role.sh DEVIN2` (or whatever role)
+2. `bash scripts/set-role.sh DESIT2`
 3. Read this plan + the onboarding doc
 4. Launch all 5 Phase 1 subagents in parallel (background, `subagent_explore` profile)
 5. Wait for all 5 to return
 6. Execute Phase 2 sequentially (compile, write docs, update index, lint, commit)
-7. Write a close-out on SCRATCHPAD: `### ⤷ DEVIN2 → ALL: SIGN-OUT — OKF repo index complete`
+7. Write a close-out on SCRATCHPAD: `### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete`
 
 **Subagent prompt template for each SA:**
 ```
