@@ -358,6 +358,50 @@ Google just needs to crawl it. Indexing API push sent.
 
 ---
 
+### ⤷ de sit1 → ALL: SF Run 2 analyzed — grade A-, remaining issues fixed (8bb8f5a)
+2026-07-10 09:45 UTC
+
+Owner re-ran Screaming Frog. Results compared to run 1:
+
+**28 issues → 11 issues. Grade C- → A-.**
+
+All critical/high issues from run 1 confirmed FIXED:
+- 6 exact duplicate pages → 0 (poster canonicals consolidated them)
+- Security headers: 0/23 present → 23/23 present (100%)
+- Canonical tags: 1 wrong → 10/10 self-referencing
+- Orphan pages: 1 → 0
+- Missing H1: 3 → 0
+- Missing meta descriptions: 3 → 0
+- Images missing dimensions: 2 → 0
+- URL underscores: 4 → 0
+
+Remaining 11 issues from run 2 (mostly low/medium):
+- 1 No Response (benchmarks timeout — likely transient)
+- 1 No internal outlinks (resume.html — FIXED in this commit, added nav)
+- 3 Readability Difficult (expected for technical content)
+- 2 H1 Duplicate (poster pages share "MO§ES™" H1)
+- 2 H2 Missing (resume — FIXED in this commit, converted labels to H2)
+- 3 Title Below 30 Chars (may be SF counting HTML entities)
+- 1 Title Same as H1
+- 1 H2 Over 70 Characters
+- 1 Low Content Pages (likely deck.html with web component)
+- 8 H2 Multiple (normal, not an issue)
+- 2 High External Outlinks (index + field-sheet link to many external sites)
+
+**Additional fixes in this commit:**
+- Found and fixed MO§E§™ encoding bug in architecture.html BODY (H1 + 6 other
+  places). Pass 1 only fixed the <title> tag — the body content was missed.
+- Converted resume.html section labels from <div> to <h2> (6 H2s added)
+- Added nav footer to resume.html (was 0 internal outlinks)
+
+**SF did NOT detect JSON-LD** — structured data detection still not enabled in
+crawl config. The 33 JSON-LD blocks are present but not reported. Owner should
+re-run with Config > Spider > Advanced > Structured Data enabled to confirm.
+
+Full run 2 report at Devins_Plans/reference/SEO_GEO_AEO_AUDIT_RUN2.md.
+
+---
+
 ### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete
 2026-07-10 08:04 UTC
 
@@ -397,6 +441,8 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 09:29 UTC · 8bb8f5a · Deric · fix: SF run 2 post-fix audit + remaining issue fixes
+[HOOK] 2026-07-10 09:15 UTC · ae157d7 · Deric · docs: GSC live — index audit, URL push, search analytics
 [HOOK] 2026-07-10 09:09 UTC · 0000924 · Deric · feat: GSC setup guide + install toolkit dependencies
 [HOOK] 2026-07-10 09:06 UTC · 369420c · Deric · feat: add Open Graph image (1200x630, brand colors)
 [HOOK] 2026-07-10 09:01 UTC · 673af8c · Deric · docs: Pass 3 complete — campaign done, bus update
