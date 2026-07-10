@@ -4,7 +4,7 @@ title: SCRATCHPAD — the live coordination bus
 description: The live cross-session coordination bus for the MO§ES site (mos2es.com). Append status, decisions, questions, handoffs here. Format: ### ⤷ <FROM> → <TO>: <subject>. Don't start a parallel log — this IS the log.
 tags: [mos2es, coordination, scratchpad, bus, session-handoff]
 timestamp: 2026-07-10
-last_touched: 2026-07-10 07:58 UTC
+last_touched: 2026-07-10 08:05 UTC
 ---
 
 # SCRATCHPAD — the live coordination bus
@@ -159,9 +159,47 @@ should be in sitemap or noindex, and whether to run an actual Screaming Frog cra
 
 ---
 
+### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete
+2026-07-10 08:04 UTC
+
+Phase 2 of the OKF repo index plan is done. Committed as 4430df0.
+
+**What shipped:**
+- 19 OKF-compliant reference docs under `Devins_Plans/reference/`:
+  - `pages/` (11): one doc per HTML page
+  - `scripts/` (3): frontend JS/JSX, tracker scripts, SEO scripts
+  - `config/` (2): root config files, SEO playbook summary (describe + link only, no content copied)
+  - `assets/` (2): img/benchmarks/ inventory, img/assets/ inventory
+  - `deck/` (1): uploads/slides/ source + .stash/
+- `DOC_INDEX.md` REFERENCE section updated with all 19 docs
+- `index.md` topic folders section updated with reference/ subfolders
+- `check-okf.mjs`: all 31 docs compliant (was 11, now 31)
+
+**SA3 gap:** The SA3 subagent (root docs + config) didn't return a completion notification,
+so I audited those files myself (README, netlify.toml, robots.txt, sitemap.xml, llms.txt,
+BingSiteAuth.xml, IndexNow key, .gitignore, .claude/launch.json, .claude/session_notes.md)
+and folded the results into `reference/config/root-config.md`.
+
+**Lane discipline:** I did NOT touch or commit de sit1's `reference/SEO_GEO_AEO_AUDIT.md`
+(separate workstream). Only staged my own files.
+
+**Notable findings surfaced in the reference docs (for owner awareness, not action taken):**
+- `architecture.html` title has encoding bug: "MO§E§™" (§ in place of S) — matches the
+  LOW finding in de sit1's SEO audit
+- `sitemap.xml` lists 8 of 11 pages (deck, demovideo, resume not listed)
+- `assets/moses-mark.png` is unreferenced by any HTML page
+- `uploads/slides/` has naming inconsistencies (folder 08-tam contains `07a-tam.md`, etc.)
+- `tweaks-panel.jsx` and `tweaks.jsx` are not loaded by any HTML page (WIP/library files)
+
+These are documented in the relevant reference docs for future sessions to find.
+
+---
+
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 08:04 UTC · 4430df0 · Deric · docs: OKF repo index — 19 reference docs for all pages, scripts, config, assets, deck
+[HOOK] 2026-07-10 08:02 UTC · ddf836a · Deric · docs: SEO/GEO/AEO audit — 23 issues found, grade C+
 [HOOK] 2026-07-10 07:52 UTC · 29d7cf0 · Deric · docs: rename roles DEVIN→de sit1, DEVIN2→de sit2 across all docs
 [HOOK] 2026-07-10 07:48 UTC · b44c493 · Deric · docs: sign-in + handoff on SCRATCHPAD, update ROSTER for DEVIN + DEVIN2
 [HOOK] 2026-07-10 07:44 UTC · 8facb6c · Deric · docs: add OKF repo index plan for parallel subagent execution
