@@ -1,23 +1,27 @@
 ---
 type: Findings
-title: SEO/GEO/AEO Audit — Screaming Frog-style site health review
-description: Full audit of mos2es.com SEO/GEO/AEO posture. Covers JSON-LD structured data, meta tags, OG/Twitter cards, sitemap completeness, security headers, H1/H2 structure, image attributes, canonical tags, and the playbook checklist. 23 issues found, prioritized for fix campaign.
+title: SEO/GEO/AEO Audit — Screaming Frog crawl + manual review
+description: Full audit of mos2es.com SEO/GEO/AEO posture. Cross-referenced Screaming Frog crawl (run 1, 2026-07-10) with manual HTML audit. 28 issues found across 16 crawled HTML pages + 7 images/PDFs/JS. Grade C-. Prioritized fix campaign included.
 tags: [mos2es, seo, geo, aeo, audit, screaming-frog, findings]
 timestamp: 2026-07-10
-last_touched: 2026-07-10 08:05 UTC
+last_touched: 2026-07-10 08:20 UTC
 ---
 
 # SEO/GEO/AEO Audit — mos2es.com
 
 **Audited by:** de sit1
 **Date:** 2026-07-10
-**Method:** Manual audit of all 11 HTML pages + config files, using the SEO_GEO_AEO_PLAYBOOK.md
-checklist as the rubric. This is the equivalent of a Screaming Frog crawl done by hand
-(since SF is a desktop tool and we're in a CLI session).
+**Method:** Screaming Frog crawl (run 1, 2026-07-10 04:11 UTC, 23 seconds, 44 URLs
+encountered) cross-referenced with manual HTML audit of all source files.
 
-**Summary:** 23 issues found. Grade: **C+** (significant gaps in structured data, OG tags,
-security headers, and sitemap completeness). The homepage and papers page have good
-foundations; the rest of the site is largely unoptimized.
+**Crawl stats:** 44 total URLs (23 internal, 21 external) · 16 HTML pages · 4 images ·
+2 PDFs · 1 JS · 0 broken internal links · 1 external 4xx · 1 external timeout · 1 external
+redirect · 23 seconds crawl time.
+
+**Summary:** 28 issues found. Grade: **C-**. The SF crawl revealed worse problems than the
+manual audit alone — duplicate content from .html/no-.html URL pairs, resume.html is an
+orphan that wasn't even crawled, JSON-LD structured data detected as 0/16 pages by SF,
+field-sheet is non-indexable due to wrong canonical, and a broken external link to Zenodo.
 
 ---
 
@@ -25,265 +29,313 @@ foundations; the rest of the site is largely unoptimized.
 
 | Severity | Count | Category |
 |----------|-------|----------|
-| CRITICAL | 5 | Missing H1, missing meta description, no OG image |
-| HIGH | 8 | Missing JSON-LD, missing OG tags, sitemap gaps, no security headers |
-| MEDIUM | 7 | Missing Twitter cards, missing canonical, long meta description |
-| LOW | 3 | Missing image dimensions, inconsistent title branding |
+| CRITICAL | 7 | Duplicate content, non-indexable page, orphan page, missing H1, missing meta desc, no OG image |
+| HIGH | 10 | 0 JSON-LD detected by SF, missing OG/Twitter tags, sitemap gaps, no security headers, no canonical, broken external links, no internal outlinks on 8 pages |
+| MEDIUM | 7 | Duplicate titles, long meta desc, wrong canonical, short titles, low content pages, large image |
+| LOW | 4 | Missing image dimensions, URL underscores, readability, duplicate H1 |
 
 ---
 
 ## CRITICAL Issues
 
-### C1. Three pages have no H1 tag
-**Pages:** `index.html`, `deck.html`, `resume.html`
-**Impact:** Search engines and AI engines use H1 as the primary page topic signal. Missing
-H1 = the page has no declared topic.
-**Fix:** Add exactly one `<h1>` to each page.
-- `index.html` — H1 should be "MO§ES — Sovereign Signal Governance" (currently jumps from
-  no H1 straight to H2s like "The headline is not 80–85%...")
-- `deck.html` — H1 should be the deck title (currently has H2s but no H1)
-- `resume.html` — H1 should be "Deric J. McHenry" (no headings at all currently)
+### C1. 6 exact duplicate content pages (poster .html vs no-.html)
+**Found by:** Screaming Frog — "Content: Exact Duplicates" (HIGH priority, 6 pages, 33.3%)
+**Pages:**
+- `img/benchmarks/poster` = `img/benchmarks/poster.html` (identical hash: fe7d4120...)
+- `img/benchmarks/poster_honest` = `img/benchmarks/poster_honest.html` (identical hash: a3012662...)
+- `img/benchmarks/poster_honest_portrait` = `img/benchmarks/poster_honest_portrait.html` (identical hash: 1ac5b38f...)
+**Impact:** Google sees 6 pages that are byte-identical pairs. This splits PageRank and
+causes ranking unpredictability. SF rates this HIGH.
+**Fix:** Add canonical tags to the .html versions pointing to the clean URLs (or vice
+versa). Or add `_redirects` rules to 301 redirect .html → clean URL for these pages. Or
+block the .html versions with noindex.
 
-### C2. Three pages have no meta description
-**Pages:** `architecture.html`, `deck.html`, `resume.html`
-**Impact:** Search engines show a generated snippet instead of a controlled description.
-AI engines have no summary to cite. Screaming Frog flags this as HIGH.
-**Fix:** Add `<meta name="description" content="...">` to each, ≤155 chars.
-- `architecture.html` — e.g. "MO§ES system architecture: recursive compression, origin binding, lineage claws, and the governance enforcement layer."
-- `deck.html` — e.g. "MO§ES pitch deck — the investor presentation for sovereign signal governance."
-- `resume.html` — e.g. "Deric J. McHenry — founder of MO§ES, AI governance researcher, commitment conservation theorist."
+### C2. field-sheet is NON-INDEXABLE (wrong canonical)
+**Found by:** Screaming Frog — "Canonicals: Canonicalised" (HIGH priority)
+**Issue:** `field-sheet.html` has `<link rel="canonical" href="https://mos2es.com/">` —
+it tells Google "this page is a duplicate of the homepage, don't index it." SF marks it
+Non-Indexable / Canonicalised.
+**Impact:** The field-sheet page is being de-indexed by Google. It has good content
+(1,613 words, 380 sentences) but Google won't show it in search results.
+**Fix:** Change canonical to `href="https://mos2es.com/field-sheet"` (self-referencing).
 
-### C3. No OG image exists on the site
-**Issue:** `/img/og.png` does not exist. The playbook (Phase 1) says to create a 1200×630
-PNG banner. Only `benchmarks.html` has an og:image (pointing to a benchmark chart, not a
-site-wide banner).
-**Impact:** Sharing any page (except benchmarks) in Slack/Twitter/Discord shows no preview
-image. This is the #1 playbook priority.
-**Fix:** Create `/img/og.png` (1200×630, dark bg, MO§ES logo, tagline). Add og:image meta
-to all 11 pages.
+### C3. resume.html is an orphan page — NOT CRAWLED
+**Found by:** Screaming Frog — resume.html does not appear in the crawl at all
+**Issue:** SF crawled 16 HTML pages but resume.html is not among them. It's not linked
+from any other page, not in the sitemap, and not reachable by the crawler.
+**Impact:** Search engines cannot discover resume.html. It's invisible to Google.
+**Fix:** Either link to it from the nav/footer/index page, OR add it to the sitemap, OR
+decide it's intentionally private and add noindex. Currently it's in limbo — public if you
+know the URL, but undiscoverable.
+
+### C4. Three pages have no H1 tag
+**Found by:** Screaming Frog — "H1: Missing" (6 pages, 37.5%) + manual audit
+**Pages:** `index.html`, `deck.html`, `resume.html` (not crawled but confirmed by manual audit)
+**Also:** The 3 poster pages have no H1 (they're image posters, may be intentional)
+**Fix:** Add exactly one `<h1>` to index, deck, resume. Poster pages can be left as-is
+if they're not meant to rank.
+
+### C5. Eight pages have no meta description
+**Found by:** Screaming Frog — "Meta Description: Missing" (8 pages, 50%)
+**Pages:** architecture, deck, resume (not crawled), + all 5 poster pages
+**Fix:** Add meta descriptions to architecture, deck, resume. Poster pages can be left
+as-is (they're visual resources, not search targets).
+
+### C6. No OG image exists on the site
+**Found by:** Manual audit (SF doesn't check OG tags)
+**Issue:** `/img/og.png` does not exist. Only benchmarks.html has an og:image (a chart,
+not a site banner).
+**Fix:** Create 1200×630 PNG banner. Add og:image to all pages.
+
+### C7. Screaming Frog detected 0 pages with structured data — FALSE POSITIVE
+**Found by:** Screaming Frog — "Contains Structured Data: 0", "JSON-LD URLs: 0"
+**Issue:** My manual audit found JSON-LD on index.html (3 blocks: Organization, WebSite,
+CreativeWork) and papers.html (3 blocks: ScholarlyArticle, 2× Dataset). I validated all 6
+blocks with Python's json parser — all are valid JSON.
+**Root cause:** SF's structured data detection was likely not enabled in the crawl
+configuration (Config > Spider > Advanced > Structured Data). This is a crawl setup issue,
+not a site issue.
+**Action:** Re-run SF with structured data detection enabled. Still validate at
+https://validator.schema.org and https://search.google.com/test/rich-results to be sure
+Google can parse them.
+**Status:** Downgraded from CRITICAL to informational. The JSON-LD is valid; SF just
+didn't look for it.
 
 ---
 
 ## HIGH Issues
 
-### H1. JSON-LD structured data only on 2 of 11 pages
-**Pages with JSON-LD:** `index.html` (Organization, WebSite, Person, CreativeWork),
-`papers.html` (ScholarlyArticle, Dataset, Person, PublicationEvent)
-**Pages WITHOUT JSON-LD:** architecture, benchmarks, deck, demovideo, field-sheet,
-governance-vacuum, legal, press, resume (9 pages)
-**Impact:** AI engines (ChatGPT, Perplexity, Claude) use JSON-LD to decide what to cite.
-9 pages have zero structured data = invisible to AI citation.
-**Fix:** Per the playbook:
-- Add **WebSite** schema to all pages (in addition to Organization on homepage)
-- Add **BreadcrumbList** to all sub-pages
-- Add **DefinedTerm** to papers.html for each concept
-- Add **Article** to governance-vacuum.html (it's an article)
-- Add **Dataset** to benchmarks.html (it's empirical data)
-- Consider **FAQPage** if Q&A content is added
+### H1. JSON-LD structured data on only 2 of 16 pages (and SF says 0)
+**Pages with JSON-LD (manual):** index.html, papers.html
+**Pages WITHOUT:** architecture, benchmarks, deck, demovideo, field-sheet,
+governance-vacuum, legal, press, resume + 5 poster pages (14 pages)
+**Fix:** Add WebSite schema to all pages, BreadcrumbList to sub-pages, Article to
+governance-vacuum, Dataset to benchmarks. But FIRST validate existing JSON-LD (see C7).
 
-### H2. OG tags only on 2 of 11 pages
-**Pages with OG tags:** `benchmarks.html` (full set), `field-sheet.html` (partial — has
-og:title, og:description, og:url, og:type but NO og:image)
-**Pages with NO OG tags:** index, architecture, deck, demovideo, governance-vacuum, legal,
-papers, press, resume (9 pages)
-**Impact:** No social sharing cards on 9 pages. Slack/Twitter/Discord show plain text links.
-**Fix:** Add full OG tag set to all pages: og:type, og:url, og:title, og:description,
-og:image, og:image:width, og:image:height.
+### H2. OG tags only on 2 of 11 main pages
+**Pages with OG:** benchmarks.html (full), field-sheet.html (partial, wrong og:url)
+**Fix:** Add full OG tag set to all pages.
 
-### H3. Twitter card tags only on 2 of 11 pages
-**Pages with Twitter cards:** `benchmarks.html` (full set), `field-sheet.html` (partial —
-only twitter:card=summary, no image/title/description)
-**Fix:** Add `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image` to all
-pages. Use `summary_large_image` for pages with OG images.
+### H3. Twitter card tags only on 2 of 11 main pages
+**Fix:** Add twitter:card, twitter:title, twitter:description, twitter:image to all pages.
 
 ### H4. Sitemap missing 3 pages
-**In sitemap (8 URLs):** /, /papers, /legal, /press, /field-sheet, /benchmarks,
-/governance-vacuum, /architecture
-**NOT in sitemap (3 pages):**
-- `deck.html` — pitch deck. Intentional? If public, add it.
-- `demovideo.html` — demo video page. Recently made reachable (commit 8349d47 dropped
-  noindex). Should be in sitemap now.
-- `resume.html` — resume page. Intentional? If public, add it.
-**Fix:** Add the 3 missing pages to sitemap.xml (or mark them noindex if intentionally
-excluded). Note: sitemap uses clean URLs (`/papers` not `/papers.html`) — Netlify must be
-serving these without extension. Verify this works.
+**NOT in sitemap:** deck.html, demovideo.html, resume.html
+**Note:** SF didn't compare sitemap vs crawled URLs (orphan_pages.csv is empty because
+the sitemap wasn't uploaded to SF). But manual audit confirms these 3 are missing.
+**Fix:** Add to sitemap or mark noindex.
 
-### H5. No security headers
-**Issue:** `netlify.toml` only has `[build] publish = "."`. No `_headers` file exists.
-Missing: Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Referrer-Policy.
-**Impact:** Screaming Frog flags this as 100% missing on all pages. The signalaf.com audit
-found this same issue and fixed it.
-**Fix:** Create a `_headers` file (Netlify convention):
-```
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:
-```
-Note: CSP needs tuning — the deck uses inline styles/scripts, the favicon is a data: URI,
-and pages reference external resources (Loom, GitHub). Start with a permissive CSP and
-tighten over time.
+### H5. No security headers (100% missing on all 23 URLs)
+**Found by:** Screaming Frog — 4 headers missing on 100% of URLs:
+- Missing X-Frame-Options (23/23)
+- Missing X-Content-Type-Options (23/23)
+- Missing Content-Security-Policy (23/23)
+- Missing Secure Referrer-Policy (23/23)
+**Fix:** Create Netlify `_headers` file.
 
-### H6. No canonical tags on 10 of 11 pages
-**Pages with canonical:** `field-sheet.html` (but it points to `https://mos2es.com/` —
-WRONG, should point to its own URL)
-**Pages without canonical:** all other 10 pages
-**Impact:** Search engines may index duplicate URLs (with/without .html extension, with/without
-trailing slash). Canonical tags prevent duplicate content issues.
-**Fix:** Add `<link rel="canonical" href="https://mos2es.com/<page>.html">` to each page.
-Fix field-sheet.html canonical to point to its own URL.
+### H6. No canonical tags on 17 of 18 pages (94.4% missing)
+**Found by:** Screaming Frog — "Canonicals: Missing" (17 pages, 94.4%)
+**Has canonical:** field-sheet (but it's WRONG — points to homepage, see C2)
+**Fix:** Add self-referencing canonical to every page.
 
-### H7. No `_redirects` file for clean URLs
-**Issue:** Sitemap uses clean URLs (`/papers` not `/papers.html`) but there's no `_redirects`
-file. Netlify's pretty URLs may handle this automatically, but it should be explicit.
-**Fix:** Create `_redirects`:
-```
-/papers     /papers.html    200
-/legal      /legal.html     200
-/press      /press.html     200
-/field-sheet  /field-sheet.html  200
-/benchmarks  /benchmarks.html  200
-/governance-vacuum  /governance-vacuum.html  200
-/architecture  /architecture.html  200
-```
-(Use 200 rewrites, not 301 redirects, so the URL stays clean.)
+### H7. Broken external link: Zenodo DOI (connection timeout)
+**Found by:** Screaming Frog — "External No Response" (1 URL)
+**URL:** `https://zenodo.org/records/20029607` — Connection Timeout
+**Impact:** This is the Conservation Law paper DOI — the most important academic link on
+the site. It's linked from 10 pages (highest inlink count of any external link). If it's
+timing out, users and search engines can't reach it.
+**Fix:** Verify the URL is correct. Zenodo may have changed their URL structure. Test
+manually. If the DOI resolves differently, update all 10 references.
 
-### H8. index.html not in sitemap
-**Issue:** The sitemap has `https://mos2es.com/` which IS the homepage, so this is
-technically covered. But the grep check flagged it because `index.html` doesn't appear
-literally. This is a false positive — `/` is correct for the homepage.
+### H8. Broken external link: Medium (403 Forbidden)
+**Found by:** Screaming Frog — "External Client Error (4xx)" (1 URL)
+**URL:** `https://medium.com/@burnmydays` — 403 Forbidden
+**Impact:** Medium blocks crawlers (including SF and possibly Googlebot) from profile
+pages. This may not be a real issue — the link works in a browser. But it looks broken
+to crawlers.
+**Fix:** Consider adding `rel="nofollow"` to the Medium link, or remove it if it's not
+important. Low priority since Medium blocks all crawlers.
+
+### H9. 8 pages with no internal outlinks (50%)
+**Found by:** Screaming Frog — "Pages Without Internal Outlinks" (8 pages, 50%)
+**Pages:** deck (0 outlinks), architecture (0 outlinks), + 5 poster pages (0 outlinks),
++ 1 PDF
+**Impact:** deck.html and architecture.html are dead ends — users and crawlers can't
+navigate from them to other pages. This hurts crawl depth and PageRank flow.
+**Fix:** Add nav links or footer links to deck.html and architecture.html. Poster pages
+can be left as-is.
+
+### H10. External redirect: mos2es.io → www.mos2es.io (301)
+**Found by:** Screaming Frog — redirects.csv
+**Issue:** field-sheet.html links to `https://mos2es.io/` which 301 redirects to
+`https://www.mos2es.io/`. This is a redirect chain from the .io domain.
+**Impact:** Minor — it's a redirect, not a broken link. But it's leaking link equity
+through a redirect. And www.mos2es.io was "Not crawled" by SF.
+**Fix:** Update the link to point directly to the final destination, or remove if the
+.io domain isn't needed.
 
 ---
 
 ## MEDIUM Issues
 
-### M1. Meta description over 155 chars on 1 page
-**Page:** `index.html` — 160 chars (just barely over)
-**Fix:** Trim to ≤155 chars. E.g. drop "at point of execution" or shorten
-"commitment conservation, governance enforcement, and lineage-bound artifacts."
+### M1. 6 duplicate page titles (poster .html vs no-.html)
+**Found by:** Screaming Frog — "Page Titles: Duplicate" (6 pages, 37.5%)
+**Cause:** Same as C1 — poster pages served at both .html and clean URLs.
+**Fix:** Same as C1 — canonical or redirect to consolidate.
 
-### M2. Meta description over 155 chars on benchmarks.html
-**Page:** `benchmarks.html` — 333 chars (way over)
-**Impact:** Search engines truncate at ~155 chars. The full description won't show.
-**Fix:** Split into a short meta description (≤155 chars) and keep the detail in the page
-body. E.g. "MO§ES leads all 5 measured economic categories vs. the AA Coding Agent Index.
-Raw JSONL · 98 sessions · operator-augmented Claude Code + Opus 4.7."
+### M2. Meta description over 155 chars on 2 pages
+**Found by:** Screaming Frog — "Meta Description: Over 155 Characters" (2 pages)
+**Pages:** index.html (160 chars / 1018 pixels), benchmarks.html (333 chars / 2089 pixels)
+**Also:** "Over 985 Pixels" on same 2 pages
+**Fix:** Trim both to ≤155 chars.
 
-### M3. field-sheet.html canonical points to wrong URL
-**Issue:** `<link rel="canonical" href="https://mos2es.com/">` — points to homepage, not
-the field-sheet page. This tells Google the field-sheet is a duplicate of the homepage.
-**Fix:** Change to `href="https://mos2es.com/field-sheet.html"`
+### M3. field-sheet canonical + OG URL point to wrong URL
+**Found by:** Screaming Frog + manual audit
+**Issue:** canonical → `https://mos2es.com/` (should be /field-sheet), og:url →
+`https://mos2es.com/` (should be /field-sheet)
+**Fix:** Both need to point to the field-sheet's own URL.
 
-### M4. field-sheet.html OG URL points to wrong URL
-**Issue:** `og:url` is `https://mos2es.com/` — should be `https://mos2es.com/field-sheet.html`
-**Fix:** Correct the og:url.
+### M4. 5 page titles below 30 characters
+**Found by:** Screaming Frog — "Page Titles: Below 30 Characters" (5 pages)
+**Pages:** press (14 chars), demovideo (19), legal (19), deck (18), + 1 poster
+**Impact:** Not necessarily an issue, but these titles are short — there's room for
+keywords. E.g. "MO§ES™ — Press" could be "MO§ES™ — Press Kit & Media Resources".
+**Fix:** Expand short titles to include target keywords (optional, low priority).
 
-### M5. No Twitter card image on field-sheet.html
-**Issue:** Has `twitter:card=summary` but no twitter:image, twitter:title, or
-twitter:description.
-**Fix:** Add the missing Twitter card fields.
+### M5. 2 low content pages
+**Found by:** Screaming Frog — "Content: Low Content Pages" (2 pages, 11.1%)
+**Pages:** demovideo (50 words), press (159 words)
+**Impact:** Search engines need descriptive text to understand the page. demovideo at 50
+words is very thin.
+**Fix:** Add more descriptive content to demovideo (describe what the demo shows, the
+workflow, the results). Press page has 159 words — borderline, could add more context.
 
-### M6. deck.html title doesn't include "MO§ES"
-**Issue:** Title is "Ello Cello — Pitch" — no brand name. Inconsistent with other pages
-which all start with "MO§ES™ —".
-**Fix:** Change to "MO§ES™ — Pitch Deck" or similar.
+### M6. 1 image over 100 kB
+**Found by:** Screaming Frog — "Images: Over 100 kB" (1 image, 25%)
+**Image:** `MOSES_HONEST_PORTRAIT.png` — 182 KB
+**Fix:** Compress or convert to WebP. Target <100 kB.
 
-### M7. resume.html title doesn't include "MO§ES"
-**Issue:** Title is "Deric J. McHenry, Resume" — no brand connection.
-**Fix:** Change to "MO§ES™ — Deric J. McHenry, Resume" or similar.
+### M7. 1 title over 561 pixels
+**Found by:** Screaming Frog — "Page Titles: Over 561 Pixels" (1 page)
+**Page:** benchmarks.html — 589 pixels (60 chars)
+**Fix:** Shorten the benchmarks title slightly.
 
 ---
 
 ## LOW Issues
 
-### L1. Two images missing width/height attributes
-**Images:**
-- `benchmarks.html`: `<img src="img/benchmarks/card_06_combined.png">` — no width/height
-- `deck.html`: `<img src="assets/founder.jpg">` — has inline style with height but no
-  width/height attributes (uses CSS instead)
-**Impact:** Screaming Frog flags this. Can cause layout shift (CLS) during page load.
-**Fix:** Add `width="1200" height="628"` (or actual dimensions) to benchmarks image.
-Add `width` and `height` attributes to founder.jpg in deck.html.
+### L1. 2 images missing size attributes
+**Found by:** Screaming Frog — "Images: Missing Size Attributes" (2 images, 50%)
+**Images:** card_06_combined.png (benchmarks.html), founder.jpg (deck.html)
+**Fix:** Add width/height attributes.
 
-### L2. architecture.html title has encoding issue
-**Issue:** Title is "MO§E§™ — Investor Architecture" — note "E§" instead of "ES". The §
-character is in the wrong position.
-**Fix:** Change to "MO§ES™ — Architecture" (also drop "Investor" unless that's intentional
-targeting — it limits the page's search intent to investors only).
+### L2. 4 URLs with underscores
+**Found by:** Screaming Frog — "URL: Underscores" (4 URLs, 17.4%)
+**Impact:** Underscores aren't always treated as word separators by search engines.
+**Fix:** These are likely the poster page URLs. Low priority — changing URLs requires
+redirects. Not worth doing for SEO alone per SF's own advice.
 
-### L3. No favicon file (uses inline SVG data URI)
-**Issue:** Favicon is an inline SVG data URI, not a file. Works but some crawlers/tools
-prefer a real .ico or .png file.
-**Impact:** Minimal — this is cosmetic. The data URI favicon renders fine.
-**Fix (optional):** Create `/img/favicon.png` and reference it as a real file. Low priority.
+### L3. 2 pages with difficult readability
+**Found by:** Screaming Frog — "Content: Readability Difficult" (2 pages)
+**Pages:** legal (Flesch 48.3, "Hard"), governance-vacuum (Flesch 44.3, "Hard")
+**Impact:** Content is best understood by college graduates. May limit audience.
+**Fix:** Simplify language where possible (optional — academic/legal content is naturally
+complex).
 
----
-
-## What's Already Good
-
-- **robots.txt** — clean, allows all crawlers, references sitemap ✓
-- **llms.txt** — comprehensive, covers core concepts, academic foundation, governance
-  ecosystem, related surfaces ✓
-- **Organization + WebSite JSON-LD on homepage** — good foundation ✓
-- **ScholarlyArticle + Dataset JSON-LD on papers.html** — academic content is structured ✓
-- **IndexNow** — key file deployed, ping script exists ✓
-- **lang="en"** on all pages ✓
-- **No broken internal links** — all .html links resolve to real files ✓
-- **No redirect chains** — static site, no redirects at all ✓
-- **Titles all ≤60 chars** — all within limits ✓ (except benchmarks at exactly 60)
-- **BingSiteAuth.xml** — Bing verification in place ✓
+### L4. 2 duplicate H1s
+**Found by:** Screaming Frog — "H1: Duplicate" (2 pages, 12.5%)
+**Cause:** Poster page .html/no-.html pairs have duplicate H1s (or lack thereof).
+**Fix:** Same as C1 — consolidate the duplicate URLs.
 
 ---
 
-## Playbook Checklist Status
+## What's Already Good (confirmed by SF)
 
-| # | Item | Status |
-|---|------|--------|
-| 1 | Fix OG image (create /img/og.png) | ❌ NOT DONE |
-| 2 | JSON-LD on all pages (WebSite + BreadcrumbList) | ❌ 2/11 pages only |
-| 3 | llms.txt | ✅ DONE |
-| 4 | Per-page OG images | ❌ NOT DONE (only benchmarks has one) |
-| 5 | npm + GitHub discoverability | ❌ NOT DONE (no GitHub topics set) |
-| 6 | Content layer (concept pages) | ❌ NOT DONE (11 pages, no concept/guide pages) |
-| 7 | Screaming Frog crawl | ❌ NOT RUN (this audit is the manual equivalent) |
-| 8 | Security headers | ❌ NOT DONE |
-| 9 | Google Search Console submission | ❓ UNKNOWN (owner would know) |
-| 10 | IndexNow push for all URLs | ⚠️ Script exists but may not have been run for all pages |
-| 11 | FAQ section + FAQPage schema | ❌ NOT DONE |
-| 12 | Concept pages (one per key term) | ❌ NOT DONE |
-| 13 | Weekly citation tracking | ❓ UNKNOWN (owner would know) |
+- **0 broken internal links** — all internal links resolve to 200 ✓
+- **0 internal redirects** — no redirect chains on internal URLs ✓
+- **0 internal 4xx errors** — no broken internal pages ✓
+- **100% HTTPS** — all 23 internal URLs are HTTPS, 0 mixed content ✓
+- **0 HSTS issues** — HSTS header present ✓
+- **All pages indexable** (except field-sheet due to wrong canonical) ✓
+- **No JavaScript rendering issues** — 0 JS errors, 0 blocked resources ✓
+- **No hreflang issues** (not using hreflang, which is fine for single-language) ✓
+- **No pagination issues** ✓
+- **No AMP issues** (not using AMP, which is fine) ✓
+- **No spelling/grammar errors** detected by SF ✓
+- **robots.txt** — 0 URLs blocked, clean config ✓
+- **BingSiteAuth.xml** present ✓
+- **IndexNow** key file + ping script deployed ✓
+- **llms.txt** comprehensive ✓
+- **External links mostly healthy** — 18 of 21 external URLs return 200 ✓
+
+---
+
+## New Discoveries from SF (not in manual audit)
+
+| # | Finding | Source |
+|---|---------|--------|
+| 1 | 6 exact duplicate pages (poster .html vs clean URL) | SF Content: Exact Duplicates |
+| 2 | SF detected 0 pages with structured data (JSON-LD may be malformed) | SF Structured Data |
+| 3 | resume.html not crawled at all (orphan, undiscoverable) | SF crawl data |
+| 4 | Zenodo DOI link timing out (10 inlinks, most important external link) | SF External No Response |
+| 5 | Medium profile link 403 (blocks crawlers) | SF External 4xx |
+| 6 | mos2es.io → www.mos2es.io redirect chain from field-sheet | SF Redirects |
+| 7 | 8 pages with no internal outlinks (deck, architecture are dead ends) | SF Links |
+| 8 | PDF has broken title ("localhost:59872/#") | SF page_titles_all.csv |
+| 9 | 5 poster pages crawled (not in my manual audit scope) | SF internal_all.csv |
+| 10 | benchmarks image is 182KB (MOSES_HONEST_PORTRAIT.png) | SF Images |
 
 ---
 
 ## Recommended Fix Priority
 
-1. **C1 — Add H1 to 3 pages** (quick, high impact)
-2. **C2 — Add meta descriptions to 3 pages** (quick, high impact)
-3. **H1 — Add JSON-LD to 9 pages** (medium effort, highest GEO/AEO ROI)
-4. **H2/H3 — Add OG + Twitter tags to 9 pages** (medium effort, high social impact)
-5. **C3 — Create OG image** (requires design tool, owner may need to do this)
-6. **H4 — Add 3 missing pages to sitemap** (quick)
-7. **H5 — Add security headers** (quick — create _headers file)
-8. **H6 — Add canonical tags to all pages** (quick)
-9. **H7 — Add _redirects for clean URLs** (quick)
-10. **M1/M2 — Trim long meta descriptions** (quick)
-11. **M3/M4/M5 — Fix field-sheet canonical/OG/Twitter** (quick)
-12. **M6/M7 — Fix deck + resume titles** (quick)
-13. **L1 — Add image dimensions** (quick)
-14. **L2 — Fix architecture title encoding** (quick)
+### Phase 1: Critical fixes (~1 hour)
+1. **C2** — Fix field-sheet canonical → self-referencing (1 line, un-indexes a page)
+2. **C1/M1** — Add canonical tags to poster pages OR add _redirects to consolidate .html
+3. **C3** — Decide on resume.html: link it or noindex it
+4. **C4** — Add H1 to index.html, deck.html, resume.html
+5. **C5** — Add meta descriptions to architecture, deck, resume
 
-**Estimated effort for items 1, 2, 4, 6-14:** ~2-3 hours (all quick fixes)
-**Items 3, 5:** require design tool or owner input for OG image creation
-**Item H1 (JSON-LD):** ~2-3 hours for 9 pages
+### Phase 2: High-impact fixes (~2-3 hours)
+6. **C7/H1** — Validate existing JSON-LD, fix if malformed, then add to other pages
+7. **H5** — Create `_headers` file for security headers
+8. **H6** — Add canonical tags to all 17 pages missing them
+9. **H4** — Add deck/demovideo/resume to sitemap (or noindex)
+10. **H7** — Fix/verify Zenodo DOI link (check if URL changed)
+11. **H9** — Add nav/footer links to deck.html and architecture.html
+12. **H2/H3** — Add OG + Twitter tags to all pages
+
+### Phase 3: Polish (~1 hour)
+13. **C6** — Create OG image (needs design tool — owner task)
+14. **M2** — Trim long meta descriptions
+15. **M5** — Add content to demovideo page
+16. **M6** — Compress MOSES_HONEST_PORTRAIT.png
+17. **L1** — Add image dimensions
+18. **H10** — Fix mos2es.io redirect link
+19. **M4/M7** — Expand short titles, trim long title
+20. **L2/L3/L4** — Low priority, defer
+
+### Phase 4: Bigger items (future)
+21. Add concept/guide pages (playbook Phase 6)
+22. Add FAQ section with FAQPage schema
+23. Set up Google Search Console + weekly citation tracking
+24. Add GitHub topics to repos
+25. Run Screaming Frog crawl 2 to verify fixes
 
 ---
 
-## Next Steps
+## Raw crawl data
 
-1. Owner reviews this audit and approves the fix campaign
-2. Run fixes in priority order (quick wins first)
-3. After fixes: run `scripts/indexnow-ping.sh` to push all URLs to Bing/Yandex
-4. Submit sitemap to Google Search Console (if not already done)
-5. Consider running an actual Screaming Frog crawl to catch anything this manual audit missed
-6. Track issue count — should go from 23 → near 0 after the fix campaign
+All SF exports are in `Devins_Plans/audit.run1/`:
+- `issues_overview_report.csv` — 28 issues, prioritized
+- `crawl_overview.csv` — full crawl summary stats
+- `internal_all.csv` — all 23 internal URLs with full metadata
+- `external_all.csv` — all 21 external URLs with status codes
+- `page_titles_all.csv` — title audit for 16 HTML pages
+- `meta_description_all.csv` — meta description audit
+- `security_all.csv` — security header analysis
+- `redirects.csv` — redirect chains
+- `orphan_pages.csv` — empty (sitemap not uploaded to SF)
+- `meta_keywords_all.csv` — all empty (not using meta keywords, which is fine)
+- `Force-Directed Crawl Diagram.svg` — visual crawl map
+- `Force-Directed Directory Tree Diagram.svg` — site structure tree
