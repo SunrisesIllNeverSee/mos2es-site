@@ -5,7 +5,7 @@ description: The OKF bundle root for the MO§ES site (mos2es.com) — declares o
 tags: [mos2es, okf, index, bundle, reference]
 timestamp: 2026-07-10
 okf_version: "0.1"
-last_touched: 2026-07-10 07:31 UTC
+last_touched: 2026-07-10 08:04 UTC
 ---
 
 # MO§ES Site — Knowledge Bundle
@@ -30,6 +30,11 @@ Doc map: [DOC_INDEX](DOC_INDEX.md).
 * [onboarding/](onboarding/) — evergreen come-up-to-speed docs (core + per-role). Task-FREE.
 * [state/](state/) — live trackers only (ACTIVITY.log, ROSTER, migration docs, review records)
 * [reference/](reference/) — stable reference material (canon, quickrefs, glossaries)
+  * [reference/pages/](reference/pages/) — one reference doc per HTML page (11 docs)
+  * [reference/scripts/](reference/scripts/) — frontend JS, tracker scripts, SEO scripts (3 docs)
+  * [reference/config/](reference/config/) — root config files + SEO playbook summary (2 docs)
+  * [reference/assets/](reference/assets/) — img/benchmarks/ + img/assets/ inventory (2 docs)
+  * [reference/deck/](reference/deck/) — uploads/slides/ source + .stash/ (1 doc)
 * [_archive/](_archive/) — shipped/finished docs (kept for history, not linted)
 * _planning/ — live build inputs (specs, briefs). Shipped plans → _archive/_planning/
 * _assets/ — images / non-markdown attachments

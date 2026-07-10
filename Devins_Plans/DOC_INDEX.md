@@ -4,7 +4,7 @@ title: Doc Index — status map of every doc
 description: Dated index of every doc in the docs directory, classified ACTIVE / REFERENCE / PARKED / ARCHIVED. Re-index when docs are added, moved, or status changes.
 tags: [mos2es, index, maintenance, status, reference, okf]
 timestamp: 2026-07-10
-last_touched: 2026-07-10 07:31 UTC
+last_touched: 2026-07-10 08:04 UTC
 ---
 
 # Doc Index
@@ -53,6 +53,11 @@ last_touched: 2026-07-10 07:31 UTC
 | OKF.md · index.md | Conventions + doc index root (okf_version) |
 | DOC_ORGANIZATION.md | Filing convention |
 | onboarding/ (role files) | Onboarding (evergreen) |
+| reference/pages/ (11 docs) | One reference doc per HTML page (index, architecture, benchmarks, deck, demovideo, field-sheet, governance-vacuum, legal, papers, press, resume) |
+| reference/scripts/ (3 docs) | Frontend JS/JSX (deck-stage, tweaks-panel, tweaks), tracker scripts (hooks, roles, status, OKF lint), SEO scripts (indexnow-ping) |
+| reference/config/ (2 docs) | Root config files (netlify, robots, sitemap, llms.txt, auth, gitignore), SEO/GEO/AEO playbook summary |
+| reference/assets/ (2 docs) | img/benchmarks/ inventory (truth data, posters, archive), img/ root + assets/ inventory |
+| reference/deck/ (1 doc) | uploads/slides/ source content + .stash/ stashed pages |
 
 ---
 
