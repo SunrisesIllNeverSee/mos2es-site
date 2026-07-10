@@ -1,4 +1,2 @@
 [build]
   publish = "."
-  # Skip deploy when no site-affecting files changed (docs-only commits don't need a deploy)
-  ignore = "git diff --quiet HEAD^ HEAD -- '*.html' '*.css' '*.js' '*.jsx' img/ assets/ uploads/ robots.txt sitemap.xml llms.txt _redirects _headers"
