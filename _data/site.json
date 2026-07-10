@@ -1,0 +1,38 @@
+{
+  "origin": "https://mos2es.com",
+  "name": "MO§ES",
+  "alternateName": "MOSES",
+  "tagline": "Sovereign Signal Governance",
+  "description": "MO§ES is the protocol layer for preserving semantic meaning at execution: commitment conservation, governance enforcement, and lineage-bound artifacts.",
+  "orgId": "https://mos2es.com/#org",
+  "websiteId": "https://mos2es.com/#website",
+  "founder": {
+    "name": "Deric J. McHenry",
+    "orcid": "https://orcid.org/0009-0002-9904-5390",
+    "affiliation": "Ello Cello LLC"
+  },
+  "sameAs": [
+    "https://orcid.org/0009-0002-9904-5390",
+    "https://github.com/SunrisesIllNeverSee",
+    "https://github.com/SunrisesIllNeverSee/MOS2ES",
+    "https://doi.org/10.5281/zenodo.20029607",
+    "https://doi.org/10.5281/zenodo.19105225",
+    "https://doi.org/10.5281/zenodo.19109397",
+    "https://doi.org/10.5281/zenodo.20031715",
+    "https://signalaf.com",
+    "https://signomy.xyz"
+  ],
+  "zenodo": {
+    "conservationLaw": "https://doi.org/10.5281/zenodo.20029607",
+    "experimentalRecord": "https://doi.org/10.5281/zenodo.19105225",
+    "transformationHarness": "https://doi.org/10.5281/zenodo.19109397",
+    "propositions": "https://doi.org/10.5281/zenodo.20031715"
+  },
+  "patents": [
+    { "id": "63/877,177", "name": "MO§ES Constitutional Governance Architecture", "date": "2025-09-07" },
+    { "id": "63/883,018", "name": "Signal Compression System Engine", "date": "2025-09-17" },
+    { "id": "19/426,028", "name": "CIVITAS Frontend Civic Infrastructure", "date": "2025-12-18" },
+    { "id": "63/991,282", "name": "Commitment Conservation under Recursive Transformation", "date": "2026-02-26" }
+  ],
+  "trademark": "99408355"
+}

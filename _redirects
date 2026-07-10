@@ -1,3 +1,4 @@
+# Existing pages
 /papers              /papers.html              200
 /legal               /legal.html               200
 /press               /press.html               200
@@ -7,3 +8,48 @@
 /architecture        /architecture.html        200
 /demovideo           /demovideo.html           200
 /resume              /resume.html              200
+
+# Concept pages
+/concepts/conservation-law          /concepts/conservation-law.html          200
+/concepts/lineage-claw              /concepts/lineage-claw.html              200
+/concepts/origin-binding            /concepts/origin-binding.html            200
+/concepts/recursive-compression     /concepts/recursive-compression.html     200
+/concepts/governance-enforcement    /concepts/governance-enforcement.html    200
+/concepts/commitment-conservation   /concepts/commitment-conservation.html   200
+/concepts/signal-encoding           /concepts/signal-encoding.html           200
+/concepts/constitutional-substrate  /concepts/constitutional-substrate.html  200
+
+# Guide pages
+/guides/how-to-enforce-commitment-conservation       /guides/how-to-enforce-commitment-conservation.html       200
+/guides/how-to-audit-multi-agent-transformations     /guides/how-to-audit-multi-agent-transformations.html     200
+/guides/how-to-implement-governance-at-execution     /guides/how-to-implement-governance-at-execution.html     200
+/guides/how-to-verify-lineage                        /guides/how-to-verify-lineage.html                        200
+/guides/how-to-measure-semantic-commitment           /guides/how-to-measure-semantic-commitment.html           200
+/guides/how-to-build-a-governance-layer              /guides/how-to-build-a-governance-layer.html              200
+/guides/how-to-prevent-semantic-drift                /guides/how-to-prevent-semantic-drift.html                200
+
+# Comparison pages
+/vs/constitutional-ai      /vs/constitutional-ai.html      200
+/vs/rlhf                   /vs/rlhf.html                   200
+/vs/guardrails             /vs/guardrails.html             200
+/vs/agent-orchestration    /vs/agent-orchestration.html    200
+
+# Alternatives pages
+/alternatives/ai-governance-frameworks    /alternatives/ai-governance-frameworks.html    200
+/alternatives/agent-guardrails            /alternatives/agent-guardrails.html            200
+/alternatives/commitment-tracking         /alternatives/commitment-tracking.html         200
+
+# Topic hub pages
+/ai-governance                /ai-governance.html                200
+/commitment-conservation-hub  /commitment-conservation-hub.html  200
+/multi-agent-systems          /multi-agent-systems.html          200
+/constitutional-ai-hub        /constitutional-ai-hub.html        200
+/agent-governance             /agent-governance.html             200
+
+# Blog pages
+/blog/governance-vacuum      /blog/governance-vacuum.html      200
+/blog/why-ai-deployments-fail /blog/why-ai-deployments-fail.html 200
+/blog/the-execution-layer    /blog/the-execution-layer.html    200
+
+# FAQ
+/faq    /faq.html    200

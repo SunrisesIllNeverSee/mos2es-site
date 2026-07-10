@@ -1,0 +1,134 @@
+---
+title: "How to Verify Lineage — MO§ES"
+description: "Guide to verifying the provenance chain of AI-generated signals using SHA-256 hash verification and origin binding."
+path: "/guides/how-to-verify-lineage"
+lede: "A practical guide to verifying the provenance chain of AI-generated signals using SHA-256 hash verification and origin binding."
+strip_text: "MO§ES™ · Guides · Verify Lineage"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Guides"
+        item: "https://mos2es.com/guides"
+      - "@type": "ListItem"
+        position: 3
+        name: "How to Verify Lineage"
+        item: "https://mos2es.com/guides/how-to-verify-lineage"
+  - "@context": "https://schema.org"
+    "@type": "HowTo"
+    name: "How to Verify Lineage"
+    description: "Guide to verifying the provenance chain of AI-generated signals using SHA-256 hash verification and origin binding."
+    totalTime: "PT10M"
+    step:
+      - "@type": "HowToStep"
+        name: "Retrieve the signal and its lineage metadata"
+        text: "Obtain the AI-generated signal you want to verify along with its lineage metadata: the origin hash, the chain of transformation hashes, and the timestamps for each hop."
+      - "@type": "HowToStep"
+        name: "Recompute the origin hash"
+        text: "If you have access to the original signal, recompute its SHA-256 hash and compare it to the recorded origin hash. If they match, the origin is verified. If not, the origin has been tampered with or misrecorded."
+      - "@type": "HowToStep"
+        name: "Walk the transformation chain"
+        text: "Starting from the origin hash, walk forward through each transformation in the chain. For each hop, verify that the output hash of the previous step matches the input hash of the current step. A break in the chain indicates a gap in provenance."
+      - "@type": "HowToStep"
+        name: "Verify the final signal hash"
+        text: "Recompute the SHA-256 hash of the final signal and compare it to the recorded final hash. If they match, the signal has not been altered since the last recorded transformation. If not, the signal has been modified outside the tracked pipeline."
+      - "@type": "HowToStep"
+        name: "Check timestamp monotonicity"
+        text: "Verify that timestamps in the lineage chain are monotonically increasing. A timestamp that goes backward indicates a logging error or a fabricated entry. Each transformation must have occurred after the one that preceded it."
+      - "@type": "HowToStep"
+        name: "Issue a verification report"
+        text: "Produce a verification report that records: the origin hash, the chain length, whether every link verified, the final signal hash, and any breaks or anomalies detected. This report is the evidence that the signal's provenance is intact."
+---
+
+<div class="prose">
+  <p>Lineage verification is the process of proving that an AI-generated signal can be traced back to its origin through an unbroken chain of transformations. It is the mechanism that makes <a href="/concepts/lineage-claw">Lineage Claw</a> operational and that gives <a href="/architecture">MO§ES</a> its auditability. This guide walks you through verifying lineage using SHA-256 hash verification and origin binding.</p>
+
+  <h2>Overview</h2>
+  <p>Every signal in a MO§ES-governed pipeline carries lineage metadata: a SHA-256 hash of its origin, a chain of transformation hashes linking each step to the next, and timestamps for each hop. Verifying lineage means walking this chain from origin to final output and confirming that every link is intact.</p>
+  <p>Lineage verification answers three questions: <em>Where did this signal come from?</em> (origin binding), <em>What transformations were applied?</em> (transformation chain), and <em>Has the signal been altered outside the tracked pipeline?</em> (final hash verification). If all three checks pass, the signal's provenance is verified.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>A signal with lineage metadata (origin hash, transformation chain, timestamps)</li>
+    <li>Access to the original signal (for origin hash verification) or a trusted record of the origin hash</li>
+    <li>A SHA-256 hashing library</li>
+    <li>The audit trail from the pipeline that generated the signal</li>
+    <li>Understanding of <a href="/concepts/lineage-claw">Lineage Claw</a> and <a href="/guides/how-to-enforce-commitment-conservation">commitment conservation enforcement</a></li>
+  </ul>
+
+  <h2>Step 1: Retrieve the Signal and Its Lineage Metadata</h2>
+  <p>Obtain the AI-generated signal you want to verify. Along with the signal, retrieve its lineage metadata. In a MO§ES-governed pipeline, every signal carries a lineage record that includes:</p>
+  <ul>
+    <li><strong>Origin hash</strong>: SHA-256 hash of the original signal before any transformation</li>
+    <li><strong>Transformation chain</strong>: An ordered list of transformations, each with an input hash, output hash, transform type, and timestamp</li>
+    <li><strong>Final hash</strong>: SHA-256 hash of the signal in its current state</li>
+  </ul>
+  <pre><code>lineage = {
+    "origin_hash": "a1b2c3...",
+    "chain": [
+        {"input": "a1b2c3...", "output": "d4e5f6...", "transform": "summarize", "ts": "2026-01-01T10:00:00Z"},
+        {"input": "d4e5f6...", "output": "g7h8i9...", "transform": "translate", "ts": "2026-01-01T10:01:00Z"}
+    ],
+    "final_hash": "g7h8i9..."
+}</code></pre>
+
+  <h2>Step 2: Recompute the Origin Hash</h2>
+  <p>If you have access to the original signal — the signal before any transformation was applied — recompute its SHA-256 hash and compare it to the recorded origin hash. If they match, the origin is verified: the signal you are examining truly originated from the claimed source.</p>
+  <p>If you do not have access to the original signal, you must rely on a trusted record of the origin hash. This could be a signed attestation from the pipeline operator, a notarized hash, or a hash published to a tamper-evident log. Without access to the original or a trusted hash record, origin verification is not possible — you can verify the chain but not the root.</p>
+  <pre><code>import hashlib
+recomputed = hashlib.sha256(original_signal.encode()).hexdigest()
+assert recomputed == lineage["origin_hash"], "Origin hash mismatch"</code></pre>
+
+  <h2>Step 3: Walk the Transformation Chain</h2>
+  <p>Starting from the origin hash, walk forward through each transformation in the chain. For each hop, verify that the output hash of the previous step matches the input hash of the current step. This is the chain integrity check — it confirms that every transformation in the lineage is linked to the one that preceded it.</p>
+  <p>A break in the chain — where the output hash of step N does not match the input hash of step N+1 — indicates a gap in provenance. The signal may have been transformed outside the tracked pipeline, or the audit trail may be incomplete. Either way, the lineage is not fully verifiable.</p>
+  <pre><code>prev_hash = lineage["origin_hash"]
+for i, hop in enumerate(lineage["chain"]):
+    assert hop["input"] == prev_hash, f"Chain break at step {i}"
+    prev_hash = hop["output"]</code></pre>
+
+  <h2>Step 4: Verify the Final Signal Hash</h2>
+  <p>Recompute the SHA-256 hash of the final signal — the signal as it currently exists — and compare it to the recorded final hash. If they match, the signal has not been altered since the last recorded transformation. The signal you are examining is the same signal that the pipeline produced.</p>
+  <p>If the hashes do not match, the signal has been modified outside the tracked pipeline. This could be intentional (a human edit that was not logged) or unintentional (a data corruption event). Either way, the lineage is broken at the final step, and the signal's current state cannot be fully attributed to the tracked transformations.</p>
+
+  <h2>Step 5: Check Timestamp Monotonicity</h2>
+  <p>Verify that the timestamps in the lineage chain are monotonically increasing — each transformation must have occurred after the one that preceded it. A timestamp that goes backward indicates either a logging error or a fabricated entry. In either case, the lineage record is suspect.</p>
+  <p>Timestamp monotonicity is a simple but powerful check. It catches fabricated lineage records that were created after the fact, because fabricators often get the timestamps wrong. It also catches logging bugs that could compromise the audit trail's reliability.</p>
+
+  <h2>Step 6: Issue a Verification Report</h2>
+  <p>Produce a verification report that records the results of all checks. The report should include: the origin hash and whether it verified, the chain length and whether every link verified, the final hash and whether it verified, the timestamp monotonicity check result, and any breaks or anomalies detected.</p>
+  <p>The verification report is the evidence that the signal's provenance is intact. It can be presented in compliance reviews, shared with stakeholders, or stored as part of the audit record. A clean verification report proves that the signal can be traced from origin to current state through an unbroken, tamper-evident chain.</p>
+
+  <h2>Common Pitfalls</h2>
+  <ul>
+    <li><strong>Not storing the origin hash</strong>: Without the origin hash, you can verify the chain but not the root. Always record the origin hash at the moment the signal enters the pipeline.</li>
+    <li><strong>Using weak hash functions</strong>: SHA-256 is the minimum. Do not use MD5 or SHA-1 — both have known collision vulnerabilities that undermine lineage integrity.</li>
+    <li><strong>Skipping timestamp checks</strong>: Hash verification alone does not catch fabricated entries. Timestamp monotonicity is a separate and necessary check.</li>
+    <li><strong>Not verifying the final hash</strong>: The chain may be intact, but if the final signal has been altered, the lineage does not describe the signal you actually have. Always verify the final hash.</li>
+    <li><strong>Trusting unattested origin hashes</strong>: If you cannot access the original signal, the origin hash must come from a trusted source. An unattested origin hash is a claim, not evidence.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>Once you can verify lineage, combine it with <a href="/guides/how-to-measure-semantic-commitment">commitment measurement</a> to verify not just <em>where</em> a signal came from but <em>whether its meaning was preserved</em>. For the full enforcement workflow, see <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>, and for the theoretical context, read about the <a href="/concepts/lineage-claw">Lineage Claw</a> and the <a href="/concepts/conservation-law">Conservation Law of Commitment</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>
+    <a href="/guides/how-to-measure-semantic-commitment">How to Measure Semantic Commitment</a>
+    <a href="/guides/how-to-audit-multi-agent-transformations">How to Audit Multi-Agent Transformations</a>
+  </div>
+</div>

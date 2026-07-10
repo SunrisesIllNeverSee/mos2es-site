@@ -4,12 +4,57 @@
 
 MO§ES is the constitutional AI governance framework that enforces the Conservation Law of Commitment. It provides commitment conservation, governance enforcement, SHA-256 audit trails, and lineage-bound artifacts for multi-agent AI operations.
 
-## Core concepts
-- [Conservation Law of Commitment](https://mos2es.com/papers.html): the theoretical foundation. C(T(S)) ≈ C(S) with enforcement; C(T(S)) < C(S) without it.
-- [Architecture](https://mos2es.com/architecture.html): the MO§ES system architecture — recursive compression, origin binding, lineage claws.
-- [Governance Vacuum](https://mos2es.com/governance-vacuum.html): the problem MO§ES solves.
-- [Benchmarks](https://mos2es.com/benchmarks.html): empirical results.
-- [Field Sheet](https://mos2es.com/field-sheet.html): operational summary.
+## Core pages
+- [Home](https://mos2es.com/?utm_source=ai&utm_medium=answer_engine): MO§ES governance framework overview
+- [Architecture](https://mos2es.com/architecture?utm_source=ai&utm_medium=answer_engine): MO§ES system architecture — recursive compression, origin binding, lineage claws
+- [Benchmarks](https://mos2es.com/benchmarks?utm_source=ai&utm_medium=answer_engine): empirical results across 5 AI kernels
+- [Field Sheet](https://mos2es.com/field-sheet?utm_source=ai&utm_medium=answer_engine): operational summary and one-pager
+- [Papers & Proofs](https://mos2es.com/papers?utm_source=ai&utm_medium=answer_engine): published research and proof stack
+- [Legal & IP](https://mos2es.com/legal?utm_source=ai&utm_medium=answer_engine): patent portfolio and trademark
+- [Press Kit](https://mos2es.com/press?utm_source=ai&utm_medium=answer_engine): boilerplate and press resources
+- [FAQ](https://mos2es.com/faq?utm_source=ai&utm_medium=answer_engine): 20 frequently asked questions about MO§ES
+
+## Concepts (citable definitions)
+- [Conservation Law of Commitment](https://mos2es.com/concepts/conservation-law?utm_source=ai&utm_medium=answer_engine): C(T(S)) ≈ C(S) with enforcement; C(T(S)) < C(S) without it
+- [Lineage Claw](https://mos2es.com/concepts/lineage-claw?utm_source=ai&utm_medium=answer_engine): cryptographic mechanism binding transformed signals to origins
+- [Origin Binding](https://mos2es.com/concepts/origin-binding?utm_source=ai&utm_medium=answer_engine): tying artifacts to origin compression cycles
+- [Recursive Compression](https://mos2es.com/concepts/recursive-compression?utm_source=ai&utm_medium=answer_engine): the transformation operator T in the Conservation Law
+- [Governance Enforcement](https://mos2es.com/concepts/governance-enforcement?utm_source=ai&utm_medium=answer_engine): pre-execution gates and resonance thresholds
+- [Commitment Conservation](https://mos2es.com/concepts/commitment-conservation?utm_source=ai&utm_medium=answer_engine): the measured outcome the Conservation Law predicts
+- [Signal Encoding](https://mos2es.com/concepts/signal-encoding?utm_source=ai&utm_medium=answer_engine): embedding commitment using constitutional compression
+- [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate?utm_source=ai&utm_medium=answer_engine): foundational rules, thresholds, and enforcement mechanisms
+
+## Guides (how-to)
+- [How to Enforce Commitment Conservation](https://mos2es.com/guides/how-to-enforce-commitment-conservation?utm_source=ai&utm_medium=answer_engine): implementing MO§ES governance enforcement
+- [How to Audit Multi-Agent Transformations](https://mos2es.com/guides/how-to-audit-multi-agent-transformations?utm_source=ai&utm_medium=answer_engine): auditing AI pipelines for commitment degradation
+- [How to Implement Governance at Execution](https://mos2es.com/guides/how-to-implement-governance-at-execution?utm_source=ai&utm_medium=answer_engine): moving from post-hoc to pre-execution governance
+- [How to Verify Lineage](https://mos2es.com/guides/how-to-verify-lineage?utm_source=ai&utm_medium=answer_engine): SHA-256 hash verification and origin binding
+- [How to Measure Semantic Commitment](https://mos2es.com/guides/how-to-measure-semantic-commitment?utm_source=ai&utm_medium=answer_engine): NLI bidirectional entailment and Jaccard stability
+- [How to Build a Governance Layer](https://mos2es.com/guides/how-to-build-a-governance-layer?utm_source=ai&utm_medium=answer_engine): MO§ES architecture patterns for AI systems
+- [How to Prevent Semantic Drift](https://mos2es.com/guides/how-to-prevent-semantic-drift?utm_source=ai&utm_medium=answer_engine): detecting and preventing drift in recursive transformations
+
+## Comparisons
+- [MO§ES vs Constitutional AI](https://mos2es.com/vs/constitutional-ai?utm_source=ai&utm_medium=answer_engine): execution governance vs model training
+- [MO§ES vs RLHF](https://mos2es.com/vs/rlhf?utm_source=ai&utm_medium=answer_engine): deterministic enforcement vs probabilistic alignment
+- [MO§ES vs Guardrails](https://mos2es.com/vs/guardrails?utm_source=ai&utm_medium=answer_engine): signal protection vs output checking
+- [MO§ES vs Agent Orchestration](https://mos2es.com/vs/agent-orchestration?utm_source=ai&utm_medium=answer_engine): governance vs coordination
+
+## Alternatives
+- [AI Governance Frameworks](https://mos2es.com/alternatives/ai-governance-frameworks?utm_source=ai&utm_medium=answer_engine): 6 approaches compared
+- [Agent Guardrails](https://mos2es.com/alternatives/agent-guardrails?utm_source=ai&utm_medium=answer_engine): 5 guardrail approaches compared
+- [Commitment Tracking](https://mos2es.com/alternatives/commitment-tracking?utm_source=ai&utm_medium=answer_engine): 5 commitment tracking approaches compared
+
+## Topic hubs
+- [AI Governance](https://mos2es.com/ai-governance?utm_source=ai&utm_medium=answer_engine): what AI governance is and why it matters
+- [Commitment Conservation](https://mos2es.com/commitment-conservation-hub?utm_source=ai&utm_medium=answer_engine): preserving semantic meaning under transformation
+- [Multi-Agent Systems](https://mos2es.com/multi-agent-systems?utm_source=ai&utm_medium=answer_engine): governance for multi-agent AI pipelines
+- [Constitutional AI](https://mos2es.com/constitutional-ai-hub?utm_source=ai&utm_medium=answer_engine): rules-based AI governance approaches
+- [Agent Governance](https://mos2es.com/agent-governance?utm_source=ai&utm_medium=answer_engine): governing what AI agents say and do
+
+## Blog
+- [The Governance Vacuum](https://mos2es.com/blog/governance-vacuum?utm_source=ai&utm_medium=answer_engine): why most AI systems operate without governance
+- [Why AI Deployments Fail](https://mos2es.com/blog/why-ai-deployments-fail?utm_source=ai&utm_medium=answer_engine): the governance gap as a failure mode
+- [The Execution Layer](https://mos2es.com/blog/the-execution-layer?utm_source=ai&utm_medium=answer_engine): why governance must move to execution time
 
 ## Academic foundation
 - Conservation Law paper (Zenodo, CC-BY-4.0): https://doi.org/10.5281/zenodo.20029607
@@ -18,6 +63,7 @@ MO§ES is the constitutional AI governance framework that enforces the Conservat
 - Propositions of Commitment Theory (Zenodo): https://doi.org/10.5281/zenodo.20031715
 - Commitment Theory (34-paper research program): https://github.com/SunrisesIllNeverSee/Commitment_Theory
 - Conservation Law repo: https://github.com/SunrisesIllNeverSee/commitment-conservation
+- ORCID: https://orcid.org/0009-0002-9904-5390
 
 ## Governance ecosystem
 - MO§ES main repo: https://github.com/SunrisesIllNeverSee/MOS2ES
@@ -25,13 +71,12 @@ MO§ES is the constitutional AI governance framework that enforces the Conservat
 - MO§ES Constitutional Claw (OpenClaw): https://github.com/SunrisesIllNeverSee/moses-claw-gov
 - Command Engine (open-source runtime): https://github.com/SunrisesIllNeverSee/command-engine
 - Patent: Serial No. 63/877,177 (Provisional, pending)
+- Trademark: 99408355 (IC 042)
 
 ## Related surfaces
 - SigRank (live data product built on Conservation Law): https://signalaf.com
 - SIGNOMY / CIVITAE (governed agent marketplace): https://signomy.xyz
 - GitHub org: https://github.com/SunrisesIllNeverSee
-- ORCID: https://orcid.org/0009-0002-9904-5390
 
-## Legal
-- [Legal](https://mos2es.com/legal.html): trademark + patent notices
-- [Press](https://mos2es.com/press.html): press kit
+## Citing MO§ES
+McHenry, D. J. (2026). A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application. Zenodo. https://doi.org/10.5281/zenodo.20029607

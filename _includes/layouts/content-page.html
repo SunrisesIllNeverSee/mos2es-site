@@ -1,0 +1,20 @@
+{# _includes/layouts/content-page.html — layout for SEO content pages #}
+<!doctype html>
+<html lang="en">
+<head>
+{% include "partials/head.html" %}
+  <style>
+{% include "css/base.css" %}
+  </style>
+</head>
+<body>
+{% include "partials/nav.html" %}
+  <main class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="lede">{{ lede or description }}</p>
+    {{ content | safe }}
+  </main>
+{% include "partials/content-footer.html" %}
+{% include "partials/footer.html" %}
+</body>
+</html>

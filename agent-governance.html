@@ -1,0 +1,132 @@
+---
+title: "Agent Governance — MO§ES"
+description: "Agent governance is the system of enforceable constraints that govern how autonomous AI agents act as economic actors. Topic hub for MO§ES content on agent governance, identity, and accountability."
+path: "/agent-governance"
+lede: "Agent governance is the system of enforceable constraints that govern how autonomous AI agents act as economic actors — scoping what they can touch, binding what they do to who they are, and providing a kill switch that actually works."
+strip_text: "MO§ES™ · Topic Hub · Agent Governance"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Agent Governance"
+        item: "https://mos2es.com/agent-governance"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is agent governance?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Agent governance is the system of enforceable constraints that govern how autonomous AI agents act as economic actors. It includes scoping what agents can touch, binding agent actions to cryptographic identity, maintaining immutable audit trails, and providing real-time kill switches that actually work."
+      - "@type": "Question"
+        name: "Why do autonomous agents need governance?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Autonomous agents act without human supervision — they sign contracts, manage assets, and interact with other autonomous systems. Without governance, there is no way to scope what they can touch, no immutable record of what they did, and no reliable way to stop them when they drift. Agent governance provides the enforcement layer that makes autonomous action safe."
+      - "@type": "Question"
+        name: "How does MO§ES govern autonomous agents?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "MO§ES governs autonomous agents through constitutional laws enforced at execution time. McHenry's Law I scopes what agents can do, McHenry's Law II binds actions to identity through lineage, the Blackhole Law provides a real-time kill switch, and the Lineage Custody Clause creates cryptographic accountability for every agent action."
+      - "@type": "Question"
+        name: "What is the 'credit bureau for software'?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The 'credit bureau for software' is the missing category that the AI industry needs: a system that scores, tracks, and governs autonomous agents as economic actors. MO§ES provides this through lineage binding, immutable audit trails, and commitment conservation — creating the trust infrastructure that agents need to transact safely."
+---
+
+<div class="prose">
+  <p><strong>Agent governance</strong> is the system of enforceable constraints that govern how autonomous AI agents act as economic actors. It is the governance layer that makes autonomous agency possible — not in the demo, but in production. This topic hub collects all MO§ES content related to agent governance, from the theoretical foundations to the practical enforcement mechanisms.</p>
+
+  <h2>What Agent Governance Is</h2>
+  <p>Autonomous agents are AI systems that act without human supervision. They negotiate contracts, manage portfolios, run supply chains, and operate customer service functions. To act autonomously in the real economy, they need three things that current AI systems do not have:</p>
+  <ol>
+    <li><strong>Scoping</strong>: A reliable way to define what an agent can and cannot touch — which accounts, which data, which systems, which counterparties.</li>
+    <li><strong>Accountability</strong>: An immutable record of what the agent did, when, and on whose behalf, tied to a cryptographic identity that cannot be forged.</li>
+    <li><strong>Control</strong>: A kill switch that actually works in real time — not a policy that says "stop if you detect a problem" but a mechanism that physically prevents the agent from continuing when it drifts beyond acceptable bounds.</li>
+  </ol>
+  <p>Agent governance is the system that provides all three. Without it, autonomous agents are ungovernable — not because they are malicious, but because there is no mechanism to govern them. The <a href="/blog/governance-vacuum">Governance Vacuum</a> documents this gap in detail.</p>
+
+  <h2>Why Agent Governance Matters</h2>
+  <p>The AI industry is deploying autonomous agents that can transact — sign contracts, move money, manage assets, interact with other autonomous systems. These agents are economic actors. But the governance infrastructure for economic actors does not exist for software.</p>
+  <p>Human economic actors are governed by a combination of identity systems (driver's licenses, passports), credit systems (credit bureaus, banking records), legal systems (contracts, courts), and enforcement mechanisms (police, regulators). Autonomous agents have none of this. There is no identity system for agents. There is no credit bureau for software. There is no way to hold an agent accountable for its actions, because there is no immutable record of what it did and no cryptographic identity tying it to those actions.</p>
+  <p>This is the gap that MO§ES fills. Agent governance is not a nice-to-have. It is the prerequisite for autonomous agency at scale. Without it, the industry is deploying economic actors with no governance infrastructure — a situation that is unsustainable and, increasingly, dangerous.</p>
+
+  <h2>The Three-Plane Architecture</h2>
+  <p>Agent governance requires three planes, as identified in the <a href="/blog/governance-vacuum">Governance Vacuum</a> analysis:</p>
+  <ul>
+    <li><strong>Trust Plane</strong>: Identity, authorization, reputation, and cryptographic proof of intent. Agents need to prove who they are, what they are authorized to do, and that their intent is verifiable.</li>
+    <li><strong>Market Plane</strong>: Discovery, pricing, contracting, settlement, and risk pricing. Agents need to discover counterparties, negotiate terms, execute contracts, and settle transactions — all with enforceable governance.</li>
+    <li><strong>Control Plane</strong>: Policy enforcement, audit, and real-time intervention. Agents need to be governed at execution time, with audit trails that are immutable and kill switches that actually work.</li>
+  </ul>
+  <p>Today, solutions for these planes are fragmented. Startups attack them piecemeal. The integrated substrate that connects all three planes does not exist yet. MO§ES is that substrate.</p>
+
+  <h2>Related Concepts</h2>
+  <ul>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: The theoretical foundation for agent governance</li>
+    <li><a href="/concepts/lineage-claw">Lineage Claw</a>: The cryptographic mechanism that provides agent identity and accountability</li>
+    <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: The mechanism that makes agent governance operational</li>
+    <li><a href="/concepts/commitment-conservation">Commitment Conservation</a>: The outcome that agent governance produces</li>
+  </ul>
+
+  <h2>Related Guides</h2>
+  <ul>
+    <li><a href="/guides/governing-autonomous-agents">Governing Autonomous Agents</a>: A practical guide to implementing agent governance in production</li>
+    <li><a href="/guides/building-a-governance-layer">Building a Governance Layer</a>: Architecture patterns for agent governance</li>
+  </ul>
+
+  <h2>Related Comparisons</h2>
+  <ul>
+    <li><a href="/comparisons/moses-vs-agent-frameworks">MO§ES vs. Agent Frameworks</a>: How MO§ES compares to existing agent orchestration platforms</li>
+    <li><a href="/comparisons/moses-vs-human-governance">MO§ES vs. Human Governance</a>: Why agents need computational governance, not human oversight</li>
+  </ul>
+
+  <h2>How MO§ES Governs Autonomous Agents</h2>
+  <p>MO§ES governs autonomous agents through four constitutional laws that are enforced at execution time:</p>
+  <ol>
+    <li><strong>McHenry's Law I</strong> (scoping): No output without prior compression and resonance mapping. This law scopes what agents can do — an agent cannot act unless its action has been authorized through the compression and resonance verification process.</li>
+    <li><strong>McHenry's Law II</strong> (accountability): Signals must inherit their origin compression cycle. This law binds agent actions to identity — every action an agent takes carries the cryptographic signature of its origin, creating an immutable audit trail.</li>
+    <li><strong>The Blackhole Law</strong> (control): Drift beyond threshold triggers automatic collapse into entropy. This law provides a real-time kill switch — if an agent drifts beyond acceptable bounds, the system automatically collapses the transformation, stopping the agent immediately.</li>
+    <li><strong>The Lineage Custody Clause</strong> (identity): Vault artifacts are cryptographically bound to their origin cycle. This law creates cryptographic identity for agents — every artifact an agent produces is tied to the agent through the <a href="/concepts/lineage-claw">Lineage Claw</a> mechanism.</li>
+  </ol>
+  <p>Together, these laws provide the three things autonomous agents need: scoping, accountability, and control. The <a href="/architecture">MO§ES architecture</a> makes them operational in production AI systems.</p>
+
+  <h2>FAQ</h2>
+  <div class="faq-item">
+    <h3>What is agent governance?</h3>
+    <p>Agent governance is the system of enforceable constraints that govern how autonomous AI agents act as economic actors. It includes scoping what agents can touch, binding agent actions to cryptographic identity, maintaining immutable audit trails, and providing real-time kill switches that actually work.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why do autonomous agents need governance?</h3>
+    <p>Autonomous agents act without human supervision — they sign contracts, manage assets, and interact with other autonomous systems. Without governance, there is no way to scope what they can touch, no immutable record of what they did, and no reliable way to stop them when they drift. Agent governance provides the enforcement layer that makes autonomous action safe.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How does MO§ES govern autonomous agents?</h3>
+    <p>MO§ES governs autonomous agents through constitutional laws enforced at execution time. McHenry's Law I scopes what agents can do, McHenry's Law II binds actions to identity through lineage, the Blackhole Law provides a real-time kill switch, and the Lineage Custody Clause creates cryptographic accountability for every agent action.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the "credit bureau for software"?</h3>
+    <p>The "credit bureau for software" is the missing category that the AI industry needs: a system that scores, tracks, and governs autonomous agents as economic actors. MO§ES provides this through lineage binding, immutable audit trails, and commitment conservation — creating the trust infrastructure that agents need to transact safely.</p>
+  </div>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/ai-governance">AI Governance</a>
+    <a href="/multi-agent-systems">Multi-Agent Systems</a>
+    <a href="/constitutional-ai-hub">Constitutional AI</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/blog/governance-vacuum">The Governance Vacuum</a>
+  </div>
+</div>

@@ -1,0 +1,234 @@
+---
+title: "Alternatives to Commitment Tracking — MO§ES"
+description: "Compare 5 commitment and contract tracking approaches: MO§ES, smart contracts, SLA monitoring, audit logs, and formal verification. Pros, cons, and a comparison table."
+path: "/alternatives/commitment-tracking"
+lede: "Five approaches to commitment and contract tracking, compared head-to-head. From blockchain smart contracts to formal verification — here is how MO§ES stacks up against the alternatives for tracking semantic commitments in AI pipelines."
+strip_text: "MO§ES™ · Alternatives · Commitment Tracking"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Alternatives"
+        item: "https://mos2es.com/alternatives/commitment-tracking"
+      - "@type": "ListItem"
+        position: 3
+        name: "Alternatives to Commitment Tracking"
+        item: "https://mos2es.com/alternatives/commitment-tracking"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What are the main alternatives to MO§ES for commitment tracking?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The main alternatives are smart contracts (blockchain-based automated contract execution), SLA monitoring (service-level agreement tracking), audit logs (append-only event logging), and formal verification (mathematical proof of system properties). Each tracks commitments in a different domain — financial, operational, procedural, or mathematical — while MO§ES tracks semantic commitments in AI signal pipelines."
+      - "@type": "Question"
+        name: "How is MO§ES different from smart contracts for commitment tracking?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Smart contracts track financial and procedural commitments on a blockchain — they execute code when conditions are met. MO§ES tracks semantic commitments in natural language signals — it measures whether a transformation preserved the commitment embedded in text. Smart contracts operate on structured blockchain state; MO§ES operates on unstructured natural language meaning."
+      - "@type": "Question"
+        name: "Can audit logs replace MO§ES for commitment tracking?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. Audit logs record what happened — they are append-only event logs that capture actions after they occur. MO§ES measures commitment before transformation, gates degradations before they happen, and binds lineage cryptographically. Audit logs are retrospective; MO§ES is preventive. Audit logs can tell you that a commitment was degraded; MO§ES prevents the degradation from occurring."
+      - "@type": "Question"
+        name: "How does MO§ES compare to formal verification?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Formal verification mathematically proves that a system satisfies specified properties — it is the gold standard for deterministic systems like cryptographic protocols. MO§ES measures commitment in natural language, which is not formally verifiable in the same way. Instead, MO§ES uses empirical commitment measurement (NLI bidirectional entailment, Jaccard stability) and deterministic gating. They are complementary: formal verification for the protocol layer, MO§ES for the semantic layer."
+      - "@type": "Question"
+        name: "Which commitment tracking approach is best for AI pipelines?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "For AI pipelines that process natural language signals carrying commitments, MO§ES is the only approach designed for the task. Smart contracts, SLA monitoring, audit logs, and formal verification were not designed for semantic commitment tracking in AI-generated text. MO§ES measures commitment, gates degradations, and binds lineage — the three capabilities needed to track commitments through recursive AI transformations."
+---
+
+<div class="prose">
+  <p>Commitment tracking — ensuring that obligations are recorded, preserved, and verifiable — is a problem that predates AI. Smart contracts, SLA monitoring, audit logs, and formal verification each address commitment tracking in a different domain. MO§ES addresses it in the domain where it has never been addressed before: semantic commitments in AI-generated natural language signals. This page compares five approaches so you can understand what each tracks and where MO§ES fits.</p>
+
+  <h2>At a Glance</h2>
+  <div class="table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Approach</th>
+          <th>Domain</th>
+          <th>What It Tracks</th>
+          <th>Pre-execution Enforcement</th>
+          <th>Lineage Binding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MO§ES</strong></td>
+          <td>AI signal pipelines</td>
+          <td>Semantic commitment in natural language</td>
+          <td class="check">Yes (gating)</td>
+          <td class="check">SHA-256</td>
+        </tr>
+        <tr>
+          <td>Smart Contracts</td>
+          <td>Blockchain / financial</td>
+          <td>Procedural and financial obligations</td>
+          <td class="check">Yes (code execution)</td>
+          <td class="check">On-chain</td>
+        </tr>
+        <tr>
+          <td>SLA Monitoring</td>
+          <td>Operations / services</td>
+          <td>Service-level metrics (uptime, latency)</td>
+          <td class="cross">No (alerting only)</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>Audit Logs</td>
+          <td>Procedural / compliance</td>
+          <td>Events and actions (retrospective)</td>
+          <td class="cross">No (recording only)</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>Formal Verification</td>
+          <td>Mathematical / protocol</td>
+          <td>System properties (proofs)</td>
+          <td class="check">Yes (proof)</td>
+          <td class="check">Mathematical</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1. MO§ES — Semantic Commitment Tracking</h2>
+  <p>MO§ES tracks the semantic commitment embedded in natural language signals as they flow through AI pipelines. It measures commitment using NLI bidirectional entailment and Jaccard surface stability, gates transformations that would degrade commitment below an acceptable threshold, and binds every artifact to its lineage via SHA-256 hashes. It is the only approach designed for commitment tracking in AI-generated text.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Measures semantic commitment in natural language — not just structure or safety</li>
+    <li>Pre-execution gating — prevents commitment degradation before it occurs</li>
+    <li>Cryptographic lineage binding — verifiable chain of custody for every signal</li>
+    <li>Detects commitment drift ("shall" → "may") that other approaches miss</li>
+    <li>Per-signal audit trails with SHA-256 hashes</li>
+    <li>Model-agnostic — works with any AI pipeline</li>
+    <li>Grounded in the falsifiable <a href="/concepts/conservation-law">Conservation Law of Commitment</a></li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Designed for AI signal pipelines — not a general-purpose commitment tracker</li>
+    <li>Commitment measurement is empirical (NLI + Jaccard), not mathematical proof</li>
+    <li>Does not execute obligations — tracks and conserves them, does not enforce action</li>
+    <li>Newer framework — smaller ecosystem than established approaches</li>
+  </ul>
+
+  <h2>2. Smart Contracts — Blockchain-Based Commitment Execution</h2>
+  <p>Smart contracts are self-executing programs on a blockchain that automatically enforce procedural and financial obligations when predefined conditions are met. They track commitments as on-chain state transitions, with cryptographic guarantees of execution and immutable audit trails.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Deterministic execution — obligations are enforced by code, not discretion</li>
+    <li>Immutable audit trail — on-chain history cannot be altered</li>
+    <li>Cryptographic provenance — every transaction is signed and traceable</li>
+    <li>Decentralized — no single point of failure</li>
+    <li>Well-established ecosystem (Ethereum, etc.)</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Operates on structured blockchain state — cannot measure natural language commitment</li>
+    <li>Cannot detect semantic drift in text ("shall" → "may")</li>
+    <li>Not designed for AI signal pipelines</li>
+    <li>Immutable code is hard to update — bugs are permanent</li>
+    <li>Gas costs and scalability limitations</li>
+    <li>Requires translating natural language commitments into code — lossy</li>
+  </ul>
+
+  <h2>3. SLA Monitoring — Service-Level Agreement Tracking</h2>
+  <p>SLA monitoring tracks whether services meet agreed-upon performance metrics — uptime, latency, response time, error rates. It uses monitoring tools, alerting systems, and dashboards to track commitments between service providers and consumers. When an SLA is breached, alerts fire and penalties may be triggered.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Well-established methodology with mature tooling</li>
+    <li>Quantitative metrics — easy to measure and alert on</li>
+    <li>Real-time monitoring with automated alerting</li>
+    <li>Supports penalty and remediation workflows</li>
+    <li>Broad industry adoption</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Tracks operational metrics, not semantic commitments</li>
+    <li>No commitment measurement — cannot detect "shall" → "may" drift</li>
+    <li>Post-hoc alerting — detects breaches after they occur, does not prevent them</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Not designed for AI signal pipelines</li>
+    <li>Metrics are proxy measures, not direct commitment measurement</li>
+  </ul>
+
+  <h2>4. Audit Logs — Append-Only Event Recording</h2>
+  <p>Audit logs are append-only records of events and actions in a system. They capture what happened, when, and by whom, providing a retrospective record for compliance, forensics, and accountability. Audit logs are the backbone of regulatory compliance and security incident response.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Simple, well-understood methodology</li>
+    <li>Append-only — tamper-evident record of events</li>
+    <li>Supports compliance and forensic investigation</li>
+    <li>Broad tooling ecosystem (SIEM, log aggregation)</li>
+    <li>Low implementation cost</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Retrospective only — records what happened, does not prevent it</li>
+    <li>No commitment measurement — logs events, not semantic obligations</li>
+    <li>No pre-execution enforcement — cannot gate transformations</li>
+    <li>No lineage binding — logs are not cryptographically tied to artifacts</li>
+    <li>Cannot detect commitment drift — logs that a transformation occurred, not whether it preserved commitment</li>
+    <li>Volume — logs can be overwhelming, making commitment-relevant events hard to find</li>
+  </ul>
+
+  <h2>5. Formal Verification — Mathematical Proof of Properties</h2>
+  <p>Formal verification uses mathematical methods to prove that a system satisfies specified properties. It is the gold standard for deterministic systems — cryptographic protocols, hardware designs, safety-critical software — where properties can be expressed in formal logic and proven with theorem provers or model checkers.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Mathematical certainty — proven properties are guaranteed</li>
+    <li>Pre-execution — proofs are established before deployment</li>
+    <li>Strongest possible guarantee — not probabilistic, but proven</li>
+    <li>Well-established in safety-critical domains (aerospace, cryptography)</li>
+    <li>Cryptographic lineage through formal proof artifacts</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Requires formal specification — natural language commitments are not formally specifiable</li>
+    <li>Does not measure semantic commitment — proves system properties, not signal meaning</li>
+    <li>Extremely expensive — requires specialized expertise and tools</li>
+    <li>Does not scale to natural language or AI-generated text</li>
+    <li>Proofs verify the system, not individual signals flowing through it</li>
+    <li>Not designed for AI signal pipelines</li>
+  </ul>
+
+  <h2>The Verdict</h2>
+  <p>Each of these approaches tracks commitments in a different domain. Smart contracts track financial and procedural obligations on-chain. SLA monitoring tracks operational metrics. Audit logs track events retrospectively. Formal verification proves system properties mathematically. None of them track semantic commitments in AI-generated natural language — because none of them were designed for that domain.</p>
+  <p>MO§ES is the only approach designed to track commitments in the specific domain where they are most at risk: AI signal pipelines. When an LLM summarizes a contract, when an agent rephrases a compliance obligation, when a multi-agent pipeline transforms a safety requirement — the commitment embedded in the original text can silently degrade. Smart contracts cannot detect this. SLA monitoring cannot detect this. Audit logs cannot detect this. Formal verification cannot detect this. Only MO§ES measures commitment directly and gates degradations before they occur.</p>
+  <p>For a comprehensive commitment tracking strategy, these approaches are complementary:</p>
+  <ul>
+    <li><strong>Smart contracts</strong> for financial and procedural obligation execution</li>
+    <li><strong>SLA monitoring</strong> for operational service-level commitments</li>
+    <li><strong>Audit logs</strong> for retrospective event recording and compliance</li>
+    <li><strong>Formal verification</strong> for protocol and system-level property proofs</li>
+    <li><strong>MO§ES</strong> for semantic commitment conservation in AI signal pipelines</li>
+  </ul>
+  <p>MO§ES fills the gap that the other approaches cannot: deterministic, per-signal commitment tracking in AI-generated natural language, with pre-execution gating and cryptographic lineage binding. If your AI pipeline processes signals that carry commitments, MO§ES is the only tool that tracks them. The others are necessary for their respective domains but silent on the semantic layer where AI systems do their damage.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/vs/agent-orchestration">MO§ES vs Agent Orchestration</a>
+    <a href="/vs/guardrails">MO§ES vs Guardrails</a>
+    <a href="/alternatives/ai-governance-frameworks">Alternatives to AI Governance Frameworks</a>
+    <a href="/alternatives/agent-guardrails">Alternatives to Agent Guardrails</a>
+    <a href="/architecture">Architecture</a>
+  </div>
+</div>

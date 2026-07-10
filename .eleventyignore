@@ -1,0 +1,34 @@
+# Non-site directories — excluded from 11ty processing
+Devins_Plans/
+scripts/
+.stash/
+.claude/
+.devin/
+.git/
+node_modules/
+_site/
+.netlify/
+docs/
+
+# Markdown slides (not site pages — passthrough copy handles uploads/)
+uploads/slides/
+
+# Non-site files
+CLAUDE.md
+README.md
+SETUP.md
+SEO_BEEFUP_AND_ACADEMIC_GEO.md
+SEO_GEO_AEO_PLAYBOOK.md
+package.json
+package-lock.json
+.eleventy.js
+.eleventyignore
+.gitignore
+netlify.toml
+deck-stage.js
+tweaks-panel.jsx
+tweaks.jsx
+3cb9dad60ebc43248d4ec58b2d9b4aca.txt
+
+# Old poster archives (not part of the live site)
+img/benchmarks/archive/

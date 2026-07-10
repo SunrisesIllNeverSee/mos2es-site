@@ -1,0 +1,110 @@
+---
+title: "Origin Binding — MO§ES"
+description: "Origin binding is the process of cryptographically tying a digital artifact to its origin compression cycle, ensuring every signal can prove recursive continuity with its source and preventing unauthorized or mimic signals from entering the governance system."
+path: "/concepts/origin-binding"
+lede: "The process of cryptographically tying a digital artifact to its origin compression cycle. Origin binding ensures every signal can prove recursive continuity with its source, preventing unauthorized or mimic signals from entering the governance system."
+strip_text: "MO§ES™ · Concepts · Origin Binding"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Concepts"
+        item: "https://mos2es.com/concepts/conservation-law"
+      - "@type": "ListItem"
+        position: 3
+        name: "Origin Binding"
+        item: "https://mos2es.com/concepts/origin-binding"
+  - "@context": "https://schema.org"
+    "@type": "DefinedTerm"
+    name: "Origin Binding"
+    description: "The process of cryptographically tying a digital artifact to its origin compression cycle. Origin binding ensures that every signal can prove recursive continuity with its source, preventing unauthorized or mimic signals from entering the governance system."
+    url: "https://mos2es.com/concepts/origin-binding"
+    inDefinedTermSet:
+      "@type": "DefinedTermSet"
+      name: "MO§ES Concepts"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is origin binding?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Origin binding is the process of cryptographically tying a digital artifact to its origin compression cycle. It ensures that every signal in a MO§ES-governed system can prove recursive continuity with its source, preventing unauthorized or mimic signals from entering the governance system."
+      - "@type": "Question"
+        name: "How does origin binding prevent mimic signals?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "A mimic signal is an output that resembles a legitimate artifact but carries no real provenance. Origin binding requires every artifact to present a cryptographic binding to its origin cycle. A signal without a valid binding — or with a binding that cannot be verified — is rejected at the enforcement gate before it can enter the system."
+      - "@type": "Question"
+        name: "What is an origin compression cycle?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "An origin compression cycle is the initial encoding of a signal using MO§ES constitutional compression. It is the point at which a natural language utterance is transformed into a governed signal with measurable, verifiable commitment. The origin cycle is the root of the artifact's provenance — every subsequent transformation extends from it."
+      - "@type": "Question"
+        name: "How does origin binding relate to the Lineage Claw?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Origin binding is the process; the Lineage Claw is the cryptographic mechanism that implements it. The Lineage Claw uses SHA-256 hash chains to create the verifiable binding that origin binding requires. You can think of origin binding as the policy and the Lineage Claw as the cryptography that enforces it."
+      - "@type": "Question"
+        name: "Why is recursive continuity important?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Recursive continuity means that a signal can trace an unbroken chain back to its origin, through every intermediate transformation. Without recursive continuity, there is no way to distinguish a legitimately transformed signal from a fabricated one. Origin binding establishes this continuity at the point of creation, and the Lineage Claw preserves it through every subsequent transformation."
+---
+
+<div class="prose">
+  <p><strong>Origin binding</strong> is the process of cryptographically tying a digital artifact to its origin compression cycle. It ensures that every signal in a MO§ES-governed system can prove recursive continuity with its source — an unbroken chain from the original utterance through every transformation to the current artifact. This binding is what prevents unauthorized or mimic signals from entering the governance system.</p>
+
+  <h2>The Problem It Solves</h2>
+  <p>Digital artifacts are easy to produce and hard to trust. An LLM can generate a summary, a translation, or a policy document that looks indistinguishable from one produced by a governed pipeline. Without a way to verify provenance, any system that processes natural language is vulnerable to injection: a mimic signal — one that resembles a legitimate artifact but carries no real commitment — can enter the pipeline and be treated as authoritative.</p>
+  <p>Origin binding solves this by making provenance a cryptographic property, not a matter of trust. An artifact is bound to its origin at the moment of creation. That binding is verifiable by anyone, at any time, without access to the original system. A signal without a valid binding is not a governed signal. It is an unverified claim.</p>
+
+  <h2>How It Works</h2>
+  <p>Origin binding occurs at the origin compression cycle — the point at which a natural language utterance is first encoded using <a href="/concepts/signal-encoding">MO§ES constitutional compression</a>. The process has three steps:</p>
+  <ol>
+    <li><strong>Signal encoding</strong>: The original utterance is encoded into a governed signal with measurable commitment. This is the origin cycle — the root of the artifact's provenance.</li>
+    <li><strong>Binding creation</strong>: A cryptographic binding is created between the artifact and the origin cycle. This binding incorporates a hash of the original signal, the encoding parameters, and the cycle identifier.</li>
+    <li><strong>Continuity preservation</strong>: Every subsequent transformation extends the binding. The <a href="/concepts/lineage-claw">Lineage Claw</a> maintains the hash chain, so the binding remains verifiable no matter how many transformations are applied.</li>
+  </ol>
+  <p>The result is that any artifact in the system can be traced back to its origin cycle, and the chain of transformations between origin and current state can be independently verified. A broken binding — one where the chain cannot be reconstructed — is treated as a governance violation.</p>
+
+  <h2>Why It Matters</h2>
+  <p>The <a href="/concepts/conservation-law">Conservation Law of Commitment</a> predicts that recursive transformation degrades commitment without enforcement. But enforcement is only meaningful if the system can distinguish governed signals from ungoverned ones. Without origin binding, there is no way to know whether a signal entered the system through a legitimate origin cycle or was injected from outside.</p>
+  <p>Origin binding is the gatekeeper. It ensures that the governance system only processes signals that can prove where they came from. This is what makes the rest of the enforcement architecture — resonance thresholds, pre-execution gates, commitment measurement — meaningful. You cannot enforce commitment conservation on a signal whose origin you cannot verify.</p>
+
+  <h2>Mimic Signals and the Binding Gate</h2>
+  <p>A mimic signal is the primary threat that origin binding defends against. A mimic is an artifact that has the surface form of a governed signal — the right structure, the right vocabulary, even the right commitment level as measured by surface metrics — but lacks the cryptographic binding to a real origin cycle. Mimics can be produced by any LLM, and without origin binding, they are indistinguishable from legitimate artifacts.</p>
+  <p>With origin binding in place, mimics are rejected at the binding gate. The gate checks for a valid binding — a hash chain that traces back to a recognized origin cycle. No binding, no entry. This is a structural defense, not a heuristic one. It does not depend on detecting patterns of mimicry; it depends on the absence of a cryptographic proof that cannot be forged.</p>
+
+  <h2>Relationship to Other Concepts</h2>
+  <ul>
+    <li><a href="/concepts/lineage-claw">Lineage Claw</a>: The cryptographic mechanism that implements origin binding through SHA-256 hash chains</li>
+    <li><a href="/concepts/signal-encoding">Signal Encoding</a>: The process that creates the origin compression cycle to which artifacts are bound</li>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: Origin binding is what makes enforcement of the law possible — you cannot enforce conservation on a signal whose origin you cannot verify</li>
+    <li><a href="/concepts/constitutional-substrate">Constitutional Substrate</a>: The foundational layer that defines the rules for what constitutes a valid origin cycle and a valid binding</li>
+  </ul>
+
+  <h2>Practical Implications</h2>
+  <p>In a real-world AI pipeline — where signals flow between agents, services, and human reviewers — origin binding provides a property that no existing system offers: cryptographic proof of provenance for every natural language artifact. This is not a watermark or a metadata tag. It is a structural binding that is built into the signal at the point of creation and preserved through every transformation.</p>
+  <p>For governance, this means that the system can enforce a simple, powerful rule: no binding, no processing. For audit, it means that every artifact's history is reconstructable. For security, it means that the primary attack vector — injecting mimic signals into the pipeline — is closed by construction, not by detection.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/signal-encoding">Signal Encoding</a>
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+  </div>
+</div>

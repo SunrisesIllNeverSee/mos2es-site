@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PREVIEW — mos2es.com reorganized</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* === THIS IS THE PROPOSED assets/site.css === */
+  :root {
+    --bg: #0A0D12;
+    --panel: #10141A;
+    --elev: #141920;
+    --border: #1A1F28;
+    --text: #E8ECF1;
+    --text-soft: #C8CDD6;
+    --dim: #8A94A0;
+    --dim-soft: #6B7480;
+    --gold: #C4923A;
+    --gold-warm: #C9A24A;
+    --gold-mute: rgba(196,146,58,0.20);
+    --gold-line: rgba(196,146,58,0.32);
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: 'DM Sans', Inter, system-ui, -apple-system, sans-serif;
+    --mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background:
+      linear-gradient(rgba(196,146,58,0.05) 1px, transparent 1px) 0 0 / 100% 80px,
+      linear-gradient(90deg, rgba(196,146,58,0.05) 1px, transparent 1px) 0 0 / 80px 100%,
+      var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* SHARED NAV — one component, used on every page */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,13,18,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gold-line);
+    padding: 12px 32px;
+    display: flex; align-items: center; gap: 24px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .nav .brand {
+    font-family: var(--serif); font-size: 18px; font-weight: 800;
+    color: var(--gold-warm); letter-spacing: -0.01em;
+    text-transform: none; margin-right: auto;
+  }
+  .nav a {
+    color: var(--dim); text-decoration: none;
+    transition: color 0.18s;
+  }
+  .nav a:hover { color: var(--gold); }
+  .nav a.active { color: var(--text); border-bottom: 1px solid var(--gold); }
+  .nav a.cta {
+    color: var(--gold); border: 1px solid var(--gold-line);
+    padding: 4px 12px; border-radius: 3px;
+  }
+
+  /* SHARED FOOTER */
+  .footer {
+    border-top: 1px solid var(--gold-line);
+    padding: 32px;
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: space-between;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.10em; text-transform: uppercase;
+    color: var(--dim-soft);
+    max-width: 900px; margin: 0 auto;
+  }
+  .footer a { color: var(--dim); text-decoration: none; }
+  .footer a:hover { color: var(--gold); }
+
+  /* PAGE LAYOUT */
+  .page { max-width: 640px; margin: 0 auto; padding: 80px 32px; }
+  .page.wide { max-width: 900px; }
+
+  /* TYPOGRAPHY */
+  h1 {
+    font-family: var(--serif); font-size: 48px; font-weight: 800;
+    letter-spacing: -0.015em; color: var(--text); margin-bottom: 4px;
+  }
+  h2 {
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--gold-mute);
+  }
+  h3 {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    color: var(--text); margin-bottom: 8px;
+  }
+  p { font-size: 15px; line-height: 1.7; color: var(--text-soft); margin-bottom: 16px; }
+  p a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-mute); }
+  p a:hover { border-color: var(--gold); }
+  ul { list-style: none; padding: 0; }
+  ul li {
+    font-size: 15px; line-height: 1.7; color: var(--text-soft);
+    padding-left: 20px; position: relative; margin-bottom: 10px;
+  }
+  ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.6; }
+  ul li a { color: var(--gold); text-decoration: none; }
+  ul li a:hover { text-decoration: underline; }
+  ul li strong { color: var(--text); font-weight: 500; }
+
+  /* CARDS (shared component) */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 6px; padding: 24px;
+    transition: border-color 0.18s;
+  }
+  .card:hover { border-color: var(--gold-line); }
+  .card h3 { font-size: 18px; margin-bottom: 6px; }
+  .card p { font-size: 13px; margin-bottom: 0; }
+  .card .label {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+  }
+
+  /* EQUATION */
+  .eq {
+    font-family: var(--mono); font-size: 20px; color: var(--gold-warm);
+    text-align: center; padding: 32px; margin: 24px 0;
+    border-top: 1px solid var(--gold-mute); border-bottom: 1px solid var(--gold-mute);
+  }
+
+  /* PREVIEW BADGE */
+  .preview-badge {
+    position: fixed; top: 0; right: 0; z-index: 200;
+    background: #B5421C; color: #fff; font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 0 0 0 4px;
+  }
+
+  /* SECTION DIVIDER */
+  .divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* COMPARISON TABLE */
+  .compare {
+    width: 100%; border-collapse: collapse; margin: 24px 0;
+    font-size: 13px;
+  }
+  .compare th {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.10em;
+    text-transform: uppercase; color: var(--gold);
+    text-align: left; padding: 8px 12px;
+    border-bottom: 1px solid var(--gold-line);
+  }
+  .compare td {
+    padding: 10px 12px; color: var(--text-soft);
+    border-bottom: 1px solid var(--border);
+  }
+  .compare td strong { color: var(--text); }
+  .compare .removed { color: var(--dim-soft); text-decoration: line-through; }
+  .compare .new { color: #3DAA6A; }
+
+  @media (max-width: 600px) {
+    .page { padding: 48px 20px; }
+    h1 { font-size: 36px; }
+    .nav { padding: 10px 16px; gap: 12px; flex-wrap: wrap; }
+    .nav .brand { width: 100%; margin-bottom: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-badge">PREVIEW · PROPOSED</div>
+
+<!-- ═══ SHARED NAV — 5 links instead of 10 ═══ -->
+<nav class="nav">
+  <span class="brand">MO§ES™</span>
+  <a href="#landing" class="active">Home</a>
+  <a href="#papers">Papers</a>
+  <a href="#benchmarks">Benchmarks</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#articles">Articles</a>
+  <a href="#field-sheet">Field Sheet</a>
+  <a href="#" class="cta">Run →</a>
+</nav>
+
+<!-- ═══ LANDING PAGE (operator.html direction) ═══ -->
+<div class="page" id="landing">
+  <h1>MO§ES™</h1>
+  <p style="font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:var(--dim);text-transform:uppercase;margin-bottom:40px;">
+    Sovereign Signal Governance · Ello Cello LLC
+  </p>
+
+  <section>
+    <h2>What</h2>
+    <p>MO§ES is the protocol layer for preserving semantic meaning at the point of execution. Commitment conservation, governance enforcement, and lineage-bound artifacts for multi-agent AI.</p>
+    <div class="eq">C(T(S)) ≈ C(S)</div>
+    <p style="text-align:center;font-size:13px;color:var(--dim);">
+      Semantic commitment is preserved under valid transformation.<br>
+      Measurable. Falsifiable. Enforceable.
+    </p>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>Entry Points</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="label">Researchers</div>
+        <h3><a href="#papers" style="color:var(--text);text-decoration:none;">Papers</a></h3>
+        <p>Conservation Law of Commitment, Commitment Theory, Zenodo DOI, 7 reproducible experiments.</p>
+      </div>
+      <div class="card">
+        <div class="label">Technical Buyers</div>
+        <h3><a href="#benchmarks" style="color:var(--text);text-decoration:none;">Benchmarks</a></h3>
+        <p>5 measured kernels vs 13 field models. 98% cache hit, 17.9× output:input, $0.0007/LOC.</p>
+      </div>
+      <div class="card">
+        <div class="label">Engineers</div>
+        <h3><a href="#architecture" style="color:var(--text);text-decoration:none;">Architecture</a></h3>
+        <p>Seven rings, constitutional framework, signal encoding, compression substrate.</p>
+      </div>
+      <div class="card">
+        <div class="label">Thought Leaders</div>
+        <h3><a href="#articles" style="color:var(--text);text-decoration:none;">Articles</a></h3>
+        <p>The Governance Vacuum — why AI deployments keep failing and what's missing.</p>
+      </div>
+      <div class="card">
+        <div class="label">Press & Analysts</div>
+        <h3><a href="#field-sheet" style="color:var(--text);text-decoration:none;">Field Sheet</a></h3>
+        <p>Quick-reference: topics, proofs, IP portfolio, press kit, legal, live links.</p>
+      </div>
+      <div class="card">
+        <div class="label">Investors</div>
+        <h3><a href="#deck" style="color:var(--text);text-decoration:none;">Deck</a></h3>
+        <p>Pitch deck, market analysis, $1.5M pre-seed. Direct link — not in nav.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:burnmydays@proton.me">burnmydays@proton.me</a> ·
+      <a href="https://x.com/burnmydays">X / Twitter</a> ·
+      <a href="https://github.com/SunrisesIllNeverSee">GitHub</a> ·
+      <a href="#resume">Résumé</a>
+    </p>
+  </section>
+</div>
+
+<!-- ═══ STRUCTURE COMPARISON ═══ -->
+<div class="page wide" id="structure" style="border-top: 1px solid var(--border);">
+  <h2>Structure Comparison — Before vs After</h2>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Current (11 pages + 4 posters)</th>
+        <th>Status</th>
+        <th>Proposed (7 pages)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>index.html <span style="color:var(--dim-soft);">(40 KB, 780 lines CSS)</span></td>
+        <td>→ simplify</td>
+        <td><strong>index.html</strong> <span style="color:#3DAA6A;">(8 KB, minimal landing)</span></td>
+      </tr>
+      <tr>
+        <td>papers.html</td>
+        <td>→ keep</td>
+        <td><strong>papers.html</strong></td>
+      </tr>
+      <tr>
+        <td>benchmarks.html</td>
+        <td>→ keep</td>
+        <td><strong>benchmarks.html</strong></td>
+      </tr>
+      <tr>
+        <td>field-sheet.html</td>
+        <td>→ keep + absorb</td>
+        <td><strong>field-sheet.html</strong> <span style="color:#3DAA6A;">(+ press + legal sections)</span></td>
+      </tr>
+      <tr>
+        <td>governance-vacuum.html</td>
+        <td>→ keep</td>
+        <td><strong>governance-vacuum.html</strong></td>
+      </tr>
+      <tr>
+        <td>architecture.html</td>
+        <td>→ keep + retheme</td>
+        <td><strong>architecture.html</strong> <span style="color:#3DAA6A;">(dark theme)</span></td>
+      </tr>
+      <tr>
+        <td>deck.html</td>
+        <td>→ keep (not in sitemap)</td>
+        <td><strong>deck.html</strong> <span style="color:var(--dim);">(investor-only, footer link)</span></td>
+      </tr>
+      <tr>
+        <td class="removed">press.html (200 words)</td>
+        <td>→ merge into field-sheet</td>
+        <td><span style="color:var(--dim-soft);">absorbed</span></td>
+      </tr>
+      <tr>
+        <td class="removed">legal.html (500 words)</td>
+        <td>→ merge into field-sheet</td>
+        <td><span style="color:var(--dim-soft);">absorbed</span></td>
+      </tr>
+      <tr>
+        <td class="removed">demovideo.html (placeholder)</td>
+        <td>→ merge into benchmarks</td>
+        <td><span style="color:var(--dim-soft);">absorbed</span></td>
+      </tr>
+      <tr>
+        <td>resume.html</td>
+        <td>→ keep (print design)</td>
+        <td><strong>resume.html</strong> <span style="color:var(--dim);">(footer link)</span></td>
+      </tr>
+      <tr>
+        <td class="removed">poster.html (94 impressions)</td>
+        <td>→ convert to PDF</td>
+        <td><span style="color:var(--dim-soft);">PDF download</span></td>
+      </tr>
+      <tr>
+        <td class="removed">poster_honest.html</td>
+        <td>→ convert to PDF</td>
+        <td><span style="color:var(--dim-soft);">PDF download</span></td>
+      </tr>
+      <tr>
+        <td class="removed">poster_honest_portrait.html</td>
+        <td>→ convert to PDF</td>
+        <td><span style="color:var(--dim-soft);">PDF download</span></td>
+      </tr>
+      <tr>
+        <td class="removed">poster_multi_engine.html</td>
+        <td>→ convert to PDF</td>
+        <td><span style="color:var(--dim-soft);">PDF download</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+
+  <h2>What Changes</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="label">CSS</div>
+      <h3>75 KB → ~20 KB</h3>
+      <p>One shared <code style="color:var(--gold);">assets/site.css</code>. Unified variables. Change a color → edit one file.</p>
+    </div>
+    <div class="card">
+      <div class="label">Pages</div>
+      <h3>15 → 7 crawlable</h3>
+      <p>No thin pages. No duplicate posters. No orphan pages. Sitemap: 10 → 7 URLs.</p>
+    </div>
+    <div class="card">
+      <div class="label">Nav</div>
+      <h3>10 links → 5</h3>
+      <p>Papers, Benchmarks, Architecture, Articles, Field Sheet. Deck + Resume in footer.</p>
+    </div>
+    <div class="card">
+      <div class="label">Design</div>
+      <h3>3 themes → 2</h3>
+      <p>Dark (shared CSS) + Paper (deck/resume). Architecture migrates to dark.</p>
+    </div>
+    <div class="card">
+      <div class="label">Fonts</div>
+      <h3>3 systems → 2</h3>
+      <p>Playfair/DM Sans/DM Mono (dark) + Newsreader/IBM Plex (paper). One font request per theme.</p>
+    </div>
+    <div class="card">
+      <div class="label">Variables</div>
+      <h3>3 naming systems → 1</h3>
+      <p><code style="color:var(--gold);">--text</code> not <code style="color:var(--dim);">--bone</code>. <code style="color:var(--gold);">--dim</code> not <code style="color:var(--dim);">--gray</code>. One source of truth.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Phasing</h2>
+  <table class="compare">
+    <thead>
+      <tr><th>Phase</th><th>What</th><th>Risk</th><th>Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>CSS extraction → assets/site.css</td><td style="color:#3DAA6A;">Low</td><td>75KB → 20KB, one source of truth</td></tr>
+      <tr><td><strong>2</strong></td><td>Merge press + legal → field-sheet, demovideo → benchmarks</td><td style="color:var(--gold);">Medium</td><td>7 focused pages, no thin content</td></tr>
+      <tr><td><strong>3</strong></td><td>Convert 4 posters to PDFs</td><td style="color:#3DAA6A;">Low</td><td>No duplicate content</td></tr>
+      <tr><td><strong>4</strong></td><td>Architecture → dark theme</td><td style="color:var(--gold);">Medium</td><td>2 themes instead of 3</td></tr>
+      <tr><td><strong>5</strong></td><td>Build system (11ty or script)</td><td style="color:var(--gold);">Medium</td><td>Edit nav once, not 7 times</td></tr>
+      <tr><td><strong>6</strong></td><td>Landing page (operator.html direction)</td><td style="color:#3DAA6A;">Low</td><td>40KB → 8KB front door</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══ SHARED FOOTER ═══ -->
+<footer class="footer">
+  <div>
+    <a href="#landing">Home</a> ·
+    <a href="#papers">Papers</a> ·
+    <a href="#benchmarks">Benchmarks</a> ·
+    <a href="#architecture">Architecture</a> ·
+    <a href="#articles">Articles</a> ·
+    <a href="#field-sheet">Field Sheet</a>
+  </div>
+  <div>
+    <a href="#deck">Deck</a> ·
+    <a href="#resume">Résumé</a> ·
+    <a href="https://github.com/SunrisesIllNeverSee">GitHub</a> ·
+    <a href="https://x.com/burnmydays">X</a>
+  </div>
+  <div>
+    © 2026 Ello Cello LLC · MO§ES™ IC 042
+  </div>
+</footer>
+
+</body>
+</html>

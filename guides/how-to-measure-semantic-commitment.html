@@ -1,0 +1,141 @@
+---
+title: "How to Measure Semantic Commitment — MO§ES"
+description: "Guide to measuring commitment levels in natural language signals using NLI bidirectional entailment and Jaccard surface stability."
+path: "/guides/how-to-measure-semantic-commitment"
+lede: "A practical guide to measuring commitment levels in natural language signals using NLI bidirectional entailment and Jaccard surface stability."
+strip_text: "MO§ES™ · Guides · Measure Semantic Commitment"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Guides"
+        item: "https://mos2es.com/guides"
+      - "@type": "ListItem"
+        position: 3
+        name: "How to Measure Semantic Commitment"
+        item: "https://mos2es.com/guides/how-to-measure-semantic-commitment"
+  - "@context": "https://schema.org"
+    "@type": "HowTo"
+    name: "How to Measure Semantic Commitment"
+    description: "Guide to measuring commitment levels in natural language signals using NLI bidirectional entailment and Jaccard surface stability."
+    totalTime: "PT10M"
+    step:
+      - "@type": "HowToStep"
+        name: "Prepare your signal corpus"
+        text: "Assemble the signals you want to measure. Each signal is a natural language utterance with embedded commitment — a 'shall,' 'must,' 'will,' or other obligation-bearing statement. Clean and normalize the text."
+      - "@type": "HowToStep"
+        name: "Set up the NLI entailment model"
+        text: "Configure a natural language inference model for bidirectional entailment. A DeBERTa-based entailment classifier works well. The model must support forward entailment (A entails B) and reverse entailment (B entails A)."
+      - "@type": "HowToStep"
+        name: "Measure bidirectional entailment"
+        text: "For each pair of signals (original and transformed), run the NLI model in both directions. Compute a bidirectional entailment score: the geometric mean of forward and reverse entailment probabilities. High mutual entailment indicates semantic preservation."
+      - "@type": "HowToStep"
+        name: "Compute Jaccard surface stability"
+        text: "Tokenize both signals and compute the Jaccard similarity between their token sets: |intersection| / |union|. This measures lexical preservation independent of semantics. Low Jaccard indicates surface-level drift."
+      - "@type": "HowToStep"
+        name: "Calculate the commitment score"
+        text: "Combine the bidirectional entailment score and the Jaccard surface stability score into a composite commitment score. A weighted average (e.g., 0.7 * entailment + 0.3 * Jaccard) provides a single number that captures both semantic and lexical preservation."
+      - "@type": "HowToStep"
+        name: "Compare against the threshold"
+        text: "Compare the commitment score to your predefined threshold (typically 0.80). If the score falls below threshold, the transformation has degraded commitment and should be rejected or flagged for review."
+---
+
+<div class="prose">
+  <p>Measuring semantic commitment is the foundation of <a href="/architecture">MO§ES</a> enforcement. Without a reliable measurement of commitment, you cannot enforce the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> — you cannot know whether <code>C(T(S)) ≈ C(S)</code> if you cannot measure C. This guide shows you how to measure commitment using two complementary methods: NLI bidirectional entailment and Jaccard surface stability.</p>
+
+  <h2>Overview</h2>
+  <p>Commitment measurement in MO§ES uses two complementary methods. <strong>NLI bidirectional entailment</strong> measures semantic preservation — does the transformed signal mean the same thing as the original? <strong>Jaccard surface stability</strong> measures lexical preservation — does the transformed signal use the same words as the original? Together, these two measurements capture both deep semantic drift and surface-level drift.</p>
+  <p>Neither method alone is sufficient. A transformation can preserve semantics while changing every word (low Jaccard, high entailment) — this is legitimate paraphrasing. A transformation can preserve every word while changing semantics (high Jaccard, low entailment) — this is subtle reordering or context stripping. Using both methods catches both failure modes.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>An NLI model capable of bidirectional entailment (e.g., DeBERTa-v3-large-mnli)</li>
+    <li>A tokenization library (NLTK, spaCy, or similar)</li>
+    <li>A signal corpus with known commitment levels for calibration</li>
+    <li>Understanding of the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the commitment function C</li>
+  </ul>
+
+  <h2>Step 1: Prepare Your Signal Corpus</h2>
+  <p>Assemble the signals you want to measure. In MO§ES, a signal is a natural language utterance with embedded commitment — typically a statement containing modal verbs like "shall," "must," "will," "should," or "may." The commitment level of a signal is determined by the force of these modals and the structure of the obligation.</p>
+  <p>Clean and normalize the text: remove formatting artifacts, standardize whitespace, and ensure consistent encoding. The measurement is sensitive to surface form, so normalization must be consistent across all signals in the corpus.</p>
+  <pre><code>signals = [
+    "The system shall enforce authentication on every request.",
+    "The agent must preserve the original commitment level.",
+    "The pipeline should log every transformation."
+]</code></pre>
+
+  <h2>Step 2: Set Up the NLI Entailment Model</h2>
+  <p>Configure a natural language inference (NLI) model for bidirectional entailment. NLI models classify the relationship between two sentences as entailment, contradiction, or neutral. For commitment measurement, you need the entailment probability in both directions.</p>
+  <p>A DeBERTa-based model fine-tuned on MNLI (Multi-Genre Natural Language Inference) works well. The model takes a premise and a hypothesis and outputs a probability distribution over entailment, contradiction, and neutral. You need the entailment probability for both (A → B) and (B → A).</p>
+  <pre><code>from transformers import pipeline
+nli = pipeline("text-classification", model="cross-encoder/nli-deberta-v3-base")
+
+def entailment_prob(premise, hypothesis):
+    result = nli(f"{premise} [SEP] {hypothesis}")
+    return result["score"] if result["label"] == "entailment" else 0.0</code></pre>
+
+  <h2>Step 3: Measure Bidirectional Entailment</h2>
+  <p>For each pair of signals — the original S and the transformed T(S) — run the NLI model in both directions. Compute the forward entailment score (S entails T(S)) and the reverse entailment score (T(S) entails S). The bidirectional entailment score is the geometric mean of the two.</p>
+  <p>Geometric mean is used rather than arithmetic mean because it penalizes asymmetry. If S entails T(S) but T(S) does not entail S, the transformation has added information — a form of drift. The geometric mean captures this: <code>sqrt(forward * reverse)</code> is low when either direction is low.</p>
+  <pre><code>import math
+def bidirectional_entailment(original, transformed):
+    forward = entailment_prob(original, transformed)
+    reverse = entailment_prob(transformed, original)
+    return math.sqrt(forward * reverse)</code></pre>
+  <p>High bidirectional entailment (close to 1.0) means the two signals mutually entail each other — they mean the same thing. Low bidirectional entailment means the transformation has changed the semantic content.</p>
+
+  <h2>Step 4: Compute Jaccard Surface Stability</h2>
+  <p>Tokenize both signals and compute the Jaccard similarity between their token sets. The Jaccard similarity is the size of the intersection divided by the size of the union: <code>|A ∩ B| / |A ∪ B|</code>. This measures lexical preservation — how many words the two signals share.</p>
+  <pre><code>def jaccard_similarity(text_a, text_b):
+    tokens_a = set(text_a.lower().split())
+    tokens_b = set(text_b.lower().split())
+    intersection = tokens_a & tokens_b
+    union = tokens_a | tokens_b
+    return len(intersection) / len(union) if union else 0.0</code></pre>
+  <p>High Jaccard similarity means the transformed signal uses mostly the same words as the original. Low Jaccard means the transformation has changed the surface form significantly. Note that Jaccard does not capture word order — "dog bites man" and "man bites dog" have identical Jaccard scores but very different meanings. This is why Jaccard is paired with NLI entailment.</p>
+
+  <h2>Step 5: Calculate the Composite Commitment Score</h2>
+  <p>Combine the bidirectional entailment score and the Jaccard surface stability score into a single composite commitment score. A weighted average gives more weight to semantic preservation (entailment) than to lexical preservation (Jaccard), because semantics matter more than surface form.</p>
+  <pre><code>def commitment_score(original, transformed):
+    entailment = bidirectional_entailment(original, transformed)
+    jaccard = jaccard_similarity(original, transformed)
+    return 0.7 * entailment + 0.3 * jaccard</code></pre>
+  <p>The weights (0.7 and 0.3) are a starting point. In domains where exact wording matters (legal contracts, regulatory compliance), increase the Jaccard weight. In domains where paraphrasing is acceptable (creative summarization, translation), decrease it.</p>
+
+  <h2>Step 6: Compare Against the Threshold</h2>
+  <p>Compare the composite commitment score to your predefined threshold. A threshold of 0.80 means the transformed signal must retain at least 80% of the original commitment. If the score falls below threshold, the transformation has degraded commitment and should be rejected or flagged.</p>
+  <p>The threshold is the governance rule expressed as a number. In the MO§ES experimental record, enforced pipelines with a 0.80 threshold conserved commitment at 80-85% across 10 recursive iterations. Without enforcement, commitment fell below 20% by iteration 5.</p>
+
+  <h2>Common Pitfalls</h2>
+  <ul>
+    <li><strong>Using only one measurement method</strong>: NLI alone misses surface drift; Jaccard alone misses semantic drift. Use both. The composite score is more robust than either method alone.</li>
+    <li><strong>Using arithmetic mean instead of geometric mean</strong>: Arithmetic mean does not penalize asymmetry. A transformation that adds information (high forward, low reverse) gets a moderate arithmetic score but a low geometric score. Use geometric mean.</li>
+    <li><strong>Not calibrating with a known corpus</strong>: Before deploying, test your measurement pipeline against a corpus with known commitment levels. If your scores do not match the known values, your model or tokenization needs adjustment.</li>
+    <li><strong>Ignoring tokenization differences</strong>: Jaccard is sensitive to how you tokenize. Consistent tokenization across all signals is essential. Use the same tokenizer for every measurement.</li>
+    <li><strong>Setting the threshold without testing</strong>: The threshold should be validated against a canonical corpus with known degradation patterns. A threshold that is too high rejects legitimate transformations; one that is too low allows drift.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>Once you can measure commitment, use the measurement to <a href="/guides/how-to-enforce-commitment-conservation">enforce commitment conservation</a> and <a href="/guides/how-to-prevent-semantic-drift">prevent semantic drift</a>. For the full audit workflow, see <a href="/guides/how-to-audit-multi-agent-transformations">How to Audit Multi-Agent Transformations</a>, and for the theoretical foundation, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the <a href="/papers">research papers</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/commitment-conservation">Commitment Conservation</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>
+    <a href="/guides/how-to-prevent-semantic-drift">How to Prevent Semantic Drift</a>
+    <a href="/guides/how-to-verify-lineage">How to Verify Lineage</a>
+  </div>
+</div>

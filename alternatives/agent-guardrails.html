@@ -1,0 +1,230 @@
+---
+title: "Alternatives to Agent Guardrails — MO§ES"
+description: "Compare 5 agent guardrail approaches: MO§ES, NVIDIA NeMo Guardrails, Guardrails AI, Llama Guard, and OpenAI Moderation API. Pros, cons, and a comparison table."
+path: "/alternatives/agent-guardrails"
+lede: "Five approaches to agent guardrails, compared head-to-head. From output safety filtering to commitment conservation — here is how MO§ES stacks up against the leading agent guardrail alternatives."
+strip_text: "MO§ES™ · Alternatives · Agent Guardrails"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Alternatives"
+        item: "https://mos2es.com/alternatives/agent-guardrails"
+      - "@type": "ListItem"
+        position: 3
+        name: "Alternatives to Agent Guardrails"
+        item: "https://mos2es.com/alternatives/agent-guardrails"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What are the main alternatives to MO§ES for agent guardrails?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The main alternatives are NVIDIA NeMo Guardrails (programmable runtime guardrails), Guardrails AI (output validation framework), Llama Guard (Meta's safety classifier), and the OpenAI Moderation API (content classification). Each focuses on output safety filtering, while MO§ES focuses on commitment conservation and lineage binding."
+      - "@type": "Question"
+        name: "How is MO§ES different from other agent guardrail tools?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "MO§ES is the only tool that measures and conserves the semantic commitment embedded in signals. Other guardrail tools check whether outputs are safe (toxic, harmful, off-topic), but none measure whether a transformation preserved the commitment of its source. MO§ES also provides cryptographic lineage binding, which no other guardrail tool offers."
+      - "@type": "Question"
+        name: "Can MO§ES replace NeMo Guardrails or Guardrails AI?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. MO§ES and output safety guardrails address different concerns. MO§ES conserves commitment and preserves lineage; guardrails filter unsafe content. They are complementary. A production agent pipeline should use both: guardrails for output safety and MO§ES for signal integrity."
+      - "@type": "Question"
+        name: "Does Llama Guard conserve commitment under transformation?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. Llama Guard is a safety classifier that labels text as safe or unsafe across categories like violence, hate speech, and sexual content. It does not measure semantic commitment or detect commitment drift. A summarization that softens 'shall' to 'may' would pass Llama Guard because it is not unsafe — but MO§ES would reject it because the commitment was degraded."
+      - "@type": "Question"
+        name: "Which agent guardrail tool is best for compliance and audit trails?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "MO§ES is the only tool that provides per-signal cryptographic audit trails with SHA-256 lineage binding. Other guardrail tools produce filtering logs but do not bind artifacts to their origins. For compliance scenarios requiring verifiable provenance — contracts, regulatory obligations, safety commitments — MO§ES is the only tool that provides the audit trail you need."
+---
+
+<div class="prose">
+  <p>Agent guardrails are the safety and integrity mechanisms that sit between AI agents and their outputs. But "guardrails" means different things to different tools. Some filter unsafe content. Some validate output structure. Some classify text for policy violations. MO§ES does something none of the others do: it conserves the <a href="/concepts/conservation-law">commitment</a> embedded in signals and binds every artifact to its lineage. This page compares five approaches so you can understand what each guards and what each does not.</p>
+
+  <h2>At a Glance</h2>
+  <div class="table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>What It Guards</th>
+          <th>Enforcement</th>
+          <th>Commitment Conservation</th>
+          <th>Lineage Binding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MO§ES</strong></td>
+          <td>Signal commitment</td>
+          <td>Pre-execution gating</td>
+          <td class="check">Yes</td>
+          <td class="check">SHA-256</td>
+        </tr>
+        <tr>
+          <td>NeMo Guardrails</td>
+          <td>Output safety / topic</td>
+          <td>Post-hoc filtering</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>Guardrails AI</td>
+          <td>Output structure / validation</td>
+          <td>Post-hoc validation</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>Llama Guard</td>
+          <td>Content safety classification</td>
+          <td>Post-hoc classification</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>OpenAI Moderation API</td>
+          <td>Content safety classification</td>
+          <td>Post-hoc classification</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1. MO§ES — Sovereign Signal Governance</h2>
+  <p>MO§ES is an execution-time governance framework that measures the commitment embedded in each agent signal, gates transformations that would degrade it, and binds every artifact to its lineage via SHA-256 hashes. It is the only tool in this list that conserves semantic meaning, not just filters unsafe content.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Measures and conserves semantic commitment — detects "shall" → "may" drift</li>
+    <li>Pre-execution gating — prevents degradations before they enter the pipeline</li>
+    <li>Cryptographic lineage binding — verifiable chain of custody for every signal</li>
+    <li>Model-agnostic — works with any LLM or agent framework</li>
+    <li>Per-signal audit trails with SHA-256 hashes</li>
+    <li>Protects against recursive transformation degradation across agent handoffs</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Does not filter unsafe content — requires a safety guardrail alongside it</li>
+    <li>Does not validate output structure — requires a validation guardrail if needed</li>
+    <li>Newer framework — smaller ecosystem than established guardrail tools</li>
+  </ul>
+
+  <h2>2. NVIDIA NeMo Guardrails</h2>
+  <p>NeMo Guardrails is an open-source toolkit for adding programmable guardrails to LLM-based applications. It supports input rails, output rails, dialog rails, retrieval rails, and execution rails, allowing developers to define safety rules, topic boundaries, and response policies in a Colang-based DSL.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Highly programmable — supports multiple rail types</li>
+    <li>Model-agnostic — works with any LLM</li>
+    <li>Open-source with active development</li>
+    <li>Supports both input and output filtering</li>
+    <li>Integration with popular LLM frameworks</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Post-hoc — checks outputs after generation</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Cannot detect commitment drift</li>
+    <li>Colang DSL has a learning curve</li>
+    <li>Focuses on safety and topic control, not signal integrity</li>
+  </ul>
+
+  <h2>3. Guardrails AI</h2>
+  <p>Guardrails AI is a Python framework for validating LLM outputs against structural and semantic rules. It supports output validation, structure enforcement, and automatic correction of invalid outputs. It is designed for applications where output format and content must meet specific criteria.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Strong output structure validation</li>
+    <li>Automatic correction of invalid outputs</li>
+    <li>Python-native — easy to integrate into existing codebases</li>
+    <li>Supports custom validators</li>
+    <li>Model-agnostic</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Post-hoc — validates outputs after generation</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Cannot detect commitment drift</li>
+    <li>Focuses on structure and validation, not semantic integrity</li>
+    <li>Automatic correction can introduce new errors</li>
+  </ul>
+
+  <h2>4. Llama Guard — Meta</h2>
+  <p>Llama Guard is a safety classifier model that labels text as safe or unsafe across categories including violence, hate speech, sexual content, and self-harm. It can be used as an input or output guardrail to filter content that violates safety policies.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Trained safety classifier — purpose-built for content moderation</li>
+    <li>Multi-category safety classification</li>
+    <li>Can be fine-tuned for custom safety policies</li>
+    <li>Open-source</li>
+    <li>Fast inference — suitable for real-time filtering</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Post-hoc — classifies outputs after generation</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Cannot detect commitment drift</li>
+    <li>Binary safe/unsafe classification — no nuance</li>
+    <li>May have false positives and negatives</li>
+  </ul>
+
+  <h2>5. OpenAI Moderation API</h2>
+  <p>The OpenAI Moderation API is a hosted content classification service that detects hate, hate/threatening, harassment, harassment/threatening, self-harm, self-harm/instructions, self-harm/intent, sexual, sexual/minors, violence, and violence/graphic content. It is designed for real-time content moderation.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Hosted API — no infrastructure to manage</li>
+    <li>Multi-category content classification</li>
+    <li>Fast — suitable for real-time filtering</li>
+    <li>Well-documented and easy to integrate</li>
+    <li>Continuously updated by OpenAI</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Post-hoc — classifies outputs after generation</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Cannot detect commitment drift</li>
+    <li>Vendor lock-in — tied to OpenAI</li>
+    <li>Cost per API call — does not scale cheaply</li>
+    <li>Classification categories are fixed — not customizable</li>
+  </ul>
+
+  <h2>The Verdict</h2>
+  <p>The five tools in this list guard different things. NeMo Guardrails and Guardrails AI guard output safety and structure. Llama Guard and the OpenAI Moderation API guard content safety via classification. MO§ES guards signal commitment and lineage. None of the safety-focused tools measure commitment or detect commitment drift — the silent degradation where "shall" becomes "may," "must" becomes "should," and contractual obligations soften into suggestions.</p>
+  <p>For a production agent pipeline, the right approach is to layer these tools:</p>
+  <ul>
+    <li><strong>NeMo Guardrails or Guardrails AI</strong> for output safety and structure validation</li>
+    <li><strong>Llama Guard or OpenAI Moderation API</strong> for content safety classification</li>
+    <li><strong>MO§ES</strong> for commitment conservation and lineage binding</li>
+  </ul>
+  <p>MO§ES is the only tool that provides what the others cannot: deterministic commitment enforcement, pre-execution gating, and cryptographic lineage binding. If your agents process signals that carry commitments — contracts, compliance obligations, safety requirements — MO§ES is the guardrail that protects them. The safety guardrails are necessary but insufficient. MO§ES is the integrity layer that completes the stack.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/vs/guardrails">MO§ES vs Guardrails</a>
+    <a href="/vs/agent-orchestration">MO§ES vs Agent Orchestration</a>
+    <a href="/alternatives/ai-governance-frameworks">Alternatives to AI Governance Frameworks</a>
+    <a href="/alternatives/commitment-tracking">Alternatives to Commitment Tracking</a>
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/architecture">Architecture</a>
+  </div>
+</div>

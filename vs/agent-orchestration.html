@@ -1,0 +1,194 @@
+---
+title: "MO§ES vs Agent Orchestration — Sovereign Signal Governance"
+description: "Orchestration coordinates agents. MO§ES governs what they say. Compare MO§ES governance enforcement with LangGraph, CrewAI, and AutoGen — frameworks that coordinate without governance."
+path: "/vs/agent-orchestration"
+lede: "Orchestration coordinates agents. MO§ES governs what they say. LangGraph, CrewAI, and AutoGen manage who talks to whom; MO§ES enforces what those agents are allowed to commit to — and preserves it across every handoff."
+strip_text: "MO§ES™ · Compare · Agent Orchestration"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Compare"
+        item: "https://mos2es.com/vs/agent-orchestration"
+      - "@type": "ListItem"
+        position: 3
+        name: "MO§ES vs Agent Orchestration"
+        item: "https://mos2es.com/vs/agent-orchestration"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is the difference between agent orchestration and MO§ES?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Agent orchestration frameworks (LangGraph, CrewAI, AutoGen) coordinate which agents run, in what order, and how they pass messages. MO§ES governs what those agents are allowed to commit to — measuring commitment, gating transformations that would degrade it, and binding every artifact to its lineage. Orchestration coordinates agents; MO§ES governs what they say."
+      - "@type": "Question"
+        name: "Do agent orchestration frameworks conserve commitment across handoffs?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. Orchestration frameworks manage message routing and agent coordination but do not measure or conserve the semantic commitment embedded in messages. The Conservation Law of Commitment predicts that each handoff degrades commitment by 15-20% without enforcement. After 10 handoffs — a typical multi-agent depth — original commitments can be degraded by over 80%."
+      - "@type": "Question"
+        name: "Can MO§ES be used with LangGraph, CrewAI, or AutoGen?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Yes. MO§ES is a governance layer that wraps any agent pipeline. It can be inserted at message handoffs in LangGraph, at task boundaries in CrewAI, or at conversation turns in AutoGen. MO§ES does not replace orchestration — it adds governance to it."
+      - "@type": "Question"
+        name: "Why does coordination without governance fail?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Coordination ensures that agents communicate in the right order, but it does not ensure that what they communicate preserves the commitments of the original request. An agent that summarizes a contract clause, passes it to another agent, which rephrases it for a user — each step can degrade commitment. Without governance, the final output may bear little commitment resemblance to the original input."
+      - "@type": "Question"
+        name: "What does lineage binding add to agent orchestration?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Lineage binding cryptographically ties every agent output to its input via SHA-256 hashes, creating a verifiable chain of custody across the entire agent pipeline. Orchestration frameworks track message routing but do not preserve semantic lineage. With MO§ES, you can trace any final output back through every agent handoff to the original request and verify commitment was conserved at each step."
+---
+
+<div class="prose">
+  <p>Agent orchestration frameworks — LangGraph, CrewAI, AutoGen — have become the standard way to build multi-agent AI systems. They solve a real problem: coordinating which agent runs, in what order, and how messages pass between them. But they solve a coordination problem, not a governance problem. <strong>Orchestration coordinates agents. MO§ES governs what they say.</strong> A well-orchestrated pipeline with no governance is a well-organized commitment degradation machine.</p>
+
+  <h2>What Agent Orchestration Frameworks Do</h2>
+  <p>Agent orchestration frameworks provide the infrastructure for multi-agent AI systems. LangGraph models agent workflows as state graphs, allowing conditional routing, cycles, and parallel execution. CrewAI defines roles, tasks, and crews, enabling agents to collaborate on complex projects. AutoGen manages conversational patterns between agents, supporting group chats, sequential flows, and nested conversations. All three handle the "who talks to whom, when, and how" of multi-agent systems.</p>
+  <p>The key properties of agent orchestration frameworks are:</p>
+  <ul>
+    <li><strong>Workflow coordination</strong>: Define which agents run and in what order</li>
+    <li><strong>Message routing</strong>: Route messages between agents according to a graph or pattern</li>
+    <li><strong>State management</strong>: Track shared state across agent interactions</li>
+    <li><strong>Role assignment</strong>: Assign roles, tasks, and responsibilities to agents</li>
+    <li><strong>No commitment measurement</strong>: Semantic obligation is not measured</li>
+    <li><strong>No governance enforcement</strong>: No gating, no rejection of degraded signals</li>
+    <li><strong>No lineage binding</strong>: Artifact provenance is not preserved</li>
+  </ul>
+
+  <h2>What MO§ES Does</h2>
+  <p>MO§ES is a governance enforcement layer that can be inserted into any agent pipeline. It measures the <a href="/concepts/conservation-law">commitment</a> embedded in each message, gates transformations that would degrade it, and binds every agent output to its input via SHA-256 hashes. MO§ES does not coordinate agents — it governs what they are allowed to commit to and preserves the lineage of every commitment across every handoff.</p>
+  <p>The key properties of MO§ES are:</p>
+  <ul>
+    <li><strong>Commitment measurement</strong>: The semantic obligation in each message is measured</li>
+    <li><strong>Pre-execution gating</strong>: Transformations that degrade commitment are rejected before application</li>
+    <li><strong>Lineage binding</strong>: Every agent output is cryptographically tied to its input</li>
+    <li><strong>Deterministic enforcement</strong>: Violations are rejected, not flagged</li>
+    <li><strong>Recursive transformation protection</strong>: Commitment is conserved across handoff depth</li>
+    <li><strong>Audit trails</strong>: Per-signal hash chain across the entire agent pipeline</li>
+  </ul>
+
+  <h2>Head-to-Head Comparison</h2>
+  <div class="table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Agent Orchestration</th>
+          <th>MO§ES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary function</td>
+          <td>Coordinate agent workflows</td>
+          <td>Govern signal commitments</td>
+        </tr>
+        <tr>
+          <td>What it manages</td>
+          <td>Who talks to whom, when</td>
+          <td>What agents are allowed to commit to</td>
+        </tr>
+        <tr>
+          <td>Commitment measurement</td>
+          <td class="cross">None</td>
+          <td class="check">Per-signal</td>
+        </tr>
+        <tr>
+          <td>Enforcement model</td>
+          <td class="cross">None (coordination only)</td>
+          <td class="check">Deterministic gating</td>
+        </tr>
+        <tr>
+          <td>Lineage binding</td>
+          <td class="cross">None</td>
+          <td class="check">SHA-256 chain of custody</td>
+        </tr>
+        <tr>
+          <td>Recursive transformation</td>
+          <td class="cross">Degrades commitment per handoff</td>
+          <td class="check">Conserves commitment</td>
+        </tr>
+        <tr>
+          <td>Cross-handoff audit</td>
+          <td class="cross">Message routing logs only</td>
+          <td class="check">Per-signal hash chain</td>
+        </tr>
+        <tr>
+          <td>Commitment drift detection</td>
+          <td class="cross">None</td>
+          <td class="check">Detected and rejected</td>
+        </tr>
+        <tr>
+          <td>Works with any framework</td>
+          <td>N/A (is the framework)</td>
+          <td class="check">Wraps any framework</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Key Differences</h2>
+  <h3>Coordination vs Governance</h3>
+  <p>Orchestration frameworks coordinate: they ensure Agent A passes its output to Agent B, that Agent B runs after Agent A completes, that state is shared correctly. This is necessary infrastructure for multi-agent systems. But coordination says nothing about <em>what</em> Agent A passes to Agent B. If Agent A summarizes a contract clause and softens "shall" to "may," the orchestration framework routes the degraded message to Agent B without comment. MO§ES governs: it measures the commitment in Agent A's output, compares it to the input, and rejects the transformation if commitment was degraded. Coordination moves messages; governance protects their meaning.</p>
+
+  <h3>The Multi-Agent Commitment Degradation Problem</h3>
+  <p>The Conservation Law of Commitment predicts that each recursive transformation degrades commitment by 15-20% without enforcement. In a multi-agent pipeline, every handoff is a transformation. Agent A receives a request, processes it, and passes a summary to Agent B. Agent B processes that summary and passes a rephrased version to Agent C. Agent C produces the final output. After 10 handoffs — a typical depth for a complex multi-agent task — the original commitment can be degraded by over 80%. Orchestration frameworks do not detect this because they do not measure commitment. MO§ES does.</p>
+
+  <h3>No Lineage vs Full Lineage</h3>
+  <p>Orchestration frameworks track message routing — which agent sent what to whom — but they do not track semantic lineage. Once Agent A transforms a message and passes it to Agent B, the connection between Agent B's input and the original request is lost at the semantic level. MO§ES binds every agent output to its input via SHA-256 hashes, creating a verifiable chain of custody across the entire pipeline. You can trace any final output back through every handoff to the original request and verify that commitment was conserved at each step.</p>
+
+  <h3>Framework vs Layer</h3>
+  <p>Orchestration frameworks are frameworks — you build your agent system inside them. MO§ES is a layer — it wraps any agent system, regardless of framework. You can use MO§ES with LangGraph, with CrewAI, with AutoGen, or with a custom orchestration setup. MO§ES does not replace orchestration; it adds governance to it. This means you do not have to choose between MO§ES and your preferred orchestration framework. You use both: the framework for coordination, MO§ES for governance.</p>
+
+  <h2>When to Use Each</h2>
+  <h3>Use agent orchestration when:</h3>
+  <ul>
+    <li>You are building a multi-agent system and need to coordinate agent workflows</li>
+    <li>You need conditional routing, parallel execution, or state management</li>
+    <li>You need role assignment and task delegation across agents</li>
+  </ul>
+
+  <h3>Use MO§ES when:</h3>
+  <ul>
+    <li>Agent outputs carry commitments that must be preserved across handoffs</li>
+    <li>You need to detect and prevent commitment drift in multi-agent pipelines</li>
+    <li>You need per-handoff audit trails and lineage binding</li>
+    <li>You need deterministic governance, not just coordination</li>
+  </ul>
+
+  <h3>Use both when:</h3>
+  <ul>
+    <li>You are building a production multi-agent system where coordination <em>and</em> governance are required</li>
+    <li>Agent handoffs process commitments (contracts, compliance, safety obligations)</li>
+    <li>You need to prove that the final output preserves the commitments of the original request</li>
+  </ul>
+
+  <h2>The Core Insight</h2>
+  <p>Orchestration and governance answer different questions. Orchestration answers "how do agents coordinate?" Governance answers "what are agents allowed to commit to, and is that commitment preserved?" A multi-agent system with orchestration but no governance is coordinated but ungoverned — agents pass messages efficiently, but those messages can silently degrade the commitments they carry. A multi-agent system with governance but no orchestration is governed but uncoordinated — commitments are preserved, but agents do not know who should run when.</p>
+  <p>Production multi-agent systems need both. The orchestration framework provides the rails; MO§ES provides the governance that rides on those rails. Together, they produce a system where agents coordinate effectively <em>and</em> the commitments embedded in their messages are preserved across every handoff, with cryptographic proof. This is what "governed multi-agent AI" means — not just coordinated, but governed.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/vs/constitutional-ai">MO§ES vs Constitutional AI</a>
+    <a href="/vs/rlhf">MO§ES vs RLHF</a>
+    <a href="/vs/guardrails">MO§ES vs Guardrails</a>
+    <a href="/alternatives/agent-guardrails">Alternatives to Agent Guardrails</a>
+    <a href="/alternatives/commitment-tracking">Alternatives to Commitment Tracking</a>
+    <a href="/architecture">Architecture</a>
+  </div>
+</div>

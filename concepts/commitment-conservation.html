@@ -1,0 +1,122 @@
+---
+title: "Commitment Conservation — MO§ES"
+description: "Commitment conservation is the measured outcome that the Conservation Law predicts. With enforcement, commitment is conserved at 80-85% of original levels across recursive transformations. Without enforcement, commitment degrades to near zero."
+path: "/concepts/commitment-conservation"
+lede: "The measured outcome that the Conservation Law predicts. When enforcement is present, commitment is conserved at 80-85% of original levels across recursive transformations. Without enforcement, commitment degrades to near zero."
+strip_text: "MO§ES™ · Concepts · Commitment Conservation"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Concepts"
+        item: "https://mos2es.com/concepts/conservation-law"
+      - "@type": "ListItem"
+        position: 3
+        name: "Commitment Conservation"
+        item: "https://mos2es.com/concepts/commitment-conservation"
+  - "@context": "https://schema.org"
+    "@type": "DefinedTerm"
+    name: "Commitment Conservation"
+    description: "The measured outcome that the Conservation Law predicts. When enforcement is present, commitment is conserved at 80-85% of original levels across recursive transformations. Without enforcement, commitment degrades to near zero."
+    url: "https://mos2es.com/concepts/commitment-conservation"
+    inDefinedTermSet:
+      "@type": "DefinedTermSet"
+      name: "MO§ES Concepts"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is commitment conservation?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Commitment conservation is the measured outcome that the Conservation Law of Commitment predicts. When governance enforcement is present, commitment is conserved at 80-85% of original levels across recursive transformations. Without enforcement, commitment degrades to near zero — typically below 20% by iteration 5 and effectively zero by iteration 8."
+      - "@type": "Question"
+        name: "Why is commitment conserved at 80-85% and not 100%?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Recursive transformation is inherently lossy — some semantic detail is always lost when a signal is summarized, translated, or re-encoded. The 80-85% conservation rate represents the achievable ceiling under enforcement: the resonance threshold blocks transformations that would degrade commitment below an acceptable band, but transformations within the band still produce minor, acceptable losses. 100% conservation would require blocking all transformations, which defeats the purpose."
+      - "@type": "Question"
+        name: "How is commitment conservation measured?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Commitment conservation is measured using NLI bidirectional entailment for semantic measurement and Jaccard surface stability for lexical measurement. The commitment function C compares the commitment of the transformed signal C(T(S)) to the commitment of the original C(S), producing a conservation ratio that can be tracked across iterations."
+      - "@type": "Question"
+        name: "What does commitment degradation look like in practice?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Commitment degradation manifests as the systematic erosion of obligation language. A 'shall' drifts to a 'may.' A 'must' softens to a 'should.' A contractual requirement becomes a suggestion. By iteration 5, most commitment language has been lost. By iteration 8, the signal may be fluent and well-formed but carries almost none of the original obligation."
+      - "@type": "Question"
+        name: "How does commitment conservation relate to the Conservation Law?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The Conservation Law is the prediction; commitment conservation is the measured outcome. The law states C(T(S)) ≈ C(S) with enforcement and C(T(S)) < C(S) without it. Commitment conservation is the empirical confirmation of that prediction — the 80-85% conservation rate measured under enforcement, and the near-zero degradation measured without it."
+---
+
+<div class="prose">
+  <p><strong>Commitment conservation</strong> is the measured outcome that the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> predicts. When governance enforcement is present, commitment is conserved at 80-85% of original levels across recursive transformations. Without enforcement, commitment degrades to near zero. The difference is not marginal — it is the difference between a signal that retains its obligation and one that has lost it entirely.</p>
+
+  <h2>The Measured Outcome</h2>
+  <p>The Conservation Law is a prediction: C(T(S)) ≈ C(S) with enforcement; C(T(S)) &lt; C(S) without it. Commitment conservation is the empirical confirmation of that prediction. It was measured across seven controlled experiments (EXP-001 through EXP-007) using a 20-signal canonical corpus with 10 recursive iterations per signal:</p>
+  <ul>
+    <li><strong>With enforcement</strong>: Commitment was conserved at 80-85% of original levels across all 10 iterations. The resonance threshold blocked degrading transformations, and the remaining transformations preserved commitment within the acceptable band.</li>
+    <li><strong>Without enforcement</strong>: Commitment degraded by 15-20% per iteration. By iteration 5, commitment was below 20% of original levels. By iteration 8, it was effectively zero.</li>
+  </ul>
+  <p>The transformation operator T was identical in both cases. The only variable was <a href="/concepts/governance-enforcement">governance enforcement</a>. The law's prediction was confirmed.</p>
+
+  <h2>Why 80-85% and Not 100%</h2>
+  <p>Recursive transformation is inherently lossy. Some semantic detail is always lost when a signal is summarized, translated, or re-encoded — that is the nature of compression. The 80-85% conservation rate represents the achievable ceiling under enforcement. The resonance threshold blocks transformations that would degrade commitment below an acceptable band, but transformations within the band still produce minor, acceptable losses.</p>
+  <p>100% conservation would require blocking all transformations, which defeats the purpose of the pipeline. The goal is not to prevent transformation — it is to prevent degradation beyond an acceptable threshold. The 80-85% rate is the balance point: enough conservation to preserve the signal's obligation, enough flexibility to allow the pipeline to function.</p>
+
+  <h2>How It Is Measured</h2>
+  <p>Commitment conservation is measured using two complementary methods:</p>
+  <ul>
+    <li><strong>NLI bidirectional entailment</strong>: Natural Language Inference measures whether the transformed signal entails the original and vice versa. Forward entailment checks that the transformation preserves the original's meaning; backward entailment checks that the transformation does not add new commitments. Together, they provide a semantic measure of commitment conservation.</li>
+    <li><strong>Jaccard surface stability</strong>: The Jaccard similarity coefficient measures lexical overlap between the original and transformed signals. This captures surface-level changes — vocabulary shifts, structural changes — that may indicate commitment erosion even when semantic metrics appear stable.</li>
+  </ul>
+  <p>The commitment function C combines these measurements to produce a conservation ratio: C(T(S)) / C(S). This ratio can be tracked across iterations, providing a quantitative measure of how well the system is conserving commitment over recursive depth.</p>
+
+  <h2>What Degradation Looks Like</h2>
+  <p>Commitment degradation is not abstract. It manifests as the systematic erosion of obligation language in the signal:</p>
+  <ul>
+    <li>A <strong>"shall"</strong> drifts to a <strong>"may"</strong> — obligation becomes permission</li>
+    <li>A <strong>"must"</strong> softens to a <strong>"should"</strong> — requirement becomes recommendation</li>
+    <li>A <strong>contractual obligation</strong> becomes a <strong>suggestion</strong> — binding language becomes advisory</li>
+    <li>A <strong>deadline</strong> becomes a <strong>target</strong> — hard constraints become soft preferences</li>
+  </ul>
+  <p>By iteration 5, most commitment language has been lost. The signal may still be fluent, well-formed, and superficially accurate — surface metrics like Jaccard may show reasonable stability — but the obligation that the original signal carried is gone. By iteration 8, the signal is a shell: it reads well, it means little, and it obligates nothing.</p>
+
+  <h2>Why It Matters</h2>
+  <p>Commitment conservation is the difference between an AI pipeline that preserves meaning and one that erodes it. In practice, most AI systems — summarizers, translators, agent orchestrators, multi-agent frameworks — operate without enforcement. The Conservation Law predicts, and the experiments confirm, that these systems are systematically degrading the commitments in the signals they process.</p>
+  <p>This matters because commitments are the substance of governance. A policy document that has lost its "shall" is not a policy. A contract that has lost its "must" is not a contract. A regulation that has lost its obligation is not a regulation. When AI pipelines process these documents without enforcement, they produce outputs that look like governance but carry none of its force. Commitment conservation is what keeps the force intact.</p>
+
+  <h2>Relationship to Other Concepts</h2>
+  <ul>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: The law is the prediction; commitment conservation is the measured outcome that confirms it</li>
+    <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: The presence or absence of enforcement determines whether commitment is conserved or degraded</li>
+    <li><a href="/concepts/recursive-compression">Recursive Compression</a>: The transformation process that commitment conservation protects against</li>
+    <li><a href="/concepts/signal-encoding">Signal Encoding</a>: The process that embeds commitment into the signal — conservation protects what encoding creates</li>
+  </ul>
+
+  <h2>Practical Implications</h2>
+  <p>If you are deploying AI systems in any domain where commitment matters — legal contracts, regulatory compliance, policy enforcement, safety requirements — commitment conservation is not optional. Without enforcement, your pipeline is degrading the obligations in your documents by 15-20% per transformation step. After a typical multi-agent pipeline of 5-10 steps, the commitments are gone. MO§ES with governance enforcement keeps them at 80-85% — not perfect, but functional. The difference between 85% and 0% is the difference between a system that governs and one that merely processes.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/concepts/recursive-compression">Recursive Compression</a>
+    <a href="/concepts/signal-encoding">Signal Encoding</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+  </div>
+</div>

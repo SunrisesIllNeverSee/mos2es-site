@@ -1,0 +1,141 @@
+---
+title: "How to Prevent Semantic Drift — MO§ES"
+description: "Guide to detecting and preventing semantic drift in recursive AI transformations using resonance thresholds and commitment conservation."
+path: "/guides/how-to-prevent-semantic-drift"
+lede: "A practical guide to detecting and preventing semantic drift in recursive AI transformations using resonance thresholds and commitment conservation."
+strip_text: "MO§ES™ · Guides · Prevent Semantic Drift"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Guides"
+        item: "https://mos2es.com/guides"
+      - "@type": "ListItem"
+        position: 3
+        name: "How to Prevent Semantic Drift"
+        item: "https://mos2es.com/guides/how-to-prevent-semantic-drift"
+  - "@context": "https://schema.org"
+    "@type": "HowTo"
+    name: "How to Prevent Semantic Drift"
+    description: "Guide to detecting and preventing semantic drift in recursive AI transformations using resonance thresholds and commitment conservation."
+    totalTime: "PT10M"
+    step:
+      - "@type": "HowToStep"
+        name: "Establish a baseline commitment measurement"
+        text: "Measure the commitment of the original signal before any transformation is applied. This baseline — C(S) — is the reference point against which all subsequent transformations are compared."
+      - "@type": "HowToStep"
+        name: "Set a resonance threshold"
+        text: "Define the minimum acceptable commitment ratio C(T(S))/C(S). A threshold of 0.80 means a transformed signal must retain at least 80% of the original commitment. Transformations that fall below this threshold are rejected."
+      - "@type": "HowToStep"
+        name: "Measure commitment after each transformation"
+        text: "After every transformation, measure the commitment of the output signal using NLI bidirectional entailment and Jaccard surface stability. Compute the commitment ratio relative to the baseline."
+      - "@type": "HowToStep"
+        name: "Detect drift early"
+        text: "Compare the commitment ratio to the threshold after every transformation. Do not wait for the final output — detect drift at every hop. Early detection prevents drift from compounding across recursive iterations."
+      - "@type": "HowToStep"
+        name: "Block degrading transformations"
+        text: "When a transformation falls below the resonance threshold, block it. Do not apply the transformation. Either retry with adjusted parameters, pass the signal through unchanged, or escalate to human review."
+      - "@type": "HowToStep"
+        name: "Track drift trajectories across iterations"
+        text: "Record the commitment ratio at every iteration in the audit trail. A drift trajectory — the sequence of commitment ratios across iterations — reveals whether drift is accelerating, stable, or controlled. Use this data to tune thresholds and identify problematic transformations."
+---
+
+<div class="prose">
+  <p>Semantic drift is the gradual degradation of meaning that occurs when AI signals are transformed recursively. A "shall" becomes a "should," then a "may," then a suggestion, then nothing. The <a href="/concepts/conservation-law">Conservation Law of Commitment</a> predicts that this drift is not random but systematic — it degrades commitment by 15-20% per iteration without enforcement. This guide shows you how to detect and prevent semantic drift using resonance thresholds and commitment conservation.</p>
+
+  <h2>Overview</h2>
+  <p>Preventing semantic drift requires two things: <strong>detection</strong> (measuring commitment at every transformation and comparing it to a threshold) and <strong>prevention</strong> (blocking transformations that would cause drift). Detection without prevention is monitoring — you can see the drift but cannot stop it. Prevention without detection is blind enforcement — you block transformations but do not know which ones are degrading.</p>
+  <p>The MO§ES approach combines both: measure commitment at every hop using NLI bidirectional entailment and Jaccard surface stability, compare the commitment ratio to a resonance threshold, and block any transformation that falls below the threshold. This creates a closed loop: measure, compare, enforce, log.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>An AI pipeline with recursive transformations (summarization, translation, agent chains)</li>
+    <li>An NLI model for bidirectional entailment measurement</li>
+    <li>A tokenization library for Jaccard surface stability</li>
+    <li>An append-only audit trail for drift trajectory logging</li>
+    <li>Understanding of <a href="/concepts/conservation-law">commitment conservation</a> and <a href="/guides/how-to-measure-semantic-commitment">commitment measurement</a></li>
+  </ul>
+
+  <h2>Step 1: Establish a Baseline Commitment Measurement</h2>
+  <p>Before any transformation is applied, measure the commitment of the original signal. This baseline — C(S) — is the reference point against which all subsequent transformations are compared. Without a baseline, you cannot detect drift — you have nothing to compare against.</p>
+  <p>The baseline measurement uses the same two methods as all subsequent measurements: NLI bidirectional entailment (for semantic preservation) and Jaccard surface stability (for lexical preservation). The baseline is not a single number but a pair: (entailment_score, jaccard_score). Store both values alongside the signal hash in the audit trail.</p>
+  <pre><code>baseline = {
+    "signal_hash": sha256(original_signal),
+    "entailment": 1.0,  # self-entailment is perfect
+    "jaccard": 1.0,     # self-similarity is perfect
+    "commitment": 1.0   # composite score
+}</code></pre>
+
+  <h2>Step 2: Set a Resonance Threshold</h2>
+  <p>The resonance threshold is the minimum acceptable commitment ratio <code>C(T(S)) / C(S)</code>. A threshold of 0.80 means a transformed signal must retain at least 80% of the original commitment. Transformations that produce a ratio below this threshold are rejected.</p>
+  <p>The threshold is the primary control for drift prevention. Set it too high and you reject legitimate transformations (false positives). Set it too low and you allow drift (false negatives). In the MO§ES experimental record, a threshold of 0.80 conserved commitment at 80-85% across 10 iterations — an effective balance between strictness and flexibility.</p>
+  <p>Different domains may require different thresholds. A legal contract pipeline may demand 0.95. A creative summarization pipeline may accept 0.70. Document your threshold choice and the rationale.</p>
+
+  <h2>Step 3: Measure Commitment After Each Transformation</h2>
+  <p>After every transformation, measure the commitment of the output signal. Use the same two methods as the baseline: NLI bidirectional entailment and Jaccard surface stability. Compute the commitment ratio relative to the baseline.</p>
+  <p>The measurement must happen at every hop, not just at the end. Drift compounds — a 15% degradation at hop 1 becomes a 28% degradation by hop 2 (0.85 × 0.85 = 0.72) and a 39% degradation by hop 3. By measuring at every hop, you catch drift before it compounds.</p>
+  <pre><code>def measure_drift(original, transformed, baseline):
+    entailment = bidirectional_entailment(original, transformed)
+    jaccard = jaccard_similarity(original, transformed)
+    commitment = 0.7 * entailment + 0.3 * jaccard
+    ratio = commitment / baseline["commitment"]
+    return ratio</code></pre>
+
+  <h2>Step 4: Detect Drift Early</h2>
+  <p>Compare the commitment ratio to the threshold after every transformation. If the ratio falls below the threshold, drift has been detected. Do not wait for the final output to check — by then, drift has compounded across multiple hops and is much harder to remediate.</p>
+  <p>Early detection is the key to drift prevention. A transformation that degrades commitment by 15% at hop 1 is easy to catch and remediate. The same transformation, allowed to proceed through 10 hops, degrades commitment by over 80% — and the original meaning is effectively lost. Catch it early, at the first hop where it occurs.</p>
+
+  <h2>Step 5: Block Degrading Transformations</h2>
+  <p>When a transformation falls below the resonance threshold, block it. Do not apply the transformation. The signal should either:</p>
+  <ul>
+    <li><strong>Pass through unchanged</strong>: If the transformation is optional (e.g., a formatting step), skip it and pass the signal to the next stage in its current form.</li>
+    <li><strong>Retry with adjusted parameters</strong>: If the transformation is necessary but the parameters are too aggressive (e.g., a compression ratio that is too high), retry with more conservative parameters.</li>
+    <li><strong>Escalate to human review</strong>: If the transformation is necessary and automatic retry fails, route the signal to a human reviewer with the audit context.</li>
+  </ul>
+  <p>Blocking is the prevention mechanism. Without blocking, detection is just monitoring — you can see the drift but cannot stop it. The block is what prevents drift from compounding.</p>
+
+  <h2>Step 6: Track Drift Trajectories Across Iterations</h2>
+  <p>Record the commitment ratio at every iteration in the audit trail. This creates a drift trajectory — a sequence of commitment ratios that shows how commitment changes across the pipeline. A healthy trajectory is flat or gently declining. A degrading trajectory declines steeply, often accelerating with depth.</p>
+  <p>Drift trajectories are the primary diagnostic tool for drift prevention. They reveal:</p>
+  <ul>
+    <li><strong>Which transformations cause drift</strong>: A sudden drop in the trajectory at a specific hop identifies the responsible transformation.</li>
+    <li><strong>Whether drift is accelerating</strong>: A trajectory that declines faster than linear indicates compounding drift — a sign that enforcement is not working.</li>
+    <li><strong>Whether thresholds need tuning</strong>: A trajectory that hovers just above the threshold suggests the threshold is well-calibrated. A trajectory that never approaches the threshold suggests it may be too low.</li>
+  </ul>
+  <p>Use drift trajectory data to tune thresholds, identify problematic transformations, and demonstrate compliance. The trajectory is the evidence that your drift prevention is working — or, if it is not, the diagnostic that tells you why.</p>
+
+  <h2>Common Pitfalls</h2>
+  <ul>
+    <li><strong>Measuring only at the end</strong>: End-of-pipeline measurement catches drift after it has compounded. Measure at every hop to catch drift early.</li>
+    <li><strong>Setting the threshold too low</strong>: A threshold below 0.70 allows significant drift. Start at 0.80 and adjust based on your drift trajectories.</li>
+    <li><strong>Detecting without blocking</strong>: Detection without prevention is monitoring, not governance. When drift is detected, block the transformation.</li>
+    <li><strong>Not tracking trajectories</strong>: Individual measurements are data points; trajectories are patterns. Without tracking trajectories, you cannot identify systematic drift or tune thresholds effectively.</li>
+    <li><strong>Using only one measurement method</strong>: NLI alone misses surface drift; Jaccard alone misses semantic drift. Use both to catch both failure modes.</li>
+    <li><strong>Ignoring the baseline</strong>: Without a baseline measurement, you cannot compute a commitment ratio. Always measure the baseline before the first transformation.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>Once drift prevention is operational, combine it with <a href="/guides/how-to-verify-lineage">lineage verification</a> to prove that your drift prevention is working, and <a href="/guides/how-to-audit-multi-agent-transformations">multi-agent auditing</a> to extend drift prevention across agent chains. For the full enforcement workflow, see <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>, and for the theoretical foundation, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the <a href="/papers">research papers</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/recursive-compression">Recursive Compression</a>
+    <a href="/concepts/commitment-conservation">Commitment Conservation</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-measure-semantic-commitment">How to Measure Semantic Commitment</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>
+    <a href="/guides/how-to-audit-multi-agent-transformations">How to Audit Multi-Agent Transformations</a>
+  </div>
+</div>

@@ -441,6 +441,11 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 12:57 UTC · bcc28a7 · Deric · fix: remove ignore rule from netlify.toml (caused false error status on GitHub)
+[HOOK] 2026-07-10 12:53 UTC · 9d70268 · Deric · fix: netlify.toml — correct publish dir + add ignore rule for docs-only commits
+[HOOK] 2026-07-10 09:55 UTC · 07b84de · Deric · docs: site organization & structure plan — brainstorming
+[HOOK] 2026-07-10 09:30 UTC · 11ddfaf · Deric · docs: add SF run 2 directory tree diagram
+[HOOK] 2026-07-10 09:29 UTC · b1ab3b1 · Deric · docs: SF run 2 bus update — grade A-, remaining fixes applied
 [HOOK] 2026-07-10 09:29 UTC · 8bb8f5a · Deric · fix: SF run 2 post-fix audit + remaining issue fixes
 [HOOK] 2026-07-10 09:15 UTC · ae157d7 · Deric · docs: GSC live — index audit, URL push, search analytics
 [HOOK] 2026-07-10 09:09 UTC · 0000924 · Deric · feat: GSC setup guide + install toolkit dependencies

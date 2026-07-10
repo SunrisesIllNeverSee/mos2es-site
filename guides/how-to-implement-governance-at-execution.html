@@ -1,0 +1,127 @@
+---
+title: "How to Implement Governance at Execution — MO§ES"
+description: "Guide to moving governance from post-hoc review to pre-execution enforcement. Covers the shift from reactive to proactive AI governance."
+path: "/guides/how-to-implement-governance-at-execution"
+lede: "A practical guide to moving AI governance from post-hoc review to pre-execution enforcement — the shift from reactive to proactive governance."
+strip_text: "MO§ES™ · Guides · Governance at Execution"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Guides"
+        item: "https://mos2es.com/guides"
+      - "@type": "ListItem"
+        position: 3
+        name: "How to Implement Governance at Execution"
+        item: "https://mos2es.com/guides/how-to-implement-governance-at-execution"
+  - "@context": "https://schema.org"
+    "@type": "HowTo"
+    name: "How to Implement Governance at Execution"
+    description: "Guide to moving governance from post-hoc review to pre-execution enforcement. Covers the shift from reactive to proactive AI governance."
+    totalTime: "PT10M"
+    step:
+      - "@type": "HowToStep"
+        name: "Audit your current governance posture"
+        text: "Identify where governance currently happens in your AI pipeline. If governance is post-hoc — reviewing outputs after they are generated — you are reactive. Document every point where a human or automated check occurs."
+      - "@type": "HowToStep"
+        name: "Identify enforcement points"
+        text: "Map every transformation in your pipeline and identify where pre-execution gates can be inserted. An enforcement point is any location where a transformation can be checked before it is applied."
+      - "@type": "HowToStep"
+        name: "Define governance rules as thresholds"
+        text: "Convert your governance policies into measurable thresholds. A policy like 'do not weaken obligations' becomes a commitment threshold of 0.80. A policy like 'preserve contractual language' becomes a Jaccard surface stability threshold."
+      - "@type": "HowToStep"
+        name: "Install pre-execution gates"
+        text: "At each enforcement point, install a gate that measures the predicted commitment of the transformation and blocks it if it falls below threshold. The gate runs before the transformation is applied, not after."
+      - "@type": "HowToStep"
+        name: "Wire gates to the audit trail"
+        text: "Connect every gate to the append-only audit trail. Every gate decision — pass, block, or escalate — is logged with the signal hash, commitment measurements, and timestamp."
+      - "@type": "HowToStep"
+        name: "Retire post-hoc review for gated transformations"
+        text: "Once pre-execution gates are operational and tested, post-hoc review of gated transformations becomes redundant. Shift human review effort to threshold tuning, exception handling, and audit analysis."
+---
+
+<div class="prose">
+  <p>Most AI governance is reactive. A system generates an output, a human or automated check reviews it, and if something is wrong, the output is flagged or discarded. This post-hoc approach is too late — by the time the review happens, the transformation has already been applied. <a href="/architecture">MO§ES</a> moves governance to the point of execution, blocking degrading transformations before they happen. This guide shows you how to make that shift.</p>
+
+  <h2>Overview</h2>
+  <p>Governance at execution means installing enforcement gates that run <em>before</em> a transformation is applied, not after. The gate measures the predicted commitment of the transformation and blocks it if it would degrade the signal below an acceptable threshold. This is the shift from reactive governance (catching problems after they occur) to proactive governance (preventing problems before they occur).</p>
+  <p>This is not a theoretical improvement. In the <a href="/concepts/conservation-law">Conservation Law</a> experiments, post-hoc review caught degradation only after it had already compounded across multiple iterations. Pre-execution gating prevented degradation from occurring at all, conserving commitment at 80-85% across 10 iterations.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>An AI pipeline with identifiable transformation steps</li>
+    <li>Current governance processes documented (even if informal)</li>
+    <li>An NLI model for commitment measurement</li>
+    <li>Authority to modify the pipeline to insert enforcement gates</li>
+    <li>Understanding of <a href="/concepts/governance-enforcement">governance enforcement</a> and the <a href="/architecture">MO§ES architecture</a></li>
+  </ul>
+
+  <h2>Step 1: Audit Your Current Governance Posture</h2>
+  <p>Before you can move governance to execution, you need to know where it currently happens. Audit your pipeline and identify every point where a governance check occurs. For most organizations, the answer is: at the end, by a human, after the output is already generated.</p>
+  <p>Document each check: who performs it, what they look for, how long it takes, and what happens when they find a problem. This audit reveals two things: how much of your governance is reactive, and where the highest-risk transformations are.</p>
+  <pre><code># Example governance audit
+checks = [
+    {"point": "final output",   "type": "human review", "timing": "post-hoc"},
+    {"point": "agent-3 output", "type": "automated",    "timing": "post-hoc"},
+    {"point": "intake",         "type": "none",         "timing": "n/a"}
+]</code></pre>
+
+  <h2>Step 2: Identify Enforcement Points</h2>
+  <p>An enforcement point is any location in your pipeline where a transformation can be checked before it is applied. Every transformation in your pipeline is a candidate enforcement point. The goal is to identify the points where a gate will have the most impact.</p>
+  <p>Prioritize enforcement points based on two factors: the degradation risk of the transformation (summarization and compression are high-risk; formatting is low-risk), and the recursion depth at which the transformation occurs (early transformations have more downstream impact than late ones).</p>
+
+  <h2>Step 3: Define Governance Rules as Thresholds</h2>
+  <p>Pre-execution gating requires measurable thresholds. Convert your governance policies into numeric thresholds that a gate can evaluate. This is the key conceptual shift: governance rules become commitment thresholds.</p>
+  <ul>
+    <li>"Do not weaken obligations" → commitment threshold of 0.80</li>
+    <li>"Preserve contractual language" → Jaccard surface stability threshold of 0.70</li>
+    <li>"Maintain modal force" → NLI entailment threshold of 0.85</li>
+    <li>"Do not introduce new claims" → contradiction detection threshold of 0.95</li>
+  </ul>
+  <p>Each threshold is a governance rule expressed as a number. The gate enforces the rule by checking the threshold before the transformation is applied.</p>
+
+  <h2>Step 4: Install Pre-Execution Gates</h2>
+  <p>At each enforcement point, install a gate that measures the predicted commitment of the transformation and blocks it if it falls below threshold. The gate runs synchronously, before the transformation is applied. If the gate blocks, the transformation does not happen — the signal is either passed through unchanged, retried with adjusted parameters, or escalated.</p>
+  <p>The gate is the enforcement mechanism. Without it, your thresholds are just policies — aspirations that transformations may or may not satisfy. With the gate, the thresholds are enforced at the point of execution.</p>
+
+  <h2>Step 5: Wire Gates to the Audit Trail</h2>
+  <p>Every gate decision must be logged. Connect each gate to the append-only audit trail and record: the signal hash, the transformation type, the commitment measurements before and after, the threshold, and the decision (pass, block, escalate). This creates a complete record of every governance decision in your pipeline.</p>
+  <p>The audit trail serves three purposes: it provides evidence for compliance reviews, it enables post-hoc analysis of gate effectiveness, and it creates a feedback loop for threshold tuning. A gate that blocks too often may have its threshold set too high; a gate that never blocks may have its threshold set too low.</p>
+
+  <h2>Step 6: Retire Post-Hoc Review for Gated Transformations</h2>
+  <p>Once pre-execution gates are operational and tested against a canonical corpus, post-hoc review of gated transformations becomes redundant. The gate has already verified that the transformation preserves commitment. Continuing to review gated transformations manually wastes the effort you invested in building the gates.</p>
+  <p>Shift human review effort to higher-value activities: threshold tuning (adjusting thresholds based on audit data), exception handling (reviewing transformations that were blocked or escalated), and audit analysis (looking for patterns in the audit trail that indicate systemic issues).</p>
+
+  <h2>Common Pitfalls</h2>
+  <ul>
+    <li><strong>Keeping post-hoc review alongside gates</strong>: If you install gates but continue reviewing every output manually, you have not actually shifted your governance posture. You have just added overhead. Trust the gates and shift review effort.</li>
+    <li><strong>Setting thresholds without testing</strong>: Thresholds that are not tested against a canonical corpus are guesses. Test before deploying.</li>
+    <li><strong>Gating only high-risk transformations</strong>: Low-risk transformations can still degrade commitment, especially at high recursion depths. Gate broadly, then tune thresholds to reduce false positives.</li>
+    <li><strong>Not logging gate decisions</strong>: A gate that does not log its decisions is a black box. You cannot tune what you cannot see.</li>
+    <li><strong>Treating governance as a one-time shift</strong>: Governance at execution is not a one-time migration. It requires ongoing threshold tuning, audit analysis, and gate adjustment as your pipeline evolves.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>Once governance is at execution, extend it with <a href="/guides/how-to-build-a-governance-layer">a full governance layer</a> and <a href="/guides/how-to-enforce-commitment-conservation">commitment conservation enforcement</a>. For the architectural context, see the <a href="/architecture">MO§ES architecture</a> page, and for the theoretical foundation, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>
+    <a href="/guides/how-to-build-a-governance-layer">How to Build a Governance Layer</a>
+    <a href="/guides/how-to-implement-governance-at-execution">How to Implement Governance at Execution</a>
+    <a href="/guides/how-to-audit-multi-agent-transformations">How to Audit Multi-Agent Transformations</a>
+  </div>
+</div>

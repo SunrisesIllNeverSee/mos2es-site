@@ -1,0 +1,246 @@
+---
+title: "Alternatives to AI Governance Frameworks — MO§ES"
+description: "Compare 6 AI governance approaches: MO§ES, Constitutional AI, RLHF, runtime guardrails, AI safety benchmarks, and EU AI Act compliance. Pros, cons, and a comparison table."
+path: "/alternatives/ai-governance-frameworks"
+lede: "Six approaches to AI governance, compared head-to-head. From training-time alignment to execution-time enforcement, from voluntary frameworks to regulatory compliance — here is how MO§ES stacks up against the alternatives."
+strip_text: "MO§ES™ · Alternatives · AI Governance Frameworks"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Alternatives"
+        item: "https://mos2es.com/alternatives/ai-governance-frameworks"
+      - "@type": "ListItem"
+        position: 3
+        name: "Alternatives to AI Governance Frameworks"
+        item: "https://mos2es.com/alternatives/ai-governance-frameworks"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What are the main alternatives to MO§ES for AI governance?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The main alternatives are Constitutional AI (rules-based model training), RLHF (Reinforcement Learning from Human Feedback), runtime guardrails (NVIDIA NeMo Guardrails, Guardrails AI), AI safety benchmarks (HELM, MLCommons), and EU AI Act compliance frameworks. Each operates at a different layer — training, execution, evaluation, or regulation — and addresses a different aspect of governance."
+      - "@type": "Question"
+        name: "How is MO§ES different from other AI governance frameworks?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "MO§ES is the only framework that enforces commitment conservation at the signal level at execution time. Other frameworks operate at training time (Constitutional AI, RLHF), at the output level (guardrails), at the evaluation level (benchmarks), or at the regulatory level (EU AI Act). MO§ES is complementary to all of them — it adds deterministic, per-signal governance that the others do not provide."
+      - "@type": "Question"
+        name: "Can MO§ES be used alongside other AI governance frameworks?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Yes. MO§ES is designed as a governance layer that wraps any AI pipeline. It can be used with models trained via Constitutional AI or RLHF, with pipelines protected by runtime guardrails, with systems evaluated against safety benchmarks, and within organizations complying with the EU AI Act. MO§ES does not replace these frameworks — it adds execution-time commitment enforcement."
+      - "@type": "Question"
+        name: "Which AI governance framework is best for high-stakes commitments?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "For signals carrying high-stakes commitments — contracts, compliance obligations, safety requirements — MO§ES is the only framework that provides deterministic, per-signal enforcement with cryptographic lineage binding. Other frameworks provide probabilistic alignment, output filtering, or regulatory compliance, but none guarantee that the commitment in a specific signal is preserved across transformation."
+      - "@type": "Question"
+        name: "Is the EU AI Act a substitute for MO§ES?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. The EU AI Act is a regulatory framework that defines obligations for AI providers and deployers. It tells you what you must do to comply with the law, but it does not provide the technical mechanism to enforce commitment conservation. MO§ES is a technical enforcement layer that can help you meet EU AI Act requirements for transparency, auditability, and risk management."
+---
+
+<div class="prose">
+  <p>AI governance is not one problem — it is a stack of problems at different layers. Training-time alignment, execution-time enforcement, output safety filtering, evaluation benchmarks, and regulatory compliance each address a different facet. No single framework covers all of them. This page compares six approaches to AI governance, including <a href="/">MO§ES</a>, so you can understand what each does, what each does not do, and how they fit together.</p>
+
+  <h2>At a Glance</h2>
+  <div class="table-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Framework</th>
+          <th>Layer</th>
+          <th>Enforcement</th>
+          <th>Commitment Conservation</th>
+          <th>Lineage Binding</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MO§ES</strong></td>
+          <td>Execution</td>
+          <td>Deterministic</td>
+          <td class="check">Yes</td>
+          <td class="check">SHA-256</td>
+        </tr>
+        <tr>
+          <td>Constitutional AI</td>
+          <td>Training</td>
+          <td>Probabilistic</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>RLHF</td>
+          <td>Training</td>
+          <td>Probabilistic</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>Runtime Guardrails</td>
+          <td>Output</td>
+          <td>Post-hoc filtering</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>AI Safety Benchmarks</td>
+          <td>Evaluation</td>
+          <td>None (measurement)</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+        <tr>
+          <td>EU AI Act Compliance</td>
+          <td>Regulatory</td>
+          <td>Policy / legal</td>
+          <td class="cross">No</td>
+          <td class="cross">No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1. MO§ES — Sovereign Signal Governance</h2>
+  <p>MO§ES is an execution-time governance framework that enforces <a href="/concepts/conservation-law">commitment conservation</a> at the signal level. It measures the semantic commitment embedded in each signal, gates transformations that would degrade it, and binds every artifact to its lineage via SHA-256 hashes. MO§ES is model-agnostic and can wrap any AI pipeline.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Deterministic enforcement — violations are rejected, not flagged</li>
+    <li>Pre-execution gating — degradations are prevented before they enter the pipeline</li>
+    <li>Cryptographic lineage binding — verifiable chain of custody for every signal</li>
+    <li>Model-agnostic — works with any model, no retraining required</li>
+    <li>Per-signal audit trails — every transformation is logged with a hash</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Does not train models — requires a base model to govern</li>
+    <li>Does not filter unsafe content — requires guardrails for output safety</li>
+    <li>Newer framework — smaller ecosystem than established training methods</li>
+  </ul>
+
+  <h2>2. Constitutional AI — Anthropic</h2>
+  <p>Constitutional AI is a training methodology that shapes model behavior through a set of principles — a "constitution" — that the model uses to evaluate and improve its own outputs during training. It produces models that are more helpful, honest, and harmless on average.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Improves broad model behavior across many use cases</li>
+    <li>Reduces need for large human annotation teams</li>
+    <li>Scalable — principles can be updated and model retrained</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Probabilistic alignment — no guarantee on individual outputs</li>
+    <li>Training-time only — no execution-time enforcement</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Requires retraining to update behavior</li>
+  </ul>
+
+  <h2>3. RLHF — Reinforcement Learning from Human Feedback</h2>
+  <p>RLHF aligns models to human preferences by collecting human rankings of model outputs, training a reward model on those rankings, and fine-tuning the language model via reinforcement learning. It is the dominant alignment method for modern LLMs.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Aligns models to actual human preferences</li>
+    <li>Well-understood methodology with broad industry adoption</li>
+    <li>Improves helpfulness and reduces harmful outputs on average</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Probabilistic — no guarantee on individual outputs</li>
+    <li>Training-time only — no execution-time enforcement</li>
+    <li>Susceptible to reward hacking</li>
+    <li>No commitment measurement or conservation</li>
+    <li>Requires expensive human preference data</li>
+    <li>Requires fine-tuning to update behavior</li>
+  </ul>
+
+  <h2>4. Runtime Guardrails — NeMo Guardrails, Guardrails AI</h2>
+  <p>Runtime guardrails are frameworks that sit between the user and the LLM and check inputs and outputs against safety rules. NVIDIA NeMo Guardrails and Guardrails AI are the leading examples. They filter toxic content, enforce topic boundaries, and validate output structure.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Model-agnostic — works with any LLM</li>
+    <li>Real-time output safety filtering</li>
+    <li>Programmable rules and classifiers</li>
+    <li>No retraining required</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Post-hoc — checks outputs after generation, not before transformation</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Cannot detect commitment drift (e.g., "shall" → "may")</li>
+    <li>Focuses on safety, not signal integrity</li>
+  </ul>
+
+  <h2>5. AI Safety Benchmarks — HELM, MLCommons</h2>
+  <p>AI safety benchmarks like HELM (Holistic Evaluation of Language Models) and MLCommons AI Safety benchmarks provide standardized evaluation suites that measure model performance across safety, fairness, and robustness dimensions. They are measurement tools, not enforcement mechanisms.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Standardized, reproducible evaluation</li>
+    <li>Enables comparison across models and versions</li>
+    <li>Community-driven and transparent</li>
+    <li>Useful for model selection and vendor evaluation</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Evaluation only — no enforcement mechanism</li>
+    <li>Aggregate metrics — no per-signal guarantees</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Static benchmarks — may not capture emerging risks</li>
+  </ul>
+
+  <h2>6. EU AI Act Compliance</h2>
+  <p>The EU AI Act is a regulatory framework that defines obligations for AI providers and deployers based on risk levels. It requires transparency, risk management, human oversight, and conformity assessments for high-risk AI systems. Compliance frameworks help organizations meet these legal obligations.</p>
+  <p><strong>Pros:</strong></p>
+  <ul>
+    <li>Legally binding — enforceable by regulators</li>
+    <li>Risk-based approach — proportionate requirements</li>
+    <li>Requires documentation, transparency, and human oversight</li>
+    <li>Drives organizational governance practices</li>
+  </ul>
+  <p><strong>Cons:</strong></p>
+  <ul>
+    <li>Regulatory, not technical — defines what you must do, not how</li>
+    <li>No commitment measurement or conservation</li>
+    <li>No lineage binding or artifact provenance</li>
+    <li>Compliance does not equal governance — you can comply and still degrade commitments</li>
+    <li>Regional scope — does not apply outside the EU</li>
+  </ul>
+
+  <h2>The Verdict</h2>
+  <p>No single framework covers the full AI governance stack. Constitutional AI and RLHF address training-time alignment. Runtime guardrails address output safety. Benchmarks address evaluation. The EU AI Act addresses regulatory compliance. MO§ES addresses execution-time commitment enforcement — a layer that none of the others cover.</p>
+  <p>The right approach is not to choose one framework but to stack them. A production AI system should use:</p>
+  <ul>
+    <li><strong>Constitutional AI or RLHF</strong> for training-time model alignment</li>
+    <li><strong>Runtime guardrails</strong> for output safety filtering</li>
+    <li><strong>MO§ES</strong> for execution-time commitment conservation and lineage binding</li>
+    <li><strong>Benchmarks</strong> for ongoing evaluation and model selection</li>
+    <li><strong>EU AI Act compliance</strong> (where applicable) for regulatory obligations</li>
+  </ul>
+  <p>MO§ES is the only framework that provides deterministic, per-signal commitment enforcement with cryptographic lineage binding. If your signals carry commitments that must be preserved — contracts, compliance obligations, safety requirements — MO§ES is the layer that guarantees it. The other frameworks are necessary but insufficient. MO§ES is the missing layer.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/vs/constitutional-ai">MO§ES vs Constitutional AI</a>
+    <a href="/vs/rlhf">MO§ES vs RLHF</a>
+    <a href="/vs/guardrails">MO§ES vs Guardrails</a>
+    <a href="/alternatives/agent-guardrails">Alternatives to Agent Guardrails</a>
+    <a href="/alternatives/commitment-tracking">Alternatives to Commitment Tracking</a>
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/architecture">Architecture</a>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+---
+title: "Lineage Claw — MO§ES"
+description: "The Lineage Claw is the cryptographic mechanism that binds transformed signals to their origins using SHA-256 hash chains, creating a verifiable provenance trail for every artifact in the governance system."
+path: "/concepts/lineage-claw"
+lede: "The cryptographic mechanism that binds transformed signals to their origins. SHA-256 hash chains create a verifiable provenance trail where every transformation is recorded and every artifact is tied to its origin cycle."
+strip_text: "MO§ES™ · Concepts · Lineage Claw"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Concepts"
+        item: "https://mos2es.com/concepts/conservation-law"
+      - "@type": "ListItem"
+        position: 3
+        name: "Lineage Claw"
+        item: "https://mos2es.com/concepts/lineage-claw"
+  - "@context": "https://schema.org"
+    "@type": "DefinedTerm"
+    name: "Lineage Claw"
+    description: "The cryptographic mechanism that binds transformed signals to their origins. SHA-256 hash chains create a verifiable provenance trail where every transformation is recorded and every artifact is tied to its origin cycle."
+    url: "https://mos2es.com/concepts/lineage-claw"
+    inDefinedTermSet:
+      "@type": "DefinedTermSet"
+      name: "MO§ES Concepts"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is the Lineage Claw?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The Lineage Claw is the cryptographic mechanism in MO§ES that binds every transformed signal to its origin compression cycle. It uses SHA-256 hash chains to create a verifiable provenance trail, ensuring that every transformation is recorded and every artifact can prove recursive continuity with its source."
+      - "@type": "Question"
+        name: "How does the Lineage Claw use SHA-256 hash chains?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Each transformation in a MO§ES pipeline produces a SHA-256 hash of the input signal, the transformation applied, and the output signal. These hashes are chained — each new hash incorporates the previous hash — creating an append-only provenance trail that cannot be altered without breaking the chain."
+      - "@type": "Question"
+        name: "Why is the Lineage Claw necessary for commitment conservation?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Without lineage binding, a transformed signal cannot prove where it came from. Mimic signals — outputs that resemble legitimate artifacts but carry no real commitment — can enter the system undetected. The Lineage Claw prevents this by requiring every artifact to present a verifiable hash chain back to its origin cycle."
+      - "@type": "Question"
+        name: "What happens when a hash chain is broken?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "A broken hash chain indicates tampering, truncation, or an unrecorded transformation. MO§ES treats a broken chain as a governance violation: the artifact is rejected, the transformation is halted, and the event is logged for audit. No signal with a broken lineage can pass through a MO§ES enforcement gate."
+      - "@type": "Question"
+        name: "How does the Lineage Claw relate to origin binding?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Origin binding is the process of cryptographically tying an artifact to its origin cycle. The Lineage Claw is the mechanism that implements origin binding — it is the cryptographic structure that makes binding verifiable and tamper-evident."
+---
+
+<div class="prose">
+  <p>The <strong>Lineage Claw</strong> is the cryptographic mechanism in MO§ES that binds transformed signals to their origins. It uses SHA-256 hash chains to create a verifiable provenance trail: every transformation is recorded, every artifact is tied to its origin compression cycle, and every claim of continuity can be independently verified.</p>
+
+  <h2>The Problem It Solves</h2>
+  <p>In any system that transforms signals — summarization, translation, agent orchestration, multi-agent pipelines — the output carries no inherent proof of where it came from. A summary looks like a summary regardless of whether it was produced from a real source or fabricated from nothing. This creates an attack surface: mimic signals that resemble legitimate artifacts but carry no real commitment can enter the system undetected.</p>
+  <p>The Lineage Claw closes this surface. By cryptographically binding every transformed signal to its origin, it makes provenance a verifiable property rather than an assumption. An artifact without a valid hash chain is not a governed signal — it is an unverified claim.</p>
+
+  <h2>How It Works</h2>
+  <p>The Lineage Claw operates through a chain of SHA-256 hashes constructed at each transformation step:</p>
+  <ol>
+    <li><strong>Origin hash</strong>: When a signal enters a MO§ES-governed pipeline, its content is hashed. This is the origin hash — the root of the lineage chain.</li>
+    <li><strong>Transformation record</strong>: Each transformation applied to the signal is recorded as a tuple: (input hash, transformation identifier, output content).</li>
+    <li><strong>Chain extension</strong>: The output hash is computed by hashing the concatenation of the input hash, the transformation identifier, and the output content. This means each hash incorporates the previous hash — the chain is append-only and tamper-evident.</li>
+    <li><strong>Verification</strong>: At any point, a verifier can recompute the chain from the origin hash forward and confirm that every step is consistent. A single altered byte anywhere in the chain breaks every subsequent hash.</li>
+  </ol>
+  <p>The result is a provenance trail that is computationally cheap to construct, trivial to verify, and practically impossible to forge. Breaking the chain requires recomputing every subsequent hash — a task that scales linearly with chain length and is infeasible for SHA-256.</p>
+
+  <h2>Why It Matters</h2>
+  <p>The Conservation Law of Commitment predicts that recursive transformation degrades commitment without enforcement. But enforcement requires accountability — the ability to determine, after the fact, what was transformed, when, and from what origin. Without the Lineage Claw, enforcement is blind: a degraded signal cannot be traced to the transformation that degraded it, and a mimic signal cannot be distinguished from a legitimate one.</p>
+  <p>The Lineage Claw provides the accountability layer that makes enforcement actionable. It transforms the Conservation Law from a theoretical prediction into an auditable reality. Every transformation is on the record. Every artifact carries its history. Every violation leaves a trace.</p>
+
+  <h2>Relationship to Origin Binding</h2>
+  <p>The Lineage Claw and <a href="/concepts/origin-binding">Origin Binding</a> are closely related but distinct. Origin binding is the <em>process</em> of cryptographically tying an artifact to its origin compression cycle. The Lineage Claw is the <em>mechanism</em> that implements that process — the hash chain structure that makes the binding real, verifiable, and tamper-evident. You can think of origin binding as the policy and the Lineage Claw as the cryptography that enforces it.</p>
+
+  <h2>Relationship to Other Concepts</h2>
+  <ul>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: The Lineage Claw provides the accountability layer that makes the law's predictions auditable</li>
+    <li><a href="/concepts/origin-binding">Origin Binding</a>: The process that the Lineage Claw implements cryptographically</li>
+    <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: The Lineage Claw is one of the enforcement mechanisms — lineage verification gates reject artifacts with broken chains</li>
+    <li><a href="/concepts/recursive-compression">Recursive Compression</a>: Each recursive transformation extends the hash chain, creating a deeper provenance trail</li>
+  </ul>
+
+  <h2>Practical Implications</h2>
+  <p>In a multi-agent AI pipeline — where signals pass through summarizers, translators, orchestrators, and downstream consumers — the Lineage Claw provides something that no existing system offers: a cryptographic guarantee that every output can be traced to its input, and every input to its origin. This is not metadata bolted on after the fact. It is structural. The hash chain is built into the transformation itself.</p>
+  <p>For governance, this means that commitment degradation is not just predicted — it is <em>detectable</em>. A verifier can walk the chain, measure commitment at each step, and identify exactly where degradation occurred and which transformation caused it. For security, it means that mimic signals — outputs that claim provenance they do not have — are rejected at the gate, not discovered after the damage is done.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/concepts/origin-binding">Origin Binding</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/concepts/recursive-compression">Recursive Compression</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+  </div>
+</div>

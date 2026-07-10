@@ -1,0 +1,118 @@
+---
+title: "Governance Enforcement — MO§ES"
+description: "Governance enforcement is the presence or absence of enforcement that the Conservation Law depends on. With enforcement — pre-execution gates, resonance thresholds, and lineage verification — commitment is conserved. Without it, the law predicts commitment degradation."
+path: "/concepts/governance-enforcement"
+lede: "The presence or absence of enforcement that the Conservation Law depends on. Governance enforcement means pre-execution gates, resonance thresholds, and lineage verification are active. Without enforcement, the law predicts commitment degradation."
+strip_text: "MO§ES™ · Concepts · Governance Enforcement"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Concepts"
+        item: "https://mos2es.com/concepts/conservation-law"
+      - "@type": "ListItem"
+        position: 3
+        name: "Governance Enforcement"
+        item: "https://mos2es.com/concepts/governance-enforcement"
+  - "@context": "https://schema.org"
+    "@type": "DefinedTerm"
+    name: "Governance Enforcement"
+    description: "The presence or absence of enforcement that the Conservation Law depends on. Governance enforcement means pre-execution gates, resonance thresholds, and lineage verification are active. Without enforcement, the law predicts commitment degradation."
+    url: "https://mos2es.com/concepts/governance-enforcement"
+    inDefinedTermSet:
+      "@type": "DefinedTermSet"
+      name: "MO§ES Concepts"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is governance enforcement?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Governance enforcement is the presence or absence of enforcement that the Conservation Law of Commitment depends on. When enforcement is present, pre-execution gates, resonance thresholds, and lineage verification are active, and commitment is conserved. When enforcement is absent, the law predicts commitment degradation."
+      - "@type": "Question"
+        name: "What are pre-execution gates?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Pre-execution gates are checks that run before a transformation is applied to a signal. They measure the commitment of the input, predict the commitment of the output, and block any transformation that would degrade commitment below an acceptable threshold. The gate fires before execution — not after the damage is done."
+      - "@type": "Question"
+        name: "What is a resonance threshold?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "A resonance threshold is the minimum commitment level that a transformed signal must maintain relative to its original. If a transformation would produce an output whose commitment falls below the resonance threshold, the transformation is rejected. The threshold is what makes commitment conservation a gating condition rather than a post-hoc observation."
+      - "@type": "Question"
+        name: "What is lineage verification?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Lineage verification is the process of checking that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. The Lineage Claw creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate."
+      - "@type": "Question"
+        name: "Can the Conservation Law hold without enforcement?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. The Conservation Law states that commitment is preserved under recursive transformation if and only if governance enforcement is present. Without enforcement, the law predicts — and experiments confirm — systematic commitment degradation. Enforcement is not optional; it is the condition on which the law depends."
+---
+
+<div class="prose">
+  <p><strong>Governance enforcement</strong> is the presence or absence of enforcement that the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> depends on. When enforcement is present, pre-execution gates, resonance thresholds, and lineage verification are active, and commitment is conserved across recursive transformations. When enforcement is absent, the law predicts — and experiments confirm — systematic commitment degradation. Enforcement is not an add-on; it is the condition on which the law depends.</p>
+
+  <h2>The Three Enforcement Mechanisms</h2>
+  <p>MO§ES implements governance enforcement through three mechanisms that operate at each step of a recursive transformation chain:</p>
+
+  <h3>Pre-Execution Gates</h3>
+  <p>Pre-execution gates run <em>before</em> a transformation is applied. They measure the commitment of the input signal, predict the commitment of the output, and block any transformation that would degrade commitment below an acceptable level. The gate fires before execution — not after the damage is done. This is the fundamental difference between MO§ES and post-hoc monitoring systems: enforcement happens at the point of transformation, not after the signal has already been degraded.</p>
+
+  <h3>Resonance Thresholds</h3>
+  <p>A resonance threshold is the minimum commitment level that a transformed signal must maintain relative to its original. If a transformation would produce an output whose commitment falls below the threshold, the transformation is rejected. The threshold is configurable — different applications may require different conservation levels — but it is always present. Without a threshold, there is no gating condition, and the system degrades to unenforced behavior.</p>
+
+  <h3>Lineage Verification</h3>
+  <p>Lineage verification checks that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. The <a href="/concepts/lineage-claw">Lineage Claw</a> creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate. This prevents mimic signals — outputs that resemble legitimate artifacts but carry no real provenance — from entering the system.</p>
+
+  <h2>Why Enforcement Must Be Pre-Execution</h2>
+  <p>The Conservation Law predicts that commitment degrades under recursive transformation without enforcement. But enforcement that runs <em>after</em> a transformation is not enforcement — it is observation. By the time a post-hoc check detects commitment degradation, the signal has already been degraded. The damaged output is in the pipeline, and the next transformation is already consuming it.</p>
+  <p>MO§ES enforces pre-execution because that is the only point at which degradation can be prevented rather than merely detected. The gate measures, predicts, and blocks — all before the transformation runs. This is what "conserved at the point of execution" means: the commitment is protected before the transformation touches it, not measured after it has already eroded.</p>
+
+  <h2>The Experimental Evidence</h2>
+  <p>The difference between enforced and unenforced recursive compression is not theoretical. It was measured across seven controlled experiments (EXP-001 through EXP-007) using a 20-signal canonical corpus with 10 recursive iterations per signal:</p>
+  <ul>
+    <li><strong>With enforcement</strong>: Commitment was conserved at 80-85% of original levels across all 10 iterations. The resonance threshold blocked degrading transformations, and the remaining transformations preserved commitment within the acceptable band.</li>
+    <li><strong>Without enforcement</strong>: Commitment degraded by 15-20% per iteration. By iteration 5, commitment was below 20% of original levels. By iteration 8, it was effectively zero.</li>
+  </ul>
+  <p>The transformation operator T was identical in both cases. The only variable was enforcement. The law's prediction — C(T(S)) ≈ C(S) with enforcement, C(T(S)) &lt; C(S) without it — was confirmed.</p>
+
+  <h2>Why It Matters</h2>
+  <p>Every AI system that processes natural language is running recursive transformations. The question is not whether commitment is degrading — the Conservation Law says it is, unless enforcement is present. The question is whether the system has enforcement mechanisms that operate before execution, not after.</p>
+  <p>Most AI governance frameworks operate post-hoc: they monitor outputs, flag anomalies, and generate reports. This is observation, not enforcement. It tells you that degradation happened. It does not prevent it. MO§ES is different because its enforcement is structural — pre-execution gates, resonance thresholds, and lineage verification that block degradation before it occurs.</p>
+
+  <h2>Relationship to Other Concepts</h2>
+  <ul>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: Governance enforcement is the condition the law depends on — the law holds if and only if enforcement is present</li>
+    <li><a href="/concepts/recursive-compression">Recursive Compression</a>: Enforcement is what prevents the transformation operator T from degrading commitment</li>
+    <li><a href="/concepts/commitment-conservation">Commitment Conservation</a>: The measured outcome of enforcement — 80-85% conservation with enforcement, near-zero without</li>
+    <li><a href="/concepts/lineage-claw">Lineage Claw</a>: Provides the lineage verification component of enforcement</li>
+    <li><a href="/concepts/constitutional-substrate">Constitutional Substrate</a>: The foundational layer that defines the enforcement rules, thresholds, and gates</li>
+  </ul>
+
+  <h2>Practical Implications</h2>
+  <p>If you are deploying AI systems that process natural language — summarizers, translators, agent pipelines, multi-agent frameworks — governance enforcement is the difference between a system that conserves meaning and one that erodes it. The Conservation Law tells you what will happen without enforcement. MO§ES tells you how to enforce. The mechanisms are not complex: measure commitment before transformation, block transformations that would degrade it below threshold, and verify the lineage of every artifact. The complexity is not in the mechanisms — it is in the decision to deploy them before execution rather than after.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/concepts/recursive-compression">Recursive Compression</a>
+    <a href="/concepts/commitment-conservation">Commitment Conservation</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+  </div>
+</div>

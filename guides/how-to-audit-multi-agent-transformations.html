@@ -1,0 +1,140 @@
+---
+title: "How to Audit Multi-Agent Transformations — MO§ES"
+description: "Guide to auditing AI agent pipelines for commitment degradation. Covers signal tracking, transformation logging, degradation detection, and remediation."
+path: "/guides/how-to-audit-multi-agent-transformations"
+lede: "A practical guide to auditing AI agent pipelines for commitment degradation — from signal tracking and transformation logging to degradation detection and remediation."
+strip_text: "MO§ES™ · Guides · Audit Multi-Agent Transformations"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Guides"
+        item: "https://mos2es.com/guides"
+      - "@type": "ListItem"
+        position: 3
+        name: "How to Audit Multi-Agent Transformations"
+        item: "https://mos2es.com/guides/how-to-audit-multi-agent-transformations"
+  - "@context": "https://schema.org"
+    "@type": "HowTo"
+    name: "How to Audit Multi-Agent Transformations"
+    description: "Guide to auditing AI agent pipelines for commitment degradation. Covers signal tracking, transformation logging, degradation detection, and remediation."
+    totalTime: "PT10M"
+    step:
+      - "@type": "HowToStep"
+        name: "Map your agent pipeline"
+        text: "Document every agent in your pipeline, the transformations each agent applies, and the signal flow between agents. Identify the recursion depth — how many transformations a signal undergoes from origin to final output."
+      - "@type": "HowToStep"
+        name: "Instrument signal tracking"
+        text: "Attach a unique identifier and SHA-256 hash to every signal as it enters the pipeline. Track the signal through every agent, recording the commitment level at each hop."
+      - "@type": "HowToStep"
+        name: "Enable transformation logging"
+        text: "Configure each agent to log every transformation it applies: input signal hash, output signal hash, transformation type, and timestamp. Store logs in an append-only audit trail."
+      - "@type": "HowToStep"
+        name: "Detect commitment degradation"
+        text: "After each transformation, measure commitment using NLI bidirectional entailment and Jaccard surface stability. Compare the commitment ratio C(T(S))/C(S) against your threshold. Flag any transformation where the ratio falls below threshold."
+      - "@type": "HowToStep"
+        name: "Identify degradation sources"
+        text: "When degradation is detected, trace the signal back through the audit trail to identify which agent and which transformation caused the drop. Use the lineage binding to verify the chain of custody."
+      - "@type": "HowToStep"
+        name: "Apply remediation"
+        text: "For detected degradation, apply remediation: reject and retry the transformation, escalate to human review, or adjust the agent's transformation parameters. Log the remediation action in the audit trail."
+---
+
+<div class="prose">
+  <p>Multi-agent AI pipelines are where commitment degradation does its worst damage. Each agent in a chain applies a transformation, and without enforcement, the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> predicts that commitment degrades by 15-20% per hop. A 10-agent pipeline can reduce original commitments by over 80%. This guide shows you how to audit multi-agent transformations, detect degradation, and apply remediation.</p>
+
+  <h2>Overview</h2>
+  <p>Auditing multi-agent transformations means tracking signals as they flow through a chain of AI agents, measuring commitment at each hop, and detecting where degradation occurs. The audit produces a verifiable record that proves whether your pipeline conserves commitment — and if it does not, exactly which agent and transformation is responsible.</p>
+  <p>This guide covers four phases: signal tracking, transformation logging, degradation detection, and remediation. Each phase builds on the previous one, creating a complete audit loop.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>A multi-agent AI pipeline with identifiable agents and signal flows</li>
+    <li>An NLI model for bidirectional entailment measurement</li>
+    <li>A SHA-256 hashing library for lineage binding</li>
+    <li>An append-only log store for the audit trail</li>
+    <li>Understanding of <a href="/concepts/conservation-law">commitment conservation</a> and <a href="/guides/how-to-enforce-commitment-conservation">enforcement basics</a></li>
+  </ul>
+
+  <h2>Step 1: Map Your Agent Pipeline</h2>
+  <p>Before you can audit a pipeline, you need to know its topology. Document every agent, the transformation each agent applies (summarization, translation, rewriting, extraction, etc.), and the signal flow between agents. Identify the recursion depth — the maximum number of transformations a signal undergoes from origin to final output.</p>
+  <p>A typical multi-agent pipeline might look like: intake agent → analysis agent → synthesis agent → report agent. Each of these applies a transformation. The recursion depth is 4. The deeper the pipeline, the more opportunity for degradation.</p>
+  <pre><code>pipeline = [
+    {"agent": "intake",    "transform": "normalize"},
+    {"agent": "analyze",   "transform": "extract"},
+    {"agent": "synthesize","transform": "summarize"},
+    {"agent": "report",    "transform": "format"}
+]</code></pre>
+
+  <h2>Step 2: Instrument Signal Tracking</h2>
+  <p>Attach a unique identifier and SHA-256 hash to every signal as it enters the pipeline. As the signal passes through each agent, record the commitment level at each hop. This creates a commitment trajectory — a record of how commitment changes across the pipeline.</p>
+  <p>The commitment trajectory is the primary diagnostic tool. A healthy pipeline shows a flat or gently declining trajectory. A degrading pipeline shows a steep decline, often accelerating with depth. The trajectory tells you not just <em>whether</em> degradation is happening, but <em>where</em>.</p>
+
+  <h2>Step 3: Enable Transformation Logging</h2>
+  <p>Configure each agent to log every transformation it applies. Each log entry should include: the input signal hash, the output signal hash, the transformation type, the agent identifier, and a timestamp. Store these logs in an append-only audit trail.</p>
+  <p>The transformation log is the evidence base for your audit. It enables post-hoc reconstruction of the entire signal journey, verification that the lineage chain is intact, and identification of exactly which transformation caused any detected degradation.</p>
+  <pre><code>def log_transform(agent_id, input_signal, output_signal, transform_type):
+    entry = {
+        "agent": agent_id,
+        "input_hash": sha256(input_signal),
+        "output_hash": sha256(output_signal),
+        "transform": transform_type,
+        "timestamp": now()
+    }
+    audit_log.append(entry)  # append-only</code></pre>
+
+  <h2>Step 4: Detect Commitment Degradation</h2>
+  <p>After each transformation, measure the commitment of the output signal and compare it to the commitment of the input signal. Use two complementary measurements:</p>
+  <ul>
+    <li><strong>NLI bidirectional entailment</strong>: Check whether the input and output signals mutually entail each other. Low mutual entailment indicates semantic drift.</li>
+    <li><strong>Jaccard surface stability</strong>: Compute the Jaccard similarity between the token sets. Low similarity indicates surface-level drift.</li>
+  </ul>
+  <p>Compute the commitment ratio <code>C(T(S)) / C(S)</code>. If the ratio falls below your threshold (typically 0.80), flag the transformation as degrading. Record the flag in the audit trail with the measured values.</p>
+
+  <h2>Step 5: Identify Degradation Sources</h2>
+  <p>When degradation is detected, trace the signal back through the audit trail. The lineage binding — the SHA-256 hashes linking each signal to its origin — lets you reconstruct the exact path the signal took and identify which agent and which transformation caused the commitment drop.</p>
+  <p>Common degradation sources include: summarization agents that compress too aggressively, translation agents that lose modal nuances, rewriting agents that soften obligations, and format agents that strip qualifying language. The audit trail tells you which of these is happening in your pipeline.</p>
+
+  <h2>Step 6: Apply Remediation</h2>
+  <p>Once you have identified the degradation source, apply remediation. The appropriate response depends on the severity and the agent:</p>
+  <ul>
+    <li><strong>Reject and retry</strong>: Block the degrading transformation and re-run with adjusted parameters (e.g., a less aggressive compression ratio).</li>
+    <li><strong>Escalate to human review</strong>: For high-stakes signals where automatic retry is not appropriate, route to a human reviewer with the audit context.</li>
+    <li><strong>Adjust agent parameters</strong>: If a specific agent consistently degrades commitment, tune its transformation parameters or replace it with a more conservative alternative.</li>
+    <li><strong>Add enforcement</strong>: If degradation is systematic, add <a href="/guides/how-to-enforce-commitment-conservation">pre-execution gating</a> at the offending agent.</li>
+  </ul>
+  <p>Log every remediation action in the audit trail. This creates a feedback loop — over time, you can identify patterns and proactively fix agents that consistently degrade commitment.</p>
+
+  <h2>Common Pitfalls</h2>
+  <ul>
+    <li><strong>Auditing only the final output</strong>: By the time degradation is visible in the final output, it has compounded across multiple hops. Audit at every hop, not just the end.</li>
+    <li><strong>Not tracking recursion depth</strong>: A signal that passes through the same agent twice has a different degradation profile than one that passes through once. Track depth explicitly.</li>
+    <li><strong>Ignoring surface stability</strong>: Semantic measurements alone miss lexical drift that can change the legal or contractual force of a signal. Use both NLI and Jaccard.</li>
+    <li><strong>Remediating without logging</strong>: If you fix degradation but do not log the remediation, you lose the feedback loop. Always log remediation actions.</li>
+    <li><strong>Treating all agents equally</strong>: Some agents (summarizers, compressors) are inherently more degrading than others. Focus your audit effort where the risk is highest.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>Once your audit pipeline is operational, extend it with <a href="/guides/how-to-verify-lineage">lineage verification</a> to prove the integrity of your audit trail, and <a href="/guides/how-to-prevent-semantic-drift">semantic drift prevention</a> to stop degradation before it starts. For the theoretical foundation, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the <a href="/papers">research papers</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>
+    <a href="/guides/how-to-verify-lineage">How to Verify Lineage</a>
+    <a href="/guides/how-to-prevent-semantic-drift">How to Prevent Semantic Drift</a>
+  </div>
+</div>

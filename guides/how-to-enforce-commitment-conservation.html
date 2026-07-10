@@ -1,0 +1,141 @@
+---
+title: "How to Enforce Commitment Conservation — MO§ES"
+description: "Step-by-step guide to implementing MO§ES governance enforcement for AI pipelines. Covers pre-execution gating, lineage binding, resonance thresholding, and audit trail setup."
+path: "/guides/how-to-enforce-commitment-conservation"
+lede: "A practical, step-by-step guide to implementing MO§ES governance enforcement for AI pipelines — from pre-execution gating to audit trail setup."
+strip_text: "MO§ES™ · Guides · Enforce Commitment Conservation"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Guides"
+        item: "https://mos2es.com/guides"
+      - "@type": "ListItem"
+        position: 3
+        name: "How to Enforce Commitment Conservation"
+        item: "https://mos2es.com/guides/how-to-enforce-commitment-conservation"
+  - "@context": "https://schema.org"
+    "@type": "HowTo"
+    name: "How to Enforce Commitment Conservation"
+    description: "Step-by-step guide to implementing MO§ES governance enforcement for AI pipelines. Covers pre-execution gating, lineage binding, resonance thresholding, and audit trail setup."
+    totalTime: "PT10M"
+    step:
+      - "@type": "HowToStep"
+        name: "Define your commitment threshold"
+        text: "Establish the minimum acceptable commitment level for your pipeline. This is the resonance threshold below which a transformation is rejected. A common starting point is 0.80 — meaning a transformed signal must retain at least 80% of the original commitment."
+      - "@type": "HowToStep"
+        name: "Implement pre-execution gating"
+        text: "Before any transformation is applied, measure the commitment of the input signal and the predicted commitment of the output. If the predicted output falls below the threshold, block the transformation and log the rejection."
+      - "@type": "HowToStep"
+        name: "Bind lineage to every signal"
+        text: "Cryptographically tie every transformed signal to its origin using SHA-256 hashing. Store the origin hash, transformation metadata, and timestamp in an append-only audit log."
+      - "@type": "HowToStep"
+        name: "Apply resonance thresholding"
+        text: "After transformation, measure the commitment of the output signal using NLI bidirectional entailment and Jaccard surface stability. If commitment falls below the threshold, reject and retry or escalate."
+      - "@type": "HowToStep"
+        name: "Configure the audit trail"
+        text: "Set up an append-only audit log that records every transformation: input hash, output hash, transformation type, commitment before and after, and the enforcement decision (pass, reject, retry)."
+      - "@type": "HowToStep"
+        name: "Test with a canonical corpus"
+        text: "Run your enforcement pipeline against a 20-signal canonical corpus with known commitment levels. Verify that commitment is conserved at or above your threshold across 10 recursive iterations."
+---
+
+<div class="prose">
+  <p>Enforcing commitment conservation is the core operational task of the <a href="/architecture">MO§ES</a> framework. The <a href="/concepts/conservation-law">Conservation Law of Commitment</a> predicts that without enforcement, recursive transformations degrade semantic commitment by 15-20% per iteration. This guide walks you through implementing the four enforcement mechanisms that make commitment conservation operational: pre-execution gating, lineage binding, resonance thresholding, and audit trail setup.</p>
+
+  <h2>Overview</h2>
+  <p>Commitment conservation enforcement means ensuring that <code>C(T(S)) ≈ C(S)</code> — the commitment of a transformed signal approximately equals the commitment of the original — across every transformation in your AI pipeline. This requires four mechanisms working together: a gate that checks commitment before transformation, a lineage binding that ties outputs to origins, a resonance threshold that rejects degrading transformations, and an audit trail that records every decision.</p>
+  <p>By the end of this guide, you will have a working enforcement layer that can be applied to any transformation pipeline — summarization, translation, agent orchestration, or multi-agent communication.</p>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>A working AI transformation pipeline (summarization, translation, agent chain, etc.)</li>
+    <li>An NLI model for bidirectional entailment measurement (e.g., a DeBERTa-based entailment classifier)</li>
+    <li>A SHA-256 hashing library (available in every standard programming environment)</li>
+    <li>A 20-signal canonical corpus with known commitment levels for testing (see <a href="/papers">the papers page</a> for the reference corpus)</li>
+    <li>Familiarity with the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the MO§ES <a href="/architecture">architecture</a></li>
+  </ul>
+
+  <h2>Step 1: Define Your Commitment Threshold</h2>
+  <p>The commitment threshold is the minimum acceptable commitment level for transformed signals in your pipeline. This is the single most important configuration decision. Set it too high and you will reject legitimate transformations; set it too low and you allow commitment degradation.</p>
+  <p>A threshold of 0.80 is a reasonable starting point — it means a transformed signal must retain at least 80% of the original commitment. In the MO§ES experimental record, enforced pipelines conserved commitment at 80-85% across 10 iterations. Without enforcement, commitment fell below 20% by iteration 5.</p>
+  <pre><code>COMMITMENT_THRESHOLD = 0.80  # minimum acceptable C(T(S)) / C(S)</code></pre>
+  <p>Document your threshold choice and the rationale. Different domains may require different thresholds — a legal contract pipeline may demand 0.95, while a creative summarization pipeline may accept 0.70.</p>
+
+  <h2>Step 2: Implement Pre-Execution Gating</h2>
+  <p>Pre-execution gating is the first line of defense. Before any transformation is applied, the gate measures the commitment of the input signal and predicts whether the transformation will preserve commitment above the threshold.</p>
+  <p>The gate does not need to be perfect — it needs to be conservative. If in doubt, block and escalate. The cost of a false negative (allowing a degrading transformation) is semantic drift that compounds with recursion depth. The cost of a false positive (blocking a safe transformation) is a retry or human review.</p>
+  <pre><code>def gate(signal, transform, threshold):
+    c_before = measure_commitment(signal)
+    predicted_output = transform(signal)
+    c_after = measure_commitment(predicted_output)
+    ratio = c_after / c_before
+    if ratio &lt; threshold:
+        log_rejection(signal, predicted_output, ratio)
+        return None  # block
+    return predicted_output  # allow</code></pre>
+
+  <h2>Step 3: Bind Lineage to Every Signal</h2>
+  <p>Lineage binding cryptographically ties every transformed signal to its origin. This is the mechanism described in the <a href="/concepts/lineage-claw">Lineage Claw</a> concept. Every signal carries a SHA-256 hash of its origin, the transformation that produced it, and a timestamp.</p>
+  <pre><code>import hashlib, json
+
+def bind_lineage(origin_signal, transform_type, output_signal):
+    origin_hash = hashlib.sha256(origin_signal.encode()).hexdigest()
+    output_hash = hashlib.sha256(output_signal.encode()).hexdigest()
+    return {
+        "origin_hash": origin_hash,
+        "output_hash": output_hash,
+        "transform": transform_type,
+        "timestamp": datetime.utcnow().isoformat()
+    }</code></pre>
+  <p>This binding creates a verifiable chain of custody. At any point, you can trace a signal back to its origin and verify that the transformation chain is intact. This is essential for auditability and for detecting where degradation occurred.</p>
+
+  <h2>Step 4: Apply Resonance Thresholding</h2>
+  <p>After the transformation is applied, measure the commitment of the output signal using two complementary methods:</p>
+  <ul>
+    <li><strong>NLI bidirectional entailment</strong>: Measures semantic preservation by checking whether the original and transformed signals entail each other. High mutual entailment means the semantic content is preserved.</li>
+    <li><strong>Jaccard surface stability</strong>: Measures lexical preservation by computing the Jaccard similarity between the token sets of the original and transformed signals. This catches surface-level drift even when semantics are preserved.</li>
+  </ul>
+  <p>If either measurement falls below the threshold, reject the transformation. Log the rejection with the measured values so you can tune the threshold over time.</p>
+
+  <h2>Step 5: Configure the Audit Trail</h2>
+  <p>The audit trail is an append-only log that records every transformation event. Each entry includes: input hash, output hash, transformation type, commitment before and after, the enforcement decision (pass, reject, retry), and a timestamp.</p>
+  <p>The audit trail serves three purposes: it provides evidence for compliance and governance reviews, it enables post-hoc analysis of where degradation occurred, and it creates a feedback loop for threshold tuning. Without an audit trail, enforcement is invisible — you cannot prove that commitment was conserved.</p>
+
+  <h2>Step 6: Test with a Canonical Corpus</h2>
+  <p>Before deploying your enforcement pipeline to production, test it against a 20-signal canonical corpus with known commitment levels. Run 10 recursive iterations per signal and verify that commitment is conserved at or above your threshold across all iterations.</p>
+  <p>The MO§ES experimental record provides a reference corpus and expected results. If your pipeline conserves commitment at 80-85% across 10 iterations, your enforcement is working. If commitment degrades, identify which step is failing — the gate, the lineage binding, or the threshold — and adjust accordingly.</p>
+
+  <h2>Common Pitfalls</h2>
+  <ul>
+    <li><strong>Setting the threshold too low</strong>: A threshold below 0.70 allows significant semantic drift. Start at 0.80 and adjust based on your domain.</li>
+    <li><strong>Skipping pre-execution gating</strong>: Without the gate, degrading transformations are applied before they can be caught. The gate is your first line of defense.</li>
+    <li><strong>Not logging rejections</strong>: Rejections are data. Without logging them, you cannot tune your threshold or identify systematic degradation patterns.</li>
+    <li><strong>Using only one measurement method</strong>: NLI alone misses surface drift; Jaccard alone misses semantic drift. Use both.</li>
+    <li><strong>Forgetting to test recursively</strong>: Single-transform tests will pass even without enforcement. The degradation only appears under recursive transformation — always test with 10+ iterations.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>Once your enforcement pipeline is operational, consider extending it with <a href="/guides/how-to-audit-multi-agent-transformations">multi-agent audit capabilities</a> and <a href="/guides/how-to-verify-lineage">lineage verification</a>. For a deeper understanding of the theory, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the full <a href="/papers">research papers</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-audit-multi-agent-transformations">How to Audit Multi-Agent Transformations</a>
+    <a href="/guides/how-to-verify-lineage">How to Verify Lineage</a>
+    <a href="/guides/how-to-build-a-governance-layer">How to Build a Governance Layer</a>
+  </div>
+</div>
