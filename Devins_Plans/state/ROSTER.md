@@ -20,7 +20,8 @@ last_touched: 2026-07-10 07:31 UTC
 
 | Role | Session | Repo / Surface | Track | Purpose | Updated (UTC) |
 |------|---------|---------------|-------|---------|---------------|
-| DEVIN | session-1 | mos2es-site | bootstrap | Setting up session tracker + OKF doc system | 2026-07-10 07:31 UTC |
+| DEVIN | session-1 | mos2es-site | waiting | Bootstrap done. Waiting for owner's next task after window reset. | 2026-07-10 07:48 UTC |
+| DEVIN2 | (not started) | mos2es-site | okf-index | OKF repo index plan — pick up at _planning/OKF_REPO_INDEX_PLAN.md | 2026-07-10 07:48 UTC |
 
 ---
 
