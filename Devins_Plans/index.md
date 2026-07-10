@@ -5,7 +5,7 @@ description: The OKF bundle root for the MO§ES site (mos2es.com) — declares o
 tags: [mos2es, okf, index, bundle, reference]
 timestamp: 2026-07-10
 okf_version: "0.1"
-last_touched: 2026-07-10 08:04 UTC
+last_touched: 2026-07-10 08:05 UTC
 ---
 
 # MO§ES Site — Knowledge Bundle

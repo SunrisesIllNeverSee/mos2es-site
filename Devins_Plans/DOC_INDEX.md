@@ -4,7 +4,7 @@ title: Doc Index — status map of every doc
 description: Dated index of every doc in the docs directory, classified ACTIVE / REFERENCE / PARKED / ARCHIVED. Re-index when docs are added, moved, or status changes.
 tags: [mos2es, index, maintenance, status, reference, okf]
 timestamp: 2026-07-10
-last_touched: 2026-07-10 08:04 UTC
+last_touched: 2026-07-10 08:05 UTC
 ---
 
 # Doc Index

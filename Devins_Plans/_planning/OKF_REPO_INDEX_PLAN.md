@@ -4,7 +4,7 @@ title: OKF Repo Index Plan — full knowledge inventory via parallel subagents
 description: Plan to index every component of the mos2es-site repo into OKF-compliant reference docs. Two phases: parallel audit (5 subagents) then sequential compilation. Pick this up, run the subagents, commit the results.
 tags: [mos2es, okf, indexing, plan, subagents, reference]
 timestamp: 2026-07-10
-last_touched: 2026-07-10 07:39 UTC
+last_touched: 2026-07-10 07:56 UTC
 ---
 
 # OKF Repo Index Plan

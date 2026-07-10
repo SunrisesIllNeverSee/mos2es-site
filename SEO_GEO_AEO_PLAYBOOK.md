@@ -255,21 +255,36 @@ are solid — it's polish, not foundation.
 
 ---
 
-## Phase 6 — Content Layer
+## Phase 6 — Content Layer (modeled on Mettle)
 
 ### What we did
-Studied a competitor's SEO footprint (~33 content pages) and closed the
-gap with 34 new pages:
+We studied Mettle (getmettle.app) — Daniel Kapadia's AI-powered trading
+journal app. Mettle had a serious programmatic SEO footprint: ~33
+content pages covering comparison, alternatives, guides, metrics,
+tools, topic hubs, and blog. It was the best-in-class reference for
+how a scoring/coaching product should structure its content for search
+discovery.
 
-| Category | Count | Purpose |
-|----------|-------|---------|
-| Comparison (vs) | 5 | "X vs Y" search intent |
-| Alternatives | 4 | "X alternative" search intent |
-| Guides | 8 | "How to" long-tail intent |
-| Metrics | 6 | Definitional pages for AI citation |
-| Tools | 4 | Interactive — "X calculator" intent |
-| Topic hubs | 4 | Hub-and-spoke SEO structure |
-| Blog | 2 | Listicle + deep dive |
+We mapped Mettle's page structure 1:1 and built the equivalent for
+SigRank — 34 new pages closing the gap:
+
+| Category | Mettle | SigRank | Purpose |
+|----------|--------|---------|---------|
+| Comparison (vs) | 4 (`/vs/tradezella`, etc.) | 5 (`/vs/ccusage`, `/vs/copilot`, etc.) | "X vs Y" search intent |
+| Alternatives | 4 (`/alternatives/trading-journal-software`, etc.) | 4 (`/alternatives/ai-benchmarking-tools`, etc.) | "X alternative" search intent |
+| Guides | 7 (`/guides/how-to-journal-trades`, etc.) | 8 (`/guides/how-to-measure-ai-coding-efficiency`, etc.) | "How to" long-tail intent |
+| Metrics | 6 (`/metrics/risk-reward-ratio`, `/metrics/win-rate`, etc.) | 6 (`/metrics/yield-cascade`, `/metrics/leverage`, etc.) | Definitional pages for AI citation |
+| Tools | 4 (`/tools/risk-reward-calculator`, etc.) | 4 (`/tools/yield-calculator`, etc.) | Interactive — "X calculator" intent |
+| Topic hubs | 6 (`/review-framework`, `/discipline`, etc.) | 4 (`/ai-benchmarking`, `/ai-coding-metrics`, etc.) | Hub-and-spoke SEO structure |
+| Blog | 2 | 2 | Listicle + deep dive |
+
+**The key insight from Mettle:** each page targets exactly one search
+intent. Comparison pages capture "X vs Y" searches. Alternatives pages
+capture "X alternative" searches. Metrics pages are definitional — AI
+engines cite them when asked "what is yield cascade?" or "what is cache
+hit rate?". Tools pages are interactive — they give the user a reason
+to stay on the page. Topic hubs cluster related content into a
+hub-and-spoke structure that search engines understand.
 
 ### On mos2es.com
 You have 11 pages. Consider adding:

@@ -4,7 +4,7 @@ title: Session Roster — intended tracks + live status
 description: Manual roster of active sessions for the MO§ES site (mos2es.com). Set-info (role · session · surface) + live status (track · purpose · updated_at UTC). Agents update their OWN row when focus changes. This is a NORM, not enforced — the activity log is ground truth regardless.
 tags: [mos2es, tracker, roster, coordination, sessions]
 timestamp: 2026-07-10
-last_touched: 2026-07-10 07:31 UTC
+last_touched: 2026-07-10 07:55 UTC
 ---
 
 # Session Roster
@@ -21,7 +21,7 @@ last_touched: 2026-07-10 07:31 UTC
 | Role | Session | Repo / Surface | Track | Purpose | Updated (UTC) |
 |------|---------|---------------|-------|---------|---------------|
 | DESIT1 | session-1 | mos2es-site | waiting | Bootstrap done. Waiting for owner's next task after window reset. | 2026-07-10 07:51 UTC |
-| DESIT2 | (not started) | mos2es-site | okf-index | OKF repo index plan — pick up at _planning/OKF_REPO_INDEX_PLAN.md | 2026-07-10 07:51 UTC |
+| DESIT2 | session-2 | mos2es-site | okf-index | OKF repo index — Phase 1: 5 parallel subagents auditing repo slices | 2026-07-10 07:55 UTC |
 
 ---
 

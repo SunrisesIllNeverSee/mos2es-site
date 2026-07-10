@@ -273,6 +273,7 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 08:48 UTC · 3107c6e · Deric · docs: Pass 1 complete — bus update
 [HOOK] 2026-07-10 08:48 UTC · d88bf5f · Deric · fix: Pass 1 — critical SEO/GEO/AEO fixes (10 issues)
 [HOOK] 2026-07-10 08:47 UTC · 3eb98c2 · Deric · docs: add reference plans from signalaf.com SEO/GEO/AEO implementation
 [HOOK] 2026-07-10 08:45 UTC · efd2f92 · Deric · docs: add page-level SEO beef-up + academic GEO mapping playbook
