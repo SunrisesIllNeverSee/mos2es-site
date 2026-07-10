@@ -441,6 +441,7 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 15:42 UTC · 090b3b6 · Deric · feat: SEO steroid build-out — 30 new content pages, 11ty, academic GEO
 [HOOK] 2026-07-10 12:57 UTC · bcc28a7 · Deric · fix: remove ignore rule from netlify.toml (caused false error status on GitHub)
 [HOOK] 2026-07-10 12:53 UTC · 9d70268 · Deric · fix: netlify.toml — correct publish dir + add ignore rule for docs-only commits
 [HOOK] 2026-07-10 09:55 UTC · 07b84de · Deric · docs: site organization & structure plan — brainstorming
