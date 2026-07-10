@@ -36,6 +36,10 @@
     .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.chip{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--bright);background:rgba(16,20,26,.72)}
     .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}.btn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--gold);border-radius:999px;padding:13px 22px;color:var(--bg);background:var(--gold);font-weight:500;transition:opacity .15s}.btn:hover{opacity:.85}.cta .note{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
     .footer{border-top:1px solid var(--line);border-bottom:0;color:var(--dim);line-height:1.8;margin-top:56px}
+    .prose p{color:var(--dim);font-size:17px;line-height:1.7;margin-bottom:28px;max-width:720px}
+    .prose p:last-child{margin-bottom:0}
+    .sec-h{font-family:var(--serif);color:var(--bright);font-size:clamp(24px,4vw,34px);line-height:1.1;margin-bottom:14px;margin-top:40px}
+    .sec-h:first-child{margin-top:0}
     @media(max-width:760px){.wrap{padding:48px 18px}.links{max-width:240px}.links a{font-size:9px}}
   </style>
   <script type="application/ld+json">
@@ -97,6 +101,20 @@
       <span class="chip">signomy.xyz</span>
       <span class="chip">Patent pending 19/426,028</span>
     </div>
+
+    <section class="prose" style="margin-top:56px">
+      <h2 class="sec-h">What the demo shows</h2>
+      <p>This walkthrough captures MO§ES governed execution in motion — the path from signal intake to constitutional enforcement. You will watch a raw prompt enter the governance layer, pass commitment conservation checks, and emerge as a lineage-bound artifact with a verifiable provenance chain. Nothing executes until every semantic commitment made upstream is honored downstream.</p>
+
+      <h2 class="sec-h">The SigRank application workflow</h2>
+      <p>SigRank sits on top of MO§ES as the signal governance application. It ingests candidate signals, scores each against constitutional constraints, and ranks them by fidelity to original intent. The demo traces a signal as it is evaluated, ranked, and either accepted into the governed execution stream or rejected for commitment drift — making AI governance observable rather than aspirational.</p>
+
+      <h2 class="sec-h">Commitment conservation in action</h2>
+      <p>The centerpiece is the commitment conservation test. Viewers see a live comparison: commitments declared at generation time versus commitments preserved at execution time. When the two align, the artifact is stamped as lineage-bound. When they diverge, the governance layer halts execution and surfaces the violation — no silent degradation, no quiet rewrite.</p>
+
+      <h2 class="sec-h">Key takeaways</h2>
+      <p>By the end three things should be clear. First, MO§ES treats governance as a runtime enforcement layer, not a post-hoc audit. Second, SigRank makes signal quality measurable across sources. Third, lineage-bound artifacts give downstream consumers a guarantee that what they received is what was intended — the foundation of trustworthy AI governance at scale.</p>
+    </section>
   </main>
 
   <footer class="footer">Ello Cello LLC · Contact: burnmydays@proton.me</footer>
