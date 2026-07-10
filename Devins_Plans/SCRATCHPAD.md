@@ -37,3 +37,4 @@ last_touched: 2026-07-10 07:31 UTC
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 07:34 UTC · 6d90c8b · Deric · docs: mark tracker bootstrap as shipped in MAIN_TODO

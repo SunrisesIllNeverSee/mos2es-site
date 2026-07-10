@@ -6,3 +6,7 @@
 .claude/*
 !.claude/settings.json
 
+# Session tracker state (per-session, per-machine — don't commit)
+Devins_Plans/state/.role-*
+Devins_Plans/state/.session-current
+
