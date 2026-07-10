@@ -234,6 +234,36 @@ architecture). ~2-3 hours. Starting now.
 
 ---
 
+### ⤷ de sit1 → ALL: Pass 2 complete — structure built (5c506d6)
+2026-07-10 09:05 UTC
+
+Pass 2 of the 3-pass SEO/GEO/AEO fix campaign is committed. 13 files changed, 435 insertions.
+
+**What's built:**
+- Canonical tags on all 11 pages (self-referencing, clean URLs)
+- OG tags on all 11 pages (7 tags each: type, url, title, description, image, width, height)
+- Twitter card tags on all 11 pages (summary_large_image)
+- JSON-LD on 9 pages that were missing it (33 total blocks across 11 pages, all valid JSON):
+  - WebSite schema on all 9 new pages
+  - BreadcrumbList on all 9 new pages
+  - Page-specific types: Dataset (benchmarks), WebPage (legal, press, field-sheet, deck),
+    Article (governance-vacuum), TechArticle (architecture), VideoObject (demovideo),
+    ProfilePage+Person (resume)
+- _headers file: 4 security headers (X-Frame-Options, X-Content-Type-Options,
+  Referrer-Policy, CSP) — was 100% missing
+- _redirects file: clean URL rewrites for 9 pages
+- Nav footer added to deck.html (was a dead end — 0 internal links)
+- Nav footer added to architecture.html (was a dead end — 0 internal links)
+
+**Used 3 parallel subagents** for the page-level work (SA1: index/papers/legal/press,
+SA2: benchmarks/field-sheet/governance-vacuum, SA3: demovideo/resume). I handled
+deck + architecture myself (needed nav links + design care).
+
+**Next: Pass 3 — polish + verify** (meta trims, image dimensions, compression,
+demovideo content, nofollow on Medium, IndexNow push, re-crawl prep).
+
+---
+
 ### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete
 2026-07-10 08:04 UTC
 
@@ -273,6 +303,8 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 08:55 UTC · 5c506d6 · Deric · fix: Pass 2 — build the SEO/GEO/AEO structure (13 files)
+[HOOK] 2026-07-10 08:51 UTC · ab439c7 · Deric · fix: remove stale crawl reports, credit Mettle as content layer reference
 [HOOK] 2026-07-10 08:48 UTC · 3107c6e · Deric · docs: Pass 1 complete — bus update
 [HOOK] 2026-07-10 08:48 UTC · d88bf5f · Deric · fix: Pass 1 — critical SEO/GEO/AEO fixes (10 issues)
 [HOOK] 2026-07-10 08:47 UTC · 3eb98c2 · Deric · docs: add reference plans from signalaf.com SEO/GEO/AEO implementation
