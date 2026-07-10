@@ -2,6 +2,7 @@
 .DS_Store
 **/.DS_Store
 
-# Claude Code internal directory (hooks, skills, local config)
-.claude/
+# Claude Code internal files (keep settings.json for shared hook config)
+.claude/*
+!.claude/settings.json
 

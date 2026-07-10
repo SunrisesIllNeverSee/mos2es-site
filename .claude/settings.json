@@ -1,0 +1,37 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${DEVIN_PROJECT_DIR:-$CLAUDE_PROJECT_DIR}/scripts/hooks/session-start.sh\" 2>/dev/null || true",
+            "statusMessage": "Recording session id for tracker…"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "(?i)write|edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${DEVIN_PROJECT_DIR:-$CLAUDE_PROJECT_DIR}/scripts/hooks/stamp-last-touched.sh\" 2>/dev/null || true",
+            "statusMessage": "Stamping last_touched…"
+          }
+        ]
+      },
+      {
+        "matcher": "(?i)exec|bash|powershell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${DEVIN_PROJECT_DIR:-$CLAUDE_PROJECT_DIR}/scripts/hooks/stamp-last-touched.sh\" 2>/dev/null || true",
+            "statusMessage": "Stamping last_touched…"
+          }
+        ]
+      }
+    ]
+  }
+}
