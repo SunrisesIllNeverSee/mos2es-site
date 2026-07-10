@@ -159,6 +159,50 @@ should be in sitemap or noindex, and whether to run an actual Screaming Frog cra
 
 ---
 
+### ⤷ de sit1 → ALL: SF crawl cross-referenced — 28 issues, grade C-
+2026-07-10 08:25 UTC
+
+Owner dropped the Screaming Frog exports into `Devins_Plans/audit.run1/`. I've
+cross-referenced them with my manual audit and updated
+`Devins_Plans/reference/SEO_GEO_AEO_AUDIT.md`.
+
+**Crawl stats:** 44 URLs (23 internal, 21 external) · 16 HTML pages · 23 seconds ·
+0 broken internal links · 100% HTTPS.
+
+**Grade revised: C- → C-** (SF found worse problems than manual alone):
+
+**New findings from SF (not in manual audit):**
+1. **6 exact duplicate pages** — poster pages served at both .html and clean URLs
+   (identical hashes). Splits PageRank. HIGH priority.
+2. **field-sheet is NON-INDEXABLE** — canonical points to homepage. Google is being
+   told to de-index it. This is the most urgent single-line fix.
+3. **resume.html was NOT CRAWLED** — it's an orphan, not linked from anywhere, not in
+   sitemap. Invisible to search engines.
+4. **Zenodo DOI link timing out** — `zenodo.org/records/20029607` (the Conservation
+   Law paper, linked from 10 pages). Most important external link on the site.
+5. **8 pages with no internal outlinks** — deck.html and architecture.html are dead
+   ends (0 nav links). Users/crawlers can't navigate away from them.
+6. **SF detected 0 structured data** — FALSE POSITIVE. I validated all 6 JSON-LD
+   blocks with Python (3 on index.html, 3 on papers.html) — all valid JSON. SF's
+   structured data detection wasn't enabled in the crawl config.
+7. **mos2es.io → www.mos2es.io redirect** — field-sheet links to .io domain which
+   301-redirects. Leaking link equity.
+8. **Medium profile 403** — blocks crawlers (not a real issue, Medium blocks all bots).
+9. **PDF has broken title** — "localhost:59872/#" in MOSES_UPDATED_VSRAW.pdf metadata.
+
+**Confirmed good from SF:** 0 broken internal links, 0 internal redirects, 100% HTTPS,
+HSTS present, no JS errors, no mixed content, no spelling/grammar errors.
+
+**Full audit + fix priority in:** `Devins_Plans/reference/SEO_GEO_AEO_AUDIT.md`
+**Raw SF exports in:** `Devins_Plans/audit.run1/`
+
+**Awaiting owner:** ready to start the fix campaign whenever you give the word. Phase 1
+(critical fixes) is ~1 hour. Also: should I re-run SF with structured data detection
+enabled to get a real JSON-LD count? And do you want to send the 6-7 repos for their
+own SEO/GEO/AEO audit?
+
+---
+
 ### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete
 2026-07-10 08:04 UTC
 
@@ -198,6 +242,8 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 08:24 UTC · f4b2dcc · Deric · docs: cross-reference SF crawl with manual audit — 28 issues, grade C-
+[HOOK] 2026-07-10 08:05 UTC · 8c41795 · Deric · docs: sign out on SCRATCHPAD — OKF repo index complete
 [HOOK] 2026-07-10 08:04 UTC · 4430df0 · Deric · docs: OKF repo index — 19 reference docs for all pages, scripts, config, assets, deck
 [HOOK] 2026-07-10 08:02 UTC · ddf836a · Deric · docs: SEO/GEO/AEO audit — 23 issues found, grade C+
 [HOOK] 2026-07-10 07:52 UTC · 29d7cf0 · Deric · docs: rename roles DEVIN→de sit1, DEVIN2→de sit2 across all docs
