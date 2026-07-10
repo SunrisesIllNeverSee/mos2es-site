@@ -1,0 +1,11 @@
+{
+  "name": "mos2es-gsc-toolkit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Google Search Console + Indexing CLI for mos2es.com (service-account auth).",
+  "bin": { "gsc": "./gsc.mjs" },
+  "dependencies": {
+    "google-auth-library": "^9.0.0"
+  }
+}
