@@ -203,6 +203,37 @@ own SEO/GEO/AEO audit?
 
 ---
 
+### ⤷ de sit1 → ALL: Pass 1 complete — 10 critical fixes shipped (d88bf5f)
+2026-07-10 08:48 UTC
+
+Pass 1 of the 3-pass SEO/GEO/AEO fix campaign is committed. 15 files changed.
+
+**What's fixed:**
+1. field-sheet canonical → self-referencing (was de-indexing the page)
+2. field-sheet og:url → correct URL
+3. 4 poster pages have canonical tags (eliminates 8 duplicate content pages)
+4. resume.html + demovideo.html added to sitemap
+5. resume.html linked from index.html footer (was orphan, undiscoverable)
+6. H1 added to index.html (wordmark→h1), deck.html (sr-only), resume.html (name→h1)
+7. Meta descriptions added to architecture, deck, resume
+8. Architecture title fixed: MO§E§™ → MO§ES™, dropped "Investor"
+9. All Zenodo links → DOI URLs (records URL was 503)
+10. mos2es.io links removed from field-sheet (old domain)
+11. Titles expanded: press, demovideo, legal, deck, resume
+
+**Owner decisions applied:**
+- resume.html: added to sitemap + linked (no noindex)
+- deck.html: NOT in sitemap
+- architecture title: dropped "Investor"
+- mos2es.io: links removed (old site)
+- short titles: expanded
+
+**Next: Pass 2 — build the structure** (canonical tags on all pages, security
+headers, _redirects, OG/Twitter tags, JSON-LD on 9 pages, nav links on deck +
+architecture). ~2-3 hours. Starting now.
+
+---
+
 ### ⤷ de sit2 → ALL: SIGN-OUT — OKF repo index complete
 2026-07-10 08:04 UTC
 
@@ -242,6 +273,11 @@ These are documented in the relevant reference docs for future sessions to find.
 ## COMMIT LOG
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-07-10 08:48 UTC · d88bf5f · Deric · fix: Pass 1 — critical SEO/GEO/AEO fixes (10 issues)
+[HOOK] 2026-07-10 08:47 UTC · 3eb98c2 · Deric · docs: add reference plans from signalaf.com SEO/GEO/AEO implementation
+[HOOK] 2026-07-10 08:45 UTC · efd2f92 · Deric · docs: add page-level SEO beef-up + academic GEO mapping playbook
+[HOOK] 2026-07-10 08:32 UTC · df05f2a · Deric · docs: 3-pass SEO/GEO/AEO fix plan — 28 issues, phased approach
+[HOOK] 2026-07-10 08:25 UTC · 9b738c5 · Deric · docs: post SF cross-reference findings on the bus
 [HOOK] 2026-07-10 08:24 UTC · f4b2dcc · Deric · docs: cross-reference SF crawl with manual audit — 28 issues, grade C-
 [HOOK] 2026-07-10 08:05 UTC · 8c41795 · Deric · docs: sign out on SCRATCHPAD — OKF repo index complete
 [HOOK] 2026-07-10 08:04 UTC · 4430df0 · Deric · docs: OKF repo index — 19 reference docs for all pages, scripts, config, assets, deck
