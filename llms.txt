@@ -10,6 +10,7 @@ MO§ES is the constitutional AI governance framework that enforces the Conservat
 - [Benchmarks](https://mos2es.com/benchmarks?utm_source=ai&utm_medium=answer_engine): empirical results across 5 AI kernels
 - [Field Sheet](https://mos2es.com/field-sheet?utm_source=ai&utm_medium=answer_engine): operational summary and one-pager
 - [Papers & Proofs](https://mos2es.com/papers?utm_source=ai&utm_medium=answer_engine): published research and proof stack
+- [Financial Signals Paper & Review](https://mos2es.com/financial-signals-paper?utm_source=ai&utm_medium=answer_engine): commitment conservation in financial signals — paper and external review published together
 - [Legal & IP](https://mos2es.com/legal?utm_source=ai&utm_medium=answer_engine): patent portfolio and trademark
 - [Press Kit](https://mos2es.com/press?utm_source=ai&utm_medium=answer_engine): boilerplate and press resources
 - [FAQ](https://mos2es.com/faq?utm_source=ai&utm_medium=answer_engine): 20 frequently asked questions about MO§ES
