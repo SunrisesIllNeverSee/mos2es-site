@@ -44,6 +44,10 @@
     .video-label{font-family:var(--mono);color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:11px;margin-bottom:10px}
     .video-title{font-family:var(--serif);color:var(--bright);font-size:clamp(22px,4vw,32px);line-height:1.1;margin-bottom:8px}
     .video-desc{color:var(--dim);font-size:15px;margin-bottom:20px;max-width:720px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px}
+    .gallery figure{margin:0}
+    .gallery img{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;display:block}
+    .gallery figcaption{font-family:var(--mono);color:var(--dim);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:8px;text-align:center}
     @media(max-width:760px){.wrap{padding:48px 18px}.links{max-width:240px}.links a{font-size:9px}}
   </style>
   <script type="application/ld+json">
@@ -116,6 +120,27 @@
     <div class="cta">
       <a class="btn" href="https://huggingface.co/spaces/build-small-hackathon/sigrank" target="_blank" rel="noopener">Try SigRank live &rarr;</a>
       <span class="note">Runs in your browser · Hugging Face Space</span>
+    </div>
+
+    <!-- Screenshots -->
+    <div class="video-section" style="margin-top:64px">
+      <div class="video-label">Screenshots</div>
+      <div class="video-title">Product Screenshots</div>
+      <p class="video-desc">Visual reference captures from the product environment.</p>
+      <div class="gallery">
+        <figure>
+          <img src="assets/screenshot-1.png" alt="Screenshot 1" loading="lazy">
+          <figcaption>Screenshot · 2026-07-24 1:21 PM</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshot-2.png" alt="Screenshot 2" loading="lazy">
+          <figcaption>Screenshot · 2026-07-24 3:51 PM</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshot-3.png" alt="Screenshot 3" loading="lazy">
+          <figcaption>Screenshot · 2026-07-24 3:51 PM</figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="meta">
