@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+  <rect width="1100" height="650" fill="#F2EDE3"/>
+  <g stroke="#C9BFAD" stroke-width="2" opacity=".8">
+    <path d="M110 80V550H1020"/>
+    <path d="M110 172H1020M110 264H1020M110 356H1020M110 448H1020" stroke-dasharray="6 10"/>
+    <path d="M292 80V550M474 80V550M656 80V550M838 80V550" stroke-dasharray="6 10"/>
+    <path d="M110 315H1020M565 80V550" stroke="#B5421C" stroke-width="3" opacity=".65"/>
+  </g>
+  <g fill="#5C5852" opacity=".72">
+    <circle cx="650" cy="440" r="9"/><circle cx="680" cy="420" r="7"/><circle cx="705" cy="455" r="10"/><circle cx="735" cy="400" r="8"/><circle cx="765" cy="438" r="11"/><circle cx="792" cy="385" r="7"/><circle cx="820" cy="425" r="9"/><circle cx="845" cy="460" r="8"/><circle cx="872" cy="404" r="10"/><circle cx="900" cy="440" r="7"/><circle cx="920" cy="370" r="8"/><circle cx="940" cy="425" r="10"/><circle cx="960" cy="390" r="7"/><circle cx="710" cy="485" r="8"/><circle cx="745" cy="500" r="7"/><circle cx="780" cy="475" r="10"/><circle cx="825" cy="505" r="8"/><circle cx="860" cy="480" r="9"/><circle cx="890" cy="510" r="7"/>
+    <circle cx="610" cy="470" r="7"/><circle cx="625" cy="410" r="6"/><circle cx="595" cy="455" r="8"/><circle cx="540" cy="450" r="6"/><circle cx="525" cy="485" r="7"/><circle cx="500" cy="420" r="5"/><circle cx="480" cy="465" r="6"/><circle cx="455" cy="490" r="7"/><circle cx="430" cy="435" r="5"/>
+  </g>
+  <g fill="#B5421C" stroke="#F2EDE3" stroke-width="3">
+    <circle cx="255" cy="175" r="13"/><circle cx="300" cy="215" r="11"/><circle cx="335" cy="145" r="12"/><circle cx="365" cy="250" r="10"/><circle cx="405" cy="190" r="14"/><circle cx="450" cy="270" r="10"/><circle cx="485" cy="225" r="11"/><circle cx="520" cy="290" r="9"/>
+  </g>
+  <g font-family="IBM Plex Mono, monospace" fill="#5C5852" font-size="22" letter-spacing="2">
+    <text x="110" y="610">LOW VOLUME</text><text x="830" y="610">HIGH VOLUME</text>
+    <text x="35" y="535" transform="rotate(-90 35 535)">LOW YIELD</text><text x="35" y="190" transform="rotate(-90 35 190)">HIGH YIELD</text>
+    <text x="680" y="590" fill="#8A857C">VOLUME LEADERBOARD REGION</text>
+    <text x="150" y="120" fill="#B5421C">GHOST-RANK REGION</text>
+  </g>
+  <g font-family="Newsreader, serif" fill="#1A1815">
+    <text x="150" y="335" font-size="32">High yield.</text><text x="150" y="372" font-size="32">Low volume.</text>
+    <text x="150" y="410" font-size="25" fill="#5C5852">Invisible when the field ranks activity.</text>
+  </g>
+  <g fill="#B5421C"><circle cx="650" cy="315" r="6"/></g>
+  <text x="667" y="323" font-family="IBM Plex Mono, monospace" font-size="20" fill="#B5421C">MEDIAN CROSSHAIRS</text>
+</svg>
