@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("uploads");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("docs");
+  eleventyConfig.addPassthroughCopy("deck-stage.js");
   eleventyConfig.addPassthroughCopy("BingSiteAuth.xml");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("llms.txt");
