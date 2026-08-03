@@ -25,7 +25,6 @@ package-lock.json
 .eleventyignore
 .gitignore
 netlify.toml
-deck-stage.js
 tweaks-panel.jsx
 tweaks.jsx
 3cb9dad60ebc43248d4ec58b2d9b4aca.txt
