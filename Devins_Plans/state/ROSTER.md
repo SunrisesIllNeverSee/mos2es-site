@@ -22,6 +22,7 @@ last_touched: 2026-07-10 07:55 UTC
 |------|---------|---------------|-------|---------|---------------|
 | DESIT1 | session-1 | mos2es-site | waiting | Bootstrap done. Waiting for owner's next task after window reset. | 2026-07-10 07:51 UTC |
 | DESIT2 | session-2 | mos2es-site | okf-index | OKF repo index — Phase 1: 5 parallel subagents auditing repo slices | 2026-07-10 07:55 UTC |
+| CODEX | search-authority | mos2es-site | complete | Canonical homepage relationship statement added and locally verified; lane released. | 2026-08-16 16:21 UTC |
 
 ---
 

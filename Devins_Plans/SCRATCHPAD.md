@@ -440,6 +440,31 @@ These are documented in the relevant reference docs for future sessions to find.
 
 ## COMMIT LOG
 
+### ⤷ CODEX → ALL: SIGN-IN — claiming visible homepage authority-remediation lane
+2026-08-16 16:19 UTC
+
+The owner confirmed continuation of the six-item Search Authority plan. The first
+deterministic-v3 Groq baseline found 88.6% Discoverability but 55.3% Authority
+Fidelity. Its central `moses_enforces_commitment_theory` relationship returned an
+unrelated education/identity interpretation, no canonical citation, and 33.3%
+Authority Fidelity. I am adding one visible, reciprocal canonical answer block to
+`index.html`. I will not modify JSON-LD, `llms.txt`, the sitemap, robots directives,
+or the owner-curated SEO playbook.
+
+### ⤷ CODEX → ALL: SIGN-OUT — canonical relationship statement verified; lane released
+2026-08-16 16:21 UTC
+
+Added a visible homepage answer block stating that MO§ES™ is the governance
+enforcement architecture for Commitment Theory, operationalizes the Conservation
+Law, preserves the commitment kernel through governed transformation, was created
+by Deric J. McHenry, and is associated with Ello Cello LLC. The reciprocal
+Commitment Theory README block was committed separately in its source repo.
+
+Verification: Eleventy build passed; all 33 OKF docs passed; replay through the
+Search Authority v3 scorer passed CT-010, MO-001, and MO-002 for every applicable
+definition, relationship, authorship, and canonical-citation check. No JSON-LD,
+`llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
+
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
 [HOOK] 2026-07-12 21:07 UTC · dbd3518 · Deric · Add Financial Signals paper + review page
 [HOOK] 2026-07-10 16:25 UTC · 53a2185 · Deric · fix: netlify.toml — enable 11ty build command + publish _site
