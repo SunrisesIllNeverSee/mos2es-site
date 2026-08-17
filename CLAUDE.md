@@ -87,3 +87,53 @@ To stop coordination from disappearing between sessions:
 > benchmarks, architecture, governance-vacuum article, field sheet, demo video, press,
 > legal, resume, and pitch deck. Deployed via Netlify with SEO/GEO/AEO optimization
 > (JSON-LD structured data, llms.txt, sitemap, Bing IndexNow).
+
+---
+
+## Master Canon Context (Search Authority)
+
+This repository is the **MO§ES™** public site (mos2es.com). It is governed by
+the Search Authority master canon.
+
+### When to load canon context
+
+Before modifying any of the following, load the relevant canon context:
+
+- canonical product definitions (what MO§ES™ is/is not)
+- ecosystem relationships (MO§ES™ ↔ Commitment Theory, Conservation Law, SigRank, Signomy, CIVITAE, KASSA)
+- terminology (MO§ES™ rendering — never MO§E§; aliases: mos2es, MOSES)
+- research claims or governance architecture descriptions
+- product boundaries (MO§ES™ vs KASSA public demonstration layer)
+- public positioning or SEO/AEO copy that makes canonical claims
+
+### How to load canon context
+
+```bash
+export SEARCH_AUTHORITY_PATH="${SEARCH_AUTHORITY_PATH:-$HOME/Developer/active/search-authority}"
+python3 "$SEARCH_AUTHORITY_PATH/canon_cli.py" context moses
+```
+
+Or use the MCP server (compatible agents):
+
+```bash
+python3 "$SEARCH_AUTHORITY_PATH/canon_mcp.py"
+```
+
+If the canon repository is unavailable, **do not invent canonical context** —
+ask the owner. The canon outranks ad-hoc public copy or generated model output
+for normative product/research truth.
+
+### What is NOT authority-sensitive
+
+CSS/layout, static asset updates, and build config do **not** require loading
+the canon.
+
+### Key governance rules
+
+- Exactly ONE MO§ES entity. Canonical display: MO§ES™. Accepted prose: MO§ES.
+- Aliases: mos2es, MOSES. Never render: MO§E§ or MO§E§™.
+- Do NOT collapse Signomy and CIVITAE — they are distinct entities.
+- MO§ES™ is the enforcement architecture for Commitment Theory.
+- MO§ES™ operationalizes the Conservation Law of Commitment.
+- The harness may measure authority, but it cannot manufacture authority.
+- Automated systems may not promote claims into owner-approved truth.
