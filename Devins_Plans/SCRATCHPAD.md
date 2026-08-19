@@ -466,6 +466,9 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-17 22:50 UTC · 3066f99 · Deric · Add Master Canon Context section to CLAUDE.md
+[HOOK] 2026-08-17 17:05 UTC · 2c436cb · Deric · authority-remediation-v1: add approved governance relationship predicates
+[HOOK] 2026-08-16 16:21 UTC · 53079f0 · Deric · Clarify MOSES Commitment Theory relationship
 [HOOK] 2026-07-12 21:07 UTC · dbd3518 · Deric · Add Financial Signals paper + review page
 [HOOK] 2026-07-10 16:25 UTC · 53a2185 · Deric · fix: netlify.toml — enable 11ty build command + publish _site
 [HOOK] 2026-07-10 15:45 UTC · 00dd3eb · Deric · chore: add IndexNow push script + post-deploy checklist
