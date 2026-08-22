@@ -42,8 +42,8 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number || '' }}
         run: |
           if [ -n "$PR_NUMBER" ]; then
-            BASE_URL="https://deploy-preview-${PR_NUMBER}--mos2es.netlify.app"
+            bash tests/agent-readiness-live.sh "https://deploy-preview-${PR_NUMBER}--mos2es.netlify.app"
+            bash tests/agent-readiness-live.sh "https://mos2es.com"
           else
-            BASE_URL="https://mos2es.com"
+            bash tests/agent-readiness-live.sh "https://mos2es.com"
           fi
-          bash tests/agent-readiness-live.sh "$BASE_URL"
