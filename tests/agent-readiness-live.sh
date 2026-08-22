@@ -187,7 +187,7 @@ while IFS= read -r canonical_url; do
   [[ -n "$path" ]] || path="/"
   assert_public_path "$path"
   canonical_count=$((canonical_count + 1))
-done < <(sed -n 's:.*<loc>\(https://mos2es\.com[^<]*\)</loc>.*:\1:p' "$TMP_DIR/sitemap.body")
+done < <(grep -oE '<loc>https://mos2es\.com[^<]*</loc>' "$TMP_DIR/sitemap.body" | sed -e 's#<loc>##' -e 's#</loc>##')
 (( canonical_count > 0 )) || fail "sitemap.xml contained no canonical URLs"
 echo "agent-readiness-live: verified $canonical_count sitemap endpoints"
 
