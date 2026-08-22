@@ -9,6 +9,11 @@
 /demovideo           /demovideo.html           200
 /resume              /resume.html              200
 
+# Trust anchors
+/about               /about.html               200
+/contact             /contact.html             200
+/privacy             /privacy.html             200
+
 # Concept pages
 /concepts/conservation-law          /concepts/conservation-law.html          200
 /concepts/lineage-claw              /concepts/lineage-claw.html              200
