@@ -37,3 +37,13 @@ jobs:
         run: npm test
       - name: Build Eleventy site
         run: npm run build
+      - name: Verify deployed agent-readiness behavior
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number || '' }}
+        run: |
+          if [ -n "$PR_NUMBER" ]; then
+            bash tests/agent-readiness-live.sh "https://deploy-preview-${PR_NUMBER}--mos2es.netlify.app"
+            bash tests/agent-readiness-live.sh "https://mos2es.com"
+          else
+            bash tests/agent-readiness-live.sh "https://mos2es.com"
+          fi
