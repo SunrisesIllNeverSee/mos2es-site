@@ -26,3 +26,14 @@ jobs:
         env:
           REPO_STANDARD_BASE: ${{ github.event.pull_request.base.sha || '' }}
         run: python3 .repo/scripts/repo_check.py --ci
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run agent-readiness tests
+        run: npm test
+      - name: Build Eleventy site
+        run: npm run build
