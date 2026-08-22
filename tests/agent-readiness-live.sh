@@ -85,6 +85,13 @@ assert_contains() {
   grep -Fq "$needle" "$file" || fail "$file missing expected text: $needle"
 }
 
+assert_public_path() {
+  local path="$1"
+  local code
+  code="$(curl -sS -o /dev/null -w '%{http_code}' -H 'Accept: text/html' --connect-timeout 10 --max-time 30 "$BASE_URL$path")"
+  [[ "$code" == "200" ]] || fail "public endpoint $path returned HTTP $code"
+}
+
 wait_for_site
 
 echo "agent-readiness-live: checking $BASE_URL"
@@ -165,5 +172,35 @@ assert_contains "$TMP_DIR/sitemap.body" 'https://mos2es.com/privacy'
 
 code="$(request robots /robots.txt)"
 assert_status "$code" 200 "/robots.txt"
+
+code="$(request bing-auth /BingSiteAuth.xml)"
+assert_status "$code" 200 "/BingSiteAuth.xml"
+
+code="$(request verification-token /3cb9dad60ebc43248d4ec58b2d9b4aca.txt)"
+assert_status "$code" 200 "/3cb9dad60ebc43248d4ec58b2d9b4aca.txt"
+
+# Verify every canonical URL advertised in sitemap.xml against the deployment
+# under test, replacing the production origin with the current BASE_URL.
+canonical_count=0
+while IFS= read -r canonical_url; do
+  path="${canonical_url#https://mos2es.com}"
+  [[ -n "$path" ]] || path="/"
+  assert_public_path "$path"
+  canonical_count=$((canonical_count + 1))
+done < <(sed -n 's:.*<loc>\(https://mos2es\.com[^<]*\)</loc>.*:\1:p' "$TMP_DIR/sitemap.body")
+(( canonical_count > 0 )) || fail "sitemap.xml contained no canonical URLs"
+echo "agent-readiness-live: verified $canonical_count sitemap endpoints"
+
+# Verify every clean public route declared in Netlify's redirects table.
+redirect_count=0
+while read -r source _target status _rest; do
+  [[ "$source" == /* ]] || continue
+  [[ "$source" != *"*"* ]] || continue
+  [[ "$status" == "200" ]] || continue
+  assert_public_path "$source"
+  redirect_count=$((redirect_count + 1))
+done < <(grep -v '^[[:space:]]*#' _redirects | grep -v '^[[:space:]]*$')
+(( redirect_count > 0 )) || fail "_redirects contained no clean public routes"
+echo "agent-readiness-live: verified $redirect_count declared clean routes"
 
 echo "agent-readiness-live: PASS"
