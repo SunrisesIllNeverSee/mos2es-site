@@ -1,4 +1,4 @@
-import TurndownService from "npm:turndown";
+import TurndownService from "https://esm.sh/turndown@7.2.4?target=deno";
 import { mergeVary, negotiateRepresentation } from "./lib/accept.mjs";
 
 const NON_CONTENT_CLASS = /(?:^|\s)(?:nav|footer|content-footer|ip-strip-top|ip-strip-bottom)(?:\s|$)/i;
