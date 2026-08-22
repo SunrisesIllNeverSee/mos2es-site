@@ -14,7 +14,7 @@ repo:
 structure:
   profile: website
   allowed_root_dirs_extra: [.claude, .netlify, .stash, _data, _includes, _site, alternatives, assets, blog, concepts, Devins_Plans, guides, img, tools, uploads, vs, system-devin]
-  allowed_root_files_extra: [3cb9dad60ebc43248d4ec58b2d9b4aca.txt, .eleventy.js, .eleventyignore, _headers, _redirects, agent-governance.html, ai-governance.html, architecture.html, benchmarks.html, BingSiteAuth.xml, commitment-conservation-hub.html, constitutional-ai-hub.html, deck-stage.js, deck.html, demovideo.html, faq.html, field-sheet.html, financial-signals-paper.html, governance-vacuum.html, index.html, legal.html, multi-agent-systems.html, netlify.toml, papers.html, press.html, preview.html, resume.html, sitemap.xml, tweaks-panel.jsx, tweaks.jsx, CLAUDE.md, llms-full.txt, llms.txt, robots.txt, SEO_BEEFUP_AND_ACADEMIC_GEO.md, SEO_GEO_AEO_PLAYBOOK.md, SETUP.md]
+  allowed_root_files_extra: [3cb9dad60ebc43248d4ec58b2d9b4aca.txt, .eleventy.js, .eleventyignore, _headers, _redirects, 404.html, about.html, agent-governance.html, ai-governance.html, architecture.html, benchmarks.html, BingSiteAuth.xml, commitment-conservation-hub.html, constitutional-ai-hub.html, contact.html, deck-stage.js, deck.html, demovideo.html, faq.html, field-sheet.html, financial-signals-paper.html, governance-vacuum.html, index.html, legal.html, multi-agent-systems.html, netlify.toml, papers.html, press.html, preview.html, privacy.html, resume.html, sitemap.xml, tweaks-panel.jsx, tweaks.jsx, CLAUDE.md, llms-full.txt, llms.txt, robots.txt, SEO_BEEFUP_AND_ACADEMIC_GEO.md, SEO_GEO_AEO_PLAYBOOK.md, SETUP.md]
   document_roots: [docs]
   artifact_roots: [artifacts, _site]
   archive_roots: [archive, docs/archive]

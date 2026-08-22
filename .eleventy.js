@@ -3,6 +3,48 @@
 // Output: _site/ (deploy target)
 const path = require("path");
 
+const publisherAddress = {
+  "@type": "PostalAddress",
+  streetAddress: "84 W Utica St",
+  addressLocality: "Buffalo",
+  addressRegion: "NY",
+  postalCode: "14209",
+  addressCountry: "US",
+};
+
+const organizationIdentity = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://mos2es.com/#org",
+  name: "MO§ES",
+  alternateName: ["MO§ES™", "MOS2ES", "MOSES"],
+  url: "https://mos2es.com",
+  email: "burnmydays@proton.me",
+  brand: {
+    "@type": "Brand",
+    "@id": "https://mos2es.com/#brand",
+    name: "MO§ES™",
+    alternateName: ["MO§ES", "MOS2ES", "MOSES"],
+    url: "https://mos2es.com",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    "@id": "https://mos2es.com/#publisher",
+    name: "Ello Cello LLC",
+    address: publisherAddress,
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "general inquiries",
+      email: "burnmydays@proton.me",
+      url: "https://mos2es.com/contact",
+      availableLanguage: ["English"],
+    },
+  ],
+  address: publisherAddress,
+};
+
 module.exports = function (eleventyConfig) {
   // ── Passthrough copies (static assets, config files) ──
   eleventyConfig.addPassthroughCopy("img");
@@ -19,6 +61,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("3cb9dad60ebc43248d4ec58b2d9b4aca.txt");
   eleventyConfig.addPassthroughCopy("CNAME");
+
+  // Add one canonical organization identity node to every HTML page. Existing
+  // page-specific JSON-LD can reference the same #org/#brand identifiers.
+  eleventyConfig.addTransform("organization-identity", function (content) {
+    if (!this.page?.outputPath?.endsWith(".html") || !content.includes("</head>")) {
+      return content;
+    }
+
+    const jsonLd = `  <script type="application/ld+json">\n${JSON.stringify(organizationIdentity, null, 2)}\n  </script>\n`;
+    return content.replace("</head>", `${jsonLd}</head>`);
+  });
 
   // ── Default permalink: keep .html extension for backward compat ──
   // Existing pages use href="papers.html" — this preserves that structure.

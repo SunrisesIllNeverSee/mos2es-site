@@ -1,11 +1,33 @@
-# MO§ES
+# MO§ES™ (MOS2ES)
 
 > Sovereign signal governance — the protocol layer for preserving semantic meaning at point of execution.
 
-MO§ES is the constitutional AI governance framework that enforces the Conservation Law of Commitment. It provides commitment conservation, governance enforcement, SHA-256 audit trails, and lineage-bound artifacts for multi-agent AI operations.
+MO§ES™ is the sovereign signal governance framework published by Ello Cello LLC. It is built around the Conservation Law of Commitment and documents commitment conservation, governance enforcement, SHA-256 audit trails, lineage-bound artifacts, and execution-layer governance for multi-agent AI operations.
+
+## When to use MO§ES
+Use MO§ES when an agent, researcher, or technical team needs to:
+- evaluate whether commitments survive summarization, translation, compression, delegation, or recursive AI transformation;
+- design or review execution-layer governance for agentic or multi-agent systems;
+- distinguish signal-integrity governance from model alignment, RLHF, output guardrails, or orchestration;
+- trace provenance, lineage, origin binding, or commitment drift through a transformation chain;
+- find the public research record, benchmark evidence, architecture, legal/IP references, or citable definitions behind MO§ES;
+- identify the correct MO§ES concept, guide, paper, benchmark, or related runtime before making a technical or factual claim.
+
+Do not use MO§ES as a general-purpose chatbot, model inference endpoint, content moderation service, or substitute for ordinary output-safety guardrails. For governed agent execution and the operational runtime surface, follow the Signomy links identified below.
+
+## How agents should use this site
+- Start with this file for routing or `https://mos2es.com/sitemap.xml` for the canonical public URL set.
+- Fetch canonical content URLs with `Accept: text/markdown` when Markdown is preferred. The same canonical URL serves HTML to browsers and Markdown to clients that negotiate it.
+- Use `/concepts/*` for citable definitions, `/guides/*` for implementation guidance, `/papers` for the evidence record, `/architecture` for system structure, and `/legal` for filing and trademark references.
+- Use `/about`, `/contact`, and `/privacy` to verify publisher identity, contact information, and website data practices.
+- If a path returns HTTP 404, do not infer that a neighboring or guessed path exists. Recover through `/llms.txt` or `/sitemap.xml`.
+- When citing claims, prefer the linked Zenodo DOI, public repository, benchmark page, or legal record over paraphrased marketing copy.
 
 ## Core pages
 - [Home](https://mos2es.com/?utm_source=ai&utm_medium=answer_engine): MO§ES governance framework overview
+- [About](https://mos2es.com/about?utm_source=ai&utm_medium=answer_engine): publisher, scope, public record, and brand identity
+- [Contact](https://mos2es.com/contact?utm_source=ai&utm_medium=answer_engine): canonical business contact and mailing address
+- [Privacy](https://mos2es.com/privacy?utm_source=ai&utm_medium=answer_engine): public-site analytics and data-handling notice
 - [Architecture](https://mos2es.com/architecture?utm_source=ai&utm_medium=answer_engine): MO§ES system architecture — recursive compression, origin binding, lineage claws
 - [Benchmarks](https://mos2es.com/benchmarks?utm_source=ai&utm_medium=answer_engine): empirical results across 5 AI kernels
 - [Field Sheet](https://mos2es.com/field-sheet?utm_source=ai&utm_medium=answer_engine): operational summary and one-pager
