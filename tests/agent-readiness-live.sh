@@ -105,7 +105,7 @@ assert_status "$code" 200 "architecture Markdown"
 assert_header_contains "$TMP_DIR/markdown.headers" "Content-Type" "text/markdown; charset=utf-8"
 assert_vary_token "$TMP_DIR/markdown.headers" "accept"
 assert_vary_token "$TMP_DIR/markdown.headers" "accept-encoding"
-assert_contains "$TMP_DIR/markdown.body" '# Architecture'
+assert_contains "$TMP_DIR/markdown.body" 'Sovereign Architecture'
 if grep -Fqi '<html' "$TMP_DIR/markdown.body"; then
   fail "Markdown representation still contains an HTML document shell"
 fi
