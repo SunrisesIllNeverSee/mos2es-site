@@ -3,12 +3,21 @@
 // Output: _site/ (deploy target)
 const path = require("path");
 
+const publisherAddress = {
+  "@type": "PostalAddress",
+  streetAddress: "84 W Utica St",
+  addressLocality: "Buffalo",
+  addressRegion: "NY",
+  postalCode: "14209",
+  addressCountry: "US",
+};
+
 const organizationIdentity = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://mos2es.com/#org",
-  name: "Ello Cello LLC",
-  legalName: "Ello Cello LLC",
+  name: "MO§ES",
+  alternateName: ["MO§ES™", "MOS2ES", "MOSES"],
   url: "https://mos2es.com",
   email: "burnmydays@proton.me",
   brand: {
@@ -17,6 +26,12 @@ const organizationIdentity = {
     name: "MO§ES™",
     alternateName: ["MO§ES", "MOS2ES", "MOSES"],
     url: "https://mos2es.com",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    "@id": "https://mos2es.com/#publisher",
+    name: "Ello Cello LLC",
+    address: publisherAddress,
   },
   contactPoint: [
     {
@@ -27,14 +42,7 @@ const organizationIdentity = {
       availableLanguage: ["English"],
     },
   ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "84 W Utica St",
-    addressLocality: "Buffalo",
-    addressRegion: "NY",
-    postalCode: "14209",
-    addressCountry: "US",
-  },
+  address: publisherAddress,
 };
 
 module.exports = function (eleventyConfig) {
