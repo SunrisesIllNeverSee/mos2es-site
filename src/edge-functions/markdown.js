@@ -72,13 +72,14 @@ export default async function markdownNegotiation(request, context) {
     return new Response(null, responseInit(origin, headers));
   }
 
+  const fallback = origin.clone();
   try {
     const markdown = markdownFromHtml(await origin.text());
     headers.set("X-Markdown-Tokens", String(Math.ceil(markdown.length / 4)));
     return new Response(markdown, responseInit(origin, headers));
   } catch (error) {
     console.error("markdown negotiation failed", error);
-    const fallbackHeaders = responseHeaders(origin);
-    return new Response(origin.body, responseInit(origin, fallbackHeaders));
+    const fallbackHeaders = responseHeaders(fallback);
+    return new Response(fallback.body, responseInit(fallback, fallbackHeaders));
   }
 }
