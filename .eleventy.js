@@ -61,6 +61,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addPassthroughCopy("3cb9dad60ebc43248d4ec58b2d9b4aca.txt");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy(".well-known");
 
   // Add one canonical organization identity node to every HTML page. Existing
   // page-specific JSON-LD can reference the same #org/#brand identifiers.
