@@ -48,6 +48,7 @@ Do not use MO§ES as a general-purpose chatbot, model inference endpoint, conten
 - [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate?utm_source=ai&utm_medium=answer_engine): foundational rules, thresholds, and enforcement mechanisms
 - [Sovereign Signal Governance](https://mos2es.com/concepts/sovereign-signal-governance?utm_source=ai&utm_medium=answer_engine): enforceable governance at the point of execution, not post-hoc correction
 - [Governance Vacuum](https://mos2es.com/concepts/governance-vacuum?utm_source=ai&utm_medium=answer_engine): the gap between AI deployment and governance enforcement causing commitment degradation
+- [Commitment Kernel](https://mos2es.com/concepts/commitment-kernel?utm_source=ai&utm_medium=answer_engine): the minimal identity-preserving deontic invariant of a signal — what MO§ES extracts and preserves
 
 ## Guides (how-to)
 - [How to Enforce Commitment Conservation](https://mos2es.com/guides/how-to-enforce-commitment-conservation?utm_source=ai&utm_medium=answer_engine): implementing MO§ES governance enforcement

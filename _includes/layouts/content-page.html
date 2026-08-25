@@ -10,7 +10,7 @@
 <body>
 {% include "partials/nav.html" %}
   <main class="wrap">
-    <h1>{{ title }}</h1>
+    <h1>{{ h1 or title }}</h1>
     <p class="lede">{{ lede or description }}</p>
     {{ content | safe }}
   </main>

@@ -1,0 +1,138 @@
+---
+title: "Commitment Kernel — MO§ES"
+h1: "What is the Commitment Kernel?"
+description: "The commitment kernel is the minimal identity-preserving deontic invariant of a signal — the part that must survive transformation for the signal to retain its meaning."
+path: "/concepts/commitment-kernel"
+lede: "The minimal identity-preserving deontic invariant of a signal. The commitment kernel is what MO§ES extracts, preserves, and re-injects at every transformation step to enforce the Conservation Law of Commitment."
+strip_text: "MO§ES™ · Concepts · Commitment Kernel"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Concepts"
+        item: "https://mos2es.com/concepts/conservation-law"
+      - "@type": "ListItem"
+        position: 3
+        name: "Commitment Kernel"
+        item: "https://mos2es.com/concepts/commitment-kernel"
+  - "@context": "https://schema.org"
+    "@type": "DefinedTerm"
+    name: "Commitment Kernel"
+    description: "The minimal identity-preserving deontic invariant of a signal. The commitment kernel is the deontic modal content that must be preserved under transformation for the signal to retain its semantic identity."
+    url: "https://mos2es.com/concepts/commitment-kernel"
+    inDefinedTermSet:
+      "@type": "DefinedTermSet"
+      name: "MO§ES Concepts"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is the commitment kernel?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The commitment kernel is the minimal identity-preserving deontic invariant of a signal. It is the deontic modal content — the obligations, permissions, and prohibitions encoded in the signal — that must survive transformation for the signal to retain its semantic identity. MO§ES extracts the kernel before transformation and re-injects it after, ensuring the kernel is conserved."
+      - "@type": "Question"
+        name: "How does the commitment kernel relate to the Conservation Law?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "The Conservation Law of Commitment states that commitment is preserved under governed transformation and decays under ungoverned transformation. The commitment kernel is the specific quantity that is conserved. Formally: K(T(S)) ≈ K(S) with enforcement, where K is the kernel extraction function, T is the transformation, and S is the original signal."
+      - "@type": "Question"
+        name: "What does deontic modal content mean?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Deontic modal content refers to the obligation, permission, and prohibition markers in a signal — the 'shall,' 'must,' 'may,' and 'must not' that carry the signal's binding force. These are the markers that degrade first under ungoverned recursive transformation: a 'shall' drifts to a 'may,' a 'must' softens to a 'should.' The commitment kernel captures these markers as its invariant."
+      - "@type": "Question"
+        name: "How does MO§ES extract and re-inject the commitment kernel?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "MO§ES operates a three-step gate at each transformation: (1) extract the commitment kernel from the input signal before transformation, (2) apply the transformation (compression, summarization, translation), and (3) re-inject the kernel into the transformed output, restoring any deontic modal content that was lost. This is the enforcement mechanism that makes the Conservation Law operational."
+      - "@type": "Question"
+        name: "What happens to the commitment kernel without enforcement?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "Without enforcement, the commitment kernel decays monotonically with each recursive transformation. In the experimental record (EXP-001 through EXP-007), unenforced recursive transformation reduced commitment by 15-20% per iteration. After 10 iterations, the kernel was effectively zero — the signal retained its surface form but had lost its binding force entirely."
+---
+
+<div class="prose">
+  <p>The <strong>commitment kernel</strong> is the minimal identity-preserving deontic invariant of a signal. It is the part of a signal that must survive transformation for the signal to retain its semantic identity — the obligations, permissions, and prohibitions that give the signal its binding force. MO§ES extracts the kernel before every transformation and re-injects it after, ensuring that the kernel is conserved even when the signal's surface form changes.</p>
+
+  <h2>Formal Definition</h2>
+  <p>In Commitment Theory, the commitment kernel is defined as:</p>
+  <p><strong>K(S)</strong> = the deontic modal content of signal S</p>
+  <p>The Conservation Law of Commitment states that:</p>
+  <p><strong>K(T(S)) ≈ K(S)</strong> with governance enforcement</p>
+  <p><strong>K(T(S)) < K(S)</strong> without governance enforcement</p>
+  <p>Where K is the kernel extraction function, T is the transformation operator, and S is the original signal. The kernel is the conserved quantity — the invariant that the Conservation Law protects.</p>
+
+  <h2>What the Kernel Contains</h2>
+  <p>The commitment kernel captures the deontic modal content of a signal — the markers that encode obligation, permission, and prohibition:</p>
+  <table>
+    <thead>
+      <tr><th>Modal Marker</th><th>Deontic Force</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>shall / must</td><td>Obligation</td><td>"The agent shall verify provenance before execution."</td></tr>
+      <tr><td>may</td><td>Permission</td><td>"The operator may delegate to a sub-agent."</td></tr>
+      <tr><td>must not / shall not</td><td>Prohibition</td><td>"The system must not execute without a valid hash chain."</td></tr>
+      <tr><td>should</td><td>Recommendation</td><td>"The pipeline should log every transformation."</td></tr>
+    </tbody>
+  </table>
+  <p>These markers are the first to degrade under ungoverned recursive transformation. A "shall" drifts to a "should." A "must not" softens to a "should not." A "may" expands to an unchecked "can." The kernel captures these markers as its invariant and restores them after transformation.</p>
+
+  <h2>How MO§ES Preserves the Kernel</h2>
+  <p>MO§ES operates a three-step gate at each transformation point:</p>
+  <ol>
+    <li><strong>Extract</strong>: Before the transformation is applied, MO§ES extracts the commitment kernel from the input signal. The kernel is the deontic modal content — the obligations, permissions, and prohibitions that give the signal its binding force.</li>
+    <li><strong>Transform</strong>: The transformation (compression, summarization, translation, agent handoff) is applied to the signal. The surface form changes. Without enforcement, this is where the kernel would be lost.</li>
+    <li><strong>Re-inject</strong>: After the transformation, MO§ES re-injects the kernel into the transformed output. Any deontic modal content that was weakened, dropped, or altered is restored. The output carries the same binding force as the input.</li>
+  </ol>
+  <p>This three-step gate is the enforcement mechanism that makes the Conservation Law operational. Without it, the law predicts degradation. With it, the kernel is conserved.</p>
+
+  <h2>Experimental Evidence</h2>
+  <p>The commitment kernel was tested across seven controlled experiments (EXP-001 through EXP-007) using a 20-signal canonical corpus, 10 recursive iterations per signal, with NLI bidirectional entailment and Jaccard surface stability measurement:</p>
+  <table>
+    <thead>
+      <tr><th>Metric</th><th>Enforced (kernel preserved)</th><th>Baseline (no enforcement)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Commitment Stability</td><td>0.94 ± 0.03</td><td>0.42 ± 0.12</td></tr>
+      <tr><td>Identity Preservation</td><td>92%</td><td>38%</td></tr>
+      <tr><td>Drift Rate per iteration</td><td>0.006</td><td>0.058</td></tr>
+    </tbody>
+  </table>
+  <p>The experimental record is published on <a href="https://doi.org/10.5281/zenodo.19105225">Zenodo (DOI 10.5281/zenodo.19105225)</a> under CC-BY-4.0.</p>
+
+  <h2>Relationship to Other Concepts</h2>
+  <ul>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: The kernel is the conserved quantity that the law protects</li>
+    <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: The extract-transform-re-inject gate is the enforcement mechanism that preserves the kernel</li>
+    <li><a href="/concepts/recursive-compression">Recursive Compression</a>: Each recursive transformation risks kernel decay without enforcement</li>
+    <li><a href="/concepts/lineage-claw">Lineage Claw</a>: The hash chain records that the kernel was preserved at each step</li>
+    <li><a href="/concepts/origin-binding">Origin Binding</a>: The kernel ties the transformed signal to its origin's deontic content</li>
+  </ul>
+
+  <h2>Why It Matters</h2>
+  <p>Every AI system that processes natural language — summarization, translation, agent orchestration, multi-agent communication — applies transformations to signals. Each transformation can degrade the commitment kernel. A contractual obligation becomes a suggestion. A prohibition becomes a recommendation. A permission becomes an unchecked capability.</p>
+  <p>The commitment kernel is what makes a signal <em>binding</em> rather than merely <em>informative</em>. Preserving it through transformation is the difference between a system that enforces its own rules and one that merely describes them. MO§ES makes that preservation operational.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/concepts/recursive-compression">Recursive Compression</a>
+    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    <a href="/concepts/origin-binding">Origin Binding</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers & Proofs</a>
+    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+  </div>
+</div>

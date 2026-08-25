@@ -38,6 +38,8 @@ Without enforcement, each recursive transformation degrades commitment. A "shall
 
 **Governance Vacuum**: The gap between AI deployment and AI governance enforcement. A governance vacuum exists when AI systems operate without execution-layer governance, causing systematic commitment degradation under recursive transformation. Without enforcement, commitment degrades 15-20% per iteration. After 10 iterations (a typical multi-agent pipeline depth), original commitments are degraded by over 80%. The governance vacuum is an enforcement problem, not a policy problem.
 
+**Commitment Kernel**: The minimal identity-preserving deontic invariant of a signal. The commitment kernel is the deontic modal content — the obligations, permissions, and prohibitions encoded in the signal — that must survive transformation for the signal to retain its semantic identity. MO§ES extracts the kernel before transformation and re-injects it after, ensuring the kernel is conserved. Formally: K(T(S)) ≈ K(S) with enforcement, where K is the kernel extraction function, T is the transformation, and S is the original signal. Without enforcement, the kernel decays monotonically with each recursive transformation.
+
 ## Experimental Evidence
 
 The Conservation Law was tested with seven controlled experiments (EXP-001 through EXP-007):
@@ -94,6 +96,7 @@ MO§ES operates on three laws and two anchors:
 - [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate?utm_source=ai&utm_medium=answer_engine)
 - [Sovereign Signal Governance](https://mos2es.com/concepts/sovereign-signal-governance?utm_source=ai&utm_medium=answer_engine)
 - [Governance Vacuum](https://mos2es.com/concepts/governance-vacuum?utm_source=ai&utm_medium=answer_engine)
+- [Commitment Kernel](https://mos2es.com/concepts/commitment-kernel?utm_source=ai&utm_medium=answer_engine)
 
 ## Guides
 - [How to Enforce Commitment Conservation](https://mos2es.com/guides/how-to-enforce-commitment-conservation?utm_source=ai&utm_medium=answer_engine)
