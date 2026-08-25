@@ -27,8 +27,9 @@
   ],
   "name": "KASSA",
   "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™.",
-  "sourceSystem": "published-source",
-  "canonBacked": false,
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "none",
   "alternateName": [
     "K-Governed Voice Architecture"
   ],

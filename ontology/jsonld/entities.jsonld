@@ -109,8 +109,9 @@
       ],
       "name": "Commitment Theory",
       "description": "A research framework containing the Conservation Law of Commitment. MO§ES™ is the enforcement architecture for Commitment Theory. Authored by Deric J. McHenry. Deposited on Zenodo and GitHub.",
-      "sourceSystem": "published-source",
-      "canonBacked": false,
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "none",
       "alternateName": [
         "CT"
       ],
@@ -137,8 +138,9 @@
       ],
       "name": "Conservation Law of Commitment",
       "description": "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO§ES™ operationalizes it.",
-      "sourceSystem": "published-source",
-      "canonBacked": false,
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "none",
       "url": "https://doi.org/10.5281/zenodo.20029607",
       "subjectOf": [
         {
@@ -214,8 +216,9 @@
       ],
       "name": "KASSA",
       "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™.",
-      "sourceSystem": "published-source",
-      "canonBacked": false,
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "none",
       "alternateName": [
         "K-Governed Voice Architecture"
       ],

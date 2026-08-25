@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-08-25T05:33:51.200060-04:00",
+  "synced_at": "2026-08-25T07:59:50.007029-04:00",
   "source": "/Users/dericmchenry/Developer/_control/moses-integration",
   "entities": [
     {
@@ -110,8 +110,9 @@
       ],
       "prov_o_type": "prov:Entity",
       "skos_concept": true,
-      "source_system": "published-source",
-      "canon_backed": false
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "none"
     },
     {
       "id": "conservation_law_of_commitment",
@@ -141,8 +142,9 @@
         }
       },
       "skos_concept": true,
-      "source_system": "published-source",
-      "canon_backed": false
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "none"
     },
     {
       "id": "sigrank",
@@ -221,8 +223,9 @@
       "schema_org_properties": {
         "codeRepository": "https://github.com/SunrisesIllNeverSee/KASSA"
       },
-      "source_system": "published-source",
-      "canon_backed": false
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "none"
     },
     {
       "id": "signomy",

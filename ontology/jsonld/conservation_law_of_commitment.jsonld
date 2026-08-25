@@ -27,8 +27,9 @@
   ],
   "name": "Conservation Law of Commitment",
   "description": "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO§ES™ operationalizes it.",
-  "sourceSystem": "published-source",
-  "canonBacked": false,
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "none",
   "url": "https://doi.org/10.5281/zenodo.20029607",
   "subjectOf": [
     {
