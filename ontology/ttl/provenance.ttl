@@ -1,0 +1,184 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix moses: <https://mos2es.com/ontology/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/01/12/Conservation_Law_V.1-preprint_> a moses:ChronologyEntry ;
+    dct:source "DOI 10.5281/zenodo.18267279" ;
+    moses:date "2026-01-12" ;
+    moses:event "Conservation Law V.1-preprint first public disclosure" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/01/16/V.02_and_V.03_published> a moses:ChronologyEntry ;
+    dct:source "DOIs 10.5281/zenodo.18271102, 10.5281/zenodo.18274930" ;
+    moses:date "2026-01-16" ;
+    moses:event "V.02 and V.03 published" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/02/26/V.04_published_(technical_stru> a moses:ChronologyEntry ;
+    dct:source "DOI 10.5281/zenodo.18792459" ;
+    moses:date "2026-02-26" ;
+    moses:event "V.04 published (technical structure depth)" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/03/02/Floating_Moat_Standard_FMS-2.0> a moses:ChronologyEntry ;
+    dct:source "DOI 10.5281/zenodo.18841110" ;
+    moses:date "2026-03-02" ;
+    moses:event "Floating Moat Standard FMS-2.0 published" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/03/18/Financial_Signals_paper_publis> a moses:ChronologyEntry ;
+    dct:source "DOI 10.5281/zenodo.19102589" ;
+    moses:date "2026-03-18" ;
+    moses:event "Financial Signals paper published" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/03/19/Experimental_record_+_harness_> a moses:ChronologyEntry ;
+    dct:source "DOIs 10.5281/zenodo.19105225, 10.5281/zenodo.19109397" ;
+    moses:date "2026-03-19" ;
+    moses:event "Experimental record + harness published" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/04/04/clawRxiv_preprints_published> a moses:ChronologyEntry ;
+    dct:source "clawrxiv:2604.00828, .00831, .00833" ;
+    moses:date "2026-04-04" ;
+    moses:event "clawRxiv preprints published" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/04/20/P-000_Prospectus_published> a moses:ChronologyEntry ;
+    dct:source "DOI 10.5281/zenodo.20031715" ;
+    moses:date "2026-04-20" ;
+    moses:event "P-000 Prospectus published" .
+
+<https://mos2es.com/ontology/0.1/chronology/2026/05/Conservation_Law_V.05_publishe> a moses:ChronologyEntry ;
+    dct:source "DOI 10.5281/zenodo.20029607" ;
+    moses:date "2026-05" ;
+    moses:event "Conservation Law V.05 published" .
+
+<https://mos2es.com/ontology/0.1/prov/clawrxiv_conservation> a prov:Entity ;
+    dct:created "2026-04-04" ;
+    dct:identifier "clawrxiv:2604.00828" ;
+    prov:wasDerivedFrom <https://mos2es.com/ontology/0.1/prov/conservation_law_v04> .
+
+<https://mos2es.com/ontology/0.1/prov/financial_signals_paper> a prov:Entity ;
+    dct:created "2026-03-18" ;
+    dct:identifier "10.5281/zenodo.19102589" ;
+    prov:wasAttributedTo <https://mos2es.com/ontology/0.1/prov/deric_mchenry> ;
+    prov:wasDerivedFrom <https://mos2es.com/ontology/0.1/prov/conservation_law_v05> .
+
+<https://mos2es.com/ontology/0.1/prov/moses_website> a prov:Entity ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/building_moses_site> ;
+    foaf:homepage <https://mos2es.com> .
+
+<https://mos2es.com/ontology/0.1/prov/sigrank_app> a prov:Entity ;
+    prov:wasDerivedFrom <https://mos2es.com/ontology/0.1/prov/conservation_law_v05> ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/building_sigrank> ;
+    foaf:homepage <https://signalaf.com> .
+
+<https://mos2es.com/ontology/0.1/prov/building_harness> a prov:Activity ;
+    rdfs:comment "Building transformation harness" ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry> .
+
+<https://mos2es.com/ontology/0.1/prov/building_moses_site> a prov:Activity ;
+    rdfs:comment "Building mos2es.com" ;
+    prov:used <https://mos2es.com/ontology/0.1/prov/conservation_law_v05>,
+        <https://mos2es.com/ontology/0.1/prov/prospectus_p000> ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry>,
+        <https://mos2es.com/ontology/0.1/prov/ello_cello_llc> .
+
+<https://mos2es.com/ontology/0.1/prov/building_sigrank> a prov:Activity ;
+    rdfs:comment "Building SigRank" ;
+    prov:used <https://mos2es.com/ontology/0.1/prov/conservation_law_v05>,
+        <https://mos2es.com/ontology/0.1/prov/transformation_harness> ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry> .
+
+<https://mos2es.com/ontology/0.1/prov/conservation_law_v02> a prov:Entity ;
+    dct:created "2026-01-16" ;
+    dct:identifier "10.5281/zenodo.18271102" ;
+    prov:wasRevisionOf <https://mos2es.com/ontology/0.1/prov/conservation_law_v1_preprint> .
+
+<https://mos2es.com/ontology/0.1/prov/conservation_law_v1_preprint> a prov:Entity ;
+    dct:created "2026-01-12" ;
+    dct:identifier "10.5281/zenodo.18267279" ;
+    rdfs:comment "firstAppearance for the Conservation Law claim" .
+
+<https://mos2es.com/ontology/0.1/prov/experiments_001_007> a prov:Activity ;
+    rdfs:comment "20-signal canonical corpus, 10 recursive iterations, 3950 total run entries",
+        "Running EXP-001 through EXP-007" ;
+    prov:used <https://mos2es.com/ontology/0.1/prov/gpt4o_mini>,
+        <https://mos2es.com/ontology/0.1/prov/transformation_harness> ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry>,
+        <https://mos2es.com/ontology/0.1/prov/gpt4o_mini>,
+        <https://mos2es.com/ontology/0.1/prov/transformation_harness_sw> .
+
+<https://mos2es.com/ontology/0.1/prov/prospectus_p000> a prov:Entity ;
+    dct:created "2026-04-20" ;
+    dct:identifier "10.5281/zenodo.20031715" ;
+    prov:wasAttributedTo <https://mos2es.com/ontology/0.1/prov/deric_mchenry> ;
+    prov:wasDerivedFrom <https://mos2es.com/ontology/0.1/prov/conservation_law_v05> ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/writing_prospectus> ;
+    moses:statusNote "disputed — publication-status conflict preserved per canon" .
+
+<https://mos2es.com/ontology/0.1/prov/transformation_harness_sw> a prov:SoftwareAgent ;
+    dct:identifier "10.5281/zenodo.19109397" ;
+    foaf:name "Public Recursive Transformation Harness" .
+
+<https://mos2es.com/ontology/0.1/prov/writing_prospectus> a prov:Activity ;
+    rdfs:comment "Writing P-000 Prospectus" ;
+    prov:used <https://mos2es.com/ontology/0.1/prov/conservation_law_v05> ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry> .
+
+<https://mos2es.com/ontology/0.1/prov/writing_v04> a prov:Activity ;
+    rdfs:comment "Writing Conservation Law V.04" ;
+    prov:endedAtTime "2026-02-26" ;
+    prov:startedAtTime "2026-02" ;
+    prov:used <https://mos2es.com/ontology/0.1/prov/conservation_law_v03> ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry> .
+
+<https://mos2es.com/ontology/0.1/prov/writing_v05> a prov:Activity ;
+    rdfs:comment "Writing Conservation Law V.05" ;
+    prov:endedAtTime "2026-05" ;
+    prov:startedAtTime "2026-04" ;
+    prov:used <https://mos2es.com/ontology/0.1/prov/conservation_law_v04>,
+        <https://mos2es.com/ontology/0.1/prov/experimental_record> ;
+    prov:wasAssociatedWith <https://mos2es.com/ontology/0.1/prov/deric_mchenry> .
+
+<https://mos2es.com/ontology/0.1/prov/conservation_law_v03> a prov:Entity ;
+    dct:created "2026-01-16" ;
+    dct:identifier "10.5281/zenodo.18274930" ;
+    prov:wasRevisionOf <https://mos2es.com/ontology/0.1/prov/conservation_law_v02> .
+
+<https://mos2es.com/ontology/0.1/prov/ello_cello_llc> a prov:Organization ;
+    foaf:name "Ello Cello LLC" .
+
+<https://mos2es.com/ontology/0.1/prov/experimental_record> a prov:Entity ;
+    dct:created "2026-03-19" ;
+    dct:identifier "10.5281/zenodo.19105225" ;
+    prov:wasAttributedTo <https://mos2es.com/ontology/0.1/prov/deric_mchenry> ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/experiments_001_007> .
+
+<https://mos2es.com/ontology/0.1/prov/gpt4o_mini> a prov:SoftwareAgent ;
+    rdfs:comment "Model used in EXP-001 through EXP-007" ;
+    foaf:name "GPT-4o-mini" .
+
+<https://mos2es.com/ontology/0.1/prov/transformation_harness> a prov:Entity,
+        prov:SoftwareAgent ;
+    dct:created "2026-03-19" ;
+    dct:identifier "10.5281/zenodo.19109397" ;
+    prov:wasAttributedTo <https://mos2es.com/ontology/0.1/prov/deric_mchenry> ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/building_harness> .
+
+<https://mos2es.com/ontology/0.1/prov/conservation_law_v04> a prov:Entity ;
+    dct:created "2026-02-26" ;
+    dct:identifier "10.5281/zenodo.18792459" ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/writing_v04> ;
+    prov:wasRevisionOf <https://mos2es.com/ontology/0.1/prov/conservation_law_v03> .
+
+<https://mos2es.com/ontology/0.1/prov/conservation_law_v05> a prov:Entity ;
+    dct:created "2026-05" ;
+    dct:identifier "10.5281/zenodo.20029607" ;
+    dct:title "A Conservation Law for Commitment in Language... (V.05)" ;
+    prov:hadPrimarySource <https://mos2es.com/ontology/0.1/prov/experimental_record> ;
+    prov:wasAttributedTo <https://mos2es.com/ontology/0.1/prov/deric_mchenry> ;
+    prov:wasGeneratedBy <https://mos2es.com/ontology/0.1/prov/writing_v05> ;
+    prov:wasRevisionOf <https://mos2es.com/ontology/0.1/prov/conservation_law_v04> .
+
+<https://mos2es.com/ontology/0.1/prov/deric_mchenry> a prov:Person ;
+    dct:identifier "ORCID:0009-0002-9904-5390" ;
+    prov:actedOnBehalfOf <https://mos2es.com/ontology/0.1/prov/ello_cello_llc> ;
+    foaf:name "Deric J. McHenry" .
+

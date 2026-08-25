@@ -23,3 +23,6 @@ Devins_Plans/state/.session-current
 .coord/micro/state/snapshots/
 .coord/micro/scratchpad-archive/
 .repo/.cache/
+
+# MOSES integration sync state (transient)
+.moses-sync-state.json

@@ -1,0 +1,135 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix moses: <https://mos2es.com/ontology/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+moses: a owl:Ontology ;
+    dct:description "Custom MOSES properties that cannot be expressed accurately through Schema.org, SKOS, or PROV-O. One utility class (ChronologyEntry) for provenance chronology annotations; all domain entities are multi-typed using established vocabularies." ;
+    dct:title "MOSES Custom Ontology v0.1" ;
+    owl:versionInfo "0.1.0" .
+
+moses:ChronologyEntry a owl:Class ;
+    rdfs:label "Chronology Entry" ;
+    rdfs:comment "An entry in the MOSES intellectual chronology, documenting public priority." .
+
+moses:authorizedBy a owl:ObjectProperty ;
+    rdfs:label "authorized by" ;
+    rdfs:comment "Indicates the subject activity was authorized by the object agent." ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Agent .
+
+moses:claimScope a owl:AnnotationProperty ;
+    rdfs:label "claim scope" ;
+    rdfs:comment "Scope of a claim (methodological, empirical, architectural, boundary, taxonomic, terminological, compositional, disciplinary, theoretical, definitional, provenance, novelty)." .
+
+moses:claimSource a owl:AnnotationProperty ;
+    rdfs:label "claim source" ;
+    rdfs:comment "Source document or record from which a claim originates." .
+
+moses:claimStatus a owl:AnnotationProperty ;
+    rdfs:label "claim status" ;
+    rdfs:comment "Evidentiary status of a claim (source_supported, owner_approved, disputed, hypothetical, speculative, observed, external)." .
+
+moses:committedBy a owl:ObjectProperty ;
+    rdfs:label "committed by" ;
+    rdfs:comment "Indicates the commitment-bearing signal was produced by the object agent." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Agent .
+
+moses:conceptStatus a owl:AnnotationProperty ;
+    rdfs:label "concept status" ;
+    rdfs:comment "Status of a concept in the MOSES canon." .
+
+moses:date a owl:AnnotationProperty ;
+    rdfs:label "date" ;
+    rdfs:comment "Date of a chronology entry." .
+
+moses:demonstratesPrinciplesOf a owl:ObjectProperty ;
+    rdfs:label "demonstrates principles of" ;
+    rdfs:comment "Indicates the subject publicly demonstrates the principles of the object." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Entity .
+
+moses:enforcementArchitectureFor a owl:ObjectProperty ;
+    rdfs:label "enforcement architecture for" ;
+    rdfs:comment "Indicates the subject is the enforcement architecture for the object theory/framework." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Entity .
+
+moses:event a owl:AnnotationProperty ;
+    rdfs:label "event" ;
+    rdfs:comment "Event description in a chronology entry." .
+
+moses:evidence a owl:AnnotationProperty ;
+    rdfs:label "evidence" ;
+    rdfs:comment "List of evidence identifiers (DOIs, URLs) supporting a claim." .
+
+moses:falsificationCondition a owl:AnnotationProperty ;
+    rdfs:label "falsification condition" ;
+    rdfs:comment "Condition under which a claim would be falsified." .
+
+moses:governs a owl:ObjectProperty ;
+    rdfs:label "governs" ;
+    rdfs:comment "Indicates that the subject governs the object via constitutional enforcement." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Entity .
+
+moses:initiatedBy a owl:ObjectProperty ;
+    rdfs:label "initiated by" ;
+    rdfs:comment "Indicates the subject activity was initiated by the object agent." ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Agent .
+
+moses:operationalizes a owl:ObjectProperty ;
+    rdfs:label "operationalizes" ;
+    rdfs:comment "Indicates the subject operationalizes the object (makes it executable/enforceable)." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Entity .
+
+moses:originatedBy a owl:ObjectProperty ;
+    rdfs:label "originated by" ;
+    rdfs:comment "Indicates the intelligence content of the subject originated from the object agent." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Agent .
+
+moses:preservedThrough a owl:ObjectProperty ;
+    rdfs:label "preserved through" ;
+    rdfs:comment "Indicates the subject entity's commitment was preserved through the object activity." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Activity .
+
+moses:qualifier a owl:AnnotationProperty ;
+    rdfs:label "qualifier" ;
+    rdfs:comment "Qualifier on a novelty claim (e.g., 'in the searched corpus')." .
+
+moses:receivedFrom a owl:ObjectProperty ;
+    rdfs:label "received from" ;
+    rdfs:comment "Indicates intelligence was received from the object agent." ;
+    rdfs:domain prov:Agent ;
+    rdfs:range prov:Agent .
+
+moses:redirectedBy a owl:ObjectProperty ;
+    rdfs:label "redirected by" ;
+    rdfs:comment "Indicates the subject entity was redirected by the object agent." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Agent .
+
+moses:reviewRequired a owl:AnnotationProperty ;
+    rdfs:label "review required" ;
+    rdfs:comment "Whether a concept requires owner review before promotion." .
+
+moses:reviewState a owl:AnnotationProperty ;
+    rdfs:label "review state" ;
+    rdfs:comment "Review state of a claim (proposal, owner_approved, disputed)." .
+
+moses:statusNote a owl:AnnotationProperty ;
+    rdfs:label "status note" ;
+    rdfs:comment "Note about the status of an entity (e.g., disputed)." .
+
+moses:violatedBy a owl:ObjectProperty ;
+    rdfs:label "violated by" ;
+    rdfs:comment "Indicates the subject entity's commitment was violated by the object activity." ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Activity .
+

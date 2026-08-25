@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/sigrank",
+  "@type": [
+    "SoftwareApplication",
+    "WebApplication"
+  ],
+  "name": "SigRank",
+  "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-2026-08-14-002 (ID-SR-001)",
+  "alternateName": [
+    "SigRank app"
+  ],
+  "url": "https://signalaf.com",
+  "subjectOf": [
+    {
+      "@id": "https://github.com/SunrisesIllNeverSee/sigrank-app"
+    }
+  ],
+  "applicationCategory": "AI Operator Benchmark",
+  "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app",
+  "disambiguatingDescription": "SigRank evaluates AI OPERATORS, not AI MODELS. SigRank measures token cascade efficiency, not productivity or business outcomes.",
+  "isBasedOn": {
+    "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"
+  }
+}

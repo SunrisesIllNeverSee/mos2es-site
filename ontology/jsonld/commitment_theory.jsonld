@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+  "@type": [
+    "DefinedTerm",
+    "CreativeWork"
+  ],
+  "name": "Commitment Theory",
+  "description": "A research framework containing the Conservation Law of Commitment. MO§ES™ is the enforcement architecture for Commitment Theory. Authored by Deric J. McHenry. Deposited on Zenodo and GitHub.",
+  "sourceSystem": "published-source",
+  "canonBacked": false,
+  "alternateName": [
+    "CT"
+  ],
+  "url": "https://github.com/SunrisesIllNeverSee/Commitment_Theory",
+  "subjectOf": [
+    {
+      "@id": "https://doi.org/10.5281/zenodo.20031715"
+    }
+  ],
+  "hasPart": [
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"
+    }
+  ],
+  "author": {
+    "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+  }
+}

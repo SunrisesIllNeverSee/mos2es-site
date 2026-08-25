@@ -1,0 +1,37 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc",
+  "@type": [
+    "Organization"
+  ],
+  "name": "Ello Cello LLC",
+  "description": "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
+  "alternateName": [
+    "Ello Cello"
+  ],
+  "url": "https://mos2es.com",
+  "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses"
+}

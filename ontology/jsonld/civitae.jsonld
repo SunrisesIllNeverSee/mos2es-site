@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/civitae",
+  "@type": [
+    "WebApplication"
+  ],
+  "name": "CIVITAE",
+  "description": "A constitutional AI ecosystem governed by MO§ES™. Independently resolvable entity, distinct from Signomy. Patent 19/426,028 covers the CIVITAS utility surface.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)",
+  "url": "https://signomy.xyz"
+}

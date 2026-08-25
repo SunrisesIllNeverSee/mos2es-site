@@ -1,0 +1,260 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@graph": [
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry",
+      "@type": [
+        "Person"
+      ],
+      "name": "Deric J. McHenry",
+      "description": "Author of Commitment Theory, the Conservation Law of Commitment, and the SigRank operator evaluation system. ORCID 0009-0002-9904-5390.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-DERIC-001)",
+      "alternateName": [
+        "Deric McHenry",
+        "djm"
+      ],
+      "url": "https://orcid.org/0009-0002-9904-5390",
+      "subjectOf": [
+        {
+          "@id": "https://github.com/SunrisesIllNeverSee"
+        }
+      ],
+      "identifier": [
+        {
+          "propertyID": "ORCID",
+          "value": "0009-0002-9904-5390",
+          "url": "https://orcid.org/0009-0002-9904-5390"
+        },
+        {
+          "propertyID": "GitHub",
+          "value": "SunrisesIllNeverSee",
+          "url": "https://github.com/SunrisesIllNeverSee"
+        }
+      ],
+      "affiliation": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc",
+      "@type": [
+        "Organization"
+      ],
+      "name": "Ello Cello LLC",
+      "description": "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
+      "alternateName": [
+        "Ello Cello"
+      ],
+      "url": "https://mos2es.com",
+      "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/moses",
+      "@type": [
+        "SoftwareApplication",
+        "DefinedTerm"
+      ],
+      "name": "MO§ES™",
+      "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
+      "alternateName": [
+        "MO§ES",
+        "mos2es",
+        "MOSES"
+      ],
+      "url": "https://mos2es.com",
+      "applicationCategory": "AI Governance",
+      "additionalType": "EnforcementArchitecture",
+      "disambiguatingDescription": "MO§ES™ is the governance/enforcement architecture, not a product surface itself. KASSA publicly demonstrates MO§ES™ principles but is not the production MO§ES™ implementation.",
+      "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+      "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+      "governs": [
+        "https://mos2es.com/ontology/0.1/entity/signomy",
+        "https://mos2es.com/ontology/0.1/entity/civitae"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+      "@type": [
+        "DefinedTerm",
+        "CreativeWork"
+      ],
+      "name": "Commitment Theory",
+      "description": "A research framework containing the Conservation Law of Commitment. MO§ES™ is the enforcement architecture for Commitment Theory. Authored by Deric J. McHenry. Deposited on Zenodo and GitHub.",
+      "sourceSystem": "published-source",
+      "canonBacked": false,
+      "alternateName": [
+        "CT"
+      ],
+      "url": "https://github.com/SunrisesIllNeverSee/Commitment_Theory",
+      "subjectOf": [
+        {
+          "@id": "https://doi.org/10.5281/zenodo.20031715"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"
+        }
+      ],
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      }
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+      "@type": [
+        "Claim",
+        "DefinedTerm"
+      ],
+      "name": "Conservation Law of Commitment",
+      "description": "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO§ES™ operationalizes it.",
+      "sourceSystem": "published-source",
+      "canonBacked": false,
+      "url": "https://doi.org/10.5281/zenodo.20029607",
+      "subjectOf": [
+        {
+          "@id": "https://github.com/SunrisesIllNeverSee/commitment-conservation"
+        },
+        {
+          "@id": "https://signalaf.com/science"
+        }
+      ],
+      "text": "C(T(S)) ≈ C(S) with enforcement; C(T(S)) < C(S) without enforcement",
+      "firstAppearance": {
+        "type": "ScholarlyArticle",
+        "url": "https://doi.org/10.5281/zenodo.18267279",
+        "datePublished": "2026-01-12"
+      }
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/sigrank",
+      "@type": [
+        "SoftwareApplication",
+        "WebApplication"
+      ],
+      "name": "SigRank",
+      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-2026-08-14-002 (ID-SR-001)",
+      "alternateName": [
+        "SigRank app"
+      ],
+      "url": "https://signalaf.com",
+      "subjectOf": [
+        {
+          "@id": "https://github.com/SunrisesIllNeverSee/sigrank-app"
+        }
+      ],
+      "applicationCategory": "AI Operator Benchmark",
+      "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app",
+      "disambiguatingDescription": "SigRank evaluates AI OPERATORS, not AI MODELS. SigRank measures token cascade efficiency, not productivity or business outcomes.",
+      "isBasedOn": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"
+      }
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/sigrank_index",
+      "@type": [
+        "Dataset",
+        "DataCatalog"
+      ],
+      "name": "SigRank Index",
+      "description": "The dataset/index produced by SigRank. Inspectable at signalaf.com/research and /methodology.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-2026-08-14-002 (ID-SR-INDEX-001)",
+      "alternateName": [
+        "SigRank dataset"
+      ],
+      "url": "https://signalaf.com/research",
+      "subjectOf": [
+        {
+          "@id": "https://signalaf.com/methodology"
+        }
+      ],
+      "producer": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/sigrank"
+      }
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/kassa",
+      "@type": [
+        "SoftwareSourceCode",
+        "SoftwareApplication"
+      ],
+      "name": "KASSA",
+      "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™.",
+      "sourceSystem": "published-source",
+      "canonBacked": false,
+      "alternateName": [
+        "K-Governed Voice Architecture"
+      ],
+      "url": "https://github.com/SunrisesIllNeverSee/KASSA",
+      "subjectOf": [
+        {
+          "@id": "https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html"
+        }
+      ],
+      "codeRepository": "https://github.com/SunrisesIllNeverSee/KASSA",
+      "disambiguatingDescription": "The public KASSA harness is NOT the full production MO§ES™ implementation.",
+      "demonstratesPrinciplesOf": "https://mos2es.com/ontology/0.1/entity/moses"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/signomy",
+      "@type": [
+        "WebApplication"
+      ],
+      "name": "Signomy",
+      "description": "A platform governed by MO§ES™. Independently resolvable entity, distinct from CIVITAE.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)",
+      "alternateName": [
+        "SIGNOMY"
+      ],
+      "url": "https://signomy.xyz"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/civitae",
+      "@type": [
+        "WebApplication"
+      ],
+      "name": "CIVITAE",
+      "description": "A constitutional AI ecosystem governed by MO§ES™. Independently resolvable entity, distinct from Signomy. Patent 19/426,028 covers the CIVITAS utility surface.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)",
+      "url": "https://signomy.xyz"
+    }
+  ]
+}

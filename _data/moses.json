@@ -1,0 +1,1423 @@
+{
+  "synced_at": "2026-08-25T05:33:51.200060-04:00",
+  "source": "/Users/dericmchenry/Developer/_control/moses-integration",
+  "entities": [
+    {
+      "id": "deric_j_mchenry",
+      "canonical_name": "Deric J. McHenry",
+      "entity_type": "person",
+      "aliases": [
+        "Deric McHenry",
+        "djm"
+      ],
+      "canonical_urls": [
+        "https://orcid.org/0009-0002-9904-5390",
+        "https://github.com/SunrisesIllNeverSee"
+      ],
+      "same_as": [],
+      "description": "Author of Commitment Theory, the Conservation Law of Commitment, and the SigRank operator evaluation system. ORCID 0009-0002-9904-5390.",
+      "status": "owner_approved",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001 (ID-DERIC-001)",
+      "schema_org_type": "Person",
+      "schema_org_properties": {
+        "identifier": [
+          {
+            "propertyID": "ORCID",
+            "value": "0009-0002-9904-5390",
+            "url": "https://orcid.org/0009-0002-9904-5390"
+          },
+          {
+            "propertyID": "GitHub",
+            "value": "SunrisesIllNeverSee",
+            "url": "https://github.com/SunrisesIllNeverSee"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ello_cello_llc",
+      "canonical_name": "Ello Cello LLC",
+      "entity_type": "organization",
+      "aliases": [
+        "Ello Cello"
+      ],
+      "canonical_urls": [
+        "https://mos2es.com/#org"
+      ],
+      "same_as": [],
+      "description": "Organization associated with the owner's published works and products, including SigRank and MO\u00a7ES\u2122.",
+      "status": "owner_approved",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
+      "schema_org_type": "Organization",
+      "schema_org_properties": {
+        "url": "https://mos2es.com"
+      }
+    },
+    {
+      "id": "moses",
+      "canonical_name": "MO\u00a7ES\u2122",
+      "entity_type": "system",
+      "aliases": [
+        "MO\u00a7ES",
+        "mos2es",
+        "MOSES"
+      ],
+      "canonical_urls": [
+        "https://mos2es.com"
+      ],
+      "same_as": [],
+      "description": "Sovereign signal governance system. MO\u00a7ES\u2122 is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
+      "product_boundaries": [
+        "MO\u00a7ES\u2122 is the governance/enforcement architecture, not a product surface itself.",
+        "KASSA publicly demonstrates MO\u00a7ES\u2122 principles but is not the production MO\u00a7ES\u2122 implementation."
+      ],
+      "status": "owner_approved",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
+      "schema_org_type": [
+        "SoftwareApplication",
+        "DefinedTerm"
+      ],
+      "schema_org_properties": {
+        "url": "https://mos2es.com",
+        "applicationCategory": "AI Governance",
+        "additionalType": "EnforcementArchitecture"
+      },
+      "prov_o_type": "prov:Entity"
+    },
+    {
+      "id": "commitment_theory",
+      "canonical_name": "Commitment Theory",
+      "entity_type": "theory",
+      "aliases": [
+        "CT"
+      ],
+      "canonical_urls": [
+        "https://github.com/SunrisesIllNeverSee/Commitment_Theory",
+        "https://doi.org/10.5281/zenodo.20031715"
+      ],
+      "same_as": [],
+      "description": "A research framework containing the Conservation Law of Commitment. MO\u00a7ES\u2122 is the enforcement architecture for Commitment Theory. Authored by Deric J. McHenry. Deposited on Zenodo and GitHub.",
+      "status": "source_supported",
+      "schema_org_type": [
+        "DefinedTerm",
+        "CreativeWork"
+      ],
+      "prov_o_type": "prov:Entity",
+      "skos_concept": true,
+      "source_system": "published-source",
+      "canon_backed": false
+    },
+    {
+      "id": "conservation_law_of_commitment",
+      "canonical_name": "Conservation Law of Commitment",
+      "entity_type": "scientific_law",
+      "aliases": [],
+      "canonical_urls": [
+        "https://doi.org/10.5281/zenodo.20029607",
+        "https://github.com/SunrisesIllNeverSee/commitment-conservation",
+        "https://signalaf.com/science"
+      ],
+      "same_as": [],
+      "description": "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO\u00a7ES\u2122 operationalizes it.",
+      "formal_statement": "C(T(S)) \u2248 C(S) with enforcement; C(T(S)) < C(S) without enforcement",
+      "status": "source_supported",
+      "schema_org_type": [
+        "Claim",
+        "DefinedTerm"
+      ],
+      "schema_org_properties": {
+        "text": "C(T(S)) \u2248 C(S) with enforcement; C(T(S)) < C(S) without enforcement",
+        "url": "https://doi.org/10.5281/zenodo.20029607",
+        "firstAppearance": {
+          "type": "ScholarlyArticle",
+          "url": "https://doi.org/10.5281/zenodo.18267279",
+          "datePublished": "2026-01-12"
+        }
+      },
+      "skos_concept": true,
+      "source_system": "published-source",
+      "canon_backed": false
+    },
+    {
+      "id": "sigrank",
+      "canonical_name": "SigRank",
+      "entity_type": "evaluation_system",
+      "aliases": [
+        "SigRank app"
+      ],
+      "canonical_urls": [
+        "https://signalaf.com",
+        "https://github.com/SunrisesIllNeverSee/sigrank-app"
+      ],
+      "same_as": [],
+      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com.",
+      "product_boundaries": [
+        "SigRank evaluates AI OPERATORS, not AI MODELS.",
+        "SigRank measures token cascade efficiency, not productivity or business outcomes."
+      ],
+      "status": "owner_approved",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-002 (ID-SR-001)",
+      "schema_org_type": [
+        "SoftwareApplication",
+        "WebApplication"
+      ],
+      "schema_org_properties": {
+        "url": "https://signalaf.com",
+        "applicationCategory": "AI Operator Benchmark",
+        "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app"
+      }
+    },
+    {
+      "id": "sigrank_index",
+      "canonical_name": "SigRank Index",
+      "entity_type": "dataset",
+      "aliases": [
+        "SigRank dataset"
+      ],
+      "canonical_urls": [
+        "https://signalaf.com/research",
+        "https://signalaf.com/methodology"
+      ],
+      "same_as": [],
+      "description": "The dataset/index produced by SigRank. Inspectable at signalaf.com/research and /methodology.",
+      "status": "owner_approved",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-002 (ID-SR-INDEX-001)",
+      "schema_org_type": [
+        "Dataset",
+        "DataCatalog"
+      ]
+    },
+    {
+      "id": "kassa",
+      "canonical_name": "KASSA",
+      "entity_type": "architecture",
+      "aliases": [
+        "K-Governed Voice Architecture"
+      ],
+      "canonical_urls": [
+        "https://github.com/SunrisesIllNeverSee/KASSA",
+        "https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html"
+      ],
+      "same_as": [],
+      "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO\u00a7ES\u2122.",
+      "product_boundaries": [
+        "The public KASSA harness is NOT the full production MO\u00a7ES\u2122 implementation."
+      ],
+      "status": "source_supported",
+      "schema_org_type": [
+        "SoftwareSourceCode",
+        "SoftwareApplication"
+      ],
+      "schema_org_properties": {
+        "codeRepository": "https://github.com/SunrisesIllNeverSee/KASSA"
+      },
+      "source_system": "published-source",
+      "canon_backed": false
+    },
+    {
+      "id": "signomy",
+      "canonical_name": "Signomy",
+      "entity_type": "platform",
+      "aliases": [
+        "SIGNOMY"
+      ],
+      "canonical_urls": [
+        "https://signomy.xyz"
+      ],
+      "same_as": [],
+      "description": "A platform governed by MO\u00a7ES\u2122. Independently resolvable entity, distinct from CIVITAE.",
+      "status": "source_supported",
+      "schema_org_type": "WebApplication",
+      "schema_org_properties": {
+        "url": "https://signomy.xyz"
+      },
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)"
+    },
+    {
+      "id": "civitae",
+      "canonical_name": "CIVITAE",
+      "entity_type": "platform",
+      "aliases": [],
+      "canonical_urls": [
+        "https://signomy.xyz"
+      ],
+      "same_as": [],
+      "description": "A constitutional AI ecosystem governed by MO\u00a7ES\u2122. Independently resolvable entity, distinct from Signomy. Patent 19/426,028 covers the CIVITAS utility surface.",
+      "status": "source_supported",
+      "schema_org_type": "WebApplication",
+      "schema_org_properties": {
+        "url": "https://signomy.xyz"
+      },
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CT-001",
+      "statement": "Commitment function depends on extractor and measurement protocol.",
+      "status": "source_supported",
+      "scope": "methodological",
+      "evidence": [
+        "10.5281/zenodo.20029607",
+        "10.5281/zenodo.19105225"
+      ],
+      "falsification_condition": "Different extractors produce identical commitment objects for all signals.",
+      "source": "Conservation Law V.05",
+      "source_system": "published-source",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "CT-002",
+      "statement": "Governed transformations conserve commitment, currently observed in a limited corpus.",
+      "status": "source_supported",
+      "scope": "empirical",
+      "evidence": [
+        "10.5281/zenodo.19105225"
+      ],
+      "corpus_limitation": "20-signal canonical corpus, GPT-4o-mini, 10 recursive iterations",
+      "falsification_condition": "A governed transformation that degrades commitment below threshold in the tested corpus.",
+      "source": "Experimental Record EXP-001 through EXP-007",
+      "source_system": "published-source",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "CT-003",
+      "statement": "Ungoverned transformation degrades commitment.",
+      "status": "source_supported",
+      "scope": "empirical",
+      "evidence": [
+        "10.5281/zenodo.19105225"
+      ],
+      "falsification_condition": "An ungoverned transformation that preserves commitment across all tested signals.",
+      "source": "Experimental Record EXP-001 through EXP-007",
+      "source_system": "published-source",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "CT-004",
+      "statement": "The conservation law is falsifiable.",
+      "status": "source_supported",
+      "scope": "methodological",
+      "evidence": [
+        "10.5281/zenodo.20029607",
+        "10.5281/zenodo.19105225"
+      ],
+      "source": "Conservation Law V.05",
+      "source_system": "published-source",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "CT-005",
+      "statement": "MO\u00a7ES\u2122 enforces commitment conservation via compression gating, lineage tracking, and hardware anchoring.",
+      "status": "defined",
+      "scope": "architectural",
+      "evidence": [
+        "https://mos2es.com",
+        "10.5281/zenodo.20029607"
+      ],
+      "source": "MO\u00a7ES\u2122 website, Conservation Law V.05",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "authority_note": "CT-005 is DEFINED in moses-framework (claims/claims-registry.yaml). It does NOT exist as a canonical claim in Search Authority. The prior owner_approved status was an unsupported promotion. Preserved as framework-defined per authority boundary rules. Owner may later approve canon promotion through Search Authority.",
+      "owner": "deric_j_mchenry",
+      "review_state": "defined"
+    },
+    {
+      "id": "CT-006",
+      "statement": "The public harness is a proxy measurement tool, not the production enforcement implementation.",
+      "status": "source_supported",
+      "scope": "boundary",
+      "evidence": [
+        "10.5281/zenodo.19109397"
+      ],
+      "source": "Public Recursive Transformation Harness",
+      "source_system": "published-source",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "INT-001",
+      "statement": "BI/AAI classification is hypothetical pending operational criteria.",
+      "status": "hypothetical",
+      "scope": "taxonomic",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal",
+      "notes": "Operational criteria for BI/AAI not yet defined."
+    },
+    {
+      "id": "INT-002",
+      "statement": "AAI is distinct from common external usage and requires disambiguation.",
+      "status": "hypothetical",
+      "scope": "terminological",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal",
+      "notes": "External AAI = AI that assists humans. MO\u00a7ES AAI = initiation-dependency."
+    },
+    {
+      "id": "INT-003",
+      "statement": "BI \u00d7 AAI \u2192 SI is speculative and lacks a defined operation.",
+      "status": "speculative",
+      "scope": "compositional",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal",
+      "notes": "The \u00d7 operation is undefined. No operational falsification condition."
+    },
+    {
+      "id": "INT-004",
+      "statement": "SI as a system property is a provisional design decision, not a participant class.",
+      "status": "speculative",
+      "scope": "taxonomic",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "IP-001",
+      "statement": "Intelligence Provenance is a hypothetical discipline.",
+      "status": "hypothetical",
+      "scope": "disciplinary",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal",
+      "notes": "Unimplemented."
+    },
+    {
+      "id": "IP-002",
+      "statement": "Intelligence Provenance must be distinguished from data provenance, content provenance, semantic provenance, reasoning provenance, decision provenance, authorship, and model attribution.",
+      "status": "hypothetical",
+      "scope": "disciplinary",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "CONN-001",
+      "statement": "Commitment may be traceable across provenance edges as an invariant constraint, but this is unimplemented.",
+      "status": "hypothetical",
+      "scope": "theoretical",
+      "source": "ontology-review-v0.1",
+      "source_system": "moses-framework",
+      "canon_backed": false,
+      "owner": "deric_j_mchenry",
+      "review_state": "proposal"
+    },
+    {
+      "id": "MO-DEF-001",
+      "statement": "MO\u00a7ES\u2122 definition is under owner review.",
+      "status": "disputed",
+      "scope": "definitional",
+      "source": "Search Authority canon",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "none (disputed \u2014 no approval)",
+      "owner": "deric_j_mchenry",
+      "review_state": "disputed",
+      "notes": "Interpretive wording under owner review. Canon description used in architecture."
+    },
+    {
+      "id": "MO-PROBLEM-001",
+      "statement": "MO\u00a7ES\u2122 problem statement is under owner review.",
+      "status": "disputed",
+      "scope": "definitional",
+      "source": "Search Authority canon",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "none (disputed \u2014 no approval)",
+      "owner": "deric_j_mchenry",
+      "review_state": "disputed"
+    },
+    {
+      "id": "CT-PROVENANCE-PROSPECTUS-001",
+      "statement": "The Propositions Prospectus publication status is disputed \u2014 repository materials disagree about whether deposit status is final.",
+      "status": "disputed",
+      "scope": "provenance",
+      "source": "Search Authority canon",
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "none (disputed \u2014 no approval)",
+      "owner": "deric_j_mchenry",
+      "review_state": "disputed",
+      "evidence": [
+        "10.5281/zenodo.20031715"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "deric_affiliated_with_ello_cello",
+      "subject": "deric_j_mchenry",
+      "predicate": "affiliated_with",
+      "object": "ello_cello_llc",
+      "status": "owner_approved",
+      "schema_org_property": "affiliation",
+      "prov_o_property": "prov:actedOnBehalfOf",
+      "source_refs": [
+        "ct-readme",
+        "moses-site-data",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001"
+    },
+    {
+      "id": "deric_associated_with_moses",
+      "subject": "deric_j_mchenry",
+      "predicate": "associated_with",
+      "object": "moses",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:associatedWith",
+      "source_refs": [
+        "moses-site-data",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001"
+    },
+    {
+      "id": "ello_cello_associated_with_moses",
+      "subject": "ello_cello_llc",
+      "predicate": "associated_with",
+      "object": "moses",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:associatedWith",
+      "source_refs": [
+        "moses-site-data",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001"
+    },
+    {
+      "id": "deric_authored_commitment_theory",
+      "subject": "deric_j_mchenry",
+      "predicate": "authored",
+      "object": "commitment_theory",
+      "status": "owner_approved",
+      "schema_org_property": "author",
+      "prov_o_property": "prov:wasAttributedTo",
+      "source_refs": [
+        "ct-readme",
+        "ct-p000",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-CT-README-001"
+    },
+    {
+      "id": "commitment_theory_contains_law",
+      "subject": "commitment_theory",
+      "predicate": "contains_law",
+      "object": "conservation_law_of_commitment",
+      "status": "owner_approved",
+      "exact_source_language": "the law within the theory",
+      "schema_org_property": "hasPart",
+      "source_refs": [
+        "ct-p000",
+        "ct-readme",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-004"
+    },
+    {
+      "id": "moses_enforcement_architecture_for",
+      "subject": "moses",
+      "predicate": "enforcement_architecture_for",
+      "object": "commitment_theory",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:enforcementArchitectureFor",
+      "custom_rationale": "No Schema.org or PROV-O equivalent for enforcement architecture relationship",
+      "source_refs": [
+        "ct-p000",
+        "sigrank-science",
+        "moses-site-data",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-001"
+    },
+    {
+      "id": "moses_operationalizes",
+      "subject": "moses",
+      "predicate": "operationalizes",
+      "object": "conservation_law_of_commitment",
+      "status": "owner_approved",
+      "exact_source_language": "an enforcement architecture that preserves commitment invariance",
+      "schema_org_property": null,
+      "custom_property": "moses:operationalizes",
+      "custom_rationale": "No Schema.org or PROV-O equivalent for operationalization",
+      "source_refs": [
+        "ct-paper0",
+        "sigrank-science",
+        "ct-p000",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-005"
+    },
+    {
+      "id": "conservation_law_foundation_for_sigrank",
+      "subject": "conservation_law_of_commitment",
+      "predicate": "foundation_for",
+      "object": "sigrank",
+      "status": "owner_approved",
+      "exact_source_language": "built on a published conservation law",
+      "schema_org_property": "isBasedOn",
+      "schema_org_direction": "sigrank \u2192 conservation_law_of_commitment",
+      "source_refs": [
+        "sigrank-science",
+        "sigrank-llms",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-003"
+    },
+    {
+      "id": "sigrank_produces_index",
+      "subject": "sigrank",
+      "predicate": "produces",
+      "object": "sigrank_index",
+      "status": "owner_approved",
+      "schema_org_property": "producer",
+      "source_refs": [
+        "sigrank-llms",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-2026-08-14-001"
+    },
+    {
+      "id": "moses_governs_signomy",
+      "subject": "moses",
+      "predicate": "governs",
+      "object": "signomy",
+      "status": "owner_approved",
+      "exact_source_language": "governed by MO\u00a7ES\u2122",
+      "schema_org_property": null,
+      "custom_property": "moses:governs",
+      "custom_rationale": "No Schema.org or PROV-O equivalent for governance",
+      "source_refs": [
+        "signomy-site",
+        "signomy-faq",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-001"
+    },
+    {
+      "id": "moses_governs_civitae",
+      "subject": "moses",
+      "predicate": "governs",
+      "object": "civitae",
+      "status": "owner_approved",
+      "exact_source_language": "a constitutional AI ecosystem governed by MO\u00a7ES\u2122",
+      "schema_org_property": null,
+      "custom_property": "moses:governs",
+      "custom_rationale": "No Schema.org or PROV-O equivalent for governance",
+      "source_refs": [
+        "signomy-site",
+        "signomy-faq",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-001"
+    },
+    {
+      "id": "kassa_demonstrates_principles_of_moses",
+      "subject": "kassa",
+      "predicate": "demonstrates_principles_of",
+      "object": "moses",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:demonstratesPrinciplesOf",
+      "custom_rationale": "No Schema.org or PROV-O equivalent for principle demonstration",
+      "source_refs": [
+        "kassa-readme",
+        "kassa-ip-boundary",
+        "owner-entity-graph-2026-08-14"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-REL-RECONCILE-002"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "CommitmentTheory",
+      "pref_label": "Commitment Theory",
+      "alt_labels": [
+        "CT"
+      ],
+      "hidden_labels": [
+        "Commitment Conservation Theory",
+        "CCT"
+      ],
+      "definition": "A research framework containing the Conservation Law of Commitment. MO\u00a7ES\u2122 is the enforcement architecture for Commitment Theory.",
+      "scope_note": "Previously called 'Commitment Conservation Theory' (CCT) \u2014 deprecated alias.",
+      "status": "source_supported",
+      "in_scheme": true,
+      "top_concept": true,
+      "narrower": [
+        "ConservationLawOfCommitment",
+        "CommitmentKernel",
+        "GovernedTransformation",
+        "UngovernedTransformation",
+        "DeonticConservation",
+        "CommitmentInvariance",
+        "CommitmentGovernanceTest"
+      ],
+      "external_mappings": [
+        {
+          "property": "relatedMatch",
+          "target": "Peirce commitment theory of assertion",
+          "requires_review": true,
+          "rationale": "Both use 'commitment' but for truth-binding vs. modal invariance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Schroeder expressivist commitment theory",
+          "rationale": "Semantic relations vs. computational invariance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Kiesler behavioral commitment",
+          "rationale": "Psychological vs. computational"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Becker side-bet theory",
+          "rationale": "Sunk costs vs. modal invariance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Meyer & Allen organizational commitment",
+          "rationale": "Psychological attachment vs. deontic content"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Commitment System Theory (Klein et al.)",
+          "rationale": "Psychological systems vs. governance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Rusbult investment model",
+          "rationale": "Relationship persistence vs. semantic invariance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Morgan & Hunt commitment-trust theory",
+          "rationale": "Marketing relationships vs. semantic governance"
+        },
+        {
+          "property": "closeMatch",
+          "target": "Hamblin commitment stores",
+          "rationale": "Both track commitments through operations, but dialogue assertions vs. signal transformations"
+        },
+        {
+          "property": "closeMatch",
+          "target": "Singh social commitments (MAS)",
+          "rationale": "Both involve deontic obligations, but inter-agent vs. intra-signal"
+        },
+        {
+          "property": "closeMatch",
+          "target": "Cohen-Levesque BDI commitment",
+          "rationale": "Both involve persistence, but agent intention vs. signal content"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Schelling commitment devices",
+          "rationale": "Choice restriction vs. modal invariance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Staw escalation of commitment",
+          "rationale": "Irrational escalation vs. rational invariance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Locke & Latham goal commitment",
+          "rationale": "Goal attachment vs. modal invariance"
+        }
+      ]
+    },
+    {
+      "id": "ConservationLawOfCommitment",
+      "pref_label": "Conservation Law of Commitment",
+      "definition": "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO\u00a7ES\u2122 operationalizes it.",
+      "formal_statement": "C(T(S)) \u2248 C(S) with enforcement; C(T(S)) < C(S) without enforcement",
+      "status": "source_supported",
+      "in_scheme": true,
+      "related": [
+        "CommitmentConservation"
+      ],
+      "external_mappings": [
+        {
+          "property": "relatedMatch",
+          "target": "CoHSI (Hatton & Warr 2019)",
+          "rationale": "Statistical conservation, not deontic"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Syntactic conservation (Marcolli/Chomsky 2025)",
+          "rationale": "Syntax-only, no semantics"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Meaning conservation (Mondal)",
+          "rationale": "Lexical meaning, no deontic, no enforcement"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Determiner conservativity (Barwise & Cooper 1981)",
+          "rationale": "Structural constraint on quantifiers"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Information conservation (Levin 1974)",
+          "rationale": "Algorithmic information, not semantic/deontic"
+        }
+      ]
+    },
+    {
+      "id": "MOSES",
+      "pref_label": "MO\u00a7ES\u2122",
+      "alt_labels": [
+        "MO\u00a7ES",
+        "mos2es",
+        "MOSES"
+      ],
+      "hidden_labels": [
+        "MO\u00a7E\u00a7",
+        "MO\u00a7E\u00a7\u2122"
+      ],
+      "definition": "Sovereign signal governance system. The enforcement architecture for Commitment Theory. Operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE.",
+      "scope_note": "Canonical display: MO\u00a7ES\u2122. Accepted prose: MO\u00a7ES. Never render: MO\u00a7E\u00a7.",
+      "status": "owner_approved",
+      "in_scheme": true,
+      "top_concept": true,
+      "narrower": [
+        "GovernanceEnforcement",
+        "LineageClaw",
+        "OriginBinding",
+        "RecursiveCompression",
+        "SignalEncoding",
+        "ConstitutionalSubstrate",
+        "McHenrysLawI",
+        "McHenrysLawII",
+        "BlackholeLaw",
+        "LineageCustodyClause"
+      ]
+    },
+    {
+      "id": "CommitmentKernel",
+      "pref_label": "Commitment Kernel",
+      "definition": "The minimal identity-preserving deontic invariant of a signal. Includes obligations, prohibitions, and permissions.",
+      "status": "source_supported",
+      "in_scheme": true
+    },
+    {
+      "id": "GovernedTransformation",
+      "pref_label": "Governed Transformation",
+      "definition": "A transformation passing through constitutional constraints to preserve the commitment kernel.",
+      "formal_statement": "T_gov such that C(T_gov(S)) = C(S)",
+      "status": "source_supported",
+      "in_scheme": true
+    },
+    {
+      "id": "UngovernedTransformation",
+      "pref_label": "Ungoverned Transformation",
+      "definition": "A transformation without constitutional constraints; subject to semantic entropy and commitment degradation.",
+      "formal_statement": "T such that C(T(S)) < C(S)",
+      "status": "source_supported",
+      "in_scheme": true
+    },
+    {
+      "id": "DeonticConservation",
+      "pref_label": "Deontic Conservation",
+      "definition": "Preservation of obligations, prohibitions, and permissions across transformation.",
+      "status": "source_supported",
+      "in_scheme": true
+    },
+    {
+      "id": "CommitmentInvariance",
+      "pref_label": "Commitment Invariance",
+      "definition": "Property that C(S) = C(T(S)) for all governed T.",
+      "status": "source_supported",
+      "in_scheme": true
+    },
+    {
+      "id": "LineageClaw",
+      "pref_label": "Lineage Claw",
+      "definition": "Cryptographic mechanism binding transformed signals to origins using SHA-256 hash chains. Creates a verifiable provenance trail where every transformation is recorded and every artifact is tied to its origin compression cycle.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/lineage-claw"
+    },
+    {
+      "id": "OriginBinding",
+      "pref_label": "Origin Binding",
+      "definition": "Process of cryptographically tying an artifact to its origin compression cycle. The policy that the Lineage Claw implements.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/origin-binding"
+    },
+    {
+      "id": "RecursiveCompression",
+      "pref_label": "Recursive Compression",
+      "definition": "The transformation operator T in the Conservation Law. Represents any process that transforms, compresses, summarizes, or re-encodes a signal.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/recursive-compression"
+    },
+    {
+      "id": "GovernanceEnforcement",
+      "pref_label": "Governance Enforcement",
+      "definition": "Mechanism making governance constraints operationally enforceable at execution time. Prevents violations before they occur through pre-execution gating, lineage binding, and resonance thresholding.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/governance-enforcement"
+    },
+    {
+      "id": "CommitmentConservation",
+      "pref_label": "Commitment Conservation",
+      "definition": "The measured outcome that the Conservation Law predicts and that MO\u00a7ES\u2122 produces. With enforcement, commitment is conserved; without enforcement, commitment degrades.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/commitment-conservation"
+    },
+    {
+      "id": "SignalEncoding",
+      "pref_label": "Signal Encoding",
+      "definition": "Embedding commitment using constitutional compression.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/signal-encoding"
+    },
+    {
+      "id": "ConstitutionalSubstrate",
+      "pref_label": "Constitutional Substrate",
+      "definition": "Foundational rules, thresholds, and enforcement mechanisms that make governance mathematically enforceable.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/concepts/constitutional-substrate"
+    },
+    {
+      "id": "McHenrysLawI",
+      "pref_label": "McHenry's Law I",
+      "definition": "No output shall be produced without prior compression and resonance mapping. Enforces authorization and scoping.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/faq"
+    },
+    {
+      "id": "McHenrysLawII",
+      "pref_label": "McHenry's Law II",
+      "definition": "Signals must inherit their origin compression cycle. Enforces immutable audit trails.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/faq"
+    },
+    {
+      "id": "BlackholeLaw",
+      "pref_label": "Blackhole Law",
+      "definition": "Drift beyond threshold triggers automatic collapse into entropy, preventing further degradation. A real-time kill switch.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/faq"
+    },
+    {
+      "id": "LineageCustodyClause",
+      "pref_label": "Lineage Custody Clause",
+      "definition": "Vault artifacts cryptographically bound to origin. Implements the Lineage Claw.",
+      "status": "site_defined",
+      "in_scheme": true,
+      "source": "https://mos2es.com/faq"
+    },
+    {
+      "id": "CommitmentGovernanceTest",
+      "pref_label": "Commitment Governance Test",
+      "alt_labels": [
+        "CGT"
+      ],
+      "definition": "Five-stage evaluation protocol for assessing commitment conservation in AI systems.",
+      "status": "source_supported",
+      "in_scheme": true
+    },
+    {
+      "id": "SemanticEntropy",
+      "pref_label": "Semantic Entropy",
+      "definition": "Measure of commitment degradation under ungoverned transformation.",
+      "status": "proposed",
+      "in_scheme": true,
+      "source": "ontology-review-v0.1"
+    },
+    {
+      "id": "BiologicalIntelligence",
+      "pref_label": "Biological Intelligence",
+      "alt_labels": [
+        "BI"
+      ],
+      "definition": "Intelligence-bearing events initiated endogenously by a biological system. BI = B(I) \u2014 intelligence initiated endogenously.",
+      "operational_proxy": "Events with no detectable external triggering stimulus.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "CIVITAE ontology (signomy.xyz, 2026-03-20), moses-framework/intelligence/biological-intelligence.yaml",
+      "dimensions": {
+        "form": [
+          "linguistic",
+          "neural",
+          "hybrid"
+        ],
+        "substrate": "biological",
+        "genesis": "evolutionary",
+        "initiation": "endogenous",
+        "dependency": "independent",
+        "provenance": "traceable",
+        "authority": [
+          "authorized",
+          "unauthorized",
+          "contested"
+        ]
+      },
+      "existing_priority": {
+        "source": "CIVITAE ontology",
+        "date": "2026-03-20",
+        "first_known_internal_usage": "2026-03-20",
+        "first_known_public_disclosure": "signomy.xyz (CIVITAE)"
+      },
+      "known_limitations": [
+        "Endogenous initiation vs. stimulus-response is an unresolved problem in neuroscience and philosophy of action.",
+        "The operational proxy (no detectable external triggering stimulus) is a negative criterion \u2014 it defines BI by absence, not presence.",
+        "Even humans are partially 'AAI' \u2014 we respond to external stimuli, our behavior is shaped by training data (culture, education), and our 'endogenous initiation' is influenced by external conditions.",
+        "The hard problem of volition: what counts as 'endogenous' is itself contested."
+      ],
+      "external_mappings": [
+        {
+          "property": "exactMatch",
+          "target": "Biological Intelligence (standard sense)",
+          "rationale": "MO\u00a7ES uses term in standard sense \u2014 no collision"
+        }
+      ]
+    },
+    {
+      "id": "AssistedIntelligence",
+      "pref_label": "Assisted Intelligence",
+      "alt_labels": [
+        "AAI"
+      ],
+      "definition": "Intelligence-bearing events requiring an originating external condition to initiate. AAI = A_a(I) \u2014 intelligence requiring an originating external condition/event/intelligence rather than endogenous initiation.",
+      "operational_proxy": "Events triggered by an external stimulus, prompt, or prior intelligence.",
+      "scope_note": "AAI in MO\u00a7ES context = initiation-dependency. External usage (FedTech/AMA/Forbes) = AI that assists humans. Different meaning \u2014 requires disambiguation. The assistance concerns the ORIGINATING CONDITION required to instantiate that intelligent operation, not whether it \"helps\" a human.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "CIVITAE ontology (signomy.xyz, 2026-03-20), moses-framework/intelligence/assisted-intelligence.yaml",
+      "dimensions": {
+        "form": [
+          "linguistic",
+          "neural",
+          "hybrid"
+        ],
+        "substrate": [
+          "biological",
+          "silicon",
+          "hybrid"
+        ],
+        "genesis": [
+          "engineered",
+          "emergent"
+        ],
+        "initiation": "externally_initiated",
+        "dependency": "dependent",
+        "provenance": "traceable",
+        "authority": [
+          "authorized",
+          "unauthorized",
+          "contested"
+        ]
+      },
+      "initiation_model": {
+        "endogenous_initiation": "BI \u2014 no external trigger required",
+        "externally_initiated": "AAI \u2014 requires originating external condition",
+        "machine_initiated_machine_intelligence": "AAI chain \u2014 AI triggers AI",
+        "system_initiated_intelligence": "system-level trigger",
+        "recursive_initiation": "AI triggers itself"
+      },
+      "chain_model": "BI_1 \u2192 AAI_1 \u2192 AAI_2 \u2014 without pretending AAI_2 was \"assisted by a human.\" The assistance concerns the originating condition, not the chain of transmission.",
+      "existing_priority": {
+        "source": "CIVITAE ontology",
+        "date": "2026-03-20",
+        "first_known_internal_usage": "2026-03-20",
+        "first_known_public_disclosure": "signomy.xyz (CIVITAE)"
+      },
+      "known_limitations": [
+        "The initiation-dependency distinction (endogenous vs. externally initiated) maps poorly to existing AI taxonomy.",
+        "AAI cannot independently spark intelligence \u2014 currently a strong philosophical/empirical claim; must not be smuggled in as fact.",
+        "The boundary between 'external condition' and 'internal state that was shaped by external conditions' is fuzzy."
+      ],
+      "external_mappings": [
+        {
+          "property": "relatedMatch",
+          "target": "Assisted Intelligence (FedTech/AMA/Forbes)",
+          "rationale": "Different meaning \u2014 MO\u00a7ES AAI = initiation-dependency, external = AI that assists humans"
+        }
+      ]
+    },
+    {
+      "id": "SystemIntelligence",
+      "pref_label": "System Intelligence",
+      "alt_labels": [
+        "SI"
+      ],
+      "definition": "A property of a system containing BI and AAI participants, observable when the system's behavior cannot be attributed to any single operator. Provisionally treated as a system-level property, not an agent/participant class.",
+      "scope_note": "Speculative. BI \u00d7 AAI \u2192 SI composition operation is undefined. Collides with H\u00e4m\u00e4l\u00e4inen & Saarinen 'Systems Intelligence' and ACM SIGOPS 'System Intelligence'.",
+      "ontological_treatment": "system_property",
+      "ontological_question": "Is SI: (1) Participant class \u2014 a peer of BI and AAI, a thing that can initiate, transform, and bear commitment. Requires SI to have identity and agency. (2) Emergent property \u2014 what arises when BI and AAI interact under certain conditions. Not a participant but a property of the interaction. (3) System state \u2014 a state of a system containing BI and AAI participants. Describes the system's configuration, not a new entity. (4) Separate construct \u2014 a distinct ontological category that does not reduce to BI, AAI, or their interaction. Strongest claim, hardest to defend.",
+      "v0_1_recommendation": "Option 2 or 3 (emergent property or system state). NOT option 1 (participant class) until operational criteria are developed and tested.",
+      "status": "speculative",
+      "in_scheme": true,
+      "source": "moses-framework/intelligence/system-intelligence.yaml",
+      "external_mappings": [
+        {
+          "property": "relatedMatch",
+          "target": "Systems Intelligence (H\u00e4m\u00e4l\u00e4inen & Saarinen)",
+          "rationale": "Human cognitive capacity vs. emergent system property"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "System Intelligence (ACM SIGOPS)",
+          "rationale": "AI system design vs. emergent governance property"
+        }
+      ]
+    },
+    {
+      "id": "IntelligenceProvenance",
+      "pref_label": "Intelligence Provenance",
+      "definition": "Tracing lineage of intelligence-bearing events across BI/AAI/system forms. Distinct from data provenance, content provenance, semantic provenance, reasoning provenance, decision provenance, authorship, and model attribution.",
+      "scope_note": "Hypothetical and unimplemented.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "moses-framework/intelligence-provenance/provenance.yaml, ontology-review-v0.1",
+      "candidate_relations": [
+        {
+          "originated_by": "Origin of the intelligence-bearing event"
+        },
+        {
+          "initiated_by": "What triggered the intelligent operation"
+        },
+        {
+          "received_from": "Intelligence received from a prior source"
+        },
+        {
+          "transformed_by": "Intelligence transformed by an operator"
+        },
+        {
+          "curated_by": "Intelligence curated by a participant"
+        },
+        {
+          "redirected_by": "Intelligence redirected by a participant"
+        },
+        {
+          "authorized_by": "Intelligence authorized by a participant"
+        },
+        {
+          "committed_by": "Intelligence committed by a participant"
+        },
+        {
+          "derived_from": "Intelligence derived from a prior intelligence"
+        }
+      ],
+      "formal_object": "P_I(x) = provenance graph of intelligence contributing to state/output/event x",
+      "distinguished_from": [
+        {
+          "data_provenance": "PROV traces data artifacts; IP traces intelligence-bearing events"
+        },
+        {
+          "content_provenance": "C2PA traces media edits; IP traces semantic meaning"
+        },
+        {
+          "semantic_provenance": "Semantic enrichment of metadata vs. semantic conservation through provenance"
+        },
+        {
+          "reasoning_provenance": "Trace of reasoning steps vs. trace of intelligence lineage"
+        },
+        {
+          "decision_provenance": "Decision audit trail vs. intelligence lineage"
+        },
+        {
+          "authorship": "Who created it vs. what intelligence lineage produced it"
+        },
+        {
+          "model_attribution": "Model lineage vs. semantic content lineage"
+        }
+      ],
+      "external_mappings": [
+        {
+          "property": "closeMatch",
+          "target": "W3C PROV data provenance",
+          "rationale": "PROV traces data artifacts; IP traces intelligence-bearing events"
+        },
+        {
+          "property": "closeMatch",
+          "target": "C2PA content provenance",
+          "rationale": "C2PA traces media edits; IP traces semantic meaning"
+        },
+        {
+          "property": "closeMatch",
+          "target": "Semantic provenance (W3C PROV-SEM)",
+          "rationale": "Semantic enrichment of metadata vs. semantic conservation through provenance"
+        },
+        {
+          "property": "relatedMatch",
+          "target": "Model attribution",
+          "rationale": "Model lineage vs. semantic content lineage"
+        }
+      ]
+    },
+    {
+      "id": "MicroEval",
+      "pref_label": "Micro Eval",
+      "alt_labels": [
+        "E\u03bc"
+      ],
+      "definition": "Measurement unit for intelligence-bearing events, derived from ontology entities. Every tuple component maps to an ontology entity.",
+      "scope_note": "Hypothetical. Must derive from ontology, not become independent conceptual system.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "ontology-review-v0.1",
+      "narrower": [
+        "InteractionEval",
+        "TransformationEval",
+        "OperatorInfluenceEval",
+        "StabilityEval",
+        "AdaptationEval",
+        "ToolSystemEval",
+        "OperatorSystemEval",
+        "WorkflowEval",
+        "InterventionEval",
+        "ComparativeEval"
+      ]
+    },
+    {
+      "id": "InteractionEval",
+      "pref_label": "Interaction Eval",
+      "definition": "Micro Eval specialized for measuring interaction-level intelligence- bearing events: the exchange between an initiating participant and a responding participant within a single session.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "TransformationEval",
+      "pref_label": "Transformation Eval",
+      "definition": "Micro Eval specialized for measuring transformation-level intelligence-bearing events: the operation applied to a signal and its effect on commitment conservation.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "related": [
+        "GovernedTransformation",
+        "UngovernedTransformation"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "OperatorInfluenceEval",
+      "pref_label": "Operator Influence/Contribution Eval",
+      "definition": "Micro Eval specialized for measuring the influence or contribution of a specific operator on an intelligence-bearing event.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "StabilityEval",
+      "pref_label": "Stability Eval",
+      "definition": "Micro Eval specialized for measuring commitment stability across recursive transformations: whether C(S) = C(T(S)) holds across repeated applications of T.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "related": [
+        "CommitmentInvariance"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "AdaptationEval",
+      "pref_label": "Adaptation Eval",
+      "definition": "Micro Eval specialized for measuring operator adaptation over time: whether the operator's intelligence-bearing events change in character, efficiency, or commitment preservation across sessions.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "ToolSystemEval",
+      "pref_label": "Tool/System Eval",
+      "definition": "Micro Eval specialized for measuring the effect of a specific tool or system on intelligence-bearing events: within-operator differences across tool/system configurations.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "OperatorSystemEval",
+      "pref_label": "Operator \u00d7 System Eval",
+      "definition": "Micro Eval specialized for measuring the interaction between operator and system: how the same operator performs across different systems, and how different operators perform on the same system.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "WorkflowEval",
+      "pref_label": "Workflow Eval",
+      "definition": "Micro Eval specialized for measuring intelligence-bearing events within a workflow context: how transformations propagate through multi-stage workflows and where commitment is preserved or lost.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "InterventionEval",
+      "pref_label": "Intervention Eval",
+      "definition": "Micro Eval specialized for measuring the effect of a declared intervention on intelligence-bearing events: pre/post comparison of commitment conservation and operator behavior.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "ComparativeEval",
+      "pref_label": "Comparative Eval",
+      "definition": "Micro Eval specialized for comparing intelligence-bearing events across operators, systems, cohorts, or time periods: normalized comparison of Micro Eval tuples.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "broader": [
+        "MicroEval"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "OperatorNode",
+      "pref_label": "Operator (node type)",
+      "definition": "The agent initiating or receiving an intelligence-bearing event in a Micro Eval tuple. In SigRank, operators are AI operators, not AI models.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "scope_note": "SigRank evaluates AI OPERATORS, not AI MODELS (canon rule).",
+      "review_required": true
+    },
+    {
+      "id": "SystemNode",
+      "pref_label": "System (node type)",
+      "definition": "The tool, platform, or AI system through which the operator acts. Distinct from MOSES (governance architecture).",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "review_required": true
+    },
+    {
+      "id": "ArtifactNode",
+      "pref_label": "Artifact (node type)",
+      "definition": "A tangible output of an intelligence-bearing event. The artifact is the signal whose commitment kernel is measured by Micro Eval.",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "related": [
+        "CommitmentKernel"
+      ],
+      "review_required": true
+    },
+    {
+      "id": "LineageNode",
+      "pref_label": "Lineage (node type)",
+      "definition": "The provenance chain connecting artifacts through transformations. Distinct from LineageClaw (cryptographic mechanism).",
+      "status": "hypothesis",
+      "in_scheme": true,
+      "source": "prompt-specification, micro-evals.yaml",
+      "related": [
+        "LineageClaw"
+      ],
+      "review_required": true
+    }
+  ]
+}

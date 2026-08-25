@@ -1,0 +1,95 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dct": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "governs": {
+      "@id": "moses:governs",
+      "@type": "@id"
+    },
+    "enforcementArchitectureFor": {
+      "@id": "moses:enforcementArchitectureFor",
+      "@type": "@id"
+    },
+    "operationalizes": {
+      "@id": "moses:operationalizes",
+      "@type": "@id"
+    },
+    "demonstratesPrinciplesOf": {
+      "@id": "moses:demonstratesPrinciplesOf",
+      "@type": "@id"
+    },
+    "originatedBy": {
+      "@id": "moses:originatedBy",
+      "@type": "@id"
+    },
+    "initiatedBy": {
+      "@id": "moses:initiatedBy",
+      "@type": "@id"
+    },
+    "receivedFrom": {
+      "@id": "moses:receivedFrom",
+      "@type": "@id"
+    },
+    "redirectedBy": {
+      "@id": "moses:redirectedBy",
+      "@type": "@id"
+    },
+    "authorizedBy": {
+      "@id": "moses:authorizedBy",
+      "@type": "@id"
+    },
+    "committedBy": {
+      "@id": "moses:committedBy",
+      "@type": "@id"
+    },
+    "preservedThrough": {
+      "@id": "moses:preservedThrough",
+      "@type": "@id"
+    },
+    "violatedBy": {
+      "@id": "moses:violatedBy",
+      "@type": "@id"
+    },
+    "conceptStatus": "moses:conceptStatus",
+    "reviewRequired": {
+      "@id": "moses:reviewRequired",
+      "@type": "xsd:boolean"
+    },
+    "statusNote": "moses:statusNote",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "exactMatch": {
+      "@id": "skos:exactMatch",
+      "@type": "@id"
+    },
+    "closeMatch": {
+      "@id": "skos:closeMatch",
+      "@type": "@id"
+    },
+    "broadMatch": {
+      "@id": "skos:broadMatch",
+      "@type": "@id"
+    },
+    "narrowMatch": {
+      "@id": "skos:narrowMatch",
+      "@type": "@id"
+    },
+    "relatedMatch": {
+      "@id": "skos:relatedMatch",
+      "@type": "@id"
+    }
+  }
+}

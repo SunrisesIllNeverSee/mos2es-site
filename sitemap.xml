@@ -27,6 +27,11 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://mos2es.com/ontology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mos2es.com/legal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

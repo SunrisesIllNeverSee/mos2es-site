@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry",
+  "@type": [
+    "Person"
+  ],
+  "name": "Deric J. McHenry",
+  "description": "Author of Commitment Theory, the Conservation Law of Commitment, and the SigRank operator evaluation system. ORCID 0009-0002-9904-5390.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-DERIC-001)",
+  "alternateName": [
+    "Deric McHenry",
+    "djm"
+  ],
+  "url": "https://orcid.org/0009-0002-9904-5390",
+  "subjectOf": [
+    {
+      "@id": "https://github.com/SunrisesIllNeverSee"
+    }
+  ],
+  "identifier": [
+    {
+      "propertyID": "ORCID",
+      "value": "0009-0002-9904-5390",
+      "url": "https://orcid.org/0009-0002-9904-5390"
+    },
+    {
+      "propertyID": "GitHub",
+      "value": "SunrisesIllNeverSee",
+      "url": "https://github.com/SunrisesIllNeverSee"
+    }
+  ],
+  "affiliation": {
+    "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+  },
+  "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses"
+}

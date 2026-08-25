@@ -1,0 +1,36 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/signomy",
+  "@type": [
+    "WebApplication"
+  ],
+  "name": "Signomy",
+  "description": "A platform governed by MO§ES™. Independently resolvable entity, distinct from CIVITAE.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)",
+  "alternateName": [
+    "SIGNOMY"
+  ],
+  "url": "https://signomy.xyz"
+}

@@ -1,0 +1,416 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix moses: <https://mos2es.com/ontology/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+moses:ArtifactNode a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:definition "A tangible output of an intelligence-bearing event. The artifact is the signal whose commitment kernel is measured by Micro Eval."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Artifact (node type)"@en ;
+    skos:related moses:CommitmentKernel ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:AssistedIntelligence a skos:Concept ;
+    dct:source "CIVITAE ontology (signomy.xyz, 2026-03-20), moses-framework/intelligence/assisted-intelligence.yaml" ;
+    skos:altLabel "AAI"@en ;
+    skos:definition "Intelligence-bearing events requiring an originating external condition to initiate. AAI = A_a(I) — intelligence requiring an originating external condition/event/intelligence rather than endogenous initiation."@en ;
+    skos:editorialNote "relatedMatch: Assisted Intelligence (FedTech/AMA/Forbes). Rationale: Different meaning — MO§ES AAI = initiation-dependency, external = AI that assists humans"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Assisted Intelligence"@en ;
+    skos:scopeNote "AAI in MO§ES context = initiation-dependency. External usage (FedTech/AMA/Forbes) = AI that assists humans. Different meaning — requires disambiguation. The assistance concerns the ORIGINATING CONDITION required to instantiate that intelligent operation, not whether it \"helps\" a human."@en ;
+    moses:conceptStatus "hypothesis" .
+
+moses:BiologicalIntelligence a skos:Concept ;
+    dct:source "CIVITAE ontology (signomy.xyz, 2026-03-20), moses-framework/intelligence/biological-intelligence.yaml" ;
+    skos:altLabel "BI"@en ;
+    skos:definition "Intelligence-bearing events initiated endogenously by a biological system. BI = B(I) — intelligence initiated endogenously."@en ;
+    skos:editorialNote "exactMatch: Biological Intelligence (standard sense). Rationale: MO§ES uses term in standard sense — no collision"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Biological Intelligence"@en ;
+    moses:conceptStatus "hypothesis" .
+
+moses:IntelligenceProvenance a skos:Concept ;
+    dct:source "moses-framework/intelligence-provenance/provenance.yaml, ontology-review-v0.1" ;
+    skos:definition "Tracing lineage of intelligence-bearing events across BI/AAI/system forms. Distinct from data provenance, content provenance, semantic provenance, reasoning provenance, decision provenance, authorship, and model attribution."@en ;
+    skos:editorialNote "closeMatch: C2PA content provenance. Rationale: C2PA traces media edits; IP traces semantic meaning"@en,
+        "closeMatch: Semantic provenance (W3C PROV-SEM). Rationale: Semantic enrichment of metadata vs. semantic conservation through provenance"@en,
+        "closeMatch: W3C PROV data provenance. Rationale: PROV traces data artifacts; IP traces intelligence-bearing events"@en,
+        "relatedMatch: Model attribution. Rationale: Model lineage vs. semantic content lineage"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Intelligence Provenance"@en ;
+    skos:scopeNote "Hypothetical and unimplemented."@en ;
+    moses:conceptStatus "hypothesis" .
+
+moses:LineageNode a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:definition "The provenance chain connecting artifacts through transformations. Distinct from LineageClaw (cryptographic mechanism)."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Lineage (node type)"@en ;
+    skos:related moses:LineageClaw ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:OperatorNode a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:definition "The agent initiating or receiving an intelligence-bearing event in a Micro Eval tuple. In SigRank, operators are AI operators, not AI models."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Operator (node type)"@en ;
+    skos:scopeNote "SigRank evaluates AI OPERATORS, not AI MODELS (canon rule)."@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:SemanticEntropy a skos:Concept ;
+    dct:source "ontology-review-v0.1" ;
+    skos:definition "Measure of commitment degradation under ungoverned transformation."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Semantic Entropy"@en ;
+    moses:conceptStatus "proposed" .
+
+moses:SystemIntelligence a skos:Concept ;
+    dct:source "moses-framework/intelligence/system-intelligence.yaml" ;
+    skos:altLabel "SI"@en ;
+    skos:definition "A property of a system containing BI and AAI participants, observable when the system's behavior cannot be attributed to any single operator. Provisionally treated as a system-level property, not an agent/participant class."@en ;
+    skos:editorialNote "relatedMatch: System Intelligence (ACM SIGOPS). Rationale: AI system design vs. emergent governance property"@en,
+        "relatedMatch: Systems Intelligence (Hämäläinen & Saarinen). Rationale: Human cognitive capacity vs. emergent system property"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "System Intelligence"@en ;
+    skos:scopeNote "Speculative. BI × AAI → SI composition operation is undefined. Collides with Hämäläinen & Saarinen 'Systems Intelligence' and ACM SIGOPS 'System Intelligence'."@en ;
+    moses:conceptStatus "speculative" .
+
+moses:SystemNode a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:definition "The tool, platform, or AI system through which the operator acts. Distinct from MOSES (governance architecture)."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "System (node type)"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:conceptStatus a owl:AnnotationProperty ;
+    rdfs:label "concept status" ;
+    rdfs:comment "Status of a concept in the MOSES canon: owner_approved, source_supported, site_defined, proposed, hypothesis, speculative." .
+
+moses:reviewRequired a owl:AnnotationProperty ;
+    rdfs:label "review required" ;
+    rdfs:comment "Whether this concept requires owner review before promotion." .
+
+moses:AdaptationEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring operator adaptation over time: whether the operator's intelligence-bearing events change in character, efficiency, or commitment preservation across sessions."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Adaptation Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:BlackholeLaw a skos:Concept ;
+    dct:source "https://mos2es.com/faq" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Drift beyond threshold triggers automatic collapse into entropy, preventing further degradation. A real-time kill switch."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Blackhole Law"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:CommitmentConservation a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/commitment-conservation" ;
+    skos:definition "The measured outcome that the Conservation Law predicts and that MO§ES™ produces. With enforcement, commitment is conserved; without enforcement, commitment degrades."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Commitment Conservation"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:CommitmentGovernanceTest a skos:Concept ;
+    skos:altLabel "CGT"@en ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "Five-stage evaluation protocol for assessing commitment conservation in AI systems."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Commitment Governance Test"@en ;
+    moses:conceptStatus "source_supported" .
+
+moses:ComparativeEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for comparing intelligence-bearing events across operators, systems, cohorts, or time periods: normalized comparison of Micro Eval tuples."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Comparative Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:ConservationLawOfCommitment a skos:Concept ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO§ES™ operationalizes it."@en ;
+    skos:editorialNote "relatedMatch: CoHSI (Hatton & Warr 2019). Rationale: Statistical conservation, not deontic"@en,
+        "relatedMatch: Determiner conservativity (Barwise & Cooper 1981). Rationale: Structural constraint on quantifiers"@en,
+        "relatedMatch: Information conservation (Levin 1974). Rationale: Algorithmic information, not semantic/deontic"@en,
+        "relatedMatch: Meaning conservation (Mondal). Rationale: Lexical meaning, no deontic, no enforcement"@en,
+        "relatedMatch: Syntactic conservation (Marcolli/Chomsky 2025). Rationale: Syntax-only, no semantics"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Conservation Law of Commitment"@en ;
+    skos:related moses:CommitmentConservation ;
+    moses:conceptStatus "source_supported" .
+
+moses:ConstitutionalSubstrate a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/constitutional-substrate" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Foundational rules, thresholds, and enforcement mechanisms that make governance mathematically enforceable."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Constitutional Substrate"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:DeonticConservation a skos:Concept ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "Preservation of obligations, prohibitions, and permissions across transformation."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Deontic Conservation"@en ;
+    moses:conceptStatus "source_supported" .
+
+moses:GovernanceEnforcement a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/governance-enforcement" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Mechanism making governance constraints operationally enforceable at execution time. Prevents violations before they occur through pre-execution gating, lineage binding, and resonance thresholding."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Governance Enforcement"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:InteractionEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring interaction-level intelligence- bearing events: the exchange between an initiating participant and a responding participant within a single session."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Interaction Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:InterventionEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring the effect of a declared intervention on intelligence-bearing events: pre/post comparison of commitment conservation and operator behavior."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Intervention Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:LineageCustodyClause a skos:Concept ;
+    dct:source "https://mos2es.com/faq" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Vault artifacts cryptographically bound to origin. Implements the Lineage Claw."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Lineage Custody Clause"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:McHenrysLawI a skos:Concept ;
+    dct:source "https://mos2es.com/faq" ;
+    skos:broader moses:MOSES ;
+    skos:definition "No output shall be produced without prior compression and resonance mapping. Enforces authorization and scoping."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "McHenry's Law I"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:McHenrysLawII a skos:Concept ;
+    dct:source "https://mos2es.com/faq" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Signals must inherit their origin compression cycle. Enforces immutable audit trails."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "McHenry's Law II"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:OperatorInfluenceEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring the influence or contribution of a specific operator on an intelligence-bearing event."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Operator Influence/Contribution Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:OperatorSystemEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring the interaction between operator and system: how the same operator performs across different systems, and how different operators perform on the same system."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Operator × System Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:OriginBinding a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/origin-binding" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Process of cryptographically tying an artifact to its origin compression cycle. The policy that the Lineage Claw implements."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Origin Binding"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:RecursiveCompression a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/recursive-compression" ;
+    skos:broader moses:MOSES ;
+    skos:definition "The transformation operator T in the Conservation Law. Represents any process that transforms, compresses, summarizes, or re-encodes a signal."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Recursive Compression"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:SignalEncoding a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/signal-encoding" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Embedding commitment using constitutional compression."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Signal Encoding"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:StabilityEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring commitment stability across recursive transformations: whether C(S) = C(T(S)) holds across repeated applications of T."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Stability Eval"@en ;
+    skos:related moses:CommitmentInvariance ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:ToolSystemEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring the effect of a specific tool or system on intelligence-bearing events: within-operator differences across tool/system configurations."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Tool/System Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:TransformationEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring transformation-level intelligence-bearing events: the operation applied to a signal and its effect on commitment conservation."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Transformation Eval"@en ;
+    skos:related moses:GovernedTransformation,
+        moses:UngovernedTransformation ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:WorkflowEval a skos:Concept ;
+    dct:source "prompt-specification, micro-evals.yaml" ;
+    skos:broader moses:MicroEval ;
+    skos:definition "Micro Eval specialized for measuring intelligence-bearing events within a workflow context: how transformations propagate through multi-stage workflows and where commitment is preserved or lost."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Workflow Eval"@en ;
+    moses:conceptStatus "hypothesis" ;
+    moses:reviewRequired true .
+
+moses:CommitmentInvariance a skos:Concept ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "Property that C(S) = C(T(S)) for all governed T."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Commitment Invariance"@en ;
+    moses:conceptStatus "source_supported" .
+
+moses:CommitmentKernel a skos:Concept ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "The minimal identity-preserving deontic invariant of a signal. Includes obligations, prohibitions, and permissions."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Commitment Kernel"@en ;
+    moses:conceptStatus "source_supported" .
+
+moses:GovernedTransformation a skos:Concept ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "A transformation passing through constitutional constraints to preserve the commitment kernel."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Governed Transformation"@en ;
+    moses:conceptStatus "source_supported" .
+
+moses:LineageClaw a skos:Concept ;
+    dct:source "https://mos2es.com/concepts/lineage-claw" ;
+    skos:broader moses:MOSES ;
+    skos:definition "Cryptographic mechanism binding transformed signals to origins using SHA-256 hash chains. Creates a verifiable provenance trail where every transformation is recorded and every artifact is tied to its origin compression cycle."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Lineage Claw"@en ;
+    moses:conceptStatus "site_defined" .
+
+moses:UngovernedTransformation a skos:Concept ;
+    skos:broader moses:CommitmentTheory ;
+    skos:definition "A transformation without constitutional constraints; subject to semantic entropy and commitment degradation."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:prefLabel "Ungoverned Transformation"@en ;
+    moses:conceptStatus "source_supported" .
+
+moses:CommitmentTheory a skos:Concept ;
+    skos:altLabel "CT"@en ;
+    skos:definition "A research framework containing the Conservation Law of Commitment. MO§ES™ is the enforcement architecture for Commitment Theory."@en ;
+    skos:editorialNote "External mapping 'relatedMatch' to 'Peirce commitment theory of assertion' requires review. Rationale: Both use 'commitment' but for truth-binding vs. modal invariance"@en,
+        "closeMatch: Cohen-Levesque BDI commitment. Rationale: Both involve persistence, but agent intention vs. signal content"@en,
+        "closeMatch: Hamblin commitment stores. Rationale: Both track commitments through operations, but dialogue assertions vs. signal transformations"@en,
+        "closeMatch: Singh social commitments (MAS). Rationale: Both involve deontic obligations, but inter-agent vs. intra-signal"@en,
+        "relatedMatch: Becker side-bet theory. Rationale: Sunk costs vs. modal invariance"@en,
+        "relatedMatch: Commitment System Theory (Klein et al.). Rationale: Psychological systems vs. governance"@en,
+        "relatedMatch: Kiesler behavioral commitment. Rationale: Psychological vs. computational"@en,
+        "relatedMatch: Locke & Latham goal commitment. Rationale: Goal attachment vs. modal invariance"@en,
+        "relatedMatch: Meyer & Allen organizational commitment. Rationale: Psychological attachment vs. deontic content"@en,
+        "relatedMatch: Morgan & Hunt commitment-trust theory. Rationale: Marketing relationships vs. semantic governance"@en,
+        "relatedMatch: Rusbult investment model. Rationale: Relationship persistence vs. semantic invariance"@en,
+        "relatedMatch: Schelling commitment devices. Rationale: Choice restriction vs. modal invariance"@en,
+        "relatedMatch: Schroeder expressivist commitment theory. Rationale: Semantic relations vs. computational invariance"@en,
+        "relatedMatch: Staw escalation of commitment. Rationale: Irrational escalation vs. rational invariance"@en ;
+    skos:hiddenLabel "CCT"@en,
+        "Commitment Conservation Theory"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:narrower moses:CommitmentGovernanceTest,
+        moses:CommitmentInvariance,
+        moses:CommitmentKernel,
+        moses:ConservationLawOfCommitment,
+        moses:DeonticConservation,
+        moses:GovernedTransformation,
+        moses:UngovernedTransformation ;
+    skos:prefLabel "Commitment Theory"@en ;
+    skos:scopeNote "Previously called 'Commitment Conservation Theory' (CCT) — deprecated alias."@en ;
+    skos:topConceptOf moses:concept-scheme ;
+    moses:conceptStatus "source_supported" .
+
+moses:MicroEval a skos:Concept ;
+    dct:source "ontology-review-v0.1" ;
+    skos:altLabel "Eμ"@en ;
+    skos:definition "Measurement unit for intelligence-bearing events, derived from ontology entities. Every tuple component maps to an ontology entity."@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:narrower moses:AdaptationEval,
+        moses:ComparativeEval,
+        moses:InteractionEval,
+        moses:InterventionEval,
+        moses:OperatorInfluenceEval,
+        moses:OperatorSystemEval,
+        moses:StabilityEval,
+        moses:ToolSystemEval,
+        moses:TransformationEval,
+        moses:WorkflowEval ;
+    skos:prefLabel "Micro Eval"@en ;
+    skos:scopeNote "Hypothetical. Must derive from ontology, not become independent conceptual system."@en ;
+    moses:conceptStatus "hypothesis" .
+
+moses:MOSES a skos:Concept ;
+    skos:altLabel "MOSES"@en,
+        "MO§ES"@en,
+        "mos2es"@en ;
+    skos:definition "Sovereign signal governance system. The enforcement architecture for Commitment Theory. Operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE."@en ;
+    skos:hiddenLabel "MO§E§"@en,
+        "MO§E§™"@en ;
+    skos:inScheme moses:concept-scheme ;
+    skos:narrower moses:BlackholeLaw,
+        moses:ConstitutionalSubstrate,
+        moses:GovernanceEnforcement,
+        moses:LineageClaw,
+        moses:LineageCustodyClause,
+        moses:McHenrysLawI,
+        moses:McHenrysLawII,
+        moses:OriginBinding,
+        moses:RecursiveCompression,
+        moses:SignalEncoding ;
+    skos:prefLabel "MO§ES™"@en ;
+    skos:scopeNote "Canonical display: MO§ES™. Accepted prose: MO§ES. Never render: MO§E§."@en ;
+    skos:topConceptOf moses:concept-scheme ;
+    moses:conceptStatus "owner_approved" .
+
+moses:concept-scheme a skos:ConceptScheme ;
+    dct:description "Canonical SKOS concept scheme for the MOSES ecosystem. Generated from YAML source-of-truth." ;
+    dct:title "MOSES Concept Scheme v0.1" ;
+    owl:versionInfo "0.1.0" ;
+    skos:hasTopConcept moses:CommitmentTheory,
+        moses:MOSES .
+

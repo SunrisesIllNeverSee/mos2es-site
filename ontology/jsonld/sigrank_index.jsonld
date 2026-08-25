@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/sigrank_index",
+  "@type": [
+    "Dataset",
+    "DataCatalog"
+  ],
+  "name": "SigRank Index",
+  "description": "The dataset/index produced by SigRank. Inspectable at signalaf.com/research and /methodology.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-2026-08-14-002 (ID-SR-INDEX-001)",
+  "alternateName": [
+    "SigRank dataset"
+  ],
+  "url": "https://signalaf.com/research",
+  "subjectOf": [
+    {
+      "@id": "https://signalaf.com/methodology"
+    }
+  ],
+  "producer": {
+    "@id": "https://mos2es.com/ontology/0.1/entity/sigrank"
+  }
+}

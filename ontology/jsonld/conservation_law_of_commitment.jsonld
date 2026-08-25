@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+  "@type": [
+    "Claim",
+    "DefinedTerm"
+  ],
+  "name": "Conservation Law of Commitment",
+  "description": "A falsifiable empirical claim that commitment is conserved under governed transformation and decays under ungoverned transformation. The theoretical foundation for SigRank. MO§ES™ operationalizes it.",
+  "sourceSystem": "published-source",
+  "canonBacked": false,
+  "url": "https://doi.org/10.5281/zenodo.20029607",
+  "subjectOf": [
+    {
+      "@id": "https://github.com/SunrisesIllNeverSee/commitment-conservation"
+    },
+    {
+      "@id": "https://signalaf.com/science"
+    }
+  ],
+  "text": "C(T(S)) ≈ C(S) with enforcement; C(T(S)) < C(S) without enforcement",
+  "firstAppearance": {
+    "type": "ScholarlyArticle",
+    "url": "https://doi.org/10.5281/zenodo.18267279",
+    "datePublished": "2026-01-12"
+  }
+}

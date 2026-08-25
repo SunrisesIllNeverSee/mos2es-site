@@ -1,0 +1,326 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@graph": [
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-001",
+      "@type": "Claim",
+      "name": "Commitment function depends on extractor and measurement protocol.",
+      "text": "Commitment function depends on extractor and measurement protocol.",
+      "claimStatus": "source_supported",
+      "claimScope": "methodological",
+      "evidence": [
+        "10.5281/zenodo.20029607",
+        "10.5281/zenodo.19105225"
+      ],
+      "falsificationCondition": "Different extractors produce identical commitment objects for all signals.",
+      "claimSource": "Conservation Law V.05",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "published-source",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-002",
+      "@type": "Claim",
+      "name": "Governed transformations conserve commitment, currently observed in a limited co",
+      "text": "Governed transformations conserve commitment, currently observed in a limited corpus.",
+      "claimStatus": "source_supported",
+      "claimScope": "empirical",
+      "evidence": [
+        "10.5281/zenodo.19105225"
+      ],
+      "falsificationCondition": "A governed transformation that degrades commitment below threshold in the tested corpus.",
+      "claimSource": "Experimental Record EXP-001 through EXP-007",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "published-source",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-003",
+      "@type": "Claim",
+      "name": "Ungoverned transformation degrades commitment.",
+      "text": "Ungoverned transformation degrades commitment.",
+      "claimStatus": "source_supported",
+      "claimScope": "empirical",
+      "evidence": [
+        "10.5281/zenodo.19105225"
+      ],
+      "falsificationCondition": "An ungoverned transformation that preserves commitment across all tested signals.",
+      "claimSource": "Experimental Record EXP-001 through EXP-007",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "published-source",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-004",
+      "@type": "Claim",
+      "name": "The conservation law is falsifiable.",
+      "text": "The conservation law is falsifiable.",
+      "claimStatus": "source_supported",
+      "claimScope": "methodological",
+      "evidence": [
+        "10.5281/zenodo.20029607",
+        "10.5281/zenodo.19105225"
+      ],
+      "claimSource": "Conservation Law V.05",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "published-source",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-005",
+      "@type": "Claim",
+      "name": "MO§ES™ enforces commitment conservation via compression gating, lineage tracking",
+      "text": "MO§ES™ enforces commitment conservation via compression gating, lineage tracking, and hardware anchoring.",
+      "claimStatus": "defined",
+      "claimScope": "architectural",
+      "evidence": [
+        "https://mos2es.com",
+        "10.5281/zenodo.20029607"
+      ],
+      "claimSource": "MO§ES™ website, Conservation Law V.05",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "defined",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-006",
+      "@type": "Claim",
+      "name": "The public harness is a proxy measurement tool, not the production enforcement i",
+      "text": "The public harness is a proxy measurement tool, not the production enforcement implementation.",
+      "claimStatus": "source_supported",
+      "claimScope": "boundary",
+      "evidence": [
+        "10.5281/zenodo.19109397"
+      ],
+      "claimSource": "Public Recursive Transformation Harness",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "published-source",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/INT-001",
+      "@type": "Claim",
+      "name": "BI/AAI classification is hypothetical pending operational criteria.",
+      "text": "BI/AAI classification is hypothetical pending operational criteria.",
+      "claimStatus": "hypothetical",
+      "claimScope": "taxonomic",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "description": "Operational criteria for BI/AAI not yet defined.",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/INT-002",
+      "@type": "Claim",
+      "name": "AAI is distinct from common external usage and requires disambiguation.",
+      "text": "AAI is distinct from common external usage and requires disambiguation.",
+      "claimStatus": "hypothetical",
+      "claimScope": "terminological",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "description": "External AAI = AI that assists humans. MO§ES AAI = initiation-dependency.",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/INT-003",
+      "@type": "Claim",
+      "name": "BI × AAI → SI is speculative and lacks a defined operation.",
+      "text": "BI × AAI → SI is speculative and lacks a defined operation.",
+      "claimStatus": "speculative",
+      "claimScope": "compositional",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "description": "The × operation is undefined. No operational falsification condition.",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/INT-004",
+      "@type": "Claim",
+      "name": "SI as a system property is a provisional design decision, not a participant clas",
+      "text": "SI as a system property is a provisional design decision, not a participant class.",
+      "claimStatus": "speculative",
+      "claimScope": "taxonomic",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/IP-001",
+      "@type": "Claim",
+      "name": "Intelligence Provenance is a hypothetical discipline.",
+      "text": "Intelligence Provenance is a hypothetical discipline.",
+      "claimStatus": "hypothetical",
+      "claimScope": "disciplinary",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "description": "Unimplemented.",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/IP-002",
+      "@type": "Claim",
+      "name": "Intelligence Provenance must be distinguished from data provenance, content prov",
+      "text": "Intelligence Provenance must be distinguished from data provenance, content provenance, semantic provenance, reasoning provenance, decision provenance, authorship, and model attribution.",
+      "claimStatus": "hypothetical",
+      "claimScope": "disciplinary",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CONN-001",
+      "@type": "Claim",
+      "name": "Commitment may be traceable across provenance edges as an invariant constraint, ",
+      "text": "Commitment may be traceable across provenance edges as an invariant constraint, but this is unimplemented.",
+      "claimStatus": "hypothetical",
+      "claimScope": "theoretical",
+      "claimSource": "ontology-review-v0.1",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "proposal",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/MO-DEF-001",
+      "@type": "Claim",
+      "name": "MO§ES™ definition is under owner review.",
+      "text": "MO§ES™ definition is under owner review.",
+      "claimStatus": "disputed",
+      "claimScope": "definitional",
+      "claimSource": "Search Authority canon",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "disputed",
+      "description": "Interpretive wording under owner review. Canon description used in architecture.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "none (disputed — no approval)"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/MO-PROBLEM-001",
+      "@type": "Claim",
+      "name": "MO§ES™ problem statement is under owner review.",
+      "text": "MO§ES™ problem statement is under owner review.",
+      "claimStatus": "disputed",
+      "claimScope": "definitional",
+      "claimSource": "Search Authority canon",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "disputed",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "none (disputed — no approval)"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/CT-PROVENANCE-PROSPECTUS-001",
+      "@type": "Claim",
+      "name": "The Propositions Prospectus publication status is disputed — repository material",
+      "text": "The Propositions Prospectus publication status is disputed — repository materials disagree about whether deposit status is final.",
+      "claimStatus": "disputed",
+      "claimScope": "provenance",
+      "evidence": [
+        "10.5281/zenodo.20031715"
+      ],
+      "claimSource": "Search Authority canon",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "reviewState": "disputed",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "none (disputed — no approval)"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/NOV-001",
+      "@type": "Claim",
+      "name": "In the searched corpus, no prior work formalizes a conservation law for commitme",
+      "text": "In the searched corpus, no prior work formalizes a conservation law for commitment in language under transformative compression with enforcement architecture.",
+      "claimStatus": "source_supported",
+      "claimScope": "novelty",
+      "qualifier": "in the searched corpus",
+      "claimSource": "ontology-review-v0.1",
+      "description": "Absence of findings is not proof of nonexistence.",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/claim/NOV-002",
+      "@type": "Claim",
+      "name": "In the searched corpus, Intelligence Provenance as a distinct discipline appears",
+      "text": "In the searched corpus, Intelligence Provenance as a distinct discipline appears unoccupied.",
+      "claimStatus": "source_supported",
+      "claimScope": "novelty",
+      "qualifier": "in the searched corpus",
+      "claimSource": "ontology-review-v0.1",
+      "description": "Absence of findings is not proof of nonexistence.",
+      "sourceSystem": "moses-framework",
+      "canonBacked": false
+    }
+  ]
+}

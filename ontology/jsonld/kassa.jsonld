@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/kassa",
+  "@type": [
+    "SoftwareSourceCode",
+    "SoftwareApplication"
+  ],
+  "name": "KASSA",
+  "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™.",
+  "sourceSystem": "published-source",
+  "canonBacked": false,
+  "alternateName": [
+    "K-Governed Voice Architecture"
+  ],
+  "url": "https://github.com/SunrisesIllNeverSee/KASSA",
+  "subjectOf": [
+    {
+      "@id": "https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html"
+    }
+  ],
+  "codeRepository": "https://github.com/SunrisesIllNeverSee/KASSA",
+  "disambiguatingDescription": "The public KASSA harness is NOT the full production MO§ES™ implementation.",
+  "demonstratesPrinciplesOf": "https://mos2es.com/ontology/0.1/entity/moses"
+}

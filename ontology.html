@@ -1,0 +1,137 @@
+---
+title: MO§ES Ontology — Machine-Readable Knowledge
+description: Machine-readable MO§ES framework ontology — JSON-LD, SKOS, PROV-O, and custom namespace outputs for semantic web discovery.
+path: /ontology.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="https://mos2es.com/ontology">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mos2es.com/ontology">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <style>
+    :root { --bg: #0A0D12; --fg: #E8E6E3; --accent: #C4923A; --muted: #8B8680; --card: #131722; --border: #2A2D35; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--fg); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--fg); margin: 2rem 0 0.75rem; }
+    p { margin-bottom: 1rem; color: var(--muted); }
+    .intro { font-size: 1.1rem; color: var(--fg); margin-bottom: 2rem; }
+    .section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .section h2 { margin-top: 0; }
+    .file-list { list-style: none; }
+    .file-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .file-list li:last-child { border-bottom: none; }
+    .file-list a { color: var(--accent); text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.9rem; }
+    .file-list a:hover { text-decoration: underline; }
+    .badge { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 4px; background: var(--border); color: var(--muted); }
+    .badge.canon { background: #1a3a1a; color: #6bcb6b; }
+    .badge.framework { background: #1a2a3a; color: #6b9bcb; }
+    .meta { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
+    .nav { margin-bottom: 2rem; }
+    .nav a { color: var(--accent); text-decoration: none; margin-right: 1rem; font-size: 0.9rem; }
+    .nav a:hover { text-decoration: underline; }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <a href="/">&larr; Back to mos2es.com</a>
+      <a href="/architecture">Architecture</a>
+      <a href="/papers">Papers</a>
+    </div>
+
+    <h1>MO§ES Ontology</h1>
+    <p class="intro">Machine-readable knowledge representation of the MO§ES framework.</p>
+
+    <p>This page provides access to the MO§ES framework's semantic outputs for
+    search engines, AI systems, and downstream applications. All outputs are
+    derived from the <a href="https://github.com/SunrisesIllNeverSee/moses-integration" style="color:var(--accent)">moses-integration</a>
+    workspace, which consumes canonical truth from
+    <a href="https://github.com/SunrisesIllNeverSee/search-authority" style="color:var(--accent)">Search Authority</a>.</p>
+
+    <div class="section">
+      <h2>JSON-LD Entity Graphs</h2>
+      <p>Per-entity JSON-LD with schema.org mappings and MO§ES namespace extensions.</p>
+      <ul class="file-list">
+        <li><a href="/ontology/jsonld/moses.jsonld">moses.jsonld</a> <span class="badge canon">owner_approved</span></li>
+        <li><a href="/ontology/jsonld/sigrank.jsonld">sigrank.jsonld</a> <span class="badge canon">owner_approved</span></li>
+        <li><a href="/ontology/jsonld/sigrank_index.jsonld">sigrank_index.jsonld</a> <span class="badge canon">owner_approved</span></li>
+        <li><a href="/ontology/jsonld/commitment_theory.jsonld">commitment_theory.jsonld</a> <span class="badge framework">source_supported</span></li>
+        <li><a href="/ontology/jsonld/conservation_law_of_commitment.jsonld">conservation_law_of_commitment.jsonld</a> <span class="badge framework">source_supported</span></li>
+        <li><a href="/ontology/jsonld/signomy.jsonld">signomy.jsonld</a> <span class="badge framework">source_supported</span></li>
+        <li><a href="/ontology/jsonld/civitae.jsonld">civitae.jsonld</a> <span class="badge framework">source_supported</span></li>
+        <li><a href="/ontology/jsonld/kassa.jsonld">kassa.jsonld</a> <span class="badge framework">source_supported</span></li>
+        <li><a href="/ontology/jsonld/deric_j_mchenry.jsonld">deric_j_mchenry.jsonld</a> <span class="badge canon">owner_approved</span></li>
+        <li><a href="/ontology/jsonld/ello_cello_llc.jsonld">ello_cello_llc.jsonld</a> <span class="badge canon">owner_approved</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Combined Registries</h2>
+      <p>Aggregated JSON-LD collections for bulk consumption.</p>
+      <ul class="file-list">
+        <li><a href="/ontology/jsonld/entities.jsonld">entities.jsonld</a> <span class="badge">all entities</span></li>
+        <li><a href="/ontology/jsonld/claims.jsonld">claims.jsonld</a> <span class="badge">all claims</span></li>
+        <li><a href="/ontology/jsonld/publications.jsonld">publications.jsonld</a> <span class="badge">publications</span></li>
+        <li><a href="/ontology/jsonld/programs.jsonld">programs.jsonld</a> <span class="badge">programs</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Ontology (Turtle / SKOS / PROV-O)</h2>
+      <p>RDF Turtle representations for SPARQL endpoints and triple stores.</p>
+      <ul class="file-list">
+        <li><a href="/ontology/ttl/moses.ttl">moses.ttl</a> <span class="badge">custom ontology</span></li>
+        <li><a href="/ontology/ttl/moses-skos.ttl">moses-skos.ttl</a> <span class="badge">SKOS concept scheme</span></li>
+        <li><a href="/ontology/ttl/provenance.ttl">provenance.ttl</a> <span class="badge">PROV-O graph</span></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Context & Namespace</h2>
+      <p>JSON-LD context defining the MO§ES namespace.</p>
+      <ul class="file-list">
+        <li><a href="/ontology/jsonld/context.jsonld">context.jsonld</a> <span class="badge">@context</span></li>
+      </ul>
+      <p class="meta">MO§ES namespace: <code>https://mos2es.com/ontology/0.1/</code></p>
+    </div>
+
+    <div class="section">
+      <h2>Provenance & Authority</h2>
+      <p>Each entity and claim carries provenance metadata indicating its
+      authority status:</p>
+      <ul>
+        <li><strong>owner_approved</strong> — backed by Search Authority approval</li>
+        <li><strong>source_supported</strong> — supported by source material, not yet owner-approved</li>
+        <li><strong>defined</strong> — framework-defined, not yet supported</li>
+        <li><strong>hypothesis</strong> — speculative, research-stage</li>
+      </ul>
+      <p style="margin-top:1rem;font-size:0.9rem;color:var(--muted);">
+        FOUND &ne; CANONICAL. DEFINED &ne; OWNER_APPROVED.
+        Framework status is not Search Authority status.
+      </p>
+    </div>
+
+    <div class="footer">
+      <p>MO§ES&trade; Ontology v0.1.0 &middot; Generated from
+      <a href="https://github.com/SunrisesIllNeverSee/moses-integration" style="color:var(--accent)">moses-integration</a>
+      &middot; Canonical source:
+      <a href="https://github.com/SunrisesIllNeverSee/search-authority" style="color:var(--accent)">Search Authority</a></p>
+    </div>
+  </div>
+</body>
+</html>

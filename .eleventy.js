@@ -63,6 +63,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy(".well-known");
 
+  // ── MOSES ontology outputs (synced from moses-integration) ──
+  eleventyConfig.addPassthroughCopy("ontology");
+
   // Add one canonical organization identity node to every HTML page. Existing
   // page-specific JSON-LD can reference the same #org/#brand identifiers.
   eleventyConfig.addTransform("organization-identity", function (content) {

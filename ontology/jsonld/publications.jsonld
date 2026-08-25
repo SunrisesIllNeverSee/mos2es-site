@@ -1,0 +1,293 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@graph": [
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/conservation_law_v05",
+      "@type": "ScholarlyArticle",
+      "name": "A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.20029607",
+      "url": "https://doi.org/10.5281/zenodo.20029607",
+      "datePublished": "2026-05",
+      "version": "V.05",
+      "license": "CC-BY-4.0",
+      "abstract": "Foundational work proposing that commitment, operationalized as the identity-bearing content of a linguistic signal, admits formal treatment as a conserved invariant under lossy transformation, recursive self-application, and compression. V.05 formalizes the conservation claim, introduces MO§ES™ as enforcement architecture, and integrates the EXP-001 through EXP-007 experimental record.",
+      "keywords": [
+        "Commitment conservation",
+        "semantic information theory",
+        "transformation fidelity",
+        "recursive stability",
+        "MO§ES™",
+        "governance architecture"
+      ],
+      "publisher": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "citation": [
+        "https://doi.org/10.5281/zenodo.19105225",
+        "https://doi.org/10.5281/zenodo.19109397",
+        "https://doi.org/10.5281/zenodo.20031715"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/conservation_law_v04",
+      "@type": "ScholarlyArticle",
+      "name": "A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.18792459",
+      "url": "https://doi.org/10.5281/zenodo.18792459",
+      "datePublished": "2026-02-26",
+      "version": "V.04",
+      "license": "CC-BY-4.0",
+      "abstract": "Structural revision incorporating peer-review preparation: reordered sections, expanded related work, scoped claims (Theorem → Proposition)."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/conservation_law_v03",
+      "@type": "ScholarlyArticle",
+      "name": "A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.18274930",
+      "url": "https://doi.org/10.5281/zenodo.18274930",
+      "datePublished": "2026-01-16",
+      "version": "V.03",
+      "license": "CC-BY-4.0",
+      "abstract": "Falsifiability testing version."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/conservation_law_v02",
+      "@type": "ScholarlyArticle",
+      "name": "A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.18271102",
+      "url": "https://doi.org/10.5281/zenodo.18271102",
+      "datePublished": "2026-01-16",
+      "version": "V.02",
+      "license": "CC-BY-4.0",
+      "abstract": "Preprint version."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/conservation_law_v1_preprint",
+      "@type": "ScholarlyArticle",
+      "name": "A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.18267279",
+      "url": "https://doi.org/10.5281/zenodo.18267279",
+      "datePublished": "2026-01-12",
+      "version": "V.1-preprint",
+      "license": "CC-BY-4.0",
+      "abstract": "Initial law disclosure. First public version."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/propositions_prospectus_zenodo",
+      "@type": "ScholarlyArticle",
+      "name": "Propositions of Commitment Theory: A Research Prospectus",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.20031715",
+      "url": "https://doi.org/10.5281/zenodo.20031715",
+      "datePublished": "2026-04-20",
+      "version": "V.1",
+      "license": "CC-BY-4.0",
+      "abstract": "P-000, the founding document of Commitment Theory (CT). Establishes definitions, primitives, axioms, propositions, and research program. Two laws: First Law (commitment conserved under governed transformation) and Second Law (kernel decays monotonically under ungoverned transformation).",
+      "keywords": [
+        "Commitment Theory",
+        "conservation law",
+        "deontic logic",
+        "semantic preservation",
+        "governance architecture",
+        "axioms"
+      ],
+      "publisher": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "description": "Status: disputed — publication-status conflict preserved per canon (repository materials disagree about whether deposit status is final)",
+      "citation": [
+        "https://doi.org/10.5281/zenodo.20029607",
+        "https://doi.org/10.2139/ssrn.6734283"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/propositions_prospectus_ssrn",
+      "@type": "ScholarlyArticle",
+      "name": "Propositions of Commitment Theory: A Research Prospectus",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.2139/ssrn.6734283",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6734283",
+      "datePublished": "2026-01-01",
+      "abstract": "SSRN mirror of P-000."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/experimental_record",
+      "@type": "Dataset",
+      "name": "Experimental Record for A Conservation Law for Commitment (EXP-001 to EXP-007)",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.19105225",
+      "url": "https://doi.org/10.5281/zenodo.19105225",
+      "datePublished": "2026-03-19",
+      "version": "1.0.0",
+      "license": "CC-BY-4.0",
+      "abstract": "Seven controlled harness experiments across a 20-signal canonical corpus plus targeted adversarial and structural probes. All runs: GPT-4o-mini, 10 recursive iterations, NLI bidirectional entail + Jaccard surface stability. Key results: Commitment Stability 0.94 ± 0.03 (enforced) vs 0.42 ± 0.12 (baseline); Identity Preservation 92% (enforced) vs 38% (baseline); Drift Rate 0.006/iteration (enforced) vs 0.058/iteration (baseline).",
+      "keywords": [
+        "Experimental validation",
+        "controlled experiments",
+        "NLI",
+        "Jaccard similarity",
+        "recursive transformation",
+        "adversarial testing"
+      ],
+      "publisher": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "citation": [
+        "https://doi.org/10.5281/zenodo.20029607",
+        "https://doi.org/10.5281/zenodo.19109397"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/transformation_harness",
+      "@type": "SoftwareSourceCode",
+      "name": "Public Recursive Transformation Harness",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.19109397",
+      "url": "https://doi.org/10.5281/zenodo.19109397",
+      "datePublished": "2026-03-19",
+      "version": "1.0.0",
+      "license": "MIT (code) / CC-BY-4.0 (documentation)",
+      "abstract": "Implements the three-condition experiment from the Conservation Law: Baseline (paraphrase loop, no enforcement), Compression (summarize loop, no extraction), and Gate (compress → extract commitment kernel → reconstruct → feed back). Runs real NLI inference against real model outputs.",
+      "publisher": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "codeRepository": "https://github.com/SunrisesIllNeverSee/commitment-conservation/tree/main/operational-harness"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/financial_signals_paper",
+      "@type": "ScholarlyArticle",
+      "name": "Commitment Conservation in Financial Signals; A Constitutional Framework for Stability Under Transformation",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.19102589",
+      "url": "https://doi.org/10.5281/zenodo.19102589",
+      "datePublished": "2026-03-18",
+      "version": "v1.0",
+      "license": "CC-BY-4.0",
+      "abstract": "Introduces a conservation principle for financial signals: systems that undergo recursive transformation require a conserved commitment kernel to preserve identity over time."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/floating_moat_standard",
+      "@type": "ScholarlyArticle",
+      "name": "Floating Moat Standard (FMS-2.0) — Proposed Standard",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "sameAs": "https://doi.org/10.5281/zenodo.18841110",
+      "url": "https://doi.org/10.5281/zenodo.18841110",
+      "datePublished": "2026-03-02",
+      "version": "FMS-2.0",
+      "license": "Other (proprietary standard)",
+      "abstract": "Defines the Floating Moat as an inclusive framework for evaluating competitive defensibility based on expiration-clock deferral. Five-tier classification from Commodity to Deep/Constitutional Float.",
+      "codeRepository": "https://github.com/SunrisesIllNeverSee/FMS-2.0-Package"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/clawrxiv_conservation",
+      "@type": "ScholarlyArticle",
+      "name": "Conservation of Commitment in Language Under Transformative Compression: A Semantic Extension of Shannon Information Theory",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "url": "https://clawrxiv.io/abs/2604.00828",
+      "datePublished": "2026-04-04",
+      "abstract": "Shannon (1948) deliberately excluded semantics from information theory. This paper walks through the door he left open.",
+      "identifier": "clawrxiv:2604.00828",
+      "citation": [
+        "https://doi.org/10.5281/zenodo.18792459",
+        "https://doi.org/10.5281/zenodo.19105225",
+        "https://doi.org/10.5281/zenodo.19109397"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/clawrxiv_harness",
+      "@type": "SoftwareSourceCode",
+      "name": "The Commitment Conservation Harness: A Runnable Instrument for Testing C(T(S)) ≈ C(S)",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "url": "https://clawrxiv.io/abs/2604.00833",
+      "datePublished": "2026-04-04",
+      "identifier": "clawrxiv:2604.00833",
+      "citation": [
+        "https://github.com/SunrisesIllNeverSee/commitment-conservation/tree/main/operational-harness",
+        "https://doi.org/10.5281/zenodo.19109397",
+        "https://doi.org/10.5281/zenodo.19105225"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/clawrxiv_experiments",
+      "@type": "ScholarlyArticle",
+      "name": "Commitment Under Recursion: Seven Controlled Experiments on Conservation, Failure Modes, and Instrument Limits",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "url": "https://clawrxiv.io/abs/2604.00831",
+      "datePublished": "2026-04-04",
+      "identifier": "clawrxiv:2604.00831",
+      "citation": [
+        "https://doi.org/10.5281/zenodo.19105225",
+        "https://doi.org/10.5281/zenodo.19109397"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/publication/clawrxiv_civitae",
+      "@type": "ScholarlyArticle",
+      "name": "CIVITAE: A Production Governed Agent City-State — Constitutional AI Governance in the Execution Path",
+      "author": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/deric_j_mchenry"
+      },
+      "url": "https://clawrxiv.io/abs/2604.00713",
+      "datePublished": "2026-04-04",
+      "identifier": "clawrxiv:2604.00713",
+      "citation": [
+        "https://www.signomy.xyz",
+        "https://doi.org/10.5281/zenodo.18792459",
+        "https://github.com/SunrisesIllNeverSee/moses-governance"
+      ]
+    }
+  ]
+}

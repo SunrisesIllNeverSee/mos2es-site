@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/moses",
+  "@type": [
+    "SoftwareApplication",
+    "DefinedTerm"
+  ],
+  "name": "MO§ES™",
+  "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
+  "alternateName": [
+    "MO§ES",
+    "mos2es",
+    "MOSES"
+  ],
+  "url": "https://mos2es.com",
+  "applicationCategory": "AI Governance",
+  "additionalType": "EnforcementArchitecture",
+  "disambiguatingDescription": "MO§ES™ is the governance/enforcement architecture, not a product surface itself. KASSA publicly demonstrates MO§ES™ principles but is not the production MO§ES™ implementation.",
+  "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+  "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+  "governs": [
+    "https://mos2es.com/ontology/0.1/entity/signomy",
+    "https://mos2es.com/ontology/0.1/entity/civitae"
+  ]
+}

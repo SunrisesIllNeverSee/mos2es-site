@@ -1,0 +1,329 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@graph": [
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "@type": "DefinedTermSet",
+      "name": "SigRank Eval Family Catalog",
+      "description": "Controlled vocabulary of 15 technical eval families (EVAL-001 through EVAL-015) underlying all SigRank commercial pilots. Each eval family is a measurement configuration over the SigRank measurement core. The engine stays unified; commercial pilots are packaging layers.",
+      "url": "https://signalaf.com/research"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-001",
+      "@type": "DefinedTerm",
+      "name": "Individual Operating Baseline",
+      "description": "30-day canonical token telemetry producing canonical metrics, eligibility, and reference percentiles for a single operator.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-001",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-002",
+      "@type": "DefinedTerm",
+      "name": "Operator Influence Mapping",
+      "description": "Compares usage scale against selected operator metrics to produce divergence quadrants and outliers. Distinguishes usage from operation.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-002",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-003",
+      "@type": "DefinedTerm",
+      "name": "Capability Distribution",
+      "description": "Operators with org grouping producing distributions, concentration, and coverage. Reveals whether capability is distributed or concentrated.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-006",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-004",
+      "@type": "DefinedTerm",
+      "name": "Adaptation Tracking",
+      "description": "Repeated windows producing metric change, stability once canonical, and band movement. Tracks whether operators are adapting over time.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-004",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-005",
+      "@type": "DefinedTerm",
+      "name": "Training Evaluation",
+      "description": "Predeclared intervention with pre/post windows measuring target and non-target metric changes, plus diagnosis-intervention-remeasure learning trajectory. Shows operating change, not productivity lift.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-007, EVAL-011",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-006",
+      "@type": "DefinedTerm",
+      "name": "Tool/System Comparison",
+      "description": "Same operator across sufficient provider/model observations producing within-operator differences. For model selection, tool consolidation, and rollout decisions.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-005",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-007",
+      "@type": "DefinedTerm",
+      "name": "Agent/Automation Adoption",
+      "description": "Concentration of rare operating patterns across teams/stages producing single-point-of-failure and coverage risk hypotheses, plus team/role/ workflow relationships producing an organization-level map of AI operating structure. Assesses whether agent capability is spreading.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-010, EVAL-013",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-008",
+      "@type": "DefinedTerm",
+      "name": "Workflow Diagnostic",
+      "description": "Stage observations with outcomes producing provisional/replicated stage relationships. Diagnoses whether constraints are operator, tool, or workflow.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-008",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-009",
+      "@type": "DefinedTerm",
+      "name": "Team Operating Comparison",
+      "description": "Operator profiles with stage requirements producing coverage and complementarity hypotheses. Compares team-level operating patterns.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-009",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-010",
+      "@type": "DefinedTerm",
+      "name": "Controlled Experiments",
+      "description": "Customer question with predeclared measurement/outcome plan producing a governed enterprise experiment and evidence report. Predeclared experiments with governed measurement.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-012",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-011",
+      "@type": "DefinedTerm",
+      "name": "Continuous Operating Monitor",
+      "description": "Continuous monitoring of AI operating population month over month. Combines longitudinal movement, cohort composition, and capability dependency risk into a recurring visibility product.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-004, EVAL-006, EVAL-010",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-012",
+      "@type": "DefinedTerm",
+      "name": "Cross-System Operator Identity/Continuity",
+      "description": "Canonical metric vectors with declared normalization producing nearest comparable operators/cohorts. Not a personality match. Tracks operator identity and continuity across systems.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-014",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-013",
+      "@type": "DefinedTerm",
+      "name": "Operator × System Mapping",
+      "description": "Team/role/workflow relationships plus operator patterns producing an organization-level map of AI operating structure. Maps operators to the systems they operate.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-013",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-014",
+      "@type": "DefinedTerm",
+      "name": "Organizational Operating Map",
+      "description": "Organization-level map of AI operating structure derived from team/role/workflow relationships and operator patterns. The executive-facing view of operator-system relationships.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-013",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PROG-015",
+      "@type": "DefinedTerm",
+      "name": "External Field Benchmark",
+      "description": "Longitudinal measurement with intervention history producing rate and shape of operator change with uncertainty. External field position and cohort distribution relative to the SigRank Index.",
+      "inDefinedTermSet": "https://mos2es.com/ontology/0.1/program/SigRankEvalFamilyCatalog",
+      "termCode": "EVAL-015",
+      "conceptStatus": "source_supported"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-01",
+      "@type": "Service",
+      "name": "AI Workforce Operating Baseline",
+      "description": "What does our AI workforce actually look like?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-001",
+        "https://mos2es.com/ontology/0.1/program/EVAL-002",
+        "https://mos2es.com/ontology/0.1/program/EVAL-003",
+        "https://mos2es.com/ontology/0.1/program/EVAL-004",
+        "https://mos2es.com/ontology/0.1/program/EVAL-006"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-02",
+      "@type": "Service",
+      "name": "AI Capability Distribution",
+      "description": "Do we have organizational capability or a few power users?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-006",
+        "https://mos2es.com/ontology/0.1/program/EVAL-010"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-03",
+      "@type": "Service",
+      "name": "AI Adoption & Adaptation",
+      "description": "Are people adapting, or simply using the tools?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-004",
+        "https://mos2es.com/ontology/0.1/program/EVAL-015"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-04",
+      "@type": "Service",
+      "name": "AI Training Evaluation",
+      "description": "Did our training actually change how people operate AI?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-007",
+        "https://mos2es.com/ontology/0.1/program/EVAL-011"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-05",
+      "@type": "Service",
+      "name": "Model / Tool Evaluation",
+      "description": "What changes when we introduce Model A, Model B or Tool X?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-005",
+        "https://mos2es.com/ontology/0.1/program/EVAL-012"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-06",
+      "@type": "Service",
+      "name": "Agent Adoption",
+      "description": "Is agent capability becoming organizational or staying concentrated?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-010",
+        "https://mos2es.com/ontology/0.1/program/EVAL-013"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-07",
+      "@type": "Service",
+      "name": "Workflow Diagnostic",
+      "description": "Is the constraint the operator, the tool or the workflow?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-008",
+        "https://mos2es.com/ontology/0.1/program/EVAL-002"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-08",
+      "@type": "Service",
+      "name": "Team AI Operating Comparison",
+      "description": "Why do teams using the same AI stack operate differently?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-006",
+        "https://mos2es.com/ontology/0.1/program/EVAL-009",
+        "https://mos2es.com/ontology/0.1/program/EVAL-013"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-09",
+      "@type": "Service",
+      "name": "Experiments",
+      "description": "What changed when we introduced X?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-007",
+        "https://mos2es.com/ontology/0.1/program/EVAL-012"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-10",
+      "@type": "Service",
+      "name": "Monitor",
+      "description": "How is our AI operating population changing month over month?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-004",
+        "https://mos2es.com/ontology/0.1/program/EVAL-006",
+        "https://mos2es.com/ontology/0.1/program/EVAL-010"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-11",
+      "@type": "Service",
+      "name": "Meta-Pilot (Validation, not deployment)",
+      "description": "Does this metric predict something we already care about?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-002",
+        "https://mos2es.com/ontology/0.1/program/EVAL-004"
+      ]
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/program/PILOT-12",
+      "@type": "Service",
+      "name": "Vendor / Consultancy Verification",
+      "description": "Are our outsourced AI vendors actually delivering quality?",
+      "provider": {
+        "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc"
+      },
+      "hasOfferCatalog": [
+        "https://mos2es.com/ontology/0.1/program/EVAL-005",
+        "https://mos2es.com/ontology/0.1/program/EVAL-006",
+        "https://mos2es.com/ontology/0.1/program/EVAL-012"
+      ]
+    }
+  ]
+}
