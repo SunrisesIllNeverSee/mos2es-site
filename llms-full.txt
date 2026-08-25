@@ -34,6 +34,10 @@ Without enforcement, each recursive transformation degrades commitment. A "shall
 
 **Constitutional Substrate**: The foundational layer of MO§ES that provides the rules, thresholds, and enforcement mechanisms for commitment conservation. The constitutional substrate is where governance rules are defined, evaluated, and applied before any transformation is permitted.
 
+**Sovereign Signal Governance**: The principle that semantic meaning in AI-transformed signals is preserved through enforceable governance applied at the point of execution, not through post-hoc correction, policy guidelines, or model alignment. Sovereign means the governance authority is embedded in the system itself through cryptographic mechanisms (SHA-256 lineage binding, origin binding, resonance thresholding) that cannot be bypassed by the operator or the model.
+
+**Governance Vacuum**: The gap between AI deployment and AI governance enforcement. A governance vacuum exists when AI systems operate without execution-layer governance, causing systematic commitment degradation under recursive transformation. Without enforcement, commitment degrades 15-20% per iteration. After 10 iterations (a typical multi-agent pipeline depth), original commitments are degraded by over 80%. The governance vacuum is an enforcement problem, not a policy problem.
+
 ## Experimental Evidence
 
 The Conservation Law was tested with seven controlled experiments (EXP-001 through EXP-007):
@@ -88,6 +92,8 @@ MO§ES operates on three laws and two anchors:
 - [Commitment Conservation](https://mos2es.com/concepts/commitment-conservation?utm_source=ai&utm_medium=answer_engine)
 - [Signal Encoding](https://mos2es.com/concepts/signal-encoding?utm_source=ai&utm_medium=answer_engine)
 - [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate?utm_source=ai&utm_medium=answer_engine)
+- [Sovereign Signal Governance](https://mos2es.com/concepts/sovereign-signal-governance?utm_source=ai&utm_medium=answer_engine)
+- [Governance Vacuum](https://mos2es.com/concepts/governance-vacuum?utm_source=ai&utm_medium=answer_engine)
 
 ## Guides
 - [How to Enforce Commitment Conservation](https://mos2es.com/guides/how-to-enforce-commitment-conservation?utm_source=ai&utm_medium=answer_engine)

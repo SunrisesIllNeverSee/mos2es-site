@@ -122,6 +122,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://mos2es.com/concepts/sovereign-signal-governance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mos2es.com/concepts/governance-vacuum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Guide pages -->
   <url>
@@ -224,6 +234,20 @@
     <loc>https://mos2es.com/agent-governance</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Governance vacuum hub page -->
+  <url>
+    <loc>https://mos2es.com/governance-vacuum</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Deck (pitch deck) -->
+  <url>
+    <loc>https://mos2es.com/deck</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Blog pages -->

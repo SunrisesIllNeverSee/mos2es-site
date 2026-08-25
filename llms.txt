@@ -46,6 +46,8 @@ Do not use MO§ES as a general-purpose chatbot, model inference endpoint, conten
 - [Commitment Conservation](https://mos2es.com/concepts/commitment-conservation?utm_source=ai&utm_medium=answer_engine): the measured outcome the Conservation Law predicts
 - [Signal Encoding](https://mos2es.com/concepts/signal-encoding?utm_source=ai&utm_medium=answer_engine): embedding commitment using constitutional compression
 - [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate?utm_source=ai&utm_medium=answer_engine): foundational rules, thresholds, and enforcement mechanisms
+- [Sovereign Signal Governance](https://mos2es.com/concepts/sovereign-signal-governance?utm_source=ai&utm_medium=answer_engine): enforceable governance at the point of execution, not post-hoc correction
+- [Governance Vacuum](https://mos2es.com/concepts/governance-vacuum?utm_source=ai&utm_medium=answer_engine): the gap between AI deployment and governance enforcement causing commitment degradation
 
 ## Guides (how-to)
 - [How to Enforce Commitment Conservation](https://mos2es.com/guides/how-to-enforce-commitment-conservation?utm_source=ai&utm_medium=answer_engine): implementing MO§ES governance enforcement

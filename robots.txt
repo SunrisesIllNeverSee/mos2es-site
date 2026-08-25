@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# AI agent crawlers — welcome (being in the training corpus is the moat)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://mos2es.com/sitemap.xml
