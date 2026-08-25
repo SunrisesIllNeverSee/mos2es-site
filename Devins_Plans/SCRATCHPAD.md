@@ -466,6 +466,9 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-24 19:54 UTC · 998348d · Deric · feat(exchange): add /.well-known/exchange.json pointing at signalaf.com Steward
+[HOOK] 2026-08-21 12:50 UTC · 89c016e · Deric · feat: install GA4 gtag.js tag (G-SDGZRVRKKS) on all pages
+[HOOK] 2026-08-19 03:29 UTC · 7e9b89f · Deric · Install ELLO Repository Standard v1.0.0 (migrate mode)
 [HOOK] 2026-08-17 22:50 UTC · 3066f99 · Deric · Add Master Canon Context section to CLAUDE.md
 [HOOK] 2026-08-17 17:05 UTC · 2c436cb · Deric · authority-remediation-v1: add approved governance relationship predicates
 [HOOK] 2026-08-16 16:21 UTC · 53079f0 · Deric · Clarify MOSES Commitment Theory relationship
