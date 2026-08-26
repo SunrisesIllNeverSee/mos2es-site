@@ -12,26 +12,67 @@ const publisherAddress = {
   addressCountry: "US",
 };
 
+// Canon-backed Organization identity (Search Authority v1.0.0, frozen tag
+// master-canon-v1.0.0). This is the single source of the #org node injected
+// into every HTML page via the organization-identity transform below.
+// Page-specific JSON-LD blocks reference the same #org/#brand identifiers.
+// Do not duplicate this block in individual pages or partials.
 const organizationIdentity = {
-  "@context": "https://schema.org",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef",
+    "associatedWith": "moses:associatedWith",
+  },
   "@type": "Organization",
   "@id": "https://mos2es.com/#org",
-  name: "MO§ES",
-  alternateName: ["MO§ES™", "MOS2ES", "MOSES"],
+  name: "Ello Cello LLC",
+  alternateName: ["Ello Cello", "MO§ES", "MOSES"],
+  description: "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
   url: "https://mos2es.com",
   email: "burnmydays@proton.me",
+  sourceSystem: "search-authority",
+  canonBacked: true,
+  authorityApprovalRef: "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
+  sameAs: [
+    "https://orcid.org/0009-0002-9904-5390",
+    "https://github.com/SunrisesIllNeverSee",
+    "https://github.com/SunrisesIllNeverSee/MOS2ES",
+    "https://github.com/SunrisesIllNeverSee/moses-governance",
+    "https://github.com/SunrisesIllNeverSee/moses-claw-gov",
+    "https://doi.org/10.5281/zenodo.20029607",
+    "https://signalaf.com",
+    "https://signomy.xyz",
+  ],
+  founder: {
+    "@type": "Person",
+    name: "Deric J. McHenry",
+    sameAs: "https://orcid.org/0009-0002-9904-5390",
+    affiliation: {
+      "@type": "Organization",
+      name: "Ello Cello LLC",
+    },
+  },
+  associatedWith: "https://mos2es.com/ontology/0.1/entity/moses",
+  knowsAbout: [
+    "AI governance",
+    "Constitutional AI",
+    "Commitment Theory",
+    "Conservation Law of Commitment",
+    "Semantic preservation",
+    "Commitment conservation",
+    "Governance enforcement",
+    "Audit trails",
+    "Lineage-bound artifacts",
+  ],
   brand: {
     "@type": "Brand",
     "@id": "https://mos2es.com/#brand",
     name: "MO§ES™",
     alternateName: ["MO§ES", "MOS2ES", "MOSES"],
     url: "https://mos2es.com",
-  },
-  parentOrganization: {
-    "@type": "Organization",
-    "@id": "https://mos2es.com/#publisher",
-    name: "Ello Cello LLC",
-    address: publisherAddress,
   },
   contactPoint: [
     {
@@ -66,8 +107,9 @@ module.exports = function (eleventyConfig) {
   // ── MOSES ontology outputs (synced from moses-integration) ──
   eleventyConfig.addPassthroughCopy("ontology");
 
-  // Add one canonical organization identity node to every HTML page. Existing
-  // page-specific JSON-LD can reference the same #org/#brand identifiers.
+  // Inject one canon-backed Organization identity node into every HTML page.
+  // This is the single source of the #org node — page-specific JSON-LD and
+  // partials must NOT emit a second Organization block with the same @id.
   eleventyConfig.addTransform("organization-identity", function (content) {
     if (!this.page?.outputPath?.endsWith(".html") || !content.includes("</head>")) {
       return content;
