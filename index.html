@@ -20,13 +20,23 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "sourceSystem": "moses:sourceSystem",
+      "canonBacked": "moses:canonBacked",
+      "authorityApprovalRef": "moses:authorityApprovalRef",
+      "associatedWith": "moses:associatedWith"
+    },
     "@type": "Organization",
     "@id": "https://mos2es.com/#org",
-    "name": "MO§ES",
-    "alternateName": "MOSES",
+    "name": "Ello Cello LLC",
+    "alternateName": ["Ello Cello", "MO§ES", "MOSES"],
     "url": "https://mos2es.com",
-    "description": "Sovereign signal governance — the protocol layer for preserving semantic meaning at point of execution: commitment conservation, governance enforcement, and lineage-bound artifacts.",
+    "description": "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
+    "sourceSystem": "search-authority",
+    "canonBacked": true,
+    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
     "sameAs": [
       "https://orcid.org/0009-0002-9904-5390",
       "https://github.com/SunrisesIllNeverSee",
@@ -46,6 +56,7 @@
         "name": "Ello Cello LLC"
       }
     },
+    "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses",
     "knowsAbout": [
       "AI governance",
       "Constitutional AI",
@@ -71,21 +82,64 @@
   </script>
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "sourceSystem": "moses:sourceSystem",
+      "canonBacked": "moses:canonBacked",
+      "authorityApprovalRef": "moses:authorityApprovalRef",
+      "governs": "moses:governs",
+      "operationalizes": "moses:operationalizes",
+      "enforcementArchitectureFor": "moses:enforcementArchitectureFor"
+    },
+    "@type": ["SoftwareApplication", "DefinedTerm"],
+    "@id": "https://mos2es.com/ontology/0.1/entity/moses",
+    "name": "MO§ES™",
+    "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
+    "alternateName": ["MO§ES", "mos2es", "MOSES"],
+    "url": "https://mos2es.com",
+    "applicationCategory": "AI Governance",
+    "additionalType": "EnforcementArchitecture",
+    "sourceSystem": "search-authority",
+    "canonBacked": true,
+    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
+    "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+    "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+    "governs": [
+      "https://mos2es.com/ontology/0.1/entity/signomy",
+      "https://mos2es.com/ontology/0.1/entity/civitae"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+      "operationalizes": "moses:operationalizes"
+    },
     "@type": "CreativeWork",
     "@id": "https://mos2es.com/#moses-patent",
     "name": "MO§ES Enforcement Architecture",
-    "description": "Constitutional AI governance enforcement engine for the Conservation Law of Commitment. Patent Serial No. 63/877,177 (Provisional, pending).",
+    "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
     "author": {
       "@type": "Person",
       "name": "Deric J. McHenry",
       "sameAs": "https://orcid.org/0009-0002-9904-5390"
     },
     "publisher": { "@id": "https://mos2es.com/#org" },
-    "about": "AI governance enforcement architecture",
+    "about": [
+      {"@id": "https://mos2es.com/ontology/0.1/entity/moses"},
+      {"@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory"},
+      {"@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"}
+    ],
+    "mentions": [
+      {"@id": "https://mos2es.com/ontology/0.1/entity/signomy"},
+      {"@id": "https://mos2es.com/ontology/0.1/entity/civitae"}
+    ],
     "isBasedOn": "https://doi.org/10.5281/zenodo.20029607"
-  }
-  </script>
+  }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

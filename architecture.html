@@ -38,14 +38,27 @@
 </script>
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/"
+  },
   "@type": "TechArticle",
   "headline": "MO§ES System Architecture",
   "description": "MO§ES system architecture: recursive compression, origin binding, lineage claws, and the governance enforcement layer for multi-agent AI.",
   "url": "https://mos2es.com/architecture",
   "author": { "@type": "Person", "name": "Deric J. McHenry", "sameAs": "https://orcid.org/0009-0002-9904-5390" },
   "publisher": { "@id": "https://mos2es.com/#org" },
-  "isPartOf": { "@id": "https://mos2es.com/#website" }
+  "isPartOf": { "@id": "https://mos2es.com/#website" },
+  "about": [
+    {"@id": "https://mos2es.com/ontology/0.1/entity/moses"},
+    {"@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory"},
+    {"@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"}
+  ],
+  "mentions": [
+    {"@id": "https://mos2es.com/ontology/0.1/entity/signomy"},
+    {"@id": "https://mos2es.com/ontology/0.1/entity/civitae"},
+    {"@id": "https://mos2es.com/ontology/0.1/entity/kassa"}
+  ]
 }
 </script>
 <title>MO§ES™ — Architecture</title>

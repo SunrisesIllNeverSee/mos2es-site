@@ -20,19 +20,29 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "sourceSystem": "moses:sourceSystem",
+      "canonBacked": "moses:canonBacked",
+      "authorityApprovalRef": "moses:authorityApprovalRef",
+      "associatedWith": "moses:associatedWith"
+    },
     "@type": "Organization",
     "@id": "https://mos2es.com/#org",
-    "name": "MO§ES",
-    "alternateName": "MOSES",
+    "name": "Ello Cello LLC",
+    "alternateName": ["Ello Cello", "MO§ES", "MOSES"],
     "url": "https://mos2es.com",
-    "description": "Sovereign signal governance — the protocol layer for preserving semantic meaning at point of execution: commitment conservation, governance enforcement, and lineage-bound artifacts.",
+    "description": "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
+    "sourceSystem": "search-authority",
+    "canonBacked": true,
+    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
     "sameAs": [
       "https://orcid.org/0009-0002-9904-5390",
-      "https://github.com/SunrisesIllneverSee",
-      "https://github.com/SunrisesIllneverSee/MOS2ES",
-      "https://github.com/SunrisesIllneverSee/moses-governance",
-      "https://github.com/SunrisesIllneverSee/moses-claw-gov",
+      "https://github.com/SunrisesIllNeverSee",
+      "https://github.com/SunrisesIllNeverSee/MOS2ES",
+      "https://github.com/SunrisesIllNeverSee/moses-governance",
+      "https://github.com/SunrisesIllNeverSee/moses-claw-gov",
       "https://doi.org/10.5281/zenodo.20029607",
       "https://signalaf.com",
       "https://signomy.xyz"
@@ -45,7 +55,8 @@
         "@type": "Organization",
         "name": "Ello Cello LLC"
       }
-    }
+    },
+    "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses"
   }
   </script>
   <script type="application/ld+json">

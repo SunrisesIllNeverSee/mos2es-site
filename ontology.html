@@ -24,6 +24,82 @@ path: /ontology.html
   <meta name="twitter:description" content="{{ description }}">
   <meta name="twitter:image" content="https://mos2es.com/img/og.png">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "sourceSystem": "moses:sourceSystem",
+      "canonBacked": "moses:canonBacked"
+    },
+    "@type": "CollectionPage",
+    "@id": "https://mos2es.com/ontology",
+    "name": "MO§ES Ontology — Machine-Readable Knowledge",
+    "description": "Machine-readable MO§ES framework ontology — JSON-LD, SKOS, PROV-O, and custom namespace outputs for semantic web discovery.",
+    "url": "https://mos2es.com/ontology",
+    "isPartOf": { "@id": "https://mos2es.com/#website" },
+    "about": {
+      "@id": "https://mos2es.com/ontology/0.1/entity/moses",
+      "@type": ["SoftwareApplication", "DefinedTerm"],
+      "name": "MO§ES™",
+      "sourceSystem": "search-authority",
+      "canonBacked": true
+    },
+    "mainEntity": {
+      "@type": "DefinedTermSet",
+      "@id": "https://mos2es.com/ontology/0.1/",
+      "name": "MO§ES Framework Ontology",
+      "description": "SKOS/PROV-O ontology for the MO§ES framework, derived from Search Authority canon v1.0.0.",
+      "hasDefinedTerm": [
+        {"@id": "https://mos2es.com/ontology/0.1/entity/moses"},
+        {"@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory"},
+        {"@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"},
+        {"@id": "https://mos2es.com/ontology/0.1/entity/sigrank"},
+        {"@id": "https://mos2es.com/ontology/0.1/entity/kassa"},
+        {"@id": "https://mos2es.com/ontology/0.1/entity/signomy"},
+        {"@id": "https://mos2es.com/ontology/0.1/entity/civitae"}
+      ]
+    },
+    "subjectOf": [
+      {"@id": "https://mos2es.com/ontology/jsonld/entities.jsonld"},
+      {"@id": "https://mos2es.com/ontology/jsonld/moses.jsonld"},
+      {"@id": "https://mos2es.com/ontology/jsonld/context.jsonld"},
+      {"@id": "https://mos2es.com/ontology/ttl/moses.ttl"},
+      {"@id": "https://mos2es.com/ontology/ttl/moses-skos.ttl"},
+      {"@id": "https://mos2es.com/ontology/ttl/provenance.ttl"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "sourceSystem": "moses:sourceSystem",
+      "canonBacked": "moses:canonBacked",
+      "authorityApprovalRef": "moses:authorityApprovalRef",
+      "governs": "moses:governs",
+      "operationalizes": "moses:operationalizes",
+      "enforcementArchitectureFor": "moses:enforcementArchitectureFor"
+    },
+    "@type": ["SoftwareApplication", "DefinedTerm"],
+    "@id": "https://mos2es.com/ontology/0.1/entity/moses",
+    "name": "MO§ES™",
+    "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
+    "alternateName": ["MO§ES", "mos2es", "MOSES"],
+    "url": "https://mos2es.com",
+    "applicationCategory": "AI Governance",
+    "sourceSystem": "search-authority",
+    "canonBacked": true,
+    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
+    "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+    "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+    "governs": [
+      "https://mos2es.com/ontology/0.1/entity/signomy",
+      "https://mos2es.com/ontology/0.1/entity/civitae"
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
