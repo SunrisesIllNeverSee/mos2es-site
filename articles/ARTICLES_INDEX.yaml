@@ -1,0 +1,158 @@
+# Articles and Publications Index
+#
+# ALL articles and publications, including drafts and unofficial.
+# This is an INDEX — publications are NOT physically copied here.
+# academic-geo is the operational hub for Zenodo deposits and DOI tracking.
+# Search Authority remains responsible for canonical/source status.
+#
+# Generated: 2026-08-25
+
+articles:
+
+  # === Published (Zenodo DOIs) ===
+
+  - title: "A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application"
+    id: paper-0
+    type: paper
+    status: published
+    source_path: ~/Desktop/academic-geo/pipeline/zenodo/Paper-0_Conservation-Law/
+    repo: academic-geo
+    canonical_file: Paper0_v05_main.md
+    doi: 10.5281/zenodo.18792459
+    also_doi: 10.5281/zenodo.20029607
+    public_url: https://doi.org/10.5281/zenodo.18792459
+    author: Deric J. McHenry
+    published_at: '2026-03-19'
+    last_verified_at: '2026-08-25'
+
+  - title: "SLRO Vol. 79 — Whose Legal Thought Stays Protected?"
+    id: l-001
+    type: paper
+    status: published
+    source_path: ~/Desktop/academic-geo/pipeline/zenodo/L-001_SLRO/
+    repo: academic-geo
+    canonical_file: Slro_paper_final.md
+    public_url: pending DOI lookup
+    doi: pending
+    notes: Stanford Law Review submission, AI disclosure form included
+    last_verified_at: '2026-08-25'
+
+  - title: "Legal Propositions"
+    id: l-000
+    type: paper
+    status: deposited
+    source_path: ~/Desktop/academic-geo/pipeline/zenodo/L-000_Legal-Propositions/
+    repo: academic-geo
+    canonical_file: L-000-propositions-legal.md
+    doi: pending
+    notes: Zenodo deposit, DOI not yet confirmed in source files
+    last_verified_at: '2026-08-25'
+
+  - title: "Prospectus — Propositions of Commitment Theory"
+    id: p-000
+    type: paper
+    status: deposited
+    source_path: ~/Desktop/academic-geo/pipeline/zenodo/P-000_Prospectus/
+    repo: academic-geo
+    canonical_file: P-000-propositions-of-commitment-theory-prospectus.md
+    doi: 10.5281/zenodo.20031715
+    public_url: https://doi.org/10.5281/zenodo.20031715
+    notes: Citation root for the entire 34-paper program. Related: 10.5281/zenodo.18792459 (Paper 0), 10.5281/zenodo.19105225 (Experimental Record)
+    last_verified_at: '2026-08-25'
+
+  - title: "Experimental Record"
+    id: experimental-record
+    type: paper
+    status: published
+    source_path: ~/Desktop/academic-geo/pipeline/zenodo/ (referenced)
+    repo: academic-geo
+    doi: 10.5281/zenodo.19105225
+    public_url: https://doi.org/10.5281/zenodo.19105225
+    notes: Referenced in P-000 deposit. Full source path not yet located.
+    last_verified_at: '2026-08-25'
+
+  - title: "ABBA: Algebraic Bimodal Binding Architecture"
+    id: abba
+    type: paper
+    status: published
+    source_path: not local (IACR ePrint Archive)
+    repo: not local
+    doi: 10.62056/aiy34f7mq
+    public_url: https://doi.org/10.62056/aiy34f7mq
+    notes: Referenced in P-000. IACR ePrint Archive.
+    last_verified_at: '2026-08-25'
+
+  # === Drafts (unsubmitted) ===
+
+  - title: "From Schenck to Heppner"
+    id: ash_paper
+    type: paper
+    status: draft
+    source_path: ~/Desktop/Left Screen/ash_paper/
+    canonical_file: v3_ai2.md
+    also: v3_ai2.docx, v3_ai2.pdf, v3_ai2.tex
+    target: tech law journal / SSRN / Zenodo preprint
+    notes: Draft complete, not submitted. Stanford Law Review AI format.
+    last_verified_at: '2026-08-25'
+
+  - title: "Commitment Conservation Paper (multiple versions)"
+    id: conservation-paper
+    type: paper
+    status: draft
+    source_path: ~/Desktop/Left Screen/Commitment_Conservation/paper/
+    versions: v04, v05
+    also_in: _4_commitment-theory/2_Commitment_Conservation/ (canonical repo)
+    notes: Multiple draft versions. Repo version is canonical; Left Screen has unique experiment figures.
+    last_verified_at: '2026-08-25'
+
+  - title: "Research Paper (Signal Army / Conservation Law)"
+    id: research-paper-2026
+    type: paper
+    status: draft
+    source_path: ~/Desktop/Desktop Storage/Recent 2026/Research_Paper/
+    canonical_file: 1main.md / 1main.tex
+    also: long.md, longlong.md, one.md
+    notes: Draft with figures, reviews, white paper subfolder. Source docs include arxiv_paper_complete_v2.pdf
+    last_verified_at: '2026-08-25'
+
+  # === Articles (drafts) ===
+
+  - title: "Latent Bomb"
+    id: grok-latent-bomb
+    type: article
+    status: draft
+    source_path: ~/Desktop/Desktop Storage/Articles/Articles/Grok_Article_Latent_Bomb.md
+    also: Grok_Article_Latent_Bomb.pages
+    last_verified_at: '2026-08-25'
+
+  - title: "Being Talked About"
+    id: grok-being-talked-about
+    type: article
+    status: draft
+    source_path: ~/Desktop/Desktop Storage/Articles/Articles/Grok_Being_Talked_About.md
+    last_verified_at: '2026-08-25'
+
+  - title: "12 Mill"
+    id: medium-12-mill
+    type: article
+    status: draft
+    source_path: ~/Desktop/Desktop Storage/Articles/Articles/Medium_Article_12_Mill.pages
+    notes: Medium article, .pages format
+    last_verified_at: '2026-08-25'
+
+  # === Referenced whitepapers ===
+
+  - title: "TrustLogic Whitepaper v1.2"
+    id: trustlogic
+    type: whitepaper
+    status: referenced
+    source_path: ~/Desktop/Right Screen/boardy/.firecrawl/trustlogic-whitepaper-v1.2.md
+    last_verified_at: '2026-08-25'
+
+  - title: "Financial Signals Paper"
+    id: financial-signals
+    type: whitepaper
+    status: referenced
+    source_path: ~/Desktop/Right Screen/boardy/.firecrawl/financial-signals-paper/
+    canonical_file: paper.pdf
+    last_verified_at: '2026-08-25'

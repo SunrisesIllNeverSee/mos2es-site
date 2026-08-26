@@ -466,6 +466,8 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-25 11:12 UTC · 7939022 · Deric · feat(seo): Phase 5 fix — commitment-kernel page + question-format H1s
+[HOOK] 2026-08-25 11:07 UTC · 2b1becc · Deric · feat(seo): Phase 5 fix — commitment-kernel page + question-format H1s
 [HOOK] 2026-08-25 10:30 UTC · f4b0ee5 · Deric · fix(seo): Phase 6 — crawl audit fixes (212 → 0 issues)
 [HOOK] 2026-08-25 10:21 UTC · 844ebdf · Deric · feat(seo): Phase 1-3 — sitemap gaps, AI bot allow, Org/WebSite schema, new concept pages
 [HOOK] 2026-08-25 09:38 UTC · edc8a6d · Deric · Add MOSES ontology machine-discovery surface
