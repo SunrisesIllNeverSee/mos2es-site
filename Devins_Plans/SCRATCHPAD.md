@@ -466,6 +466,10 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-26 20:54 UTC · 172e5d6 · Deric · fix(schema): consolidate Organization #org into single canon-backed source
+[HOOK] 2026-08-26 20:44 UTC · 92d6fe9 · Deric · feat(schema): page-level JSON-LD integration from SA v1.0.0 canon
+[HOOK] 2026-08-26 16:50 UTC · 57dd610 · Deric · feat(exchange): add signals block + llms.txt Exchange section
+[HOOK] 2026-08-26 16:29 UTC · f74c0b9 · Deric · feat: add PostHog analytics to mos2es.com
 [HOOK] 2026-08-25 11:12 UTC · 7939022 · Deric · feat(seo): Phase 5 fix — commitment-kernel page + question-format H1s
 [HOOK] 2026-08-25 11:07 UTC · 2b1becc · Deric · feat(seo): Phase 5 fix — commitment-kernel page + question-format H1s
 [HOOK] 2026-08-25 10:30 UTC · f4b0ee5 · Deric · fix(seo): Phase 6 — crawl audit fixes (212 → 0 issues)
