@@ -119,6 +119,17 @@ module.exports = function (eleventyConfig) {
     return content.replace("</head>", `${jsonLd}</head>`);
   });
 
+  // Inject Cloudflare Web Analytics beacon into every HTML page (if not
+  // already present). Uses the auto-token mode tied to the account ID.
+  const CF_ANALYTICS_BEACON = `  <!-- Cloudflare Web Analytics -->\n  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "auto", "api": {"accountID": "8251078af351cd5b19cb73a3435e446f"}}'></script>\n`;
+  eleventyConfig.addTransform("cloudflare-analytics", function (content) {
+    if (!this.page?.outputPath?.endsWith(".html") || !content.includes("</head>")) {
+      return content;
+    }
+    if (content.includes("cloudflareinsights")) return content; // already present
+    return content.replace("</head>", `${CF_ANALYTICS_BEACON}</head>`);
+  });
+
   // ── Default permalink: keep .html extension for backward compat ──
   // Existing pages use href="papers.html" — this preserves that structure.
   // New content pages can override with their own permalink in front matter.
