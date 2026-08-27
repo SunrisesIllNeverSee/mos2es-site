@@ -466,6 +466,8 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-27 12:49 UTC · f1a4ce9 · Deric · feat(deploy): migrate mos2es.com from Netlify to Cloudflare Pages
+[HOOK] 2026-08-27 10:10 UTC · e5bdbf0 · Deric · chore: update scratchpad with post-commit hook appends
 [HOOK] 2026-08-27 02:01 UTC · 7af4634 · Deric · fix(schema): remove programmingLanguage from Dataset block
 [HOOK] 2026-08-27 01:46 UTC · ff79af8 · Deric · docs: update structured-data rule to distinguish canonical vs page-specific JSON-LD
 [HOOK] 2026-08-27 01:45 UTC · ee66e07 · Deric · fix(schema): add publisher link from MO§ES entity to Ello Cello LLC #org
