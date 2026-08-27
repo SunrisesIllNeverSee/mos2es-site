@@ -66,16 +66,40 @@ To stop coordination from disappearing between sessions:
 - **Do NOT modify HTML chart values or re-export screenshots without explicit instruction.**
   (See `.claude/session_notes.md` — 2026-05-21 incident.) Re-export = screenshot as-is, nothing more.
 - **Do NOT touch SEO/GEO/AEO strategy pages without owner approval.**
-  `SEO_GEO_AEO_PLAYBOOK.md` and structured data (JSON-LD) are owner-curated.
+  `SEO_GEO_AEO_PLAYBOOK.md` is owner-curated. JSON-LD is split into two
+  categories — see the structured-data rule below.
 
 ---
 
-> ⚠️ **DO NOT TOUCH SEO/CONTENT/STRATEGY PAGES:**
-> - `SEO_GEO_AEO_PLAYBOOK.md` — owner-curated SEO/GEO/AEO playbook
-> - JSON-LD structured data blocks in all HTML pages — owner-curated schema markup
-> - `llms.txt` — AI discoverability config
-> - `sitemap.xml` — only update when adding/removing pages
-> - `robots.txt` — crawl directives
+> ⚠️ **STRUCTURED DATA RULE (updated 2026-08-26 — supersedes prior "do not touch JSON-LD" rule):**
+>
+> JSON-LD on this site is now governed by two categories:
+>
+> **A. CANONICAL ENTITY DATA — governed by Search Authority / generated profile**
+> - Entity descriptions, identities, canonical IDs (@id values under
+>   `https://mos2es.com/ontology/0.1/entity/`), `name`, `description`,
+>   `alternateName`, relationship fields (`governs`, `operationalizes`,
+>   `enforcementArchitectureFor`, `associatedWith`), `sourceSystem`,
+>   `canonBacked`, `authorityApprovalRef`, and the `#org` Organization
+>   identity (Ello Cello LLC)
+> - These MUST derive from the generated MO§ES schema pipeline:
+>   `Search Authority → Framework → generated Schema → page-level JSON-LD`
+> - The `.eleventy.js` `organizationIdentity` transform is the single
+>   source of the `#org` node. Page-specific blocks reference `#org`
+>   via `@id` but do not duplicate it.
+> - Do not hand-write or override canon-sensitive values. If a value
+>   conflicts with the generated schema, the generated schema wins.
+>
+> **B. PAGE-SPECIFIC STRUCTURED DATA — locally curated and protected**
+> - Page-specific Schema.org types (`TechArticle`, `ScholarlyArticle`,
+>   `BreadcrumbList`, `Dataset`, `WebPage`, `CollectionPage`, etc.)
+> - Page-specific `about`/`mentions` references to canonical entity IDs
+> - `SEO_GEO_AEO_PLAYBOOK.md`, `llms.txt`, `sitemap.xml`, `robots.txt`
+> - These remain owner-curated. Do not modify without owner approval.
+>
+> When in doubt: if it describes a canonical ENTITY (what MO§ES is,
+> who owns it, what it governs), it's category A. If it describes a
+> PAGE (an article about a topic, a breadcrumb trail), it's category B.
 
 ---
 
