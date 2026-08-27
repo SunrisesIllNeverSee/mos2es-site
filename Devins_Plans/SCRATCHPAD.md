@@ -466,6 +466,10 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-27 02:01 UTC · 7af4634 · Deric · fix(schema): remove programmingLanguage from Dataset block
+[HOOK] 2026-08-27 01:46 UTC · ff79af8 · Deric · docs: update structured-data rule to distinguish canonical vs page-specific JSON-LD
+[HOOK] 2026-08-27 01:45 UTC · ee66e07 · Deric · fix(schema): add publisher link from MO§ES entity to Ello Cello LLC #org
+[HOOK] 2026-08-27 01:21 UTC · 9a97a4e · Deric · chore: update scratchpad with post-commit hook appends
 [HOOK] 2026-08-26 20:54 UTC · 172e5d6 · Deric · fix(schema): consolidate Organization #org into single canon-backed source
 [HOOK] 2026-08-26 20:44 UTC · 92d6fe9 · Deric · feat(schema): page-level JSON-LD integration from SA v1.0.0 canon
 [HOOK] 2026-08-26 16:50 UTC · 57dd610 · Deric · feat(exchange): add signals block + llms.txt Exchange section
