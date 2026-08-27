@@ -466,6 +466,9 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-27 14:00 UTC · b2ae587 · Deric · feat(analytics): add Cloudflare Web Analytics beacon to all pages
+[HOOK] 2026-08-27 13:42 UTC · a77548e · Deric · chore(deploy): add Cloudflare zone features and security headers
+[HOOK] 2026-08-27 12:50 UTC · 498f600 · Deric · chore: update scratchpad with post-commit hook appends
 [HOOK] 2026-08-27 12:49 UTC · f1a4ce9 · Deric · feat(deploy): migrate mos2es.com from Netlify to Cloudflare Pages
 [HOOK] 2026-08-27 10:10 UTC · e5bdbf0 · Deric · chore: update scratchpad with post-commit hook appends
 [HOOK] 2026-08-27 02:01 UTC · 7af4634 · Deric · fix(schema): remove programmingLanguage from Dataset block
