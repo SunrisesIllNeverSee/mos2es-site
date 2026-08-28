@@ -169,7 +169,7 @@
         "WebApplication"
       ],
       "name": "SigRank",
-      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com with a CLI tool.",
+      "description": "Public leaderboard / benchmark / proof surface for AI operator evaluation. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com with a CLI tool. As of 2026-08-28, SigRank is the public proof surface — measurements are produced by Upsilon. Prior to 2026-08-28, \"SigRank\" was used ambiguously to refer to both the leaderboard and the measurement engine; that usage is now classified as LEGACY_TERMINOLOGY.",
       "sourceSystem": "search-authority",
       "canonBacked": true,
       "authorityApprovalRef": "APPROVAL-2026-08-14-002 (ID-SR-001)",
@@ -184,7 +184,7 @@
       ],
       "applicationCategory": "AI Operator Benchmark",
       "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app",
-      "disambiguatingDescription": "SigRank evaluates AI OPERATORS, not AI MODELS. SigRank measures token cascade efficiency, not productivity or business outcomes.",
+      "disambiguatingDescription": "SigRank evaluates AI OPERATORS, not AI MODELS. SigRank is the public leaderboard/proof surface, not the measurement engine (that is Upsilon). SigRank measures token cascade efficiency, not productivity or business outcomes. Brainstormed enterprise extensions are not automatically public SigRank canon. Privacy claims distinguish content-free token telemetry from zero metadata risk.",
       "receivesResultsFrom": "https://mos2es.com/ontology/0.1/entity/upsilon",
       "methodologicallyBackedBy": "https://mos2es.com/ontology/0.1/entity/moses",
       "isBasedOn": {

@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-08-28T13:36:27.105748-04:00",
+  "synced_at": "2026-08-28T13:52:27.884870-04:00",
   "source": "/Users/dericmchenry/Developer/_control/moses-integration",
   "entities": [
     {
@@ -158,12 +158,22 @@
         "https://github.com/SunrisesIllNeverSee/sigrank-app"
       ],
       "same_as": [],
-      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com with a CLI tool.",
+      "description": "Public leaderboard / benchmark / proof surface for AI operator evaluation. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com with a CLI tool. As of 2026-08-28, SigRank is the public proof surface \u2014 measurements are produced by Upsilon. Prior to 2026-08-28, \"SigRank\" was used ambiguously to refer to both the leaderboard and the measurement engine; that usage is now classified as LEGACY_TERMINOLOGY.",
       "product_boundaries": [
         "SigRank evaluates AI OPERATORS, not AI MODELS.",
-        "SigRank measures token cascade efficiency, not productivity or business outcomes."
+        "SigRank is the public leaderboard/proof surface, not the measurement engine (that is Upsilon).",
+        "SigRank measures token cascade efficiency, not productivity or business outcomes.",
+        "Brainstormed enterprise extensions are not automatically public SigRank canon.",
+        "Privacy claims distinguish content-free token telemetry from zero metadata risk."
       ],
       "status": "owner_approved",
+      "source_refs": [
+        "sigrank-readme",
+        "sigrank-llms",
+        "owner-entity-graph-2026-08-14",
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "notes": "Evaluation-system identity and the operator-vs-model distinction are owner-approved mechanical facts. Metric/taxonomy records are governed separately in the SigRank canon. On 2026-08-28 the owner directed a foundational architecture change separating the measurement engine (Upsilon) from the public leaderboard (SigRank). SigRank's role is now narrower and clearer: public benchmark / proof surface.",
       "source_system": "search-authority",
       "canon_backed": true,
       "authority_approval_ref": "APPROVAL-2026-08-14-002 (ID-SR-001)",
@@ -174,7 +184,8 @@
       "schema_org_properties": {
         "url": "https://signalaf.com",
         "applicationCategory": "AI Operator Benchmark",
-        "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app"
+        "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app",
+        "disambiguatingDescription": "SigRank evaluates AI OPERATORS, not AI MODELS. SigRank is the public leaderboard/proof surface, not the measurement engine (that is Upsilon). SigRank measures token cascade efficiency, not productivity or business outcomes."
       }
     },
     {
