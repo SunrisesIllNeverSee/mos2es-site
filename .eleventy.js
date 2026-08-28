@@ -30,7 +30,7 @@ const organizationIdentity = {
   "@id": "https://mos2es.com/#org",
   name: "Ello Cello LLC",
   alternateName: ["Ello Cello", "MO§ES", "MOSES"],
-  description: "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
+  description: "Organization associated with the owner's published works and products, including Upsilon, SigRank, and MO§ES™.",
   url: "https://mos2es.com",
   email: "burnmydays@proton.me",
   sourceSystem: "search-authority",

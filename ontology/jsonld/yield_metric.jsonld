@@ -20,26 +20,20 @@
     "canonBacked": "moses:canonBacked",
     "authorityApprovalRef": "moses:authorityApprovalRef"
   },
-  "@id": "https://mos2es.com/ontology/0.1/entity/kassa",
+  "@id": "https://mos2es.com/ontology/0.1/entity/yield_metric",
   "@type": [
-    "SoftwareSourceCode",
-    "SoftwareApplication"
+    "DefinedTerm"
   ],
-  "name": "KASSA",
-  "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™. The public harness is distinct from the protected production MO§ES™ substrate.",
+  "name": "Yield (Υ)",
+  "description": "Yield = (R × O) / I² = Leverage × Velocity",
   "sourceSystem": "search-authority",
   "canonBacked": true,
-  "authorityApprovalRef": "none",
+  "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-YIELD-001)",
   "alternateName": [
-    "K-Governed Voice Architecture"
+    "Yield",
+    "Yield metric"
   ],
-  "url": "https://github.com/SunrisesIllNeverSee/KASSA",
-  "subjectOf": [
-    {
-      "@id": "https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html"
-    }
-  ],
-  "codeRepository": "https://github.com/SunrisesIllNeverSee/KASSA",
-  "disambiguatingDescription": "The public KASSA harness is NOT the full production MO§ES™ implementation.",
-  "demonstratesPrinciplesOf": "https://mos2es.com/ontology/0.1/entity/moses"
+  "url": "https://mos2es.org",
+  "termCode": "Υ",
+  "disambiguatingDescription": "Yield is a metric inside Upsilon, NOT the product itself. Yield is NOT the same as Upsilon. Do not collapse them. The broader SigRank metric system and taxonomy is preserved — Upsilon is not only Yield."
 }

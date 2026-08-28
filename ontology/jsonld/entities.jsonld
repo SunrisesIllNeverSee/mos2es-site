@@ -72,7 +72,12 @@
         "Ello Cello"
       ],
       "url": "https://mos2es.com",
-      "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses"
+      "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses",
+      "owns": [
+        "https://mos2es.com/ontology/0.1/entity/upsilon",
+        "https://mos2es.com/ontology/0.1/entity/sigrank",
+        "https://mos2es.com/ontology/0.1/entity/signalaf"
+      ]
     },
     {
       "@id": "https://mos2es.com/ontology/0.1/entity/moses",
@@ -164,7 +169,7 @@
         "WebApplication"
       ],
       "name": "SigRank",
-      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com.",
+      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com with a CLI tool.",
       "sourceSystem": "search-authority",
       "canonBacked": true,
       "authorityApprovalRef": "APPROVAL-2026-08-14-002 (ID-SR-001)",
@@ -180,6 +185,8 @@
       "applicationCategory": "AI Operator Benchmark",
       "codeRepository": "https://github.com/SunrisesIllNeverSee/sigrank-app",
       "disambiguatingDescription": "SigRank evaluates AI OPERATORS, not AI MODELS. SigRank measures token cascade efficiency, not productivity or business outcomes.",
+      "receivesResultsFrom": "https://mos2es.com/ontology/0.1/entity/upsilon",
+      "methodologicallyBackedBy": "https://mos2es.com/ontology/0.1/entity/moses",
       "isBasedOn": {
         "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"
       }
@@ -215,7 +222,7 @@
         "SoftwareApplication"
       ],
       "name": "KASSA",
-      "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™.",
+      "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO§ES™. The public harness is distinct from the protected production MO§ES™ substrate.",
       "sourceSystem": "search-authority",
       "canonBacked": true,
       "authorityApprovalRef": "none",
@@ -258,6 +265,57 @@
       "canonBacked": true,
       "authorityApprovalRef": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)",
       "url": "https://signomy.xyz"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/upsilon",
+      "@type": [
+        "SoftwareApplication"
+      ],
+      "name": "Upsilon",
+      "description": "Commercial measurement engine / enterprise product. Upsilon consumes privacy-preserving AI usage telemetry (input tokens, output tokens, cache creation/write, cache read) and produces diagnostic measures of AI processing behavior. Governed by the MO§ES™ framework. The enterprise pilot is an Upsilon pilot. Upsilon is NOT an alias for SigRank and NOT an alias for Yield.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-UPSILON-001)",
+      "url": "https://mos2es.org",
+      "applicationCategory": "AIOperatorMeasurement",
+      "disambiguatingDescription": "Upsilon is the measurement engine / commercial product, NOT the leaderboard (that is SigRank). Upsilon is NOT the same as Yield. Yield is a metric inside Upsilon. Upsilon does not require prompt text or code contents to calculate core token-derived measures. Upsilon is governed by MO§ES™ — it is not interchangeable with MO§ES™. Claims like 'higher Yield causes faster shipping' are HYPOTHESIS, not canon, unless separately supported by evidence.",
+      "governedBy": "https://mos2es.com/ontology/0.1/entity/moses",
+      "includesMetric": "https://mos2es.com/ontology/0.1/entity/yield_metric"
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/yield_metric",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "name": "Yield (Υ)",
+      "description": "Yield = (R × O) / I² = Leverage × Velocity",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-YIELD-001)",
+      "alternateName": [
+        "Yield",
+        "Yield metric"
+      ],
+      "url": "https://mos2es.org",
+      "termCode": "Υ",
+      "disambiguatingDescription": "Yield is a metric inside Upsilon, NOT the product itself. Yield is NOT the same as Upsilon. Do not collapse them. The broader SigRank metric system and taxonomy is preserved — Upsilon is not only Yield."
+    },
+    {
+      "@id": "https://mos2es.com/ontology/0.1/entity/signalaf",
+      "@type": [
+        "WebApplication"
+      ],
+      "name": "SignalAF",
+      "description": "Public-facing brand and distribution surface for AI operator measurement, benchmarking, education, and related products. SignalAF presents and distributes operator intelligence, SigRank (the public leaderboard), and Upsilon-related content. SignalAF is NOT the measurement engine, NOT the leaderboard, and NOT the governance framework. Legal ownership remains with Ello Cello LLC.",
+      "sourceSystem": "search-authority",
+      "canonBacked": true,
+      "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-SIGNALAF-001)",
+      "url": "https://signalaf.com",
+      "disambiguatingDescription": "SignalAF is the public brand/distribution surface, NOT the measurement engine. SignalAF is NOT the legal owner or governance authority — that is Ello Cello LLC / MO§ES™. Do not classify SignalAF as replacing MO§ES, Upsilon, or SigRank.",
+      "distributes": [
+        "https://mos2es.com/ontology/0.1/entity/sigrank",
+        "https://mos2es.com/ontology/0.1/entity/upsilon"
+      ]
     }
   ]
 }

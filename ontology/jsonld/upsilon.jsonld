@@ -1,0 +1,37 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "schema": "https://schema.org/",
+    "moses": "https://mos2es.com/ontology/0.1/",
+    "claimStatus": "moses:claimStatus",
+    "claimScope": "moses:claimScope",
+    "evidence": "moses:evidence",
+    "falsificationCondition": "moses:falsificationCondition",
+    "claimSource": "moses:claimSource",
+    "reviewState": "moses:reviewState",
+    "qualifier": "moses:qualifier",
+    "conceptStatus": "moses:conceptStatus",
+    "governs": "moses:governs",
+    "operationalizes": "moses:operationalizes",
+    "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
+    "associatedWith": "moses:associatedWith",
+    "demonstratesPrinciplesOf": "moses:demonstratesPrinciplesOf",
+    "sourceSystem": "moses:sourceSystem",
+    "canonBacked": "moses:canonBacked",
+    "authorityApprovalRef": "moses:authorityApprovalRef"
+  },
+  "@id": "https://mos2es.com/ontology/0.1/entity/upsilon",
+  "@type": [
+    "SoftwareApplication"
+  ],
+  "name": "Upsilon",
+  "description": "Commercial measurement engine / enterprise product. Upsilon consumes privacy-preserving AI usage telemetry (input tokens, output tokens, cache creation/write, cache read) and produces diagnostic measures of AI processing behavior. Governed by the MO§ES™ framework. The enterprise pilot is an Upsilon pilot. Upsilon is NOT an alias for SigRank and NOT an alias for Yield.",
+  "sourceSystem": "search-authority",
+  "canonBacked": true,
+  "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-UPSILON-001)",
+  "url": "https://mos2es.org",
+  "applicationCategory": "AIOperatorMeasurement",
+  "disambiguatingDescription": "Upsilon is the measurement engine / commercial product, NOT the leaderboard (that is SigRank). Upsilon is NOT the same as Yield. Yield is a metric inside Upsilon. Upsilon does not require prompt text or code contents to calculate core token-derived measures. Upsilon is governed by MO§ES™ — it is not interchangeable with MO§ES™. Claims like 'higher Yield causes faster shipping' are HYPOTHESIS, not canon, unless separately supported by evidence.",
+  "governedBy": "https://mos2es.com/ontology/0.1/entity/moses",
+  "includesMetric": "https://mos2es.com/ontology/0.1/entity/yield_metric"
+}

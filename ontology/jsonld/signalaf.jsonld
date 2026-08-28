@@ -20,23 +20,19 @@
     "canonBacked": "moses:canonBacked",
     "authorityApprovalRef": "moses:authorityApprovalRef"
   },
-  "@id": "https://mos2es.com/ontology/0.1/entity/ello_cello_llc",
+  "@id": "https://mos2es.com/ontology/0.1/entity/signalaf",
   "@type": [
-    "Organization"
+    "WebApplication"
   ],
-  "name": "Ello Cello LLC",
-  "description": "Organization associated with the owner's published works and products, including SigRank and MO§ES™.",
+  "name": "SignalAF",
+  "description": "Public-facing brand and distribution surface for AI operator measurement, benchmarking, education, and related products. SignalAF presents and distributes operator intelligence, SigRank (the public leaderboard), and Upsilon-related content. SignalAF is NOT the measurement engine, NOT the leaderboard, and NOT the governance framework. Legal ownership remains with Ello Cello LLC.",
   "sourceSystem": "search-authority",
   "canonBacked": true,
-  "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
-  "alternateName": [
-    "Ello Cello"
-  ],
-  "url": "https://mos2es.com",
-  "associatedWith": "https://mos2es.com/ontology/0.1/entity/moses",
-  "owns": [
-    "https://mos2es.com/ontology/0.1/entity/upsilon",
+  "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-SIGNALAF-001)",
+  "url": "https://signalaf.com",
+  "disambiguatingDescription": "SignalAF is the public brand/distribution surface, NOT the measurement engine. SignalAF is NOT the legal owner or governance authority — that is Ello Cello LLC / MO§ES™. Do not classify SignalAF as replacing MO§ES, Upsilon, or SigRank.",
+  "distributes": [
     "https://mos2es.com/ontology/0.1/entity/sigrank",
-    "https://mos2es.com/ontology/0.1/entity/signalaf"
+    "https://mos2es.com/ontology/0.1/entity/upsilon"
   ]
 }

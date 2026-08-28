@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-08-26T12:09:33.428137-04:00",
+  "synced_at": "2026-08-28T13:36:27.105748-04:00",
   "source": "/Users/dericmchenry/Developer/_control/moses-integration",
   "entities": [
     {
@@ -158,7 +158,7 @@
         "https://github.com/SunrisesIllNeverSee/sigrank-app"
       ],
       "same_as": [],
-      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com.",
+      "description": "An AI operator benchmark measuring token cascade efficiency. SigRank evaluates AI operators, not AI models. Built on the Conservation Law of Commitment. Produces the SigRank Index. Live at signalaf.com with a CLI tool.",
       "product_boundaries": [
         "SigRank evaluates AI OPERATORS, not AI MODELS.",
         "SigRank measures token cascade efficiency, not productivity or business outcomes."
@@ -211,7 +211,7 @@
         "https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html"
       ],
       "same_as": [],
-      "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO\u00a7ES\u2122.",
+      "description": "K-Governed Voice Architecture that commits state before intelligence branches using hash-lock read-only fanout. Publicly demonstrates commitment-kernel / K-governed principles of MO\u00a7ES\u2122. The public harness is distinct from the protected production MO\u00a7ES\u2122 substrate.",
       "product_boundaries": [
         "The public KASSA harness is NOT the full production MO\u00a7ES\u2122 implementation."
       ],
@@ -266,6 +266,85 @@
       "source_system": "search-authority",
       "canon_backed": true,
       "authority_approval_ref": "APPROVAL-ENTITY-DISTINCT-001 (entity distinctness)"
+    },
+    {
+      "id": "upsilon",
+      "canonical_name": "Upsilon",
+      "entity_type": "product",
+      "aliases": [],
+      "canonical_urls": [
+        "https://mos2es.org"
+      ],
+      "same_as": [],
+      "description": "Commercial measurement engine / enterprise product. Upsilon consumes privacy-preserving AI usage telemetry (input tokens, output tokens, cache creation/write, cache read) and produces diagnostic measures of AI processing behavior. Governed by the MO\u00a7ES\u2122 framework. The enterprise pilot is an Upsilon pilot. Upsilon is NOT an alias for SigRank and NOT an alias for Yield.",
+      "product_boundaries": [
+        "Upsilon is the measurement engine / commercial product, NOT the leaderboard (that is SigRank).",
+        "Upsilon is NOT the same as Yield. Yield is a metric inside Upsilon.",
+        "Upsilon does not require prompt text or code contents to calculate core token-derived measures.",
+        "Upsilon is governed by MO\u00a7ES\u2122 \u2014 it is not interchangeable with MO\u00a7ES\u2122.",
+        "Claims like 'higher Yield causes faster shipping' are HYPOTHESIS, not canon, unless separately supported by evidence."
+      ],
+      "status": "owner_approved",
+      "schema_org_type": "SoftwareApplication",
+      "schema_org_properties": {
+        "url": "https://mos2es.org",
+        "applicationCategory": "AIOperatorMeasurement"
+      },
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001 (ID-UPSILON-001)"
+    },
+    {
+      "id": "yield_metric",
+      "canonical_name": "Yield (\u03a5)",
+      "entity_type": "dataset",
+      "aliases": [
+        "Yield",
+        "Yield metric"
+      ],
+      "canonical_urls": [
+        "https://mos2es.org"
+      ],
+      "same_as": [],
+      "description": "Flagship metric inside Upsilon. Formula \u03a5 = (R \u00d7 O) / I\u00b2 where I = input tokens, O = output tokens, R = cache read. Equivalent Yield = Leverage \u00d7 Velocity. Yield is a METRIC, not a product. Upsilon is the product; Yield is one metric within it.",
+      "product_boundaries": [
+        "Yield is a metric inside Upsilon, NOT the product itself.",
+        "Yield is NOT the same as Upsilon. Do not collapse them.",
+        "The broader SigRank metric system and taxonomy is preserved \u2014 Upsilon is not only Yield."
+      ],
+      "status": "owner_approved",
+      "schema_org_type": "DefinedTerm",
+      "schema_org_properties": {
+        "termCode": "\u03a5",
+        "description": "Yield = (R \u00d7 O) / I\u00b2 = Leverage \u00d7 Velocity"
+      },
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001 (ID-YIELD-001)"
+    },
+    {
+      "id": "signalaf",
+      "canonical_name": "SignalAF",
+      "entity_type": "platform",
+      "aliases": [],
+      "canonical_urls": [
+        "https://signalaf.com"
+      ],
+      "same_as": [],
+      "description": "Public-facing brand and distribution surface for AI operator measurement, benchmarking, education, and related products. SignalAF presents and distributes operator intelligence, SigRank (the public leaderboard), and Upsilon-related content. SignalAF is NOT the measurement engine, NOT the leaderboard, and NOT the governance framework. Legal ownership remains with Ello Cello LLC.",
+      "product_boundaries": [
+        "SignalAF is the public brand/distribution surface, NOT the measurement engine.",
+        "SignalAF is NOT the legal owner or governance authority \u2014 that is Ello Cello LLC / MO\u00a7ES\u2122.",
+        "Do not classify SignalAF as replacing MO\u00a7ES, Upsilon, or SigRank."
+      ],
+      "status": "owner_approved",
+      "schema_org_type": "WebApplication",
+      "schema_org_properties": {
+        "url": "https://signalaf.com"
+      },
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001 (ID-SIGNALAF-001)"
     }
   ],
   "claims": [
@@ -694,6 +773,152 @@
       "source_system": "search-authority",
       "canon_backed": true,
       "authority_approval_ref": "APPROVAL-REL-RECONCILE-002"
+    },
+    {
+      "id": "ello_cello_owns_upsilon",
+      "subject": "ello_cello_llc",
+      "predicate": "owns",
+      "object": "upsilon",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:owns",
+      "custom_rationale": "Ownership relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "ello_cello_owns_sigrank",
+      "subject": "ello_cello_llc",
+      "predicate": "owns",
+      "object": "sigrank",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:owns",
+      "custom_rationale": "Ownership relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "ello_cello_owns_signalaf",
+      "subject": "ello_cello_llc",
+      "predicate": "owns",
+      "object": "signalaf",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:owns",
+      "custom_rationale": "Ownership relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "upsilon_governed_by_moses",
+      "subject": "upsilon",
+      "predicate": "governed_by",
+      "object": "moses",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:governedBy",
+      "custom_rationale": "Governance relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "upsilon_includes_metric_yield",
+      "subject": "upsilon",
+      "predicate": "includes_metric",
+      "object": "yield_metric",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:includesMetric",
+      "custom_rationale": "Metric inclusion from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28",
+        "sigrank-llms"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "sigrank_receives_from_upsilon",
+      "subject": "sigrank",
+      "predicate": "receives_results_from",
+      "object": "upsilon",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:receivesResultsFrom",
+      "custom_rationale": "Proof surface relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "sigrank_governed_by_moses",
+      "subject": "sigrank",
+      "predicate": "methodologically_backed_by",
+      "object": "moses",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:methodologicallyBackedBy",
+      "custom_rationale": "Methodological backing from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "signalaf_distributes_sigrank",
+      "subject": "signalaf",
+      "predicate": "distributes",
+      "object": "sigrank",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:distributes",
+      "custom_rationale": "Distribution relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28",
+        "sigrank-llms"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
+    },
+    {
+      "id": "signalaf_distributes_upsilon_content",
+      "subject": "signalaf",
+      "predicate": "distributes",
+      "object": "upsilon",
+      "status": "owner_approved",
+      "schema_org_property": null,
+      "custom_property": "moses:distributes",
+      "custom_rationale": "Distribution relationship from owner directive 2026-08-28",
+      "source_refs": [
+        "upsilon-architecture-directive-2026-08-28"
+      ],
+      "source_system": "search-authority",
+      "canon_backed": true,
+      "authority_approval_ref": "APPROVAL-UPSILON-ARCH-001"
     }
   ],
   "concepts": [
