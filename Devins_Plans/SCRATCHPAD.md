@@ -466,6 +466,12 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-08-30 15:35 UTC · 355817e · Deric · Add ARD ai-catalog.json and WebMCP browser tools (all 9 discovery checks pass)
+[HOOK] 2026-08-30 15:23 UTC · ee527c5 · Deric · Fix AI agent discovery surfaces to pass isitagentready.com validation
+[HOOK] 2026-08-30 14:48 UTC · 862d3ea · Deric · Add AI agent discovery surfaces (Cloudflare Diagnostics L2 + L3)
+[HOOK] 2026-08-28 17:53 UTC · f0e9b6c · Deric · fix(canon): sync narrowed SigRank description from moses-integration
+[HOOK] 2026-08-28 17:37 UTC · 099950d · Deric · canon: sync Upsilon architecture from moses-integration
+[HOOK] 2026-08-27 15:53 UTC · 92b770e · Deric · chore: final scratchpad hook append
 [HOOK] 2026-08-27 15:53 UTC · 5c5b95d · Deric · chore: update scratchpad with post-commit hook append
 [HOOK] 2026-08-27 15:51 UTC · 26a1388 · Deric · chore: update scratchpad with post-commit hook appends
 [HOOK] 2026-08-27 14:00 UTC · b2ae587 · Deric · feat(analytics): add Cloudflare Web Analytics beacon to all pages
