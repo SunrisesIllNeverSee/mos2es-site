@@ -26,3 +26,4 @@ Devins_Plans/state/.session-current
 
 # MOSES integration sync state (transient)
 .moses-sync-state.json
+keys/
