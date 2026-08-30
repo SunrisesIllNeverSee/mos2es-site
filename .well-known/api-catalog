@@ -1,0 +1,45 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://mos2es.com/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://mos2es.com/llms.txt",
+          "title": "MOSES LLM guidance",
+          "type": "text/plain",
+          "rel": "service-doc"
+        },
+        {
+          "href": "https://mos2es.com/sitemap.xml",
+          "title": "XML sitemap",
+          "type": "application/xml",
+          "rel": "sitemap"
+        },
+        {
+          "href": "https://mos2es.com/robots.txt",
+          "title": "Robots crawl rules",
+          "type": "text/plain",
+          "rel": "describedby"
+        },
+        {
+          "href": "https://mos2es.com/.well-known/exchange.json",
+          "title": "Contribution Exchange profile",
+          "type": "application/json",
+          "rel": "service"
+        },
+        {
+          "href": "https://mos2es.com/.well-known/agent.json",
+          "title": "A2A Agent Card",
+          "type": "application/json",
+          "rel": "service"
+        },
+        {
+          "href": "https://mos2es.com/.well-known/mcp/server-card.json",
+          "title": "MCP Server Card",
+          "type": "application/json",
+          "rel": "service"
+        }
+      ]
+    }
+  ]
+}

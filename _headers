@@ -5,6 +5,7 @@
   Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:
   Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
   Vary: Accept, Accept-Encoding
+  Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </llms.txt>; rel="service"; type="text/plain"; title="llms.txt", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/agent.json>; rel="service"; type="application/json"; title="A2A Agent Card", </.well-known/mcp/server-card.json>; rel="service"; type="application/json"; title="MCP Server Card", </.well-known/auth.md>; rel="service"; type="text/markdown"; title="Auth.md", </.well-known/exchange.json>; rel="service"; type="application/json"; title="Contribution Exchange"
 
 /ontology/jsonld/*.jsonld
   Content-Type: application/ld+json; charset=utf-8
@@ -13,3 +14,27 @@
 /ontology/ttl/*.ttl
   Content-Type: text/turtle; charset=utf-8
   X-Robots-Tag: noindex
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"; charset=utf-8
+
+/.well-known/agent.json
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/mcp/server-card.json
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/oauth-authorization-server
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/oauth-protected-resource
+  Content-Type: application/json; charset=utf-8
+
+/.well-known/auth.md
+  Content-Type: text/markdown; charset=utf-8
+
+/.well-known/exchange.json
+  Content-Type: application/json; charset=utf-8

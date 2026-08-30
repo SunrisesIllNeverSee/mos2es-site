@@ -1,0 +1,26 @@
+{
+  "name": "MOSES Governance Agent",
+  "description": "Sovereign signal governance framework. Preserves semantic meaning at point of execution: commitment conservation, governance enforcement, and lineage-bound artifacts.",
+  "url": "https://mos2es.com",
+  "version": "0.4.0",
+  "organization": {
+    "name": "Ello Cello LLC",
+    "url": "https://mos2es.com/about"
+  },
+  "capabilities": {
+    "protocols": ["a2a", "mcp"],
+    "discovery": [
+      "https://mos2es.com/.well-known/api-catalog",
+      "https://mos2es.com/.well-known/mcp/server-card.json",
+      "https://mos2es.com/.well-known/exchange.json"
+    ]
+  },
+  "authentication": {
+    "required": false,
+    "schemes": []
+  },
+  "skills": "https://mos2es.com/.well-known/agent-skills/index.json",
+  "contact": "pilots@mos2es.org",
+  "documentation": "https://mos2es.com/llms.txt",
+  "homepage": "https://mos2es.com"
+}

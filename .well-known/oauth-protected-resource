@@ -1,0 +1,9 @@
+{
+  "resource": "https://mos2es.com",
+  "authorization_servers": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://mos2es.com/.well-known/auth.md",
+  "protected_resources": [],
+  "public_access": true,
+  "notes": "mos2es.com is a public static site. No OAuth-protected resources. Discovery endpoints are open."
+}

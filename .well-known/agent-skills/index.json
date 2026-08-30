@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "name": "governance-framework-lookup",
+      "description": "Look up MOSES governance framework concepts, definitions, and architecture references.",
+      "url": "https://mos2es.com/concepts/conservation-law",
+      "tags": ["governance", "commitment-theory", "conservation-law"]
+    },
+    {
+      "name": "contribution-exchange-discovery",
+      "description": "Discover how mos2es.com participates in the Contribution Exchange and find steward endpoints.",
+      "url": "https://mos2es.com/.well-known/exchange.json",
+      "tags": ["exchange", "agent-discovery", "steward"]
+    },
+    {
+      "name": "research-papers-access",
+      "description": "Access the MOSES public research record including Zenodo DOI references and benchmark evidence.",
+      "url": "https://mos2es.com/papers",
+      "tags": ["research", "papers", "doi", "zenodo"]
+    },
+    {
+      "name": "benchmark-reference",
+      "description": "Access MOSES benchmark methodology and results for commitment conservation and signal integrity.",
+      "url": "https://mos2es.com/benchmarks",
+      "tags": ["benchmark", "evidence", "methodology"]
+    },
+    {
+      "name": "legal-ip-reference",
+      "description": "Access legal filings, trademark references, and intellectual property records for MOSES.",
+      "url": "https://mos2es.com/legal",
+      "tags": ["legal", "trademark", "ip", "patent"]
+    }
+  ]
+}

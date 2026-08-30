@@ -1,0 +1,16 @@
+{
+  "issuer": "https://mos2es.com",
+  "authorization_endpoint": null,
+  "token_endpoint": null,
+  "registration_endpoint": null,
+  "response_types_supported": [],
+  "grant_types_supported": [],
+  "token_endpoint_auth_methods_supported": [],
+  "service_documentation": "https://mos2es.com/.well-known/auth.md",
+  "op_policy_uri": "https://mos2es.com/legal",
+  "op_tos_uri": "https://mos2es.com/legal",
+  "intropection_endpoint": null,
+  "revocation_endpoint": null,
+  "code_challenge_methods_supported": [],
+  "scopes_supported": []
+}
