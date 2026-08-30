@@ -103,6 +103,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("3cb9dad60ebc43248d4ec58b2d9b4aca.txt");
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy(".well-known");
+  eleventyConfig.addPassthroughCopy("auth.md");
 
   // ── MOSES ontology outputs (synced from moses-integration) ──
   eleventyConfig.addPassthroughCopy("ontology");

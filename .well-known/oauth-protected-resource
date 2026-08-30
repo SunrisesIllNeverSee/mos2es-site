@@ -1,9 +1,9 @@
 {
   "resource": "https://mos2es.com",
-  "authorization_servers": [],
-  "bearer_methods_supported": [],
+  "authorization_servers": ["https://mos2es.com"],
+  "bearer_methods_supported": ["header"],
   "resource_documentation": "https://mos2es.com/.well-known/auth.md",
-  "protected_resources": [],
+  "scopes_supported": ["read", "pilot:write", "exchange:propose", "exchange:attempt"],
   "public_access": true,
-  "notes": "mos2es.com is a public static site. No OAuth-protected resources. Discovery endpoints are open."
+  "notes": "mos2es.com is a public static site. Public read access requires no authentication. Enterprise pilot write access and Contribution Exchange participation require registration. See auth.md for details."
 }

@@ -1,43 +1,79 @@
 {
   "linkset": [
     {
-      "anchor": "https://mos2es.com/.well-known/api-catalog",
-      "item": [
+      "anchor": "https://mos2es.com",
+      "service-desc": [
+        {
+          "href": "https://mos2es.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP Server Card"
+        }
+      ],
+      "service-doc": [
         {
           "href": "https://mos2es.com/llms.txt",
-          "title": "MOSES LLM guidance",
           "type": "text/plain",
-          "rel": "service-doc"
+          "title": "LLM guidance (llms.txt)"
+        },
+        {
+          "href": "https://mos2es.com/.well-known/auth.md",
+          "type": "text/markdown",
+          "title": "Auth.md"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://mos2es.com/",
+          "type": "application/json",
+          "title": "Site health"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://mos2es.com/robots.txt",
+          "type": "text/plain",
+          "title": "Robots crawl rules"
         },
         {
           "href": "https://mos2es.com/sitemap.xml",
-          "title": "XML sitemap",
           "type": "application/xml",
-          "rel": "sitemap"
-        },
-        {
-          "href": "https://mos2es.com/robots.txt",
-          "title": "Robots crawl rules",
-          "type": "text/plain",
-          "rel": "describedby"
-        },
+          "title": "XML sitemap"
+        }
+      ],
+      "service": [
         {
           "href": "https://mos2es.com/.well-known/exchange.json",
-          "title": "Contribution Exchange profile",
           "type": "application/json",
-          "rel": "service"
+          "title": "Contribution Exchange profile"
         },
         {
           "href": "https://mos2es.com/.well-known/agent.json",
-          "title": "A2A Agent Card",
           "type": "application/json",
-          "rel": "service"
-        },
+          "title": "A2A Agent Card"
+        }
+      ]
+    },
+    {
+      "anchor": "https://mcp.mos2es.org",
+      "service-desc": [
         {
-          "href": "https://mos2es.com/.well-known/mcp/server-card.json",
-          "title": "MCP Server Card",
+          "href": "https://mcp.mos2es.org/.well-known/mcp/server-card.json",
           "type": "application/json",
-          "rel": "service"
+          "title": "MCP Server Card (live)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://mos2es.org/docs",
+          "type": "text/html",
+          "title": "MOSES Enterprise docs"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://mcp.mos2es.org/",
+          "type": "application/json",
+          "title": "MCP server health"
         }
       ]
     }

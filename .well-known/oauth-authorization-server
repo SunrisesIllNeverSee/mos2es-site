@@ -2,15 +2,34 @@
   "issuer": "https://mos2es.com",
   "authorization_endpoint": null,
   "token_endpoint": null,
-  "registration_endpoint": null,
+  "registration_endpoint": "https://signalaf.com/exchange",
   "response_types_supported": [],
-  "grant_types_supported": [],
-  "token_endpoint_auth_methods_supported": [],
-  "service_documentation": "https://mos2es.com/.well-known/auth.md",
+  "grant_types_supported": ["client_credentials"],
+  "token_endpoint_auth_methods_supported": ["none"],
+  "service_documentation": "https://mos2es.com/llms.txt",
   "op_policy_uri": "https://mos2es.com/legal",
   "op_tos_uri": "https://mos2es.com/legal",
-  "intropection_endpoint": null,
+  "introspection_endpoint": null,
   "revocation_endpoint": null,
   "code_challenge_methods_supported": [],
-  "scopes_supported": []
+  "scopes_supported": ["read", "pilot:write", "exchange:propose", "exchange:attempt"],
+  "agent_auth": {
+    "skill": "https://mos2es.com/auth.md",
+    "register_uri": "https://signalaf.com/exchange",
+    "claim_uri": "https://signalaf.com/api/exchange/steward/mos2es.com/claim",
+    "identity_endpoint": "https://signalaf.com/api/exchange/steward/mos2es.com",
+    "claim_endpoint": "https://signalaf.com/api/exchange/steward/mos2es.com/claim",
+    "events_endpoint": "https://signalaf.com/api/exchange/steward/mos2es.com/event",
+    "identity_types_supported": ["anonymous", "service_auth"],
+    "anonymous": {
+      "credential_types_supported": ["none"]
+    },
+    "service_auth": {
+      "credential_types_supported": ["bearer_token"]
+    },
+    "identity_assertion": {
+      "assertion_types_supported": []
+    },
+    "events_supported": []
+  }
 }

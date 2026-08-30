@@ -42,6 +42,10 @@ function markdownFromHtml(html) {
 export default async function markdownNegotiation(request, context) {
   if (request.method !== "GET" && request.method !== "HEAD") return;
 
+  // Bypass well-known discovery endpoints — they serve JSON/markdown directly
+  const url = new URL(request.url);
+  if (url.pathname.startsWith("/.well-known/")) return;
+
   const representation = negotiateRepresentation(request.headers.get("accept"));
 
   if (representation === "not-acceptable") {
