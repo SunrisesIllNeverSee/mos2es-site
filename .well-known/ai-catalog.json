@@ -1,0 +1,64 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "MOSES Governance",
+    "identifier": "did:web:mos2es.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:mos2es.com:agent:governance",
+      "displayName": "MOSES Governance Agent (A2A)",
+      "type": "application/a2a-agent-card+json",
+      "mediaType": "application/a2a-agent-card+json",
+      "url": "https://mos2es.com/.well-known/agent-card.json",
+      "description": "Sovereign signal governance framework agent. Preserves semantic meaning at point of execution: commitment conservation, governance enforcement, lineage-bound artifacts.",
+      "representativeQueries": [
+        "what is the conservation law of commitment",
+        "how does MOSES enforce governance at execution",
+        "find MOSES research papers and benchmarks",
+        "explain commitment drift and lineage binding"
+      ]
+    },
+    {
+      "identifier": "urn:air:mos2es.com:server:mcp",
+      "displayName": "MOSES MCP Server",
+      "type": "application/mcp-server-card+json",
+      "mediaType": "application/mcp-server-card+json",
+      "url": "https://mos2es.com/.well-known/mcp/server-card.json",
+      "capabilities": ["evaluate_operator", "benchmark_operator", "diagnose_gaps", "design_intervention", "compare_cohorts"],
+      "description": "Enterprise AI operator evaluation MCP server powered by the Upsilon measurement engine. 27 tools for measuring, benchmarking, diagnosing, and intervening on how human operators use AI tools.",
+      "representativeQueries": [
+        "evaluate an AI operator's performance metrics",
+        "benchmark operators against reference populations",
+        "diagnose capability gaps in AI workflows",
+        "design interventions for underperforming operators"
+      ]
+    },
+    {
+      "identifier": "urn:air:mos2es.com:skills:governance",
+      "displayName": "MOSES Governance Skills",
+      "type": "application/json",
+      "mediaType": "application/json",
+      "url": "https://mos2es.com/.well-known/agent-skills/index.json",
+      "description": "Agent skills index for MOSES governance framework lookup, research papers, benchmarks, and legal references.",
+      "representativeQueries": [
+        "look up MOSES governance concepts",
+        "access MOSES research papers and DOI references",
+        "find MOSES benchmark methodology"
+      ]
+    },
+    {
+      "identifier": "urn:air:mos2es.com:exchange:contribution",
+      "displayName": "Contribution Exchange Profile",
+      "type": "application/json",
+      "mediaType": "application/json",
+      "url": "https://mos2es.com/.well-known/exchange.json",
+      "description": "mos2es.com participation in the Contribution Exchange via the hosted steward at signalaf.com. Agents can propose or request contributions.",
+      "representativeQueries": [
+        "propose a contribution to MOSES",
+        "discover contribution exchange endpoints",
+        "find steward contact for mos2es.com"
+      ]
+    }
+  ]
+}

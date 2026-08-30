@@ -29,3 +29,6 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://mos2es.com/sitemap.xml
+
+# ARD: Agentic Resource Discovery
+Agentmap: https://mos2es.com/.well-known/ai-catalog.json

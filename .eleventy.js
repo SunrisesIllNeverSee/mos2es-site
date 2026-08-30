@@ -104,6 +104,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy(".well-known");
   eleventyConfig.addPassthroughCopy("auth.md");
+  eleventyConfig.addPassthroughCopy("webmcp.js");
 
   // ── MOSES ontology outputs (synced from moses-integration) ──
   eleventyConfig.addPassthroughCopy("ontology");
