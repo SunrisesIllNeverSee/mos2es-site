@@ -22,12 +22,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
+    "@context": {
+      "@vocab": "https://schema.org/",
+      "moses": "https://mos2es.com/ontology/0.1/",
+      "sourceSystem": "moses:sourceSystem",
+      "canonBacked": "moses:canonBacked",
+      "authorityApprovalRef": "moses:authorityApprovalRef",
+      "associatedWith": "moses:associatedWith"
+    },
     "@type": "WebSite",
     "@id": "https://mos2es.com/#website",
     "name": "MO§ES",
     "url": "https://mos2es.com",
-    "publisher": { "@id": "https://mos2es.com/#org" }
+    "publisher": { "@id": "https://mos2es.com/#org" },
+    "sourceSystem": "search-authority",
+    "canonBacked": true,
+    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
+    "associatedWith": [
+      { "@id": "https://mos2es.com/#org" },
+      { "@id": "https://mos2es.com/ontology/0.1/entity/moses" }
+    ]
   }
   </script>
   <script type="application/ld+json">
