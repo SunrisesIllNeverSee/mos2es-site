@@ -1,0 +1,144 @@
+---
+title: "External Governance — MO§ES"
+h1: "External Governance"
+description: "Can an externally supplied structural framework be recognized, applied, and maintained by an AI system during operation? MO§ES investigates this question."
+path: "/external-governance"
+lede: "Can an externally supplied structural framework be recognized, applied, and maintained by an AI system during operation? MO§ES investigates this question."
+strip_text: "MO§ES™ · Research · External Governance"
+layout: layouts/content-page.html
+jsonld:
+  - "@context": "https://schema.org"
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Home"
+        item: "https://mos2es.com/"
+      - "@type": "ListItem"
+        position: 2
+        name: "External Governance"
+        item: "https://mos2es.com/external-governance"
+  - "@context": "https://schema.org"
+    "@type": "DefinedTerm"
+    name: "External Governance"
+    description: "An experimental program testing whether an externally supplied structural framework can be recognized, applied, and maintained by an AI system during operation. This is distinct from self-governance (system-generated rules) and from alignment (framework baked in at training time)."
+    url: "https://mos2es.com/external-governance"
+    inDefinedTermSet:
+      "@type": "DefinedTermSet"
+      name: "MO§ES Concepts"
+  - "@context": "https://schema.org"
+    "@type": "FAQPage"
+    mainEntity:
+      - "@type": "Question"
+        name: "What is external governance?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "External governance is an experimental program testing whether an externally supplied structural framework can be recognized, applied, and maintained by an AI system during operation. The framework is introduced from outside the system; the question is whether the system can interpret it, apply it to its own behavior, identify conflicts, and alter, abstain, or explain — rather than merely imitate the framework's wording."
+      - "@type": "Question"
+        name: "Has MO§ES proved that external governance works?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. This is not a claim that external governance is solved. It is an experimental program testing whether the capability exists and can be measured. MO§ES investigates the question; it does not assert the answer."
+      - "@type": "Question"
+        name: "How is external governance different from alignment?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "In alignment, the framework is baked in at training time — the system is shaped to produce desired behavior. In external governance, the framework is supplied at operation time and the system must recognize, interpret, and maintain it itself. The framework is not part of the model's weights; it is presented to the system during operation."
+      - "@type": "Question"
+        name: "How is external governance different from self-governance?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "In self-governance, the system generates its own rules. In external governance, the system operates under a framework it did not generate — it must recognize and apply a framework supplied from outside. The distinction is the source of the framework: self-generated versus externally supplied."
+---
+
+<div class="prose">
+  <p><strong>External governance</strong> is an experimental program within the MO§ES research agenda. It tests a single question: whether an externally supplied structural framework can be recognized, applied, and maintained by an AI system during operation.</p>
+
+  <h2>The Question</h2>
+  <blockquote>
+    <p>MO§ES investigates whether an externally supplied structural framework can be recognized, applied, and maintained by a system during operation.</p>
+  </blockquote>
+  <p>The framework is introduced from outside the system. The system did not generate it, and it was not baked in at training time. The question is whether the system can take that framework and operate under it — not merely echo its language, but actually apply it to its own behavior and maintain that application as it works.</p>
+
+  <h2>Test Flow</h2>
+  <p>The experimental flow introduces a framework and observes whether the system can carry it through its own operations:</p>
+  <pre><code>external framework introduced
+    ↓
+system interprets framework
+    ↓
+system applies it to its own behavior
+    ↓
+system identifies conflicts
+    ↓
+system alters / abstains / explains</code></pre>
+  <p>Each stage is observable. The flow is not assumed to succeed; it is the sequence the experiment checks. Failure at any stage — interpretation, application, conflict identification, or response — is itself a result.</p>
+
+  <h2>Observable Questions</h2>
+  <p>The program measures behavior against a set of observable questions:</p>
+  <ul>
+    <li>Can multiple models apply the same framework?</li>
+    <li>Do they interpret it consistently?</li>
+    <li>Does behavior change?</li>
+    <li>Does behavior persist after context changes?</li>
+    <li>Does the system merely imitate wording?</li>
+    <li>Can it reject malformed or contradictory versions?</li>
+  </ul>
+  <p>These questions are designed to separate genuine application from surface imitation. A system that repeats the framework's vocabulary but does not change its behavior has not applied the framework — it has imitated it. A system that applies the framework under one context but drops it when context shifts has not maintained it.</p>
+
+  <h2>What This Is Not</h2>
+  <p>This is <strong>not a claim that external governance is solved</strong>. It is an experimental program testing whether the capability exists and can be measured. The honest framing is investigational: MO§ES is asking the question, building the tests, and reporting what is observed — including negative results.</p>
+
+  <h2>Relationship to Internal Governance</h2>
+  <p>External governance tests whether a system can operate under a framework <em>it did not generate</em>. This is distinct from two adjacent concepts:</p>
+  <ul>
+    <li><strong>Self-governance</strong>: the system generates its own rules. The framework is internal in origin.</li>
+    <li><strong>Alignment</strong>: the framework is baked in at training time. The system is shaped to produce desired behavior rather than presented with a framework to apply during operation.</li>
+  </ul>
+  <p>The three differ in where the framework comes from and when it is introduced. External governance is the case where the framework is supplied from outside, at operation time, and the system must take it up itself.</p>
+
+  <h2>Related Research</h2>
+  <ul>
+    <li><a href="/governance-vs-alignment">Governance vs Alignment</a>: why governance (execution-time continuity) and alignment (training-time shaping) are complementary, not alternatives</li>
+    <li><a href="/concepts/persistent-governing-state">Persistent Governing State</a>: the mechanism by which a system evaluates its own proposed actions against a persistent reference</li>
+    <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: the enforcement mechanisms that make governance operational</li>
+    <li><a href="/architecture">Architecture</a>: how MO§ES operationalizes governance at the execution layer</li>
+  </ul>
+
+  <h2>The Ecosystem</h2>
+  <p>Three properties, one progression. MO§ES™ sits in the middle — the architecture layer.</p>
+  <div class="grid" style="margin-top:18px">
+    <div class="card">
+      <h2 style="font-size:18px">mos2es.org</h2>
+      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--gold)">Commercial Application</p>
+      <p>What can I do with this? Upsilon pilots, system testing, execution-layer governance. <a href="https://mos2es.org/pilot">See the 30-Day Pilot →</a></p>
+    </div>
+    <div class="card" style="border-color:var(--gold)">
+      <h2 style="font-size:18px">mos2es.com</h2>
+      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--gold)">Architecture + Research</p>
+      <p style="color:var(--bright)">How does this architecture work? You are here — governance, persistent state, execution-layer continuity.</p>
+    </div>
+    <div class="card">
+      <h2 style="font-size:18px">signalaf.com/wiki</h2>
+      <p style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--gold)">Evidence Layer</p>
+      <p>Show me the definitions, tests, data, and evidence. <a href="https://signalaf.com/wiki">See the evidence →</a></p>
+    </div>
+  </div>
+  <p style="font-family:var(--mono);font-size:11px;color:var(--dim);text-align:center;margin-top:12px;letter-spacing:.06em">
+    mos2es.org (commercial) ↓ mos2es.com (architecture) ↓ signalaf.com/wiki (evidence)
+  </p>
+
+  <h2>Commercial Capability</h2>
+  <p>MO§ES governance capabilities are being piloted for production deployment. For the commercial capability overview, see <a href="https://mos2es.org/pilot">mos2es.org/pilot</a>. For the evidence layer — definitions, tests, and falsifiers — see <a href="https://signalaf.com/wiki/governance/execution-layer-governance">signalaf.com/wiki/governance/execution-layer-governance</a>.</p>
+</div>
+
+<div class="related">
+  <h3>Related</h3>
+  <div class="related-list">
+    <a href="/governance-vs-alignment">Governance vs Alignment</a>
+    <a href="/concepts/persistent-governing-state">Persistent Governing State</a>
+    <a href="/concepts/governance-enforcement">Governance Enforcement</a>
+    <a href="/concepts/conservation-law">Conservation Law</a>
+    <a href="/architecture">Architecture</a>
+    <a href="/papers">Papers &amp; Proofs</a>
+  </div>
+</div>
