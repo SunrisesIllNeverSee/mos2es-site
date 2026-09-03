@@ -466,6 +466,8 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-02 20:42 UTC · 7a742ad · Deric · fix(analytics): fix mangled PostHog snippet
+[HOOK] 2026-09-01 16:51 UTC · 349de6c · Deric · Add moses namespace + canon fields to WebSite JSON-LD blocks
 [HOOK] 2026-08-30 16:35 UTC · 4ac5680 · Deric · Add Web Bot Auth JWKS and Content-Signal directives
 [HOOK] 2026-08-30 15:44 UTC · dedc698 · Deric · chore: update scratchpad with post-commit hook appends
 [HOOK] 2026-08-30 15:35 UTC · 355817e · Deric · Add ARD ai-catalog.json and WebMCP browser tools (all 9 discovery checks pass)
