@@ -466,6 +466,13 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-04 16:22 UTC · 4715db6 · Deric · chore: add Filesystem MCP + Context7 MCP sections to AGENTS.md
+[HOOK] 2026-09-04 15:36 UTC · 92339a9 · Deric · Add dedicated /api/search Pages Function for AI Search
+[HOOK] 2026-09-04 15:23 UTC · 7ca91c2 · Deric · Skip _redirects route check when empty (Cloudflare Pages migration)
+[HOOK] 2026-09-04 15:15 UTC · 6b680fd · Deric · Retry live agent-readiness test to allow Cloudflare Pages deploy to propagate
+[HOOK] 2026-09-04 15:13 UTC · 086a51d · Deric · Fix agent-readiness 406: return 406 for unsupported Accept on page paths
+[HOOK] 2026-09-04 14:26 UTC · 5536839 · Deric · chore: update stickypads snippet path (ello-ops-template → stickypads)
+[HOOK] 2026-09-04 14:25 UTC · ffc4ba4 · Deric · chore: update SCRATCHPAD commit log (hook auto-append)
 [HOOK] 2026-09-04 13:53 UTC · 8aa0bdf · Deric · feat(seo): link test harness repo now that it's public
 [HOOK] 2026-09-04 13:31 UTC · 0291be9 · Deric · feat(seo): research references + conservation explainer refresh
 [HOOK] 2026-09-04 12:59 UTC · 23e8096 · Deric · feat(seo): poster, demovideo, papers metadata
