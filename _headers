@@ -4,7 +4,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:
   Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
-  Vary: Accept, Accept-Encoding
+  Vary: Accept-Encoding
   Link: </.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json", </llms.txt>; rel="service"; type="text/plain"; title="llms.txt", </sitemap.xml>; rel="sitemap"; type="application/xml", </.well-known/agent.json>; rel="service"; type="application/json"; title="A2A Agent Card", </.well-known/mcp/server-card.json>; rel="service"; type="application/json"; title="MCP Server Card", </.well-known/auth.md>; rel="service"; type="text/markdown"; title="Auth.md", </.well-known/exchange.json>; rel="service"; type="application/json"; title="Contribution Exchange"
 
 /ontology/jsonld/*.jsonld
