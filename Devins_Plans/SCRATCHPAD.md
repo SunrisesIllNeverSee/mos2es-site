@@ -466,6 +466,13 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-04 11:27 UTC · 496236c · Deric · chore: add ELLO OPS check-in snippet to AGENTS.md
+[HOOK] 2026-09-04 09:25 UTC · 5dcdaa0 · Deric · fix(test): remove Vary: Accept assertions from live test
+[HOOK] 2026-09-04 09:23 UTC · 1f0f28f · Deric · Fix robots.txt: add ChatGPT-User and other AI crawlers to allow list
+[HOOK] 2026-09-04 09:10 UTC · 924a64b · Deric · fix(test): update _redirects test to match Cloudflare Pages reality
+[HOOK] 2026-09-04 08:13 UTC · 02a6a66 · Deric · Fix agent readiness 406 errors: skip .well-known in content negotiation
+[HOOK] 2026-09-04 08:07 UTC · 56f01f7 · Deric · Fix agent readiness 406 errors: remove Vary: Accept from global headers
+[HOOK] 2026-09-03 14:22 UTC · cfe526c · Deric · chore: commit untracked files
 [HOOK] 2026-09-02 20:42 UTC · 7a742ad · Deric · fix(analytics): fix mangled PostHog snippet
 [HOOK] 2026-09-01 16:51 UTC · 349de6c · Deric · Add moses namespace + canon fields to WebSite JSON-LD blocks
 [HOOK] 2026-08-30 16:35 UTC · 4ac5680 · Deric · Add Web Bot Auth JWKS and Content-Signal directives
