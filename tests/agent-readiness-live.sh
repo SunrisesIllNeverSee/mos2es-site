@@ -189,6 +189,8 @@ done < <(grep -oE '<loc>https://mos2es\.com[^<]*</loc>' "$TMP_DIR/sitemap.body" 
 echo "agent-readiness-live: verified $canonical_count sitemap endpoints"
 
 # Verify every clean public route declared in Netlify's redirects table.
+# On Cloudflare Pages, _redirects is intentionally empty (pretty URLs are
+# handled natively), so this check is skipped when no rules are present.
 redirect_count=0
 while read -r source _target status _rest; do
   [[ "$source" == /* ]] || continue
@@ -197,7 +199,8 @@ while read -r source _target status _rest; do
   assert_public_path "$source"
   redirect_count=$((redirect_count + 1))
 done < <(grep -v '^[[:space:]]*#' _redirects | grep -v '^[[:space:]]*$')
-(( redirect_count > 0 )) || fail "_redirects contained no clean public routes"
-echo "agent-readiness-live: verified $redirect_count declared clean routes"
+if (( redirect_count > 0 )); then
+  echo "agent-readiness-live: verified $redirect_count declared clean routes"
+fi
 
 echo "agent-readiness-live: PASS"
