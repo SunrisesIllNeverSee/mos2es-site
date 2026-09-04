@@ -466,6 +466,7 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-04 17:08 UTC · 346cd76 · Deric · chore: add Repomix MCP section + update SCRATCHPAD hook log
 [HOOK] 2026-09-04 16:22 UTC · 4715db6 · Deric · chore: add Filesystem MCP + Context7 MCP sections to AGENTS.md
 [HOOK] 2026-09-04 15:36 UTC · 92339a9 · Deric · Add dedicated /api/search Pages Function for AI Search
 [HOOK] 2026-09-04 15:23 UTC · 7ca91c2 · Deric · Skip _redirects route check when empty (Cloudflare Pages migration)
