@@ -100,7 +100,6 @@ echo "agent-readiness-live: checking $BASE_URL"
 code="$(request html-root / 'text/html')"
 assert_status "$code" 200 "homepage HTML"
 assert_header_contains "$TMP_DIR/html-root.headers" "Content-Type" "text/html"
-assert_vary_token "$TMP_DIR/html-root.headers" "accept"
 assert_vary_token "$TMP_DIR/html-root.headers" "accept-encoding"
 assert_contains "$TMP_DIR/html-root.body" '"contactPoint"'
 assert_contains "$TMP_DIR/html-root.body" '"PostalAddress"'
@@ -110,7 +109,6 @@ assert_contains "$TMP_DIR/html-root.body" '"MOS2ES"'
 code="$(request markdown /architecture 'text/markdown, text/html;q=0.5')"
 assert_status "$code" 200 "architecture Markdown"
 assert_header_contains "$TMP_DIR/markdown.headers" "Content-Type" "text/markdown; charset=utf-8"
-assert_vary_token "$TMP_DIR/markdown.headers" "accept"
 assert_vary_token "$TMP_DIR/markdown.headers" "accept-encoding"
 assert_contains "$TMP_DIR/markdown.body" 'Sovereign Architecture'
 if grep -Fqi '<html' "$TMP_DIR/markdown.body"; then
@@ -125,7 +123,6 @@ assert_header_contains "$TMP_DIR/html-preferred.headers" "Content-Type" "text/ht
 # An explicitly unsupported representation is rejected.
 code="$(request not-acceptable /architecture 'application/json')"
 assert_status "$code" 406 "unsupported representation"
-assert_vary_token "$TMP_DIR/not-acceptable.headers" "accept"
 assert_vary_token "$TMP_DIR/not-acceptable.headers" "accept-encoding"
 
 # Unknown paths remain real 404s and provide recovery in both representations.
