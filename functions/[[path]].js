@@ -53,6 +53,28 @@ function htmlToMarkdown(html) {
 export async function onRequest(context) {
   const { request, next } = context;
 
+  // ─── /api/search — proxy to analytics worker (AI Search binding) ──────
+  // Handles both GET and POST before the GET/HEAD-only markdown logic.
+  const searchUrl = new URL(request.url);
+  if (searchUrl.pathname === "/api/search") {
+    const proxyUrl = new URL("https://moses-analytics.sigrank.workers.dev/api/search");
+    searchUrl.searchParams.forEach((v, k) => proxyUrl.searchParams.set(k, v));
+    const searchReq = new Request(proxyUrl.toString(), {
+      method: request.method,
+      headers: { "Content-Type": "application/json", "X-Original-Host": "mos2es.com" },
+      body: request.method === "POST" ? await request.text() : undefined,
+    });
+    const searchResp = await fetch(searchReq);
+    return new Response(searchResp.body, {
+      status: searchResp.status,
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-cache",
+      },
+    });
+  }
+
   // Only intercept GET/HEAD
   if (request.method !== "GET" && request.method !== "HEAD") {
     return next();
