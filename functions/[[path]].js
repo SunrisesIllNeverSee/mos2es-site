@@ -64,6 +64,18 @@ export async function onRequest(context) {
     return next();
   }
 
+  // Skip .well-known endpoints — they have their own Content-Type rules
+  // in _headers and must not be subject to HTML/markdown negotiation.
+  // Returning 406 for Accept: application/json breaks agent discovery.
+  if (url.pathname.startsWith("/.well-known/")) {
+    return next();
+  }
+
+  // Skip auth.md at root — served with its own Content-Type
+  if (url.pathname === "/auth.md") {
+    return next();
+  }
+
   // Only do markdown negotiation if the client prefers text/markdown
   const representation = negotiateRepresentation(request.headers.get("accept"));
 
@@ -71,13 +83,10 @@ export async function onRequest(context) {
   // and static asset serving work normally without interference.
   if (representation !== "markdown") {
     if (representation === "not-acceptable") {
-      return new Response("Not Acceptable. This site can serve text/html or text/markdown.\n", {
-        status: 406,
-        headers: {
-          "Content-Type": "text/plain; charset=utf-8",
-          "Vary": "Accept, Accept-Encoding",
-        },
-      });
+      // Only return 406 for page-like requests that explicitly reject
+      // both text/html and text/markdown. API clients (Accept: application/json)
+      // should fall through to static serving via next().
+      return next();
     }
     return next();
   }
