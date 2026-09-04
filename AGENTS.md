@@ -132,3 +132,27 @@ dependencies) to orient yourself in 2-3 calls instead of reading files one
 by one. Useful for canon alignment audits (grep for formula implementations
 and compare against Search Authority definitions) and cross-repo consistency
 checks.
+
+
+## MCP Server Recommendations for This Repo
+
+Full index: `Moses_Enterprise_B2BPilot_/_workspace/MCP_INDEX.md`
+
+**Primary (use regularly):**
+- `gsc-seo-mos2es-com` — Google Search Console queries, top pages, indexing status for mos2es.com
+- `indexnow` — submit new/changed URLs to Bing/Yandex after deploys
+- `moses-search` — verify AI Search returns correct results for mos2es.com content
+- `no-slop` / `ai-slop-checker` — check marketing copy for AI writing tells before publishing
+- `web-scrape` — extract competitor site content for comparison, check structured data on live pages
+
+**Secondary (use as needed):**
+- `brave-search` — research SEO keywords, find competitor positioning
+- `markitdown` — convert PDFs/docs to markdown for site content
+- `context7` — verify 11ty/Eleventy patterns if modifying build config
+- `playwright` / `chrome-devtools` — visual verification of live pages after deploy
+- `repomix` — pack site for handoff or cross-repo consistency checks
+
+**Not needed here:**
+- `supabase` / `vercel` — those are for the sigrank-app repo
+- `posthog` / `ds-server` / `sigadmin` — those are for the b2bpilot workers repo
+- `blender` / `worldmonitor` — unrelated
