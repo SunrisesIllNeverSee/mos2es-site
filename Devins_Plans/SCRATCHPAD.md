@@ -466,6 +466,12 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-04 13:53 UTC · 8aa0bdf · Deric · feat(seo): link test harness repo now that it's public
+[HOOK] 2026-09-04 13:31 UTC · 0291be9 · Deric · feat(seo): research references + conservation explainer refresh
+[HOOK] 2026-09-04 12:59 UTC · 23e8096 · Deric · feat(seo): poster, demovideo, papers metadata
+[HOOK] 2026-09-04 12:26 UTC · 177e084 · Deric · Upgrade WebMCP search to use AI Search (RAG) + add /api/search endpoint
+[HOOK] 2026-09-04 12:21 UTC · 1546183 · Deric · Add /api/search endpoint — proxy to AI Search via analytics worker
+[HOOK] 2026-09-04 11:29 UTC · 3058e90 · Deric · chore: update SCRATCHPAD commit log (hook auto-append)
 [HOOK] 2026-09-04 11:29 UTC · c9c7e6c · Deric · chore: update SCRATCHPAD commit log (auto-appended by hook)
 [HOOK] 2026-09-04 11:27 UTC · 496236c · Deric · chore: add ELLO OPS check-in snippet to AGENTS.md
 [HOOK] 2026-09-04 09:25 UTC · 5dcdaa0 · Deric · fix(test): remove Vary: Accept assertions from live test
