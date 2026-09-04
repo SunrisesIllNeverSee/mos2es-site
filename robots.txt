@@ -11,6 +11,12 @@ Disallow: /preview
 User-agent: GPTBot
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
@@ -20,6 +26,9 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: PerplexityBot-User
+Allow: /
+
 User-agent: CCBot
 Allow: /
 
@@ -27,6 +36,15 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://mos2es.com/sitemap.xml
