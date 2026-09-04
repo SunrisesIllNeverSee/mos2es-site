@@ -1,6 +1,6 @@
 ---
 title: "Commitment Conservation — MO§ES"
-description: "Commitment conservation is the principle that semantic meaning in language is preserved under transformation only when governance enforcement is..."
+description: "Conservation of commitment is a proposed semantic conservation law: meaning in language is preserved under transformation only when governance enforcement is present. Formally C(T(S)) ≈ C(S) with enforcement; C(T(S)) < C(S) without it."
 path: "/commitment-conservation-hub"
 lede: "Commitment conservation is the measured outcome of governance enforcement: the semantic obligations embedded in language survive transformation, recursion, and compression without degradation."
 strip_text: "MO§ES™ · Topic Hub · Commitment Conservation"
@@ -40,6 +40,11 @@ jsonld:
         acceptedAnswer:
           "@type": "Answer"
           text: "MO§ES conserves commitment through pre-execution gating, lineage binding, resonance thresholding, and immutable audit trails. With MO§ES enforcement, commitment is conserved at 80-85% of original levels across all 10 iterations, compared to below 20% by iteration 5 without enforcement."
+      - "@type": "Question"
+        name: "Is the Conservation Law of Commitment peer-reviewed or independently validated?"
+        acceptedAnswer:
+          "@type": "Answer"
+          text: "No. The Conservation Law of Commitment is a proposed law published as a single-author preprint on Zenodo. It has not been peer-reviewed or independently replicated. The experimental evidence is public and reproducible, and the law is falsifiable, but independent replication and peer review are needed before it can be considered established. The one OpenAlex-recorded citation is a self-citation from the author's own SigRank dataset paper."
 ---
 
 <div class="prose">
@@ -67,6 +72,36 @@ C(T(S)) &lt; C(S)  without enforcement</code></pre>
     <li>Jaccard surface stability for lexical measurement</li>
   </ul>
   <p>Results showed that with enforcement, commitment was conserved at 80-85% of original levels across all 10 iterations. Without enforcement, commitment degraded to below 20% by iteration 5 and was effectively zero by iteration 8. The full experimental record is published on <a href="https://doi.org/10.5281/zenodo.19105225">Zenodo (DOI 10.5281/zenodo.19105225)</a> under CC-BY-4.0.</p>
+
+  <h2>A Worked Example</h2>
+  <p>Suppose a governance policy states: <em>"The system shall reject unauthorized transactions within 500ms."</em> This sentence carries a commitment — a binding obligation with a specific threshold. Now run it through 10 rounds of summarization (a common transformation in multi-agent pipelines):</p>
+  <ul>
+    <li><strong>Iteration 1:</strong> "The system should reject unauthorized transactions promptly." — "shall" drifted to "should," and the 500ms threshold is gone.</li>
+    <li><strong>Iteration 3:</strong> "The system may reject unauthorized transactions." — "should" softened to "may." The obligation is now a suggestion.</li>
+    <li><strong>Iteration 5:</strong> "The system handles unauthorized transactions." — "may reject" became "handles." The rejection requirement is gone entirely.</li>
+    <li><strong>Iteration 8:</strong> "The system processes transactions." — "unauthorized" dropped. The original commitment is unrecognizable.</li>
+  </ul>
+  <p>Without enforcement, each transformation strips a layer of commitment. With MO§ES enforcement — pre-execution gating that checks the transformed signal against the original commitment — the 500ms rejection obligation survives all 10 iterations intact. The surface wording may change, but the binding meaning is preserved. That is commitment conservation.</p>
+
+  <h2>Limitations and Open Questions</h2>
+  <p>The Conservation Law of Commitment is a <strong>proposed</strong> law, not an independently established result. It has not been peer-reviewed or replicated by independent researchers. The current evidence base has several limitations:</p>
+  <ul>
+    <li><strong>Single-author preprint:</strong> The law and its experimental record are authored by Deric J. McHenry and published on Zenodo. No independent replication has been published.</li>
+    <li><strong>Small corpus:</strong> The experimental record uses a 20-signal canonical corpus. Whether the results generalize to larger, more diverse corpora is an open question.</li>
+    <li><strong>Measurement proxies:</strong> Commitment is measured using NLI bidirectional entailment and Jaccard surface stability. These are proxies for semantic meaning, not direct measurements. The choice of proxy affects the measured conservation rate.</li>
+    <li><strong>Enforcement scope:</strong> The experiments test MO§ES enforcement specifically. Whether other enforcement mechanisms produce similar conservation rates is not yet demonstrated.</li>
+    <li><strong>Self-citation:</strong> The one OpenAlex-recorded citation to the public harness (W7139122947) is from the author's own SigRank dataset paper. No independent citing work has been identified.</li>
+  </ul>
+  <p>The law is falsifiable — it makes specific predictions about commitment degradation under transformation — and the experimental record is public and reproducible. But falsifiability is a property of the framework, not proof of its correctness. Independent replication and peer review are needed before the law can be considered established.</p>
+
+  <h2>Relationship to MO§ES and the Products</h2>
+  <p>The Conservation Law of Commitment provides the theoretical foundation for MO§ES™ — the governance enforcement framework. MO§ES is the mechanism that makes commitment conservation operational: it enforces the law's predictions at execution time. The products built on this stack — <a href="https://signalaf.com">SigRank</a> (operator evaluation), <a href="https://signomy.xyz">Signomy</a> (governed marketplace), and the <a href="https://github.com/SunrisesIllNeverSee/upsilon">Upsilon</a> enterprise measurement engine — implement MO§ES governance in their respective domains.</p>
+  <p>The connection is supported: MO§ES was designed to enforce the Conservation Law, and the experimental record tests MO§ES enforcement specifically. But the theory itself is the author's proposed framework, not an independently validated result. The products work as described regardless of whether the Conservation Law is eventually accepted as a general principle — they enforce commitment preservation because that is what they are built to do, not because the law has been proven.</p>
+
+  <h2>The Original Paper</h2>
+  <p>The Conservation Law of Commitment is formally stated in:</p>
+  <p style="padding:12px;background:rgba(196,146,58,.06);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-size:14px">McHenry, D. J. (2026). <em>A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application</em> (V.05) [Preprint]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20029607">https://doi.org/10.5281/zenodo.20029607</a></p>
+  <p>ORCID: 0009-0002-9904-5390 · License: CC-BY-4.0 · Patent pending 63/877,177. The public recursive transformation harness is indexed in <a href="https://openalex.org/W7139122947">OpenAlex (W7139122947)</a>. An independently written summary is available on <a href="https://grokipedia.com/page/Conservation_of_commitment">Grokipedia</a>.</p>
 
   <h2>Related Concepts</h2>
   <ul>
@@ -115,6 +150,10 @@ C(T(S)) &lt; C(S)  without enforcement</code></pre>
   <div class="faq-item">
     <h3>How does MO§ES conserve commitment?</h3>
     <p>MO§ES conserves commitment through pre-execution gating, lineage binding, resonance thresholding, and immutable audit trails. With MO§ES enforcement, commitment is conserved at 80-85% of original levels across all 10 iterations, compared to below 20% by iteration 5 without enforcement.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is the Conservation Law of Commitment peer-reviewed or independently validated?</h3>
+    <p>No. The Conservation Law of Commitment is a proposed law published as a single-author preprint on Zenodo. It has not been peer-reviewed or independently replicated. The experimental evidence is public and reproducible, and the law is falsifiable, but independent replication and peer review are needed before it can be considered established. The one OpenAlex-recorded citation is a self-citation from the author's own SigRank dataset paper.</p>
   </div>
 </div>
 
