@@ -466,6 +466,7 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-04 11:29 UTC · c9c7e6c · Deric · chore: update SCRATCHPAD commit log (auto-appended by hook)
 [HOOK] 2026-09-04 11:27 UTC · 496236c · Deric · chore: add ELLO OPS check-in snippet to AGENTS.md
 [HOOK] 2026-09-04 09:25 UTC · 5dcdaa0 · Deric · fix(test): remove Vary: Accept assertions from live test
 [HOOK] 2026-09-04 09:23 UTC · 1f0f28f · Deric · Fix robots.txt: add ChatGPT-User and other AI crawlers to allow list
