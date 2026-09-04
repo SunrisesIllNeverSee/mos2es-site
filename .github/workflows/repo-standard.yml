@@ -45,5 +45,15 @@ jobs:
             bash tests/agent-readiness-live.sh "https://deploy-preview-${PR_NUMBER}--mos2es.netlify.app"
             bash tests/agent-readiness-live.sh "https://mos2es.com"
           else
-            bash tests/agent-readiness-live.sh "https://mos2es.com"
+            for attempt in 1 2 3 4 5 6; do
+              if bash tests/agent-readiness-live.sh "https://mos2es.com"; then
+                break
+              fi
+              if [ "$attempt" -eq 6 ]; then
+                echo "agent-readiness-live: failed after 6 attempts"
+                exit 1
+              fi
+              echo "attempt $attempt failed, waiting 30s for deployment to propagate..."
+              sleep 30
+            done
           fi
