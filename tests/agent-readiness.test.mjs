@@ -47,7 +47,11 @@ test("Netlify config registers canonical Markdown negotiation", async () => {
   ]);
   assert.match(netlify, /edge_functions = "src\/edge-functions"/);
   assert.match(netlify, /function = "markdown"/);
-  assert.match(headers, /Vary: Accept, Accept-Encoding/);
+  // Vary: Accept was intentionally removed from the global _headers block to
+  // fix 406 errors on extensionless .well-known files (scanners sending
+  // Accept: application/json or application/linkset+json triggered content
+  // negotiation with no matching variant). Only Accept-Encoding remains.
+  assert.match(headers, /Vary: Accept-Encoding/);
   assert.match(edge, /text\/markdown; charset=utf-8/);
   assert.match(edge, /status: 406/);
   assert.match(edge, /status: response\.status/);
@@ -81,10 +85,22 @@ test("trust anchors are substantive, routed, and indexed", async () => {
 
   for (const [name, page] of [["about", about], ["contact", contact], ["privacy", privacy]]) {
     assert.ok(page.length >= 1000, `${name} trust page should contain substantial content`);
-    assert.match(redirects, new RegExp(`/${name}\\s+/${name}\\.html\\s+200`));
     assert.match(sitemap, new RegExp(`https://mos2es\\.com/${name}`));
     assert.match(footer, new RegExp(`href="/${name}"`));
   }
+
+  // Cloudflare Pages handles pretty URLs natively (serves /page.html at /page),
+  // so the _redirects file is intentionally empty — it contains only comments
+  // explaining why. Verify no Netlify-style redirect rules remain, since those
+  // caused redirect loops on Cloudflare Pages.
+  const redirectRules = redirects
+    .split("\n")
+    .filter((line) => line.trim() && !line.trim().startsWith("#"));
+  assert.equal(
+    redirectRules.length,
+    0,
+    "_redirects should contain no redirect rules (Cloudflare Pages handles pretty URLs natively)",
+  );
 });
 
 test("organization identity publishes brand aliases, contact point, and postal address", async () => {
