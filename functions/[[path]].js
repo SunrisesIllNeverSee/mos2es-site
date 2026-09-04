@@ -105,10 +105,13 @@ export async function onRequest(context) {
   // and static asset serving work normally without interference.
   if (representation !== "markdown") {
     if (representation === "not-acceptable") {
-      // Only return 406 for page-like requests that explicitly reject
-      // both text/html and text/markdown. API clients (Accept: application/json)
-      // should fall through to static serving via next().
-      return next();
+      return new Response("Not Acceptable. This site can serve text/html or text/markdown.\n", {
+        status: 406,
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "Vary": mergeVary(""),
+        },
+      });
     }
     return next();
   }
