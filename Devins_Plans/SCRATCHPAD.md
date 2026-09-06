@@ -466,6 +466,7 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-06 08:50 UTC · cb8f60f · Deric · chore: update scratchpad
 [HOOK] 2026-09-05 01:29 UTC · 3876c38 · Deric · Deslop: use semicolons instead of commas for em-dash replacements
 [HOOK] 2026-09-05 01:25 UTC · 0d47852 · Deric · Deslop index.html: replace body em-dashes with commas/periods
 [HOOK] 2026-09-04 19:25 UTC · 411d19f · Deric · Add MCP server recommendations to AGENTS.md
