@@ -466,6 +466,10 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-05 01:29 UTC · 3876c38 · Deric · Deslop: use semicolons instead of commas for em-dash replacements
+[HOOK] 2026-09-05 01:25 UTC · 0d47852 · Deric · Deslop index.html: replace body em-dashes with commas/periods
+[HOOK] 2026-09-04 19:25 UTC · 411d19f · Deric · Add MCP server recommendations to AGENTS.md
+[HOOK] 2026-09-04 17:10 UTC · 64e23db · Deric · chore: update SCRATCHPAD hook log
 [HOOK] 2026-09-04 17:08 UTC · 346cd76 · Deric · chore: add Repomix MCP section + update SCRATCHPAD hook log
 [HOOK] 2026-09-04 16:22 UTC · 4715db6 · Deric · chore: add Filesystem MCP + Context7 MCP sections to AGENTS.md
 [HOOK] 2026-09-04 15:36 UTC · 92339a9 · Deric · Add dedicated /api/search Pages Function for AI Search
