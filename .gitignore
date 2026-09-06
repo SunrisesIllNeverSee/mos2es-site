@@ -16,14 +16,14 @@ node_modules/
 Devins_Plans/state/.role-*
 Devins_Plans/state/.session-current
 
-# Repository Standard runtime state
-.coord/micro/state/.session-current
-.coord/micro/state/.role-*
-.coord/micro/state/ACTIVITY.log
-.coord/micro/state/snapshots/
-.coord/micro/scratchpad-archive/
+# Repository Standard — coordination should not be in product repos
+.coord/
 .repo/.cache/
 
 # MOSES integration sync state (transient)
 .moses-sync-state.json
 keys/
+
+# Skylos scan output
+skylos-sec.json
+.skylos/

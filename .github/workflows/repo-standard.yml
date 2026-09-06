@@ -13,11 +13,13 @@ jobs:
   repo-standard:
     name: repo-standard
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
@@ -32,7 +34,7 @@ jobs:
           node-version: '22'
           cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Run agent-readiness tests
         run: npm test
       - name: Build Eleventy site
