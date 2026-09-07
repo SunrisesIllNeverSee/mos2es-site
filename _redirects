@@ -2,3 +2,4 @@
 # The previous Netlify-style _redirects rules (/path -> /path.html 200) caused
 # redirect loops on Cloudflare Pages because they conflicted with the built-in
 # pretty URLs feature. This file is intentionally empty.
+https://www.mos2es.org/* https://mos2es.org/:splat 301
