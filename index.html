@@ -22,26 +22,12 @@
        transform in .eleventy.js — do not duplicate it here. -->
   <script type="application/ld+json">
   {
-    "@context": {
-      "@vocab": "https://schema.org/",
-      "moses": "https://mos2es.com/ontology/0.1/",
-      "sourceSystem": "moses:sourceSystem",
-      "canonBacked": "moses:canonBacked",
-      "authorityApprovalRef": "moses:authorityApprovalRef",
-      "associatedWith": "moses:associatedWith"
-    },
+    "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": "https://mos2es.com/#website",
     "name": "MO§ES",
     "url": "https://mos2es.com",
-    "publisher": { "@id": "https://mos2es.com/#org" },
-    "sourceSystem": "search-authority",
-    "canonBacked": true,
-    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
-    "associatedWith": [
-      { "@id": "https://mos2es.com/#org" },
-      { "@id": "https://mos2es.com/ontology/0.1/entity/moses" }
-    ]
+    "publisher": { "@id": "https://mos2es.com/#org" }
   }
   </script>
   <script type="application/ld+json">
@@ -49,9 +35,6 @@
     "@context": {
       "@vocab": "https://schema.org/",
       "moses": "https://mos2es.com/ontology/0.1/",
-      "sourceSystem": "moses:sourceSystem",
-      "canonBacked": "moses:canonBacked",
-      "authorityApprovalRef": "moses:authorityApprovalRef",
       "governs": "moses:governs",
       "operationalizes": "moses:operationalizes",
       "enforcementArchitectureFor": "moses:enforcementArchitectureFor"
@@ -64,9 +47,6 @@
     "url": "https://mos2es.com",
     "applicationCategory": "AI Governance",
     "additionalType": "EnforcementArchitecture",
-    "sourceSystem": "search-authority",
-    "canonBacked": true,
-    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
     "publisher": {"@id": "https://mos2es.com/#org"},
     "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
     "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",

@@ -18,24 +18,13 @@ const publisherAddress = {
 // Page-specific JSON-LD blocks reference the same #org/#brand identifiers.
 // Do not duplicate this block in individual pages or partials.
 const organizationIdentity = {
-  "@context": {
-    "@vocab": "https://schema.org/",
-    "moses": "https://mos2es.com/ontology/0.1/",
-    "sourceSystem": "moses:sourceSystem",
-    "canonBacked": "moses:canonBacked",
-    "authorityApprovalRef": "moses:authorityApprovalRef",
-    "associatedWith": "moses:associatedWith",
-  },
+  "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://mos2es.com/#org",
   name: "Ello Cello LLC",
   alternateName: ["Ello Cello", "MO§ES", "MOSES"],
   description: "Organization associated with the owner's published works and products, including Upsilon, SigRank, and MO§ES™.",
   url: "https://mos2es.com",
-  email: "burnmydays@proton.me",
-  sourceSystem: "search-authority",
-  canonBacked: true,
-  authorityApprovalRef: "APPROVAL-2026-08-14-001 (ID-ELLO-001)",
   sameAs: [
     "https://orcid.org/0009-0002-9904-5390",
     "https://github.com/SunrisesIllNeverSee",
@@ -55,7 +44,6 @@ const organizationIdentity = {
       name: "Ello Cello LLC",
     },
   },
-  associatedWith: "https://mos2es.com/ontology/0.1/entity/moses",
   knowsAbout: [
     "AI governance",
     "Constitutional AI",
@@ -78,12 +66,10 @@ const organizationIdentity = {
     {
       "@type": "ContactPoint",
       contactType: "general inquiries",
-      email: "burnmydays@proton.me",
       url: "https://mos2es.com/contact",
       availableLanguage: ["English"],
     },
   ],
-  address: publisherAddress,
 };
 
 module.exports = function (eleventyConfig) {

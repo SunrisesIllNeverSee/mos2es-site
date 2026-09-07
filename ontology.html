@@ -26,12 +26,7 @@ path: /ontology.html
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
   <script type="application/ld+json">
   {
-    "@context": {
-      "@vocab": "https://schema.org/",
-      "moses": "https://mos2es.com/ontology/0.1/",
-      "sourceSystem": "moses:sourceSystem",
-      "canonBacked": "moses:canonBacked"
-    },
+    "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://mos2es.com/ontology",
     "name": "MO§ES Ontology — Machine-Readable Knowledge",
@@ -41,9 +36,7 @@ path: /ontology.html
     "about": {
       "@id": "https://mos2es.com/ontology/0.1/entity/moses",
       "@type": ["SoftwareApplication", "DefinedTerm"],
-      "name": "MO§ES™",
-      "sourceSystem": "search-authority",
-      "canonBacked": true
+      "name": "MO§ES™"
     },
     "mainEntity": {
       "@type": "DefinedTermSet",
@@ -75,9 +68,6 @@ path: /ontology.html
     "@context": {
       "@vocab": "https://schema.org/",
       "moses": "https://mos2es.com/ontology/0.1/",
-      "sourceSystem": "moses:sourceSystem",
-      "canonBacked": "moses:canonBacked",
-      "authorityApprovalRef": "moses:authorityApprovalRef",
       "governs": "moses:governs",
       "operationalizes": "moses:operationalizes",
       "enforcementArchitectureFor": "moses:enforcementArchitectureFor"
@@ -89,9 +79,6 @@ path: /ontology.html
     "alternateName": ["MO§ES", "mos2es", "MOSES"],
     "url": "https://mos2es.com",
     "applicationCategory": "AI Governance",
-    "sourceSystem": "search-authority",
-    "canonBacked": true,
-    "authorityApprovalRef": "APPROVAL-2026-08-14-001 (ID-MOSES-001)",
     "publisher": {"@id": "https://mos2es.com/#org"},
     "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
     "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
