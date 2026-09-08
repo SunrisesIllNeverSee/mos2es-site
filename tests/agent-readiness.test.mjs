@@ -90,27 +90,30 @@ test("trust anchors are substantive, routed, and indexed", async () => {
   }
 
   // Cloudflare Pages handles pretty URLs natively (serves /page.html at /page),
-  // so the _redirects file is intentionally empty — it contains only comments
-  // explaining why. Verify no Netlify-style redirect rules remain, since those
-  // caused redirect loops on Cloudflare Pages.
+  // so the _redirects file should contain no Netlify-style path redirect rules
+  // (those caused redirect loops on Cloudflare Pages). The only allowed rule is
+  // the www → non-www domain redirect (cross-domain, not a path rewrite).
   const redirectRules = redirects
     .split("\n")
     .filter((line) => line.trim() && !line.trim().startsWith("#"));
+  const pathRedirects = redirectRules.filter(
+    (line) => !line.startsWith("https://www."),
+  );
   assert.equal(
-    redirectRules.length,
+    pathRedirects.length,
     0,
-    "_redirects should contain no redirect rules (Cloudflare Pages handles pretty URLs natively)",
+    "_redirects should contain no path redirect rules (only www → non-www domain redirects are allowed)",
   );
 });
 
-test("organization identity publishes brand aliases, contact point, and postal address", async () => {
+test("organization identity publishes brand aliases and contact point", async () => {
   const config = await read(".eleventy.js");
   assert.match(config, /name: "Ello Cello LLC"/);
   assert.match(config, /name: "MO§ES™"/);
   assert.match(config, /alternateName: \["MO§ES", "MOS2ES", "MOSES"\]/);
   assert.match(config, /contactPoint/);
-  assert.match(config, /"@type": "PostalAddress"/);
-  assert.match(config, /streetAddress: "84 W Utica St"/);
-  assert.match(config, /addressLocality: "Buffalo"/);
-  assert.match(config, /postalCode: "14209"/);
+  // Address + email removed from JSON-LD for privacy (P8 cleanup).
+  // Visible on /contact page in HTML only.
+  assert.doesNotMatch(config, /burnmydays@proton\.me/);
+  assert.doesNotMatch(config, /streetAddress/);
 });

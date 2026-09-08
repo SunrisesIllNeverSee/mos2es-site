@@ -3,15 +3,6 @@
 // Output: _site/ (deploy target)
 const path = require("path");
 
-const publisherAddress = {
-  "@type": "PostalAddress",
-  streetAddress: "84 W Utica St",
-  addressLocality: "Buffalo",
-  addressRegion: "NY",
-  postalCode: "14209",
-  addressCountry: "US",
-};
-
 // Canon-backed Organization identity (Search Authority v1.0.0, frozen tag
 // master-canon-v1.0.0). This is the single source of the #org node injected
 // into every HTML page via the organization-identity transform below.
