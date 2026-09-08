@@ -71,6 +71,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("docs");
   eleventyConfig.addPassthroughCopy("deck-stage.js");
   eleventyConfig.addPassthroughCopy("BingSiteAuth.xml");
+  eleventyConfig.addPassthroughCopy("indexnow-key.txt");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("llms.txt");
   eleventyConfig.addPassthroughCopy("llms-full.txt");
