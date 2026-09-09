@@ -466,6 +466,12 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-08 09:20 UTC · 1223945 · Deric · fix(build): add indexnow-key.txt to Eleventy passthrough copy
+[HOOK] 2026-09-08 09:14 UTC · 50a6dc9 · Deric · fix(tests): update agent-readiness for JSON-LD cleanup + www redirect
+[HOOK] 2026-09-08 09:05 UTC · b169f21 · Deric · feat(seo): add IndexNow key for Bing indexing
+[HOOK] 2026-09-07 17:58 UTC · d9c4a29 · Deric · fix(seo): redirect www.mos2es.org to mos2es.org (301)
+[HOOK] 2026-09-07 17:57 UTC · 8e7ba78 · Deric · fix(seo): remove email/address from JSON-LD + non-Schema.org properties
+[HOOK] 2026-09-06 11:43 UTC · da1939c · Deric · docs: update scratchpad
 [HOOK] 2026-09-06 11:42 UTC · 28ab6d5 · Deric · docs: update scratchpad
 [HOOK] 2026-09-06 11:21 UTC · 742235f · Deric · fix(security): skylos security remediation for mos2es-site
 [HOOK] 2026-09-06 08:50 UTC · 5f7cfde · Deric · chore: post-commit hook update
