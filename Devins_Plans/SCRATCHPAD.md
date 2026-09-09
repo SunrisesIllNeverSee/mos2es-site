@@ -466,6 +466,7 @@ definition, relationship, authorship, and canonical-citation check. No JSON-LD,
 `llms.txt`, sitemap, robots, or owner-curated strategy file was changed.
 
 <!-- POST-COMMIT HOOK APPENDS BELOW THIS LINE -->
+[HOOK] 2026-09-09 05:13 UTC · ed67b9d · Deric · chore: update scratchpad
 [HOOK] 2026-09-09 05:12 UTC · 65df6d6 · Deric · chore: update scratchpad
 [HOOK] 2026-09-08 09:20 UTC · 1223945 · Deric · fix(build): add indexnow-key.txt to Eleventy passthrough copy
 [HOOK] 2026-09-08 09:14 UTC · 50a6dc9 · Deric · fix(tests): update agent-readiness for JSON-LD cleanup + www redirect
