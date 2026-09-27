@@ -16,6 +16,7 @@ const organizationIdentity = {
   alternateName: ["Ello Cello", "MO§ES", "MOSES"],
   description: "Organization associated with the owner's published works and products, including Upsilon, SigRank, and MO§ES™.",
   url: "https://mos2es.com",
+  logo: "https://mos2es.com/img/og.png",
   sameAs: [
     "https://orcid.org/0009-0002-9904-5390",
     "https://github.com/SunrisesIllNeverSee",

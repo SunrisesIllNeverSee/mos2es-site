@@ -32,38 +32,41 @@
   </script>
   <script type="application/ld+json">
   {
-    "@context": {
-      "@vocab": "https://schema.org/",
-      "moses": "https://mos2es.com/ontology/0.1/",
-      "governs": "moses:governs",
-      "operationalizes": "moses:operationalizes",
-      "enforcementArchitectureFor": "moses:enforcementArchitectureFor"
-    },
-    "@type": ["SoftwareApplication", "DefinedTerm"],
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
     "@id": "https://mos2es.com/ontology/0.1/entity/moses",
     "name": "MO§ES™",
     "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
-    "alternateName": ["MO§ES", "mos2es", "MOSES"],
+    "alternateName": [
+      "MO§ES",
+      "mos2es",
+      "MOSES"
+    ],
     "url": "https://mos2es.com",
     "applicationCategory": "AI Governance",
-    "additionalType": "EnforcementArchitecture",
-    "publisher": {"@id": "https://mos2es.com/#org"},
-    "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
-    "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
-    "governs": [
+    "additionalType": [
+      "EnforcementArchitecture",
+      "https://schema.org/DefinedTerm"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "description": "Pilot and enterprise inquiries via contact.",
+      "url": "https://mos2es.com/contact"
+    },
+    "publisher": {
+      "@id": "https://mos2es.com/#org"
+    },
+    "moses:governs": [
       "https://mos2es.com/ontology/0.1/entity/signomy",
       "https://mos2es.com/ontology/0.1/entity/civitae"
-    ]
+    ],
+    "moses:operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+    "moses:enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory"
   }
   </script>
   <script type="application/ld+json">
   {
-    "@context": {
-      "@vocab": "https://schema.org/",
-      "moses": "https://mos2es.com/ontology/0.1/",
-      "enforcementArchitectureFor": "moses:enforcementArchitectureFor",
-      "operationalizes": "moses:operationalizes"
-    },
+    "@context": "https://schema.org",
     "@type": "CreativeWork",
     "@id": "https://mos2es.com/#moses-patent",
     "name": "MO§ES Enforcement Architecture",
@@ -73,18 +76,31 @@
       "name": "Deric J. McHenry",
       "sameAs": "https://orcid.org/0009-0002-9904-5390"
     },
-    "publisher": { "@id": "https://mos2es.com/#org" },
+    "publisher": {
+      "@id": "https://mos2es.com/#org"
+    },
     "about": [
-      {"@id": "https://mos2es.com/ontology/0.1/entity/moses"},
-      {"@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory"},
-      {"@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"}
+      {
+        "@id": "https://mos2es.com/ontology/0.1/entity/moses"
+      },
+      {
+        "@id": "https://mos2es.com/ontology/0.1/entity/commitment_theory"
+      },
+      {
+        "@id": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment"
+      }
     ],
     "mentions": [
-      {"@id": "https://mos2es.com/ontology/0.1/entity/signomy"},
-      {"@id": "https://mos2es.com/ontology/0.1/entity/civitae"}
+      {
+        "@id": "https://mos2es.com/ontology/0.1/entity/signomy"
+      },
+      {
+        "@id": "https://mos2es.com/ontology/0.1/entity/civitae"
+      }
     ],
     "isBasedOn": "https://doi.org/10.5281/zenodo.20029607"
-  }</script>
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">

@@ -65,27 +65,33 @@ path: /ontology.html
   </script>
   <script type="application/ld+json">
   {
-    "@context": {
-      "@vocab": "https://schema.org/",
-      "moses": "https://mos2es.com/ontology/0.1/",
-      "governs": "moses:governs",
-      "operationalizes": "moses:operationalizes",
-      "enforcementArchitectureFor": "moses:enforcementArchitectureFor"
-    },
-    "@type": ["SoftwareApplication", "DefinedTerm"],
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
     "@id": "https://mos2es.com/ontology/0.1/entity/moses",
     "name": "MO§ES™",
     "description": "Sovereign signal governance system. MO§ES™ is the enforcement architecture for Commitment Theory and operationalizes the Conservation Law of Commitment. Governs Signomy and CIVITAE. Patent 63/877,177 covers the enforcement architecture. Patent 19/426,028 covers the CIVITAS utility surface.",
-    "alternateName": ["MO§ES", "mos2es", "MOSES"],
+    "alternateName": [
+      "MO§ES",
+      "mos2es",
+      "MOSES"
+    ],
     "url": "https://mos2es.com",
     "applicationCategory": "AI Governance",
-    "publisher": {"@id": "https://mos2es.com/#org"},
-    "enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
-    "operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
-    "governs": [
+    "publisher": {
+      "@id": "https://mos2es.com/#org"
+    },
+    "moses:governs": [
       "https://mos2es.com/ontology/0.1/entity/signomy",
       "https://mos2es.com/ontology/0.1/entity/civitae"
-    ]
+    ],
+    "moses:operationalizes": "https://mos2es.com/ontology/0.1/entity/conservation_law_of_commitment",
+    "moses:enforcementArchitectureFor": "https://mos2es.com/ontology/0.1/entity/commitment_theory",
+    "additionalType": "https://schema.org/DefinedTerm",
+    "offers": {
+      "@type": "Offer",
+      "description": "Pilot and enterprise inquiries via contact.",
+      "url": "https://mos2es.com/contact"
+    }
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
