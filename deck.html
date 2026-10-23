@@ -400,71 +400,50 @@
 <deck-stage width="1920" height="1080">
 
   <!-- 1. COVER -->
-  <section data-label="Cover" class="dark" style="padding: 0; position: relative;">
-    <div style="position:absolute; top: 64px; left: 120px; right: 120px; display:flex; justify-content:space-between; align-items:baseline; font-size: 26px;">
-      <span class="ec-mark" style="font-size: 26px;"><span class="dot"></span>Ello Cello</span>
-      <span class="cover-sub" style="font-size: 26px;">Pre-seed · 2026</span>
-    </div>
-
-    <div style="position:absolute; left: 120px; right: 120px; top: 220px;">
-      <div class="cover-mark">Ello&nbsp;Cello<span class="amp">.</span></div>
-    </div>
-
-    <div style="position:absolute; left: 120px; right: 120px; bottom: 190px; display:flex; gap: 96px; align-items: flex-end;">
-      <div class="cover-tagline">Measure how people operate AI.<br>Preserve what must stay true.</div>
-      <div style="flex:1; text-align: right; font-family: var(--mono); font-size: 25px; letter-spacing: 0.16em; text-transform: uppercase; color:#C9BFAD; line-height: 1.9;">
-        Measure → Improve → Preserve<br><span style="color: #E8A07A;">Reuse → Govern</span>
-      </div>
-    </div>
-
-    <div class="corner" style="bottom: 64px; font-size: 22px;">
-      <div class="marks" style="font-size: 22px;">
-        <span>SIGRANK</span><span>UPSILON</span><span>MO§ES™</span><span>AQUA</span><span>SIGNOMY</span>
-      </div>
-      <div>01 / 08</div>
-    </div>
+  <section data-label="Cover" class="dark" style="padding:0; position:relative; overflow:hidden; background:#050906;">
+    <img src="assets/deck/opening-compare-cards.png" alt="SignalAF compare graphic: How do I compare against other AI operators?" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" />
   </section>
 
 <!-- 2. THE EXECUTION BOTTLENECK -->
   <section data-label="What / Why / How">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">02</span>What · Why · How</div>
-      <div class="right">SigRank / SignalAF</div>
+      <div class="eyebrow"><span class="num">02</span>Problem</div>
+      <div class="right">What · Why · How</div>
     </div>
 
-    <div style="margin-top:34px;">
-      <h2 style="font-size:72px;">Measure the operator.<br><em>Not just the model.</em></h2>
+    <div style="margin-top:32px;">
+      <h2 style="font-size:66px;">Measure and quantify<br><em>how people influence AI.</em></h2>
     </div>
 
-    <div style="margin-top:30px; flex:1; display:grid; grid-template-rows:repeat(3,1fr); gap:0; min-height:0;">
-      <div style="display:grid; grid-template-columns:150px 1fr; gap:36px; padding:22px 0; border-top:1px solid var(--ink);">
-        <div class="label" style="color:var(--rust); padding-top:8px;">WHAT</div>
-        <div style="font-family:var(--serif); font-size:36px; line-height:1.22; color:var(--ink); max-width:46ch;">
+    <div style="margin-top:28px; flex:1; display:grid; grid-template-rows:repeat(3,1fr); min-height:0;">
+      <div style="display:grid; grid-template-columns:145px 1fr; gap:34px; padding:20px 0; border-top:1px solid var(--ink);">
+        <div class="label" style="color:var(--rust); padding-top:7px;">WHAT</div>
+        <div style="font-family:var(--serif); font-size:34px; line-height:1.24; color:var(--ink); max-width:48ch;">
           We measure and quantify <em style="color:var(--rust);">how people influence AI systems and performance.</em>
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns:150px 1fr; gap:36px; padding:22px 0; border-top:1px solid var(--rule);">
-        <div class="label" style="color:var(--rust); padding-top:8px;">WHY</div>
-        <div style="font-family:var(--serif); font-size:31px; line-height:1.28; color:var(--ink); max-width:54ch;">
-          I wanted to compare myself against other AI users the way players compare video-game stats — not by endpoints, prompts, or which product they use, but by <em>how they actually operate.</em>
+      <div style="display:grid; grid-template-columns:145px 1fr; gap:34px; padding:20px 0; border-top:1px solid var(--rule);">
+        <div class="label" style="color:var(--rust); padding-top:7px;">WHY</div>
+        <div style="font-family:var(--serif); font-size:30px; line-height:1.28; color:var(--ink); max-width:55ch;">
+          I wanted to compare myself against other AI users — not by endpoints, prompts, or some other product. I see AI usage like <em>video-game stats.</em>
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns:150px 1fr; gap:36px; padding:22px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
-        <div class="label" style="color:var(--rust); padding-top:8px;">HOW</div>
-        <div style="font-family:var(--serif); font-size:29px; line-height:1.3; color:var(--ink); max-width:56ch;">
-          AI models already quantify language as tokens. I built a language-based measurement system around that same unit — first words, now normalized token telemetry — to turn real AI use into comparable operator statistics.
+      <div style="display:grid; grid-template-columns:145px 1fr; gap:34px; padding:20px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
+        <div class="label" style="color:var(--rust); padding-top:7px;">HOW</div>
+        <div style="font-family:var(--serif); font-size:28px; line-height:1.3; color:var(--ink); max-width:57ch;">
+          AI models already quantify language with tokens. I built a language-based system that converts token telemetry into comparable operator statistics. It started word-based; now it uses tokens.
         </div>
       </div>
     </div>
 
-    <div style="margin-top:22px; display:flex; justify-content:space-between; gap:40px; align-items:baseline;">
-      <div style="font-family:var(--serif); font-style:italic; font-size:31px; color:var(--ink-2);">
+    <div style="margin-top:18px; display:flex; justify-content:space-between; gap:36px; align-items:baseline;">
+      <div style="font-family:var(--serif); font-style:italic; font-size:30px; color:var(--ink-2);">
         Who are the best users of AI — and why?
       </div>
-      <div style="font-family:var(--mono); font-size:22px; letter-spacing:.12em; text-transform:uppercase; color:var(--rust);">
-        Language → tokens → operator telemetry → stats
+      <div style="font-family:var(--mono); font-size:21px; letter-spacing:.12em; text-transform:uppercase; color:var(--rust);">
+        I measure how people use language / tokens.
       </div>
     </div>
   </section>
@@ -472,45 +451,25 @@
 <!-- 3. ONE STACK FOUR WEDGES -->
   <section data-label="Visual Proof" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">03</span>Visual Proof</div>
-      <div class="right">People leave measurable fingerprints</div>
+      <div class="eyebrow"><span class="num">03</span>Proof in the field</div>
+      <div class="right">Operator behavior is measurable</div>
     </div>
 
-    <div style="margin-top:28px;">
-      <h2 style="font-size:60px;">Same tools.<br><em style="color:#E8A07A;">Different operating patterns.</em></h2>
-    </div>
-
-    <div style="margin-top:26px; flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; min-height:0;">
-      <div style="border:1px solid rgba(255,255,255,.18); display:flex; flex-direction:column; min-height:0; overflow:hidden;">
-        <div style="height:330px; overflow:hidden; background:#11111a;">
-          <img src="assets/deck/four-degrees.png" alt="SignalAF Four Degrees of Leverage" style="width:100%; height:100%; object-fit:cover; object-position:center 32%; display:block;" />
-        </div>
-        <div style="padding:18px 18px 16px;">
-          <div class="label" style="color:#E8A07A;">LEVERAGE</div>
-          <div style="margin-top:9px; font-family:var(--serif); font-size:27px; line-height:1.2; color:var(--paper);">Same tools. Different leverage.</div>
-          <div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Yield separates as leverage and velocity change.</div>
-        </div>
+    <div style="margin-top:22px; flex:1; display:grid; grid-template-rows:255px 1fr; gap:22px; min-height:0;">
+      <div style="border:1px solid rgba(255,255,255,.18); overflow:hidden; background:#071008; position:relative;">
+        <img src="assets/deck/four-degrees-boxes.png" alt="Four Degrees of Leverage reference boxes" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
+        <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#f0c54a; background:rgba(5,10,6,.82); padding:7px 10px;">Four Degrees</div>
       </div>
 
-      <div style="border:1px solid rgba(255,255,255,.18); display:flex; flex-direction:column; min-height:0; overflow:hidden;">
-        <div style="height:330px; overflow:hidden; background:#0b0b0b;">
-          <img src="assets/deck/operator-archetype-map.png" alt="Operator archetype splatter map" style="width:100%; height:100%; object-fit:cover; object-position:65% center; display:block;" />
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; min-height:0;">
+        <div style="border:1px solid rgba(255,255,255,.18); overflow:hidden; background:#080808; position:relative;">
+          <img src="assets/deck/operator-archetype-map.png" alt="Operator Archetype Map PCA scatter" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
+          <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.68); padding:7px 10px;">Splatter map</div>
         </div>
-        <div style="padding:18px 18px 16px;">
-          <div class="label" style="color:#E8A07A;">BEHAVIOR</div>
-          <div style="margin-top:9px; font-family:var(--serif); font-size:27px; line-height:1.2; color:var(--paper);">Operators cluster into distinct patterns.</div>
-          <div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">The field is not one homogeneous population.</div>
-        </div>
-      </div>
 
-      <div style="border:1px solid rgba(255,255,255,.18); display:flex; flex-direction:column; min-height:0; overflow:hidden;">
-        <div style="height:330px; overflow:hidden; background:#0b0d08;">
-          <img src="assets/deck/hcm-vs-active.png" alt="HCM versus active users comparison" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
-        </div>
-        <div style="padding:18px 18px 16px;">
-          <div class="label" style="color:#E8A07A;">EFFICIENCY</div>
-          <div style="margin-top:9px; font-family:var(--serif); font-size:27px; line-height:1.2; color:var(--paper);">Active users produce a different token shape.</div>
-          <div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Input, output, cache use, leverage and velocity become comparable.</div>
+        <div style="border:1px solid rgba(255,255,255,.18); overflow:hidden; background:#080808; position:relative;">
+          <img src="assets/deck/hcm-yield-distribution.png" alt="Yield Distribution with Human Center of Mass median" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
+          <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.68); padding:7px 10px;">Human Center of Mass</div>
         </div>
       </div>
     </div>
@@ -557,44 +516,37 @@
   </section>
 
 <!-- 5. WHY NOW + MARKET (merged) -->
-  <section data-label="Products" class="dark" style="padding:0; position:relative; overflow:hidden;">
-    <div style="position:absolute; inset:0 50% 0 0; background:url('assets/deck/wallpaper-halfdrop.jpg') center/cover no-repeat; opacity:.36;"></div>
-    <div style="position:absolute; inset:0 0 0 50%; background:url('assets/deck/wallpaper-field.jpg') center/cover no-repeat; opacity:.34;"></div>
-    <div style="position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,10,9,.90),rgba(10,10,9,.78) 48%,rgba(10,10,9,.84));"></div>
+  <section data-label="Products" class="dark">
+    <div class="top-bar">
+      <div class="eyebrow"><span class="num">05</span>Products</div>
+      <div class="right">The human side of AI performance</div>
+    </div>
 
-    <div style="position:relative; z-index:2; padding:70px 108px 72px; height:100%; box-sizing:border-box; display:flex; flex-direction:column;">
-      <div class="top-bar">
-        <div class="eyebrow"><span class="num">05</span>The Product System</div>
-        <div class="right">From player stats to enterprise performance</div>
+    <div style="margin-top:38px; max-width:1450px;">
+      <h2 style="font-size:70px; line-height:1.02;">We obsess over model performance<br>and ranking. <em style="color:#E8A07A;">Why not those who actually use it?</em></h2>
+    </div>
+
+    <div style="margin-top:48px; flex:1; display:grid; grid-template-columns:1.35fr repeat(4,1fr); gap:18px; min-height:0;">
+      <div style="border-top:2px solid #E8A07A; padding:24px 20px 18px;">
+        <div class="label" style="color:#E8A07A;">MEASURE + COMPARE</div>
+        <div class="wm" style="font-size:34px; margin-top:13px;">SIGRANK / SIGNALAF</div>
+        <div style="margin-top:16px; font-family:var(--serif); font-size:23px; line-height:1.35; color:var(--paper);">Operator statistics, profiles, rankings and comparisons.</div>
       </div>
-
-      <div style="margin-top:34px; max-width:1450px;">
-        <h2 style="font-size:66px; line-height:1.02;">We obsess over model performance<br>and rankings. <em style="color:#E8A07A;">Why not the people using them?</em></h2>
+      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
+        <div class="label" style="color:#E8A07A;">IMPROVE</div>
+        <div class="wm" style="font-size:30px; margin-top:13px;">UPSILON</div>
       </div>
-
-      <div style="margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;">
-        <div style="background:rgba(13,13,12,.82); border:1px solid rgba(255,255,255,.20); padding:24px;">
-          <div class="label" style="color:#E8A07A;">MEASURE</div>
-          <div class="wm" style="font-size:36px; margin-top:10px;">SIGRANK</div>
-          <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Turns language/token behavior into comparable operator performance statistics.</div>
-        </div>
-        <div style="background:rgba(13,13,12,.82); border:1px solid rgba(255,255,255,.20); padding:24px;">
-          <div class="label" style="color:#E8A07A;">RANK + COMPARE</div>
-          <div class="wm" style="font-size:36px; margin-top:10px;">SIGNALAF</div>
-          <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">The public scoreboard: profiles, archetypes, leaderboards, comparisons and movement over time.</div>
-        </div>
-        <div style="background:rgba(13,13,12,.82); border:1px solid rgba(255,255,255,.20); padding:24px;">
-          <div class="label" style="color:#E8A07A;">IMPROVE</div>
-          <div class="wm" style="font-size:36px; margin-top:10px;">UPSILON</div>
-          <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Enterprise loop: baseline → diagnose → intervene → remeasure human-AI performance.</div>
-        </div>
+      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
+        <div class="label" style="color:#E8A07A;">PRESERVE</div>
+        <div class="wm" style="font-size:30px; margin-top:13px;">MO§ES™</div>
       </div>
-
-      <div style="margin-top:auto; padding-top:24px; border-top:1px solid rgba(255,255,255,.22); display:flex; justify-content:space-between; gap:36px; align-items:baseline;">
-        <div style="font-family:var(--serif); font-style:italic; font-size:27px; color:var(--paper);">The scoreboard is the wedge. The measurement layer is the asset.</div>
-        <div style="font-family:var(--mono); font-size:20px; letter-spacing:.1em; text-transform:uppercase; color:#E8A07A;">
-          Portfolio extensions · MO§ES preserves · AQUA reuses · SIGNOMY governs
-        </div>
+      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
+        <div class="label" style="color:#E8A07A;">REUSE</div>
+        <div class="wm" style="font-size:30px; margin-top:13px;">AQUA</div>
+      </div>
+      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
+        <div class="label" style="color:#E8A07A;">GOVERN</div>
+        <div class="wm" style="font-size:30px; margin-top:13px;">SIGNOMY</div>
       </div>
     </div>
   </section>
