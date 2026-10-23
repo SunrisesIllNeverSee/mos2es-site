@@ -386,17 +386,14 @@
 
 <script type="application/json" id="speaker-notes">
 [
-  "Ello Cello starts with a simple action: measure how people actually operate AI. From there we improve the pairing, preserve commitments through transformation, reuse accumulated knowledge, and govern agents. The names are SigRank, Upsilon, MO§ES, AQUA, and Signomy. The verbs are the system.",
-  "Models are benchmarked constantly. Operators are not. People establish intent, supply context, correct errors, and build on prior interactions, yet most enterprise tooling still measures model quality, seat adoption, or raw activity. Tokens are an instrument; human-AI performance is the object.",
-  "The portfolio is easier to understand as five verbs. SigRank measures. Upsilon improves through baseline, diagnosis, intervention, and remeasurement. MO§ES preserves commitments and can condition execution on preservation. AQUA reuses approved knowledge across applications. Signomy governs agent missions, transactions, reputation, and participation. Each layer can feed the next.",
-  "This is already operating. Roughly 50 profiles have been claimed, 22 operators have submitted live data, about half of those submitters have returned, and the broader board contains more than 1,600 historical operator records. The stack includes an npm-distributed CLI/MCP/TUI, local telemetry collection, signed submissions, a measurement engine, SignalAF, OpenTelemetry tooling, and the TTEOP interoperability work. The current hardening focus is semantic consistency when vendors change token accounting.",
-  "The market model was rebuilt under falsification rather than expanded by adjacency. The result is an approximately $11.5 billion de-duplicated functional TAM, $836 million serviceable SAM, and $12.8 million Year-3 base revenue model, with roughly $8.9 million product-attributable. Product-level functional TAMs are not additive; the model explicitly removes about $3.24 billion of overlap.",
-  "The commercial sequence is deliberate. SigRank establishes the benchmark; Upsilon monetizes the measurement loop through paid enterprise interventions; MO§ES lands design partners and a standards position; AQUA proves applicant-owned knowledge in one domain before expanding; Signomy remains the governed-agent upside as the market matures. We are not trying to sell five unrelated products at once.",
-  "The founder story is execution. A non-technical operator who previously built and ran a forty-person business began coding in March 2026 and shipped the current systems without outside engineers using Claude Code, Codex, and Devin. The work has opened doors including Claude for Startups and the Pitch by Deel, but the core proof remains what has actually shipped.",
-  "The full pre-seed target is $1.25 million. The first close is about $250,000, with useful early checks in the $25,000 to $100,000 range. The technology is substantially built; the first capital is for conversion, not another speculative build cycle: pilots, customer proof, targeted deployment blockers, legal and IP, operating runway, and enough reserve to move quickly.",
-  "Appendix A preserves the historical operating evidence. It is internal evidence, not a third-party benchmark, and should be read as proof that large-scale governed AI operation has already been attempted and instrumented.",
-  "Defensibility is not the claim that nobody is nearby. Corrix and Larridin are close to operator measurement; GENNOW and proposal platforms validate reusable answers; BCOT, A2Auth, and decision-provenance systems flank commitment integrity; Virtuals and Microsoft occupy agent infrastructure. The question is what each measures or governs, and where the functional boundary remains unoccupied.",
-  "The coupling thesis is conditional. On the report's skeptical probability model, five edges reduce modeled wipeout risk and increase risk-adjusted expected value, but the premium only exists if the integrations ship. SigRank data must feed the intervention and commitment layers; MO§ES receipts must feed reputation and governance; AQUA receipts must become commitment objects. At zero coupling, there is no coupling premium."
+  "Open with the action, not the product taxonomy: measure how people operate AI. The portfolio comes later.",
+  "WHAT: measure and quantify how people influence AI systems and performance. WHY: the founder wanted player-style stats for AI users, not rankings based on prompts, endpoints, or product choice. HOW: language is already quantified as tokens by AI systems, so SigRank turns normalized token telemetry into comparable operator statistics without needing prompt text.",
+  "The visual proof is the point: operators are not interchangeable. Four Degrees shows leverage and velocity separating performance; the archetype map shows behavioral structure across the field; HCM versus active users shows different token shapes and efficiency profiles.",
+  "The scoreboard is live: 22 telemetry submitters, 50+ claimed profiles, and more than 1,600 historical operator records. The pipeline runs from local telemetry to signed submission to public profile, leaderboard, and comparison.",
+  "Models get benchmarks, rankings, evals and leaderboards. People operating them largely do not. SigRank measures, SignalAF makes the stats public and legible, and Upsilon turns that measurement into an enterprise improvement loop. MO§ES, AQUA and Signomy are portfolio extensions rather than the opening story.",
+  "The market model was rebuilt under falsification: approximately $11.5B de-duplicated functional TAM, $836M SAM, and $12.8M Year-3 base revenue, with about $8.9M product-attributable. Product TAMs overlap, so the model deducts rather than stacks them.",
+  "The founder story is execution: built and ran a forty-person operating business before software; began coding in March 2026; then bootstrapped the telemetry, products, standards work and live public surfaces without outside engineers.",
+  "The full pre-seed target is $1.25M with an initial close around $250K. The first money is for conversion, not construction: pilots, customer proof, targeted deployment blockers, legal/IP, runway, and commercial packaging."
 ]
 </script>
 
@@ -429,121 +426,183 @@
   </section>
 
 <!-- 2. THE EXECUTION BOTTLENECK -->
-  <section data-label="Problem">
+  <section data-label="What / Why / How">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">02</span>The Gap</div>
-      <div class="right">Ello Cello</div>
+      <div class="eyebrow"><span class="num">02</span>What · Why · How</div>
+      <div class="right">SigRank / SignalAF</div>
     </div>
 
-    <div style="margin-top: 42px;">
-      <h2>Models are benchmarked.<br><em>Operators are not.</em></h2>
+    <div style="margin-top:34px;">
+      <h2 style="font-size:72px;">Measure the operator.<br><em>Not just the model.</em></h2>
     </div>
 
-    <div style="margin-top: 28px; font-family: var(--serif); font-weight:300; font-size:34px; line-height:1.3; color:var(--ink-2); max-width: 50ch;">
-      People establish intent, supply context, correct errors, and build on prior interactions. Those actions change outcomes, but most enterprise tooling still measures models, seats, or raw activity.
+    <div style="margin-top:30px; flex:1; display:grid; grid-template-rows:repeat(3,1fr); gap:0; min-height:0;">
+      <div style="display:grid; grid-template-columns:150px 1fr; gap:36px; padding:22px 0; border-top:1px solid var(--ink);">
+        <div class="label" style="color:var(--rust); padding-top:8px;">WHAT</div>
+        <div style="font-family:var(--serif); font-size:36px; line-height:1.22; color:var(--ink); max-width:46ch;">
+          We measure and quantify <em style="color:var(--rust);">how people influence AI systems and performance.</em>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:150px 1fr; gap:36px; padding:22px 0; border-top:1px solid var(--rule);">
+        <div class="label" style="color:var(--rust); padding-top:8px;">WHY</div>
+        <div style="font-family:var(--serif); font-size:31px; line-height:1.28; color:var(--ink); max-width:54ch;">
+          I wanted to compare myself against other AI users the way players compare video-game stats — not by endpoints, prompts, or which product they use, but by <em>how they actually operate.</em>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:150px 1fr; gap:36px; padding:22px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
+        <div class="label" style="color:var(--rust); padding-top:8px;">HOW</div>
+        <div style="font-family:var(--serif); font-size:29px; line-height:1.3; color:var(--ink); max-width:56ch;">
+          AI models already quantify language as tokens. I built a language-based measurement system around that same unit — first words, now normalized token telemetry — to turn real AI use into comparable operator statistics.
+        </div>
+      </div>
     </div>
 
-    <div style="margin-top: 34px; flex:1;">
-      <table class="data prob-table">
-        <thead><tr><th style="font-size:36px;">Action</th><th style="font-size:36px;">What breaks today</th></tr></thead>
-        <tbody>
-          <tr><td>Count</td><td class="meaning">Token volume records activity. It does not tell you whether the operator produced useful yield.</td></tr>
-          <tr><td>Judge</td><td class="meaning">Model evals test the tool. They do not isolate the human contribution to the human-AI pair.</td></tr>
-          <tr><td>Compare</td><td class="meaning">Teams cannot compare operators across tools without either losing semantics or exposing private content.</td></tr>
-          <tr><td>Improve</td><td class="meaning">Without a baseline and remeasurement loop, training and AI transformation cannot prove what changed.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="margin-top:18px; font-family:var(--mono); font-size:24px; text-transform:uppercase; letter-spacing:.14em; color:var(--rust);">
-      Tokens are the instrument. Human-AI performance is the object.
+    <div style="margin-top:22px; display:flex; justify-content:space-between; gap:40px; align-items:baseline;">
+      <div style="font-family:var(--serif); font-style:italic; font-size:31px; color:var(--ink-2);">
+        Who are the best users of AI — and why?
+      </div>
+      <div style="font-family:var(--mono); font-size:22px; letter-spacing:.12em; text-transform:uppercase; color:var(--rust);">
+        Language → tokens → operator telemetry → stats
+      </div>
     </div>
   </section>
 
 <!-- 3. ONE STACK FOUR WEDGES -->
-  <section data-label="Architecture">
+  <section data-label="Visual Proof" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">03</span>The System</div>
-      <div class="right">Five expressions · one thesis</div>
+      <div class="eyebrow"><span class="num">03</span>Visual Proof</div>
+      <div class="right">People leave measurable fingerprints</div>
     </div>
 
-    <div style="margin-top: 42px;">
-      <h2>Measure. Improve. Preserve.<br><em>Reuse. Govern.</em></h2>
+    <div style="margin-top:28px;">
+      <h2 style="font-size:60px;">Same tools.<br><em style="color:#E8A07A;">Different operating patterns.</em></h2>
     </div>
 
-    <div style="margin-top: 32px; flex:1; display:flex; flex-direction:column;">
-      <div style="display:grid; grid-template-columns:150px 190px 1fr 190px; gap:18px; align-items:baseline; padding:14px 0; border-top:1px solid var(--ink);">
-        <div class="label" style="color:var(--rust);">Measure</div><div class="wm" style="font-size:32px;">SIGRANK</div>
-        <div class="body" style="max-width:none;">Compare real operator behavior across AI systems without exporting private prompts.</div><div class="label" style="text-align:right;">Benchmark</div>
-      </div>
-      <div style="display:grid; grid-template-columns:150px 190px 1fr 190px; gap:18px; align-items:baseline; padding:14px 0; border-top:1px solid var(--rule);">
-        <div class="label" style="color:var(--rust);">Improve</div><div class="wm" style="font-size:32px;">UPSILON</div>
-        <div class="body" style="max-width:none;">Baseline, diagnose, intervene, and remeasure the human-AI operating pair.</div><div class="label" style="text-align:right;">Enterprise loop</div>
-      </div>
-      <div style="display:grid; grid-template-columns:150px 190px 1fr 190px; gap:18px; align-items:baseline; padding:14px 0; border-top:1px solid var(--rule);">
-        <div class="label" style="color:var(--rust);">Preserve</div><div class="wm" style="font-size:32px;">MO§ES™</div>
-        <div class="body" style="max-width:none;">Test whether commitments survive transformation and gate execution when preservation fails.</div><div class="label" style="text-align:right;">Assurance</div>
-      </div>
-      <div style="display:grid; grid-template-columns:150px 190px 1fr 190px; gap:18px; align-items:baseline; padding:14px 0; border-top:1px solid var(--rule);">
-        <div class="label" style="color:var(--rust);">Reuse</div><div class="wm" style="font-size:32px;">AQUA</div>
-        <div class="body" style="max-width:none;">Carry approved answers and context into new applications so quality rises as repeated work falls.</div><div class="label" style="text-align:right;">Application intelligence</div>
-      </div>
-      <div style="display:grid; grid-template-columns:150px 190px 1fr 190px; gap:18px; align-items:baseline; padding:14px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
-        <div class="label" style="color:var(--rust);">Govern</div><div class="wm" style="font-size:32px;">SIGNOMY</div>
-        <div class="body" style="max-width:none;">Let agents take missions, transact, build reputation, and operate under dual governance.</div><div class="label" style="text-align:right;">Agent economy</div>
-      </div>
-    </div>
-
-    <div style="margin-top:20px; font-family:var(--serif); font-style:italic; font-weight:300; font-size:30px; line-height:1.3; color:var(--ink-2);">
-      Each layer can produce evidence the next layer consumes. <span style="color:var(--rust);">The coupling is the IP.</span>
-    </div>
-  </section>
-
-<!-- (Removed in short deck: Products A / Products B — absorbed into Stack) -->
-
-  <!-- 4. PROOF — hero number -->
-  <section data-label="Proof" class="dark">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">04</span>Proof · Built and Live</div>
-      <div class="right">SignalAF operational</div>
-    </div>
-
-    <div style="margin-top:64px; flex:1; display:grid; grid-template-columns:.9fr 1.25fr; gap:90px; align-items:center;">
-      <div>
-        <div class="label" style="color:#E8A07A;">Live submitted operators</div>
-        <div class="hero-num" style="margin-top:24px;"><em>22</em></div>
-        <div style="margin-top:40px; font-family:var(--serif); font-style:italic; font-weight:300; font-size:38px; line-height:1.22; color:var(--paper); max-width:19ch;">
-          50+ claimed profiles. About half of submitters have returned.
+    <div style="margin-top:26px; flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; min-height:0;">
+      <div style="border:1px solid rgba(255,255,255,.18); display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+        <div style="height:330px; overflow:hidden; background:#11111a;">
+          <img src="assets/deck/four-degrees.png" alt="SignalAF Four Degrees of Leverage" style="width:100%; height:100%; object-fit:cover; object-position:center 32%; display:block;" />
         </div>
-        <div style="margin-top:32px; font-family:var(--mono); font-size:23px; line-height:1.55; color:var(--ink-2);">
-          1,600+ historical operator records<br>Public leaderboard + profiles + comparisons
+        <div style="padding:18px 18px 16px;">
+          <div class="label" style="color:#E8A07A;">LEVERAGE</div>
+          <div style="margin-top:9px; font-family:var(--serif); font-size:27px; line-height:1.2; color:var(--paper);">Same tools. Different leverage.</div>
+          <div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Yield separates as leverage and velocity change.</div>
         </div>
       </div>
 
-      <div style="border-top:1px solid var(--paper); padding-top:24px;">
-        <table class="data">
-          <tbody>
-            <tr><td>Measure</td><td class="meaning">npm-distributed CLI / MCP / TUI plus local telemetry collection across multiple AI platforms.</td></tr>
-            <tr><td>Verify</td><td class="meaning">Signed submissions, measurement engine, historical records, comparisons, achievements, and anomaly work.</td></tr>
-            <tr><td>Publish</td><td class="meaning">SignalAF leaderboard, operator profiles, Hall of Signal, and shareable performance surfaces.</td></tr>
-            <tr><td>Standardize</td><td class="meaning">OpenTelemetry receiver and TTEOP work toward cross-platform measurement semantics.</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:22px; font-family:var(--serif); font-style:italic; font-weight:300; font-size:27px; line-height:1.3; color:var(--ink-2);">
-          The arithmetic is repeatable. The hardening focus is semantic consistency when vendors change how they account for input and cache.
+      <div style="border:1px solid rgba(255,255,255,.18); display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+        <div style="height:330px; overflow:hidden; background:#0b0b0b;">
+          <img src="assets/deck/operator-archetype-map.png" alt="Operator archetype splatter map" style="width:100%; height:100%; object-fit:cover; object-position:65% center; display:block;" />
+        </div>
+        <div style="padding:18px 18px 16px;">
+          <div class="label" style="color:#E8A07A;">BEHAVIOR</div>
+          <div style="margin-top:9px; font-family:var(--serif); font-size:27px; line-height:1.2; color:var(--paper);">Operators cluster into distinct patterns.</div>
+          <div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">The field is not one homogeneous population.</div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,.18); display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+        <div style="height:330px; overflow:hidden; background:#0b0d08;">
+          <img src="assets/deck/hcm-vs-active.png" alt="HCM versus active users comparison" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
+        </div>
+        <div style="padding:18px 18px 16px;">
+          <div class="label" style="color:#E8A07A;">EFFICIENCY</div>
+          <div style="margin-top:9px; font-family:var(--serif); font-size:27px; line-height:1.2; color:var(--paper);">Active users produce a different token shape.</div>
+          <div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Input, output, cache use, leverage and velocity become comparable.</div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- (Removed in short deck: Market — absorbed into Why Now / Market) -->
+<!-- 4. PROOF — hero number -->
+  <section data-label="Live Proof" class="dark">
+    <div class="top-bar">
+      <div class="eyebrow"><span class="num">04</span>Live Proof</div>
+      <div class="right">The scoreboard exists</div>
+    </div>
 
-  <!-- (Removed in short deck: Business Model — absorbed into Model + Sequence) -->
+    <div style="margin-top:38px;">
+      <h2 style="font-size:62px;">Then I made it live.</h2>
+    </div>
 
-  <!-- 5. WHY NOW + MARKET (merged) -->
+    <div style="margin-top:36px; display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+      <div style="border-top:2px solid #E8A07A; padding-top:22px;">
+        <div style="font-family:var(--serif); font-size:88px; line-height:.9; color:#E8A07A;">22</div>
+        <div class="label" style="margin-top:16px; color:var(--paper);">Live telemetry submitters</div>
+        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">Operators submitting their own usage data.</div>
+      </div>
+      <div style="border-top:2px solid #E8A07A; padding-top:22px;">
+        <div style="font-family:var(--serif); font-size:88px; line-height:.9; color:#E8A07A;">50+</div>
+        <div class="label" style="margin-top:16px; color:var(--paper);">Claimed profiles</div>
+        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">People have attached identity to the measurement.</div>
+      </div>
+      <div style="border-top:2px solid #E8A07A; padding-top:22px;">
+        <div style="font-family:var(--serif); font-size:88px; line-height:.9; color:#E8A07A;">1,600+</div>
+        <div class="label" style="margin-top:16px; color:var(--paper);">Historical operator records</div>
+        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">Enough field structure to compare patterns, archetypes and outliers.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px; border:1px solid rgba(255,255,255,.22); padding:28px 32px;">
+      <div class="label" style="color:#E8A07A;">MEASUREMENT PIPELINE</div>
+      <div style="margin-top:18px; font-family:var(--mono); font-size:25px; letter-spacing:.08em; color:var(--paper); text-transform:uppercase; line-height:1.5;">
+        Local telemetry <span style="color:#E8A07A;">→</span> signed submission <span style="color:#E8A07A;">→</span> operator profile <span style="color:#E8A07A;">→</span> leaderboard <span style="color:#E8A07A;">→</span> compare
+      </div>
+      <div style="margin-top:18px; display:flex; gap:28px; flex-wrap:wrap; font-size:21px; color:var(--ink-2);">
+        <span>npm CLI / MCP / TUI</span><span>Official MCP Registry</span><span>Claude plugin</span><span>Privacy-preserving counts, not prompt text</span>
+      </div>
+    </div>
+  </section>
+
+<!-- 5. WHY NOW + MARKET (merged) -->
+  <section data-label="Products" class="dark" style="padding:0; position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0 50% 0 0; background:url('assets/deck/wallpaper-halfdrop.jpg') center/cover no-repeat; opacity:.36;"></div>
+    <div style="position:absolute; inset:0 0 0 50%; background:url('assets/deck/wallpaper-field.jpg') center/cover no-repeat; opacity:.34;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,10,9,.90),rgba(10,10,9,.78) 48%,rgba(10,10,9,.84));"></div>
+
+    <div style="position:relative; z-index:2; padding:70px 108px 72px; height:100%; box-sizing:border-box; display:flex; flex-direction:column;">
+      <div class="top-bar">
+        <div class="eyebrow"><span class="num">05</span>The Product System</div>
+        <div class="right">From player stats to enterprise performance</div>
+      </div>
+
+      <div style="margin-top:34px; max-width:1450px;">
+        <h2 style="font-size:66px; line-height:1.02;">We obsess over model performance<br>and rankings. <em style="color:#E8A07A;">Why not the people using them?</em></h2>
+      </div>
+
+      <div style="margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;">
+        <div style="background:rgba(13,13,12,.82); border:1px solid rgba(255,255,255,.20); padding:24px;">
+          <div class="label" style="color:#E8A07A;">MEASURE</div>
+          <div class="wm" style="font-size:36px; margin-top:10px;">SIGRANK</div>
+          <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Turns language/token behavior into comparable operator performance statistics.</div>
+        </div>
+        <div style="background:rgba(13,13,12,.82); border:1px solid rgba(255,255,255,.20); padding:24px;">
+          <div class="label" style="color:#E8A07A;">RANK + COMPARE</div>
+          <div class="wm" style="font-size:36px; margin-top:10px;">SIGNALAF</div>
+          <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">The public scoreboard: profiles, archetypes, leaderboards, comparisons and movement over time.</div>
+        </div>
+        <div style="background:rgba(13,13,12,.82); border:1px solid rgba(255,255,255,.20); padding:24px;">
+          <div class="label" style="color:#E8A07A;">IMPROVE</div>
+          <div class="wm" style="font-size:36px; margin-top:10px;">UPSILON</div>
+          <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Enterprise loop: baseline → diagnose → intervene → remeasure human-AI performance.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:auto; padding-top:24px; border-top:1px solid rgba(255,255,255,.22); display:flex; justify-content:space-between; gap:36px; align-items:baseline;">
+        <div style="font-family:var(--serif); font-style:italic; font-size:27px; color:var(--paper);">The scoreboard is the wedge. The measurement layer is the asset.</div>
+        <div style="font-family:var(--mono); font-size:20px; letter-spacing:.1em; text-transform:uppercase; color:#E8A07A;">
+          Portfolio extensions · MO§ES preserves · AQUA reuses · SIGNOMY governs
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- 6. MODEL + SEQUENCE (merged) -->
   <section data-label="Market · Falsified" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">05</span>Market · Falsified, not inflated</div>
+      <div class="eyebrow"><span class="num">06</span>Market · Falsified, not inflated</div>
       <div class="right">October 2026</div>
     </div>
 
@@ -575,54 +634,7 @@
     </div>
   </section>
 
-<!-- 6. MODEL + SEQUENCE (merged) -->
-  <section data-label="Commercial Sequence">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">06</span>Commercial Sequence</div>
-      <div class="right">Sell the loop · compound the proof</div>
-    </div>
-
-    <div style="margin-top:36px;">
-      <h3>Sell the loop.<br><em style="font-family:var(--serif); font-style:italic; color:var(--rust); font-weight:300;">Compound the proof.</em></h3>
-    </div>
-
-    <div style="margin-top:28px; flex:1; display:grid; grid-template-columns:1.25fr .85fr; gap:72px; min-height:0;">
-      <div style="display:flex; flex-direction:column;">
-        <div style="display:grid; grid-template-columns:90px 150px 1fr; gap:24px; padding:15px 0; border-top:1px solid var(--ink);">
-          <div class="label" style="color:var(--rust);">01 · Measure</div><div class="wm">SIGRANK</div><div class="body" style="max-width:none;">Establish the public and enterprise benchmark for operator performance.</div>
-        </div>
-        <div style="display:grid; grid-template-columns:90px 150px 1fr; gap:24px; padding:15px 0; border-top:1px solid var(--rule);">
-          <div class="label" style="color:var(--rust);">02 · Improve</div><div class="wm">UPSILON</div><div class="body" style="max-width:none;">Sell baseline → diagnose → intervene → remeasure pilots. SigRank measures; Upsilon monetizes the loop.</div>
-        </div>
-        <div style="display:grid; grid-template-columns:90px 150px 1fr; gap:24px; padding:15px 0; border-top:1px solid var(--rule);">
-          <div class="label" style="color:var(--rust);">03 · Preserve</div><div class="wm">MO§ES™</div><div class="body" style="max-width:none;">Land design partners, formalize commitment conservation, and publish an inspectable standard.</div>
-        </div>
-        <div style="display:grid; grid-template-columns:90px 150px 1fr; gap:24px; padding:15px 0; border-top:1px solid var(--rule);">
-          <div class="label" style="color:var(--rust);">04 · Reuse</div><div class="wm">AQUA</div><div class="body" style="max-width:none;">Prove applicant-owned knowledge in one domain, then expand the answer layer across applications.</div>
-        </div>
-        <div style="display:grid; grid-template-columns:90px 150px 1fr; gap:24px; padding:15px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
-          <div class="label" style="color:var(--rust);">05 · Govern</div><div class="wm">SIGNOMY</div><div class="body" style="max-width:none;">Open the governed agent economy as identity, payments, and agent commerce mature.</div>
-        </div>
-      </div>
-
-      <div style="border-left:1px solid var(--rule); padding-left:44px;">
-        <div class="label" style="color:var(--rust); margin-bottom:16px;">What first checks prove</div>
-        <table class="data compact">
-          <tbody>
-            <tr><td>Paid pilots</td><td class="meaning">External buyers pay for measurement and intervention.</td></tr>
-            <tr><td>Repeat use</td><td class="meaning">Operators return because the benchmark is useful and trusted.</td></tr>
-            <tr><td>Design partner</td><td class="meaning">MO§ES preserves a real commitment in a real workflow.</td></tr>
-            <tr><td>Conversion evidence</td><td class="meaning">Pricing, case studies, and deployment receipts make the remaining round easier to raise.</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:24px; font-family:var(--serif); font-style:italic; font-weight:300; font-size:30px; line-height:1.28; color:var(--ink);">
-          Sequence the five expressions. Do not finance five parallel startups.
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- 11. FOUNDER -->
+<!-- 7. FOUNDER -->
   <section data-label="Founder">
     <div class="top-bar">
       <div class="eyebrow"><span class="num">07</span>Founder</div>
@@ -685,7 +697,7 @@
     </div>
   </section>
 
-  <!-- 12. THE ASK -->
+  <!-- 8. THE ASK -->
   <section data-label="The Raise" class="dark">
     <div class="top-bar">
       <div class="eyebrow"><span class="num">08</span>The Raise</div>
@@ -744,129 +756,8 @@
     </div>
   </section>
 
-<!-- (Removed in short deck: Appendix A / B / C) -->
 
-  <!-- APPENDIX A — OPERATIONAL TOTALS -->
-  <section data-label="Appendix A">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">A</span>Appendix · Operational Totals</div>
-      <div class="right">Mar 9 – May 28, 2026</div>
-    </div>
-
-    <div style="margin-top: 48px;">
-      <h2>Industrialized execution,<br><em>by the numbers.</em></h2>
-    </div>
-
-    <div style="margin-top: 44px; flex:1; display:grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start;">
-      <div>
-        <div class="label" style="color: var(--rust);">Amplification ratio</div>
-        <div style="margin-top: 16px; font-family: var(--serif); font-weight: 300; font-size: 150px; line-height: 0.9; letter-spacing: -0.03em; color: var(--ink);"><em style="font-style: italic; color: var(--rust);">21.23</em>×</div>
-        <div style="margin-top: 22px; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 32px; line-height: 1.25; color: var(--ink-2); max-width: 24ch;">
-          3.31M operator input → 70.25M system output.
-        </div>
-
-        <div style="margin-top: 48px; display:flex; gap: 64px;">
-          <div>
-            <div style="font-family: var(--serif); font-weight: 300; font-size: 64px; line-height: 1; color: var(--ink);">98%</div>
-            <div class="label" style="margin-top: 10px;">Preserved structure</div>
-          </div>
-          <div>
-            <div style="font-family: var(--serif); font-weight: 300; font-size: 64px; line-height: 1; color: var(--rust);">2%</div>
-            <div class="label" style="margin-top: 10px;">New structure</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <table class="data compact">
-          <thead><tr><th>Metric</th><th style="text-align: right;">Value</th></tr></thead>
-          <tbody>
-            <tr><td>Total tokens</td><td class="num-col">3.719B</td></tr>
-            <tr><td>Cache read</td><td class="num-col">3.513B</td></tr>
-            <tr><td>Cache create</td><td class="num-col">132.25M</td></tr>
-            <tr><td>Operator input</td><td class="num-col">3.31M</td></tr>
-            <tr><td>System output</td><td class="num-col">70.25M</td></tr>
-            <tr class="total"><td>Amplification</td><td class="num-col">21.23×</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top: 20px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.02em; color: var(--ink-3); line-height: 1.5;">
-          Cache read 94.46% · read + create 98.03% · fresh ~1.97%.<br>Internal operating evidence, pending formal audit.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPENDIX B — DEFENSIBILITY -->
-  <section data-label="Appendix B">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">B</span>Appendix · Competitive Boundaries</div>
-      <div class="right">Adjacency ≠ ownership</div>
-    </div>
-
-    <div style="margin-top:40px;">
-      <h2>Others are moving nearby.<br><em>The zones are still distinct.</em></h2>
-    </div>
-
-    <div style="margin-top:32px; flex:1;">
-      <table class="data compact">
-        <thead><tr><th style="width:14%;">Expression</th><th style="width:24%;">Nearest occupants</th><th>What remains differentiated</th></tr></thead>
-        <tbody>
-          <tr><td class="wm">SIGRANK</td><td class="meaning">Corrix · Larridin · Worklytics</td><td class="meaning">Longitudinal, public operator benchmarking from privacy-safe cross-platform telemetry.</td></tr>
-          <tr><td class="wm">UPSILON</td><td class="meaning">AI transformation consultancies</td><td class="meaning">A closed measurement → intervention → remeasurement loop built on operator data.</td></tr>
-          <tr><td class="wm">AQUA</td><td class="meaning">GENNOW · Submittable · Loopio</td><td class="meaning">Applicant-owned, cross-domain knowledge that travels with the applicant rather than the portal.</td></tr>
-          <tr><td class="wm">MO§ES™</td><td class="meaning">BCOT · A2Auth · DPS</td><td class="meaning">Measure commitment divergence through transformation and condition execution on preservation.</td></tr>
-          <tr><td class="wm">SIGNOMY</td><td class="meaning">Virtuals · Microsoft Agent 365 · payment rails</td><td class="meaning">Cross-platform missions, economic participation, reputation, and dual governance as one society.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="margin-top:22px; font-family:var(--serif); font-style:italic; font-weight:300; font-size:30px; line-height:1.3; color:var(--ink);">
-      No located competitor occupies the full five-edge system. Microsoft reaches across several edges; everyone else is an island.
-    </div>
-  </section>
-
-  <!-- APPENDIX C — COUPLING -->
-  <section data-label="Appendix C" class="dark">
-    <div class="top-bar">
-      <div class="eyebrow"><span class="num">C</span>Appendix · The Coupling Is the IP</div>
-      <div class="right">Scenario model · skeptical inputs</div>
-    </div>
-
-    <div style="margin-top:34px;">
-      <h2 style="font-size:58px;">The portfolio earns a premium<br><em style="color:#E8A07A;">only when the integrations ship.</em></h2>
-    </div>
-
-    <div style="margin-top:32px; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
-      <div style="border-top:3px solid #E8A07A; padding:22px 12px 0;">
-        <div style="font-family:var(--serif); font-size:58px; color:#E8A07A;">4.5%</div>
-        <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Modeled wipeout risk for five skeptical edges vs 40% for the strongest island alone.</div>
-      </div>
-      <div style="border-top:3px solid #E8A07A; padding:22px 12px 0;">
-        <div style="font-family:var(--serif); font-size:58px; color:#E8A07A;">4.1–4.6×</div>
-        <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Risk-adjusted expected value vs the strongest single-product strategy.</div>
-      </div>
-      <div style="border-top:3px solid #E8A07A; padding:22px 12px 0;">
-        <div style="font-family:var(--serif); font-size:58px; color:#E8A07A;">2.4×</div>
-        <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Illustrative fifth-edge lift at coupling coefficient b = 0.15.</div>
-      </div>
-      <div style="border-top:3px solid #E8A07A; padding:22px 12px 0;">
-        <div style="font-family:var(--serif); font-size:58px; color:#E8A07A;">1.69×</div>
-        <div style="margin-top:12px; font-size:22px; line-height:1.35; color:var(--paper);">Illustrative lattice premium at 10 edges under the stronger coupling case.</div>
-      </div>
-    </div>
-
-    <div style="margin-top:auto; border:2px solid #E8A07A; padding:24px 28px;">
-      <div class="label" style="color:#E8A07A;">Load-bearing condition</div>
-      <div style="margin-top:12px; font-size:25px; line-height:1.38; color:var(--paper);">
-        Coupling is manufactured, not discovered. SigRank telemetry must feed Upsilon and MO§ES; MO§ES receipts must feed Signomy reputation; AQUA receipts must become commitment objects. At <strong>b = 0</strong>, the modeled coupling premium disappears.
-      </div>
-      <div style="margin-top:12px; font-family:var(--mono); font-size:19px; color:var(--ink-2);">
-        Scenario arithmetic from the October 2026 falsification report; not observed historical investment returns.
-      </div>
-    </div>
-  </section>
-
-</deck-stage>
+  </deck-stage>
 
 <script src="deck-stage.js"></script>
 <script>
