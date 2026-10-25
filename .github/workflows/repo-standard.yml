@@ -44,7 +44,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number || '' }}
         run: |
           if [ -n "$PR_NUMBER" ]; then
-            bash tests/agent-readiness-live.sh "https://deploy-preview-${PR_NUMBER}--mos2es.netlify.app"
+            # Site moved to Cloudflare Pages; the old Netlify preview URL no longer resolves.
             bash tests/agent-readiness-live.sh "https://mos2es.com"
           else
             for attempt in 1 2 3 4 5 6; do
