@@ -426,21 +426,21 @@
       <div style="display:grid; grid-template-columns:145px 1fr; gap:34px; padding:20px 0; border-top:1px solid var(--rule);">
         <div class="label" style="color:var(--rust); padding-top:7px;">WHY</div>
         <div style="font-family:var(--serif); font-size:30px; line-height:1.28; color:var(--ink); max-width:55ch;">
-          I wanted to compare myself against other AI users — not by endpoints, prompts, or some other product. I see AI usage like <em>video-game stats.</em>
+          I wanted to compare myself against other AI users the way I compare <em>game stats.</em> Nothing measured that.
         </div>
       </div>
 
       <div style="display:grid; grid-template-columns:145px 1fr; gap:34px; padding:20px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
         <div class="label" style="color:var(--rust); padding-top:7px;">HOW</div>
         <div style="font-family:var(--serif); font-size:28px; line-height:1.3; color:var(--ink); max-width:57ch;">
-          AI models already quantify language with tokens. I built a language-based system that converts token telemetry into comparable operator statistics. It started word-based; now it uses tokens.
+          AI models already quantify language with tokens. I built a language-based system that converts token telemetry into comparable operator statistics. It started word-based; now it uses tokens. Only the counts leave the machine. Prompt text stays local.
         </div>
       </div>
     </div>
 
     <div style="margin-top:18px; display:flex; justify-content:space-between; gap:36px; align-items:baseline;">
       <div style="font-family:var(--serif); font-style:italic; font-size:30px; color:var(--ink-2);">
-        Who are the best users of AI — and why?
+        Who are the best users of AI, and why?
       </div>
       <div style="font-family:var(--mono); font-size:21px; letter-spacing:.12em; text-transform:uppercase; color:var(--rust);">
         I measure how people use language / tokens.
@@ -458,21 +458,22 @@
     <div style="margin-top:22px; flex:1; display:grid; grid-template-rows:255px 1fr; gap:22px; min-height:0;">
       <div style="border:1px solid rgba(255,255,255,.18); overflow:hidden; background:#071008; position:relative;">
         <img src="assets/deck/four-degrees-boxes.png" alt="Four Degrees of Leverage reference boxes" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
-        <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#f0c54a; background:rgba(5,10,6,.82); padding:7px 10px;">Four Degrees</div>
+        <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#f0c54a; background:rgba(5,10,6,.82); padding:7px 10px; max-width:72%;">Four Degrees<span style="display:block; text-transform:none; letter-spacing:0; font-family:var(--serif); font-size:22px; line-height:1.25; margin-top:6px; color:#F2EDE3;">Cache leverage from a modeled baseline (3.5×) to the field median (20.3×), the top 100 by yield (241.6×) and the top operator (553.2×).</span></div>
       </div>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px; min-height:0;">
         <div style="border:1px solid rgba(255,255,255,.18); overflow:hidden; background:#080808; position:relative;">
           <img src="assets/deck/operator-archetype-map.png" alt="Operator Archetype Map PCA scatter" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
-          <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.68); padding:7px 10px;">Splatter map</div>
+          <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.68); padding:7px 10px; max-width:72%;">Splatter map<span style="display:block; text-transform:none; letter-spacing:0; font-family:var(--serif); font-size:22px; line-height:1.25; margin-top:6px; color:#F2EDE3;">1,600+ profiles plotted by token-flow shape (PCA). Seven operating archetypes.</span></div>
         </div>
 
         <div style="border:1px solid rgba(255,255,255,.18); overflow:hidden; background:#080808; position:relative;">
           <img src="assets/deck/hcm-yield-distribution.png" alt="Yield Distribution with Human Center of Mass median" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;" />
-          <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.68); padding:7px 10px;">Human Center of Mass</div>
+          <div style="position:absolute; left:18px; top:14px; font-family:var(--mono); font-size:18px; letter-spacing:.13em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.68); padding:7px 10px; max-width:72%;">Human Center of Mass<span style="display:block; text-transform:none; letter-spacing:0; font-family:var(--serif); font-size:22px; line-height:1.25; margin-top:6px; color:#F2EDE3;">Median yield 2.01. Eighty percent of operators sit between 0.6 and 178.</span></div>
         </div>
       </div>
     </div>
+    <div style="margin-top:14px; font-family:var(--mono); font-size:19px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);">1,600+ seeded public profiles · vendor-reported token counts · October 2026</div>
   </section>
 
 <!-- 4. PROOF — hero number -->
@@ -490,7 +491,7 @@
       <div style="border-top:2px solid #E8A07A; padding-top:22px;">
         <div style="font-family:var(--serif); font-size:88px; line-height:.9; color:#E8A07A;">22</div>
         <div class="label" style="margin-top:16px; color:var(--paper);">Live telemetry submitters</div>
-        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">Operators submitting their own usage data.</div>
+        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">Operators submitting their own usage data. 358 billion tokens between them.</div>
       </div>
       <div style="border-top:2px solid #E8A07A; padding-top:22px;">
         <div style="font-family:var(--serif); font-size:88px; line-height:.9; color:#E8A07A;">50+</div>
@@ -499,8 +500,8 @@
       </div>
       <div style="border-top:2px solid #E8A07A; padding-top:22px;">
         <div style="font-family:var(--serif); font-size:88px; line-height:.9; color:#E8A07A;">1,600+</div>
-        <div class="label" style="margin-top:16px; color:var(--paper);">Historical operator records</div>
-        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">Enough field structure to compare patterns, archetypes and outliers.</div>
+        <div class="label" style="margin-top:16px; color:var(--paper);">Seeded public profiles</div>
+        <div style="margin-top:10px; font-size:22px; line-height:1.35; color:var(--ink-2);">45 trillion tokens of real usage. The proof and test bed, kept apart from real submissions.</div>
       </div>
     </div>
 
@@ -510,8 +511,9 @@
         Local telemetry <span style="color:#E8A07A;">→</span> signed submission <span style="color:#E8A07A;">→</span> operator profile <span style="color:#E8A07A;">→</span> leaderboard <span style="color:#E8A07A;">→</span> compare
       </div>
       <div style="margin-top:18px; display:flex; gap:28px; flex-wrap:wrap; font-size:21px; color:var(--ink-2);">
-        <span>npm CLI / MCP / TUI</span><span>Official MCP Registry</span><span>Claude plugin</span><span>Privacy-preserving counts, not prompt text</span>
+        <span>npm CLI / MCP / TUI (v1.0.48, 23,697 downloads)</span><span>Official MCP Registry</span><span>Claude plugin</span><span>22 AI platforms</span><span>Only the counts leave the machine</span>
       </div>
+      <div style="margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,.18); font-family:var(--serif); font-size:24px; line-height:1.32; color:var(--paper); max-width:62ch;">Vendor input counts are billing fields. Claude Code 2.1.198 reported 22,907 input tokens for a payload that 2.1.296 reported as 2. So I now count what the operator actually typed, locally, with one fixed tokenizer across every platform. In progress.</div>
     </div>
   </section>
 
@@ -526,27 +528,20 @@
       <h2 style="font-size:70px; line-height:1.02;">We obsess over model performance<br>and ranking. <em style="color:#E8A07A;">Why not those who actually use it?</em></h2>
     </div>
 
-    <div style="margin-top:48px; flex:1; display:grid; grid-template-columns:1.35fr repeat(4,1fr); gap:18px; min-height:0;">
-      <div style="border-top:2px solid #E8A07A; padding:24px 20px 18px;">
+    <div style="margin-top:48px; flex:1; display:grid; grid-template-rows:auto 1fr; gap:40px; min-height:0;">
+      <div style="border-top:2px solid #E8A07A; padding:24px 20px 18px; max-width:1200px;">
         <div class="label" style="color:#E8A07A;">MEASURE + COMPARE</div>
-        <div class="wm" style="font-size:34px; margin-top:13px;">SIGRANK / SIGNALAF</div>
-        <div style="margin-top:16px; font-family:var(--serif); font-size:23px; line-height:1.35; color:var(--paper);">Operator statistics, profiles, rankings and comparisons.</div>
+        <div class="wm" style="font-size:44px; margin-top:13px;">SIGRANK / SIGNALAF</div>
+        <div style="margin-top:18px; font-family:var(--serif); font-size:30px; line-height:1.3; color:var(--paper); max-width:40ch;">Operator statistics, profiles, rankings and head-to-head comparisons. Free for individuals. Teams that pay for AI seats pay to see how their people operate AI.</div>
       </div>
-      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
-        <div class="label" style="color:#E8A07A;">IMPROVE</div>
-        <div class="wm" style="font-size:30px; margin-top:13px;">UPSILON</div>
-      </div>
-      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
-        <div class="label" style="color:#E8A07A;">PRESERVE</div>
-        <div class="wm" style="font-size:30px; margin-top:13px;">MO§ES™</div>
-      </div>
-      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
-        <div class="label" style="color:#E8A07A;">REUSE</div>
-        <div class="wm" style="font-size:30px; margin-top:13px;">AQUA</div>
-      </div>
-      <div style="border-top:2px solid #E8A07A; padding:24px 18px 18px;">
-        <div class="label" style="color:#E8A07A;">GOVERN</div>
-        <div class="wm" style="font-size:30px; margin-top:13px;">SIGNOMY</div>
+      <div>
+        <div class="label" style="color:var(--ink-3);">Built on MO§ES · roadmap</div>
+        <div style="margin-top:16px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">UPSILON</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Improve how an operator works with AI</div></div>
+          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">MO§ES™</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Preserve commitments as language is transformed</div></div>
+          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">AQUA</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Reuse what you have already written</div></div>
+          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">SIGNOMY</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Govern how agents participate and exchange</div></div>
+        </div>
       </div>
     </div>
   </section>
