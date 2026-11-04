@@ -38,7 +38,8 @@
   var el = document.getElementById('intro');
   var seen = false;
   try { seen = sessionStorage.getItem('mosesIntro') === '1'; } catch (e) {}
-  if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
+  var force = /[?&]intro\b/.test(location.search);
+  if (!force && (seen || matchMedia('(prefers-reduced-motion: reduce)').matches)) { el.remove(); return; }
   var root = document.documentElement;
   root.classList.add('intro-on');
   var v = el.querySelector('video');
