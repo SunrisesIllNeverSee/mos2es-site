@@ -614,13 +614,13 @@
     </div>
   </section>
 
-  <section data-label="Founder">
+  <section data-label="Founder" style="display:grid; grid-template-rows:auto minmax(0,1fr) 118px; row-gap:24px;">
     <div class="top-bar">
       <div class="eyebrow"><span class="num">08</span>Founder</div>
       <div class="right">Solo Founder</div>
     </div>
 
-    <div style="margin-top: 30px; flex:1; display:grid; grid-template-columns: 520px 1fr; gap: 72px; align-items: stretch; min-height: 0;">
+    <div style="display:grid; grid-template-columns:520px 1fr; gap:72px; align-items:stretch; min-height:0;">
 
       <div style="display:flex; flex-direction:column; min-height:0;">
         <img height="630" width="1200" src="assets/founder.jpg" alt="Deric J. McHenry" style="width:100%; height:430px; object-fit:cover; object-position:center 30%; display:block; filter:grayscale(1) contrast(1.05);" />
@@ -633,46 +633,57 @@
           </div>
         </div>
 
-        <div style="margin-top:auto; border-top:1px solid var(--rule); padding-top:17px; display:flex; flex-direction:column; gap:7px; font-family:var(--mono); font-size:22px; letter-spacing:0.055em; text-transform:uppercase; color:var(--ink-2);">
+        <div style="margin-top:auto; display:flex; flex-direction:column; gap:7px; font-family:var(--mono); font-size:22px; letter-spacing:0.055em; text-transform:uppercase; color:var(--ink-2);">
           <div>hello@signalaf.com</div>
           <div>716.260.0603</div>
         </div>
+
+
       </div>
 
       <div style="display:flex; flex-direction:column; min-height:0;">
-        <div style="padding-bottom:22px;">
-          <h2 style="font-size:76px; line-height:0.98;">Built outside software.<br><em>Then shipped the system.</em></h2>
+        <div style="padding-bottom:14px;">
+          <h2 style="font-size:70px; line-height:0.98;">Built outside software.<br><em>Then shipped the system.</em></h2>
         </div>
 
-        <div style="display:grid; grid-template-columns:205px 1fr; gap:30px; padding:22px 0; border-top:1px solid var(--ink);">
+        <div style="display:grid; grid-template-columns:200px 1fr; gap:28px; padding:15px 0; border-top:1px solid var(--ink);">
           <div class="label" style="padding-top:4px;">Built before software</div>
-          <div style="font-size:24px; line-height:1.38; color:var(--ink); max-width:58ch;">
+          <div style="font-size:22px; line-height:1.30; color:var(--ink); max-width:58ch;">
             Built and ran a contracting company from zero to roughly $1M/year with a team of 40. Learned to sell, schedule, execute, and absorb operational risk before writing software.
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:205px 1fr; gap:30px; padding:22px 0; border-top:1px solid var(--rule);">
+        <div style="display:grid; grid-template-columns:200px 1fr; gap:28px; padding:15px 0; border-top:1px solid var(--rule);">
           <div class="label" style="padding-top:4px;">Started with the problem</div>
-          <div style="font-size:24px; line-height:1.38; color:var(--ink); max-width:58ch;">
+          <div style="font-size:22px; line-height:1.30; color:var(--ink); max-width:58ch;">
             Started as the user: wanted to know how his own AI operating performance compared. That question became SigRank, then SignalAF.
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:205px 1fr; gap:30px; padding:22px 0; border-top:1px solid var(--rule);">
+        <div style="display:grid; grid-template-columns:200px 1fr; gap:28px; padding:15px 0; border-top:1px solid var(--rule);">
           <div class="label" style="padding-top:4px;">Learned to build</div>
-          <div style="font-size:24px; line-height:1.38; color:var(--ink); max-width:58ch;">
+          <div style="font-size:22px; line-height:1.30; color:var(--ink); max-width:58ch;">
             Started building software in March 2026. Used AI coding agents as leverage, but owned the architecture, product decisions, testing, deployment, and operating loop myself — without outside engineers.
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:205px 1fr; gap:30px; padding:22px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
+        <div style="display:grid; grid-template-columns:200px 1fr; gap:28px; padding:15px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--ink);">
           <div class="label" style="padding-top:4px; color:var(--rust);">Shipped + opened doors</div>
-          <div style="font-size:24px; line-height:1.38; color:var(--ink); max-width:58ch;">
+          <div style="font-size:22px; line-height:1.30; color:var(--ink); max-width:58ch;">
             Shipped local telemetry across 22 AI platforms, CLI / MCP / TUI, signed submissions, SignalAF, and the live board / compare surfaces. Accepted into Claude for Startups and invited to Pitch by Deel.
           </div>
         </div>
       </div>
 
+    </div>
+
+    <div style="border-top:1px solid var(--ink); padding-top:16px; display:flex; flex-direction:column; justify-content:center; min-height:0;">
+      <div style="font-family:var(--serif); font-size:54px; line-height:.98; letter-spacing:-0.015em; color:var(--ink); white-space:nowrap;">
+        <em style="color:var(--rust);">Quantified language</em> to integrate with token telemetry.
+      </div>
+      <div style="margin-top:10px; font-family:var(--mono); font-size:22px; line-height:1; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-2); text-align:right;">
+        language → tokens → operator intelligence
+      </div>
     </div>
   </section>
 
