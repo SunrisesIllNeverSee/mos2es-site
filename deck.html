@@ -647,36 +647,5 @@
   </deck-stage>
 
 <script src="deck-stage.js"></script>
-<script>
-(async () => {
-  try { await customElements.whenDefined('deck-stage'); } catch (e) {}
-  const ds = document.querySelector('deck-stage');
-  if (ds) {
-    // Weigh only slide children — same filter as deck-stage.length. Skipping
-    // slotted script/style/template keeps inline Babel/CSS from registering
-    // as stable "content" before the framework has mounted anything.
-    const weigh = () => {
-      let text = 0, media = 0;
-      for (const c of ds.children) {
-        const t = c.tagName;
-        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
-        text += (c.textContent || '').trim().length;
-        media += c.querySelectorAll('img,svg,canvas,video').length;
-      }
-      return text + media * 100;
-    };
-    const deadline = Date.now() + 15000;
-    let last = -1, stable = 0;
-    while (Date.now() < deadline) {
-      const n = weigh();
-      if (n > 0 && n === last) { if (++stable >= 2) break; } else { stable = 0; }
-      last = n;
-      await new Promise((r) => setTimeout(r, 250));
-    }
-  }
-  try { await document.fonts.ready; } catch (e) {}
-  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
-})();
-</script>
 </body>
 </html>
