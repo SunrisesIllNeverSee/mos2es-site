@@ -156,3 +156,14 @@ html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
   .shots { grid-template-columns: 1fr; gap: 32px; }
   .pilot { padding: 28px 20px; }
 }
+
+/* Explore: demo pair */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 32px; }
+.clip { margin: 0; }
+.clip .frame { aspect-ratio: 16 / 9; border: 1px solid var(--rule); background: #000; }
+.clip iframe, .clip video { width: 100%; height: 100%; border: 0; display: block; }
+.clip figcaption { padding: 14px 2px 0; }
+.clip h3 { margin: 0 0 6px; font: 600 20px/1.25 var(--sans); }
+.clip p { margin: 0; color: var(--ink-2); font-size: 16px; }
+.clip .go { display: inline-block; margin-top: 10px; font: 500 14px/1.4 var(--mono); }
+@media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
