@@ -69,3 +69,5 @@ https://www.mos2es.org/* https://mos2es.org/:splat 301
 /blog/* / 301
 /vs/* / 301
 /alternatives/* / 301
+/concepts/lineage-claw /research 301
+/concepts/lineage-claw.html /research 301

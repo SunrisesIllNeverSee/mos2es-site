@@ -72,7 +72,7 @@ jsonld:
   <ol>
     <li><strong>Signal encoding</strong>: The original utterance is encoded into a governed signal with measurable commitment. This is the origin cycle — the root of the artifact's provenance.</li>
     <li><strong>Binding creation</strong>: A cryptographic binding is created between the artifact and the origin cycle. This binding incorporates a hash of the original signal, the encoding parameters, and the cycle identifier.</li>
-    <li><strong>Continuity preservation</strong>: Every subsequent transformation extends the binding. The <a href="/concepts/lineage-claw">Lineage Claw</a> maintains the hash chain, so the binding remains verifiable no matter how many transformations are applied.</li>
+    <li><strong>Continuity preservation</strong>: Every subsequent transformation extends the binding. The Lineage Claw maintains the hash chain, so the binding remains verifiable no matter how many transformations are applied.</li>
   </ol>
   <p>The result is that any artifact in the system can be traced back to its origin cycle, and the chain of transformations between origin and current state can be independently verified. A broken binding — one where the chain cannot be reconstructed — is treated as a governance violation.</p>
 
@@ -86,7 +86,6 @@ jsonld:
 
   <h2>Relationship to Other Concepts</h2>
   <ul>
-    <li><a href="/concepts/lineage-claw">Lineage Claw</a>: The cryptographic mechanism that implements origin binding through SHA-256 hash chains</li>
     <li><a href="/concepts/signal-encoding">Signal Encoding</a>: The process that creates the origin compression cycle to which artifacts are bound</li>
     <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: Origin binding is what makes enforcement of the law possible — you cannot enforce conservation on a signal whose origin you cannot verify</li>
     <li><a href="/concepts/constitutional-substrate">Constitutional Substrate</a>: The foundational layer that defines the rules for what constitutes a valid origin cycle and a valid binding</li>
@@ -100,7 +99,7 @@ jsonld:
 <div class="related">
   <h3>Related</h3>
   <div class="related-list">
-    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    Lineage Claw
     <a href="/concepts/signal-encoding">Signal Encoding</a>
     <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>

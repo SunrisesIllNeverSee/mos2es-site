@@ -19,13 +19,13 @@ layout: layouts/simple.html
   <li><a class="t" href="https://github.com/SunrisesIllNeverSee/Commitment_Theory">Commitment Theory on GitHub</a><span class="d">github.com/SunrisesIllNeverSee</span></li>
 </ul>
 
-<h2 class="section">Concepts</h2>
-<ul class="refs">
-  <li><a class="t" href="/concepts/lineage-claw">Lineage Claw</a></li>
-  <li><a class="t" href="/concepts/origin-binding">Origin Binding</a></li>
-  <li><a class="t" href="/concepts/recursive-compression">Recursive Compression</a></li>
-  <li><a class="t" href="/concepts/governance-enforcement">Governance Enforcement</a></li>
-  <li><a class="t" href="/concepts/signal-encoding">Signal Encoding</a></li>
-  <li><a class="t" href="/concepts/constitutional-substrate">Constitutional Substrate</a></li>
-  <li><a class="t" href="/guides/how-to-verify-lineage">How to verify lineage</a></li>
-</ul>
+<h2 class="section">The ideas behind it</h2>
+<p class="lede" style="margin-top:12px">Five concepts, in the order they matter.</p>
+<div class="concepts">
+  <a class="concept" href="/concepts/recursive-compression"><span class="n">01</span><h3>Recursive Compression</h3><p>Every summary, rewrite or handoff transforms a signal. Repeat it and commitment can leak away. This is the T in the Conservation Law.</p></a>
+  <a class="concept" href="/concepts/governance-enforcement"><span class="n">02</span><h3>Governance Enforcement</h3><p>Gates, thresholds and lineage checks that run before a transformation. With them, the law says commitment holds. Without them, it degrades.</p></a>
+  <a class="concept" href="/concepts/constitutional-substrate"><span class="n">03</span><h3>Constitutional Substrate</h3><p>The layer where the rules live: what may change, what must hold, and what gets checked before anything runs.</p></a>
+  <a class="concept" href="/concepts/signal-encoding"><span class="n">04</span><h3>Signal Encoding</h3><p>Writes commitment into the signal itself, so meaning can be measured and verified, not just observed after the fact.</p></a>
+  <a class="concept" href="/concepts/origin-binding"><span class="n">05</span><h3>Origin Binding</h3><p>Ties every artifact to the cycle that produced it with a cryptographic hash, so copies and mimics can't pass as the original.</p></a>
+  <a class="concept guide" href="/guides/how-to-verify-lineage"><span class="n">Guide</span><h3>How to verify lineage</h3><p>A practical walkthrough: check an AI output's provenance chain with SHA-256 hashes and origin binding.</p></a>
+</div>
