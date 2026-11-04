@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="The original signal and noise geometry lab with Gaussian, bowl, cone, and terrain models."/><title>Signal &amp; Noise Geometry Lab — 3D Models</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Cpath d=&#39;M16 3 28 10v12L16 29 4 22V10Z&#39; fill=&#39;%230a181d&#39; stroke=&#39;%2365d6c4&#39;/%3E%3Cpath d=&#39;m4 10 12 7 12-7M16 17v12&#39; fill=&#39;none&#39; stroke=&#39;%2365d6c4&#39;/%3E%3C/svg%3E"/>  <script type="module" crossorigin="" src="./assets/lab-Bh8fJXX4.js"></script>
+  <link rel="modulepreload" crossorigin="" href="./assets/OrbitControls-NL7GUOCB.js"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/OrbitControls-DZZvtG10.css"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/style-3NGtLz5-.css"/>
+<body class="gallery-body"><header class="site-header gallery-header">
+    <a aria-label="3D model gallery" class="brand" href="./index.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 10v12L16 29 4 22V10Z"></path><path d="m4 10 12 7 12-7M16 17v12"></path></svg>
+      <span>MO§ES <b>/</b> 3D MODELS</span>
+    </a>
+    <nav class="scene-switch" aria-label="3D model views">
+      <a href="./index.html">01 Global</a>
+      <a aria-current="page" href="./lab.html">02 Lab</a>
+      <a href="./world.html">03 World</a>
+    <a href="./sequence.html">04 Assembly</a>
+    </nav>
+    <span class="edition">THREE VIEWS / ONE THEORY</span>
+  </header><main class="gallery-lab"><section class="latent-section" aria-label="Original latent geometry lab"><div class="latent-frame">
+<div aria-label="Latent geometry view" class="latent-viewbar" role="group">
+<button aria-pressed="true" class="active" data-latent-view="all" type="button"><span>00</span>All surfaces</button>
+<button aria-pressed="false" data-latent-view="noise" type="button"><span>01</span>Noise terrain</button>
+<button aria-pressed="false" data-latent-view="cone" type="button"><span>02</span>Literal cone</button>
+<button aria-pressed="false" data-latent-view="bowl" type="button"><span>03</span>Smooth bowl</button>
+<button aria-pressed="false" data-latent-view="gaussian" type="button"><span>04</span>Gaussian well</button>
+</div>
+<div class="latent-stage" data-view="all" id="latent-stage">
+<div id="latent-container"></div>
+<div class="latent-topline">
+<span>LATENT GEOMETRY / CONCEPTUAL MODEL</span>
+<span aria-live="polite" id="latent-state" role="status">ALL SURFACES · SHARED X/Y · Z = 0</span>
+</div>
+<div aria-hidden="true" id="latent-labels"></div>
+<div aria-label="Vertical axis legend" class="latent-axis-legend">
+<span><i></i>+Z / noise amplitude</span>
+<span><i></i>0 / neutral reference</span>
+<span><i></i>−Z / binding depth</span>
+</div>
+<span class="latent-help">DRAG TO ORBIT · SCROLL TO ZOOM · RIGHT-DRAG TO PAN</span>
+</div>
+<div aria-label="Latent geometry parameters" class="latent-console">
+<label>Noise amplitude <output id="noise-amplitude-output">1.6</output>
+<input aria-label="Noise amplitude" id="noise-amplitude" max="3" min="0.4" step="0.1" type="range" value="1.6"/>
+</label>
+<label>Binding depth <output id="binding-depth-output">−4.8</output>
+<input aria-label="Binding depth" id="binding-depth" max="7" min="1" step="0.1" type="range" value="4.8"/>
+</label>
+<div class="latent-toggles">
+<button aria-pressed="true" class="active" id="zero-plane-toggle" type="button">Zero plane</button>
+<button aria-pressed="true" class="active" id="contour-toggle" type="button">Contours</button>
+<button id="latent-reset" type="button">Reset view</button>
+</div>
+</div>
+<div class="latent-readout">
+<span id="latent-model-kicker">COMPARISON / FOUR PARAMETRIC SURFACES</span>
+<p id="latent-description">One positive terrain and three negative binding geometries share the same semantic reference plane. Compare their profiles directly; no temporal morph or trajectory is implied.</p>
+<code id="latent-equation">+Z : noise amplitude   |   0 : neutral   |   −Z : binding depth</code>
+</div>
+</div></section></main></body></html>

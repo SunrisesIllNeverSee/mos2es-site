@@ -9,6 +9,7 @@ node_modules/
 _site/
 .netlify/
 docs/
+3d/
 
 # Markdown slides (not site pages — passthrough copy handles uploads/)
 uploads/slides/

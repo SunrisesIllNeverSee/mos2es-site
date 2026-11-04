@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="An overhead-first, 360-degree assembly of the Four Towers, MO§ES rings, zero threshold, reactive noise, and governed signal basin."/>
+  <title>MO§ES — Assembly Sequence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Cpath d=&#39;M16 3 28 10v12L16 29 4 22V10Z&#39; fill=&#39;%230a181d&#39; stroke=&#39;%2365d6c4&#39;/%3E%3Cpath d=&#39;m4 10 12 7 12-7M16 17v12&#39; fill=&#39;none&#39; stroke=&#39;%2365d6c4&#39;/%3E%3C/svg%3E"/>
+  <script type="module" crossorigin="" src="./assets/sequence-CGXDpqzP.js"></script>
+  <link rel="modulepreload" crossorigin="" href="./assets/OrbitControls-NL7GUOCB.js"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/OrbitControls-DZZvtG10.css"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/sequence-Yim6fEEw.css"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/models-D1LdFWkH.css"/>
+<body class="sequence-body">
+  <div class="sequence-shell">
+    <header class="topbar gallery-header sequence-header">
+      <a aria-label="3D model gallery" class="brand" href="./index.html">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 28 10v12L16 29 4 22V10Z"></path><path d="m4 10 12 7 12-7M16 17v12"></path></svg>
+        <span>MO§ES <b>/</b> 3D MODELS</span>
+      </a>
+      <nav class="scene-switch" aria-label="3D model views">
+        <a href="./index.html">01 Global</a>
+        <a href="./lab.html">02 Lab</a>
+        <a href="./world.html">03 World</a>
+        <a aria-current="page" href="./sequence.html">04 Assembly</a>
+      </nav>
+      <span class="world-status" id="sequence-status"><i></i>OVERHEAD · Z = 0</span>
+    </header>
+
+    <main class="sequence-main" aria-label="Interactive MO§ES assembly sequence">
+      <div id="sequence-container"></div>
+      <div id="sequence-labels" aria-hidden="true"></div>
+
+      <section class="sequence-heading" aria-live="polite">
+        <span id="chapter-kicker">00 / NEUTRAL FIELD</span>
+        <h1 id="chapter-title">Start at zero.</h1>
+        <p id="chapter-summary">A flat grid and a hollow kernel. No towers, rings, noise, or basin.</p>
+      </section>
+
+      <nav class="chapter-rail" id="chapter-rail" aria-label="Assembly chapters"></nav>
+
+      <aside class="chapter-panel" aria-label="Chapter details">
+        <div class="panel-topline"><span id="panel-kicker">FIELD STATE</span><span id="chapter-count">00 / 12</span></div>
+        <div class="panel-stats" id="panel-stats"></div>
+        <p class="panel-copy" id="panel-copy">Nothing is inferred from height yet. This is the common reference from which every later difference is read.</p>
+        <a class="public-source" hidden="" id="public-source" rel="noopener" target="_blank">Public source ↗</a>
+
+        <div class="noise-lab" id="noise-lab" hidden="">
+          <div class="noise-presets" role="group" aria-label="Noise pattern">
+            <button type="button" data-noise-preset="reactions" class="active" aria-pressed="true">Reactions</button>
+            <button type="button" data-noise-preset="votes" aria-pressed="false">Votes</button>
+            <button type="button" data-noise-preset="follows" aria-pressed="false">Follows</button>
+          </div>
+          <p id="noise-description">Fast, shallow bursts: something was clicked. The count is positive; commitment is not thereby established.</p>
+          <label>Burst rate <output id="noise-rate-output">1.2×</output><input id="noise-rate" type="range" min="0.4" max="2.4" step="0.1" value="1.2"/></label>
+          <label>Positive amplitude <output id="noise-amp-output">1.4</output><input id="noise-amp" type="range" min="0.2" max="2.6" step="0.1" value="1.4"/></label>
+          <div class="noise-fact"><span>OBSERVED FACT</span><strong>+Z only</strong><p>Likes, votes, follows, and views can measure reaction volume. This model does not convert that volume into semantic fidelity.</p></div>
+        </div>
+
+        <div class="basin-key" id="basin-key" hidden="">
+          <span><i class="inner-swatch"></i>Inner face / binding profile</span>
+          <span><i class="outer-swatch"></i>Outer face / structural shell</span>
+          <p>Use <strong>Underneath</strong> or drag below the zero plane. Each descending layer carries its ring color into both faces.</p>
+        </div>
+      </aside>
+
+      <div class="sequence-axis" aria-label="Vertical axis legend">
+        <span><i class="positive"></i>+Z / reaction</span>
+        <span><i class="zero"></i>0 / threshold</span>
+        <span><i class="negative"></i>−Z / binding</span>
+      </div>
+
+      <div class="sequence-views" role="group" aria-label="Camera controls">
+        <button type="button" data-sequence-view="overhead" class="active" aria-pressed="true">Above</button>
+        <button type="button" data-sequence-view="orbit" aria-pressed="false">Orbit</button>
+        <button type="button" data-sequence-view="under" aria-pressed="false">Underneath</button>
+        <button type="button" id="rotate-360" aria-pressed="false">360°</button>
+      </div>
+
+      <div class="assembly-phase" id="assembly-phase" hidden="">
+        <span id="assembly-phase-label">FLAT GRID</span>
+        <strong id="assembly-phase-value">00.0 / 28.0 s</strong>
+      </div>
+      <span class="sequence-help">DRAG TO ORBIT · RIGHT-DRAG TO PAN · SCROLL TO ZOOM</span>
+    </main>
+
+    <footer class="sequence-transport">
+      <div class="chapter-buttons">
+        <button type="button" id="chapter-prev" aria-label="Previous chapter">←</button>
+        <button type="button" id="chapter-play" aria-label="Play chapter" hidden=""><span>Run</span></button>
+        <button type="button" id="chapter-next" aria-label="Next chapter">→</button>
+      </div>
+      <label class="assembly-timeline" id="assembly-timeline" hidden="">ASSEMBLY<input id="assembly-time" type="range" min="0" max="28" step="0.01" value="0"/></label>
+      <span class="transport-note" id="transport-note">CONCEPTUAL MODEL · PUBLIC SOURCES APPEAR ONLY ON TOWER PAGES</span>
+      <span class="transport-index" id="transport-index">CHAPTER 00</span>
+    </footer>
+  </div>
+
+
+</body></html>

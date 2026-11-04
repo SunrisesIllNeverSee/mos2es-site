@@ -69,6 +69,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("uploads");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("3d"); // MO§ES 3D models (prebuilt three.js app, copied as-is)
   eleventyConfig.addPassthroughCopy("docs");
   eleventyConfig.addPassthroughCopy("deck-stage.js");
   eleventyConfig.addPassthroughCopy("BingSiteAuth.xml");
