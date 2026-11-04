@@ -1,5 +1,76 @@
 # Cloudflare Pages handles pretty URLs natively (serves /page.html at /page).
-# The previous Netlify-style _redirects rules (/path -> /path.html 200) caused
-# redirect loops on Cloudflare Pages because they conflicted with the built-in
-# pretty URLs feature. This file is intentionally empty.
+# Never add Netlify-style rewrites (/path /path.html 200): they conflicted with
+# pretty URLs and caused redirect loops. 301s from retired pages to live pages
+# are fine; tests/agent-readiness.test.mjs enforces the difference.
 https://www.mos2es.org/* https://mos2es.org/:splat 301
+
+# 2026-11-04 consolidation: retired pages go to their closest live page.
+# The old site is frozen at tag archive/mos2es-site-2026-11-04.
+/architecture /products 301
+/architecture.html /products 301
+/constitutional-ai-hub / 301
+/constitutional-ai-hub.html / 301
+/governance-vacuum / 301
+/governance-vacuum.html / 301
+/governance-vs-alignment / 301
+/governance-vs-alignment.html / 301
+/ontology / 301
+/ontology.html / 301
+/multi-agent-systems / 301
+/multi-agent-systems.html / 301
+/agent-governance / 301
+/agent-governance.html / 301
+/ai-governance / 301
+/ai-governance.html / 301
+/external-governance / 301
+/external-governance.html / 301
+/legal /about 301
+/legal.html /about 301
+/benchmarks /research 301
+/benchmarks.html /research 301
+/papers /research 301
+/papers.html /research 301
+/field-sheet /research 301
+/field-sheet.html /research 301
+/financial-signals-paper /research 301
+/financial-signals-paper.html /research 301
+/commitment-conservation-hub /research 301
+/commitment-conservation-hub.html /research 301
+/demovideo /explore 301
+/demovideo.html /explore 301
+/concepts/commitment-conservation /research 301
+/concepts/commitment-conservation.html /research 301
+/concepts/commitment-kernel /research 301
+/concepts/commitment-kernel.html /research 301
+/concepts/conservation-law /research 301
+/concepts/conservation-law.html /research 301
+/concepts/governance-vacuum / 301
+/concepts/governance-vacuum.html / 301
+/concepts/persistent-governing-state / 301
+/concepts/persistent-governing-state.html / 301
+/concepts/sovereign-signal-governance / 301
+/concepts/sovereign-signal-governance.html / 301
+/guides/how-to-audit-multi-agent-transformations / 301
+/guides/how-to-audit-multi-agent-transformations.html / 301
+/guides/how-to-build-a-governance-layer / 301
+/guides/how-to-build-a-governance-layer.html / 301
+/guides/how-to-enforce-commitment-conservation /research 301
+/guides/how-to-enforce-commitment-conservation.html /research 301
+/guides/how-to-implement-governance-at-execution / 301
+/guides/how-to-implement-governance-at-execution.html / 301
+/guides/how-to-measure-semantic-commitment /research 301
+/guides/how-to-measure-semantic-commitment.html /research 301
+/guides/how-to-prevent-semantic-drift / 301
+/guides/how-to-prevent-semantic-drift.html / 301
+/press /contact 301
+/press.html /contact 301
+/resume /about 301
+/resume.html /about 301
+/blog / 301
+/blog/* / 301
+/vs / 301
+/vs/* / 301
+/alternatives / 301
+/alternatives/* / 301
+/concepts/lineage-claw /research 301
+/concepts/lineage-claw.html /research 301
