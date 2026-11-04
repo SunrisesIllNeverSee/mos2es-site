@@ -388,10 +388,10 @@
 <script type="application/json" id="speaker-notes">
 [
   "Wordmark: MO§ES™. Open on the joke: burning bushes and parting seas since c. 1446 BC.",
-  "Open with the action, not the product taxonomy: measure how people operate AI. The portfolio comes later.",
-  "The live board: SignalAF's Global AI Operator Leaderboard, production data, synced 26 October 2026.",
-  "Models get benchmarks, rankings, evals and leaderboards. People operating them largely do not. SigRank measures, SignalAF makes the stats public and legible, and Upsilon turns that measurement into an enterprise improvement loop. MO§ES, AQUA and Signomy are portfolio extensions rather than the opening story.",
-  "Market, as ranges: about $2.6B de-duplicated functional TAM (range $1.1B–$5.4B), about $300M de-duplicated current SAM (range $160M–$490M), and $5M–$8M focused Year-3 base ARR. Product ranges overlap and are not summed. Modeled estimates, not third-party market reports.",
+  "Open with the question, then the answer: the live board. SignalAF's Global AI Operator Leaderboard, production data, synced 26 October 2026. The numbers: 1,600+ profiles on the board including seeded history, about 50 claimed, 22 submitting their own telemetry, 22 platforms, 23,697 npm downloads.",
+  "Models get benchmarks, rankings, evals and leaderboards. People operating them do not. Seat analytics count frequency of use, which is not proficiency, and every vendor counts tokens its own way. Companies are buying AI seats for everyone and nobody can tell who uses them well.",
+  "SigRank measures locally across 22 platforms; only counts leave the device. SignalAF makes the stats public and legible. Free for individuals; teams pay. Pricing is a hypothesis: a $10K pilot, then about $25K a year per organization. Upsilon, MO§ES, AQUA and Signomy are the portfolio, not the opening story.",
+  "Market, as ranges: about $2.6B de-duplicated functional TAM (range $1.1B–$5.4B), about $300M de-duplicated current SAM (range $160M–$490M), and $5M–$8M focused Year-3 base ARR, which is roughly 200 to 320 organizations at $25K a year. Product ranges overlap and are not summed. Modeled estimates, not third-party market reports.",
   "The founder story is execution: built and ran a forty-person operating business before software; began coding in March 2026; then bootstrapped the telemetry, products, standards work and live public surfaces without outside engineers.",
   "The full pre-seed target is $1.25M with an initial close around $250K. The first money is for conversion, not construction: pilots, customer proof, targeted deployment blockers, legal/IP, runway, and commercial packaging."
 ]
@@ -405,42 +405,86 @@
     <div style="margin-top:28px; font-family:var(--serif); font-style:italic; font-weight:400; font-size:60px; line-height:1.2; color:#C4923A; text-align:center;">Burning bushes and parting seas since c.&nbsp;1446&nbsp;BC.</div>
   </section>
 
-  <section data-label="Cover" class="dark" style="padding:0; position:relative; overflow:hidden; background:#050906;">
-    <img src="assets/deck/opening-compare-cards-blank.png" alt="SignalAF compare graphic: operator radar chart and six operator cards" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" />
-    <div style="position:absolute; left:77px; top:110px; width:800px; font-family:'Inter Tight', var(--sans); color:#EEF4E8;">
-      <div style="font-weight:500; font-size:52px; line-height:1.1; color:#C4F53C;">I wanted to know&hellip;</div>
-      <div style="margin-top:22px; font-style:italic; font-weight:800; font-size:100px; line-height:1.02; letter-spacing:-0.02em;">&ldquo;How do I <span style="color:#C4F53C;">compare</span> against other AI operators?&rdquo;</div>
+  <section data-label="Cover · Board" class="dark" style="padding:0; position:relative; overflow:hidden; background:#050906;">
+    <div style="position:absolute; inset:0; display:grid; grid-template-columns:760px 1fr;">
+      <div style="position:relative; z-index:2; padding:104px 56px 72px 77px; display:flex; flex-direction:column; justify-content:space-between; background:linear-gradient(90deg,#050906 0%,#050906 90%,rgba(5,9,6,0) 100%); font-family:'Inter Tight', var(--sans); color:#EEF4E8;">
+        <div>
+          <div style="font-weight:500; font-size:46px; line-height:1.1; color:#C4F53C;">I wanted to know&hellip;</div>
+          <div style="margin-top:22px; font-style:italic; font-weight:800; font-size:86px; line-height:1.02; letter-spacing:-0.02em;">&ldquo;How do I <span style="color:#C4F53C;">compare</span> against other AI operators?&rdquo;</div>
+        </div>
+        <div style="font-family:var(--mono); font-size:22px; line-height:1.65; letter-spacing:0.05em; text-transform:uppercase; color:#9AA69C;">
+          <div style="color:#EEF4E8;">SignalAF &middot; live board &middot; 26 Oct 2026</div>
+          <div>1,600+ operator profiles on the board</div>
+          <div>~50 claimed &middot; 22 submit their own telemetry</div>
+          <div>22 AI platforms &middot; 23,697 npm downloads</div>
+          <div>Official MCP Registry &middot; Claude plugin</div>
+        </div>
+      </div>
+      <img src="assets/deck/leaderboard-2026-10-26.png" alt="SignalAF Global AI Operator Leaderboard, live board, 26 October 2026" style="width:100%; height:100%; object-fit:cover; object-position:60% center; display:block;" />
     </div>
-  </section>
-
-  <section data-label="Leaderboard" class="dark" style="padding:0; position:relative; overflow:hidden; background:#050906;">
-    <img src="assets/deck/leaderboard-2026-10-26.png" alt="SignalAF Global AI Operator Leaderboard, live board, 26 October 2026" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;" />
   </section>
 
   <section data-label="Problem" class="dark">
     <div class="top-bar">
-      <div class="eyebrow"><span class="num">04</span>Problem</div>
+      <div class="eyebrow"><span class="num">03</span>Problem</div>
       <div class="right">The human side of AI performance</div>
     </div>
 
-    <div style="margin-top:38px; max-width:1450px;">
+    <div style="margin-top:38px; max-width:1500px;">
       <h2 style="font-size:70px; line-height:1.02;">We obsess over model performance<br>and ranking. <em style="color:#E8A07A;">Why not those who actually use it?</em></h2>
     </div>
 
-    <div style="margin-top:48px; flex:1; display:grid; grid-template-rows:auto 1fr; gap:40px; min-height:0;">
-      <div style="border-top:2px solid #E8A07A; padding:24px 20px 18px; max-width:1200px;">
-        <div class="label" style="color:#E8A07A;">MEASURE + COMPARE</div>
-        <div class="wm" style="font-size:44px; margin-top:13px;">SIGRANK / SIGNALAF</div>
-        <div style="margin-top:18px; font-family:var(--serif); font-size:30px; line-height:1.3; color:var(--paper); max-width:40ch;">Operator statistics, profiles, rankings and head-to-head comparisons. Free for individuals. Teams that pay for AI seats pay to see how their people operate AI.</div>
+    <div style="margin-top:40px; flex:1; display:grid; grid-template-columns:repeat(3,1fr); gap:48px; min-height:0; align-content:center;">
+      <div style="border-top:2px solid var(--rule); padding-top:22px;">
+        <div class="label">Models</div>
+        <div style="margin-top:16px; font-family:var(--serif); font-size:38px; line-height:1.28; color:var(--paper);">Benchmarks, evals, rankings and leaderboards for every release.</div>
       </div>
-      <div>
-        <div class="label" style="color:var(--ink-3);">Built on MO§ES · roadmap</div>
-        <div style="margin-top:16px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
-          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">UPSILON</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Improve how an operator works with AI</div></div>
-          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">MO§ES™</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Preserve commitments as language is transformed</div></div>
-          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">AQUA</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Reuse what you have already written</div></div>
-          <div style="border-top:1px solid var(--rule); padding-top:14px;"><div class="wm" style="font-size:24px;">SIGNOMY</div><div style="margin-top:8px; font-size:20px; line-height:1.3; color:var(--ink-2);">Govern how agents participate and exchange</div></div>
-        </div>
+      <div style="border-top:2px solid #E8A07A; padding-top:22px;">
+        <div class="label" style="color:#E8A07A;">Operators</div>
+        <div style="margin-top:16px; font-family:var(--serif); font-size:38px; line-height:1.28; color:var(--paper);">Two people on the same model get very different results, and nothing records that difference.</div>
+      </div>
+      <div style="border-top:2px solid var(--rule); padding-top:22px;">
+        <div class="label">Today&rsquo;s tools</div>
+        <div style="margin-top:16px; font-family:var(--serif); font-size:38px; line-height:1.28; color:var(--paper);">Seat analytics count usage. Frequency of use is not proficiency. Every vendor counts tokens its own way, so nothing compares across platforms.</div>
+      </div>
+    </div>
+
+    <div style="padding-top:22px; border-top:1px solid var(--rule);">
+      <div style="font-family:var(--serif); font-style:italic; font-weight:300; font-size:42px; line-height:1.3; color:var(--paper);">Companies are buying AI seats for everyone. <em style="color:#E8A07A; font-style:italic;">No one can tell who is using them well.</em></div>
+    </div>
+  </section>
+
+  <section data-label="Product" class="dark">
+    <div class="top-bar">
+      <div class="eyebrow"><span class="num">04</span>Product</div>
+      <div class="right">Measure + compare</div>
+    </div>
+
+    <div style="margin-top:38px; max-width:1500px;">
+      <h2 style="font-size:70px; line-height:1.02;"><span class="wm" style="font-family:var(--serif); text-transform:none; letter-spacing:-0.01em; font-weight:400;">SigRank</span> measures. <em style="color:#E8A07A;">SignalAF makes it public.</em></h2>
+    </div>
+
+    <div style="margin-top:40px; flex:1; display:grid; grid-template-columns:1.15fr 1fr; gap:72px; min-height:0; align-content:center;">
+      <div style="border-top:2px solid var(--rule); padding-top:22px;">
+        <div class="label">How it works</div>
+        <div style="margin-top:16px; font-family:var(--serif); font-size:36px; line-height:1.3; color:var(--paper);">Install the CLI, MCP server or Claude plugin. It reads your AI sessions locally across 22 platforms. Only counts leave the device. Four token pillars become five stats, a profile, a class tier and an archetype. Then you compare: boards, head-to-head, history.</div>
+        <div style="margin-top:18px; font-family:var(--mono); font-size:21px; line-height:1.5; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-2);">One standard for every metric across all 22 platforms, measured from what the operator typed.</div>
+      </div>
+      <div style="border-top:2px solid #E8A07A; padding-top:22px;">
+        <div class="label" style="color:#E8A07A;">Who pays</div>
+        <div style="margin-top:16px; font-family:var(--serif); font-size:50px; line-height:1.12; color:var(--paper);">Free for individuals.</div>
+        <div style="margin-top:12px; font-family:var(--serif); font-size:50px; line-height:1.12; color:var(--paper);">Teams pay to see who uses their AI seats <em style="color:#E8A07A;">well.</em></div>
+        <div style="margin-top:22px; font-family:var(--mono); font-size:21px; line-height:1.5; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-2);">$10K pilot &rarr; ~$25K / yr per org &middot; pricing hypotheses</div>
+      </div>
+    </div>
+
+    <div style="padding-top:20px; border-top:1px solid var(--rule);">
+      <div class="label" style="color:var(--ink-3);">Built on MO§ES &middot; roadmap</div>
+      <div style="margin-top:12px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+        <div><span class="wm" style="font-size:22px;">UPSILON</span><div style="margin-top:6px; font-size:19px; line-height:1.3; color:var(--ink-2);">Improve how an operator works with AI</div></div>
+        <div><span class="wm" style="font-size:22px;">MO§ES™</span><div style="margin-top:6px; font-size:19px; line-height:1.3; color:var(--ink-2);">Preserve commitments as language is transformed</div></div>
+        <div><span class="wm" style="font-size:22px;">AQUA</span><div style="margin-top:6px; font-size:19px; line-height:1.3; color:var(--ink-2);">Reuse what you have already written</div></div>
+        <div><span class="wm" style="font-size:22px;">SIGNOMY</span><div style="margin-top:6px; font-size:19px; line-height:1.3; color:var(--ink-2);">Govern how agents participate and exchange</div></div>
       </div>
     </div>
   </section>
@@ -458,7 +502,7 @@
         <div style="font-family:var(--mono); font-size:22px; color:var(--ink-2); margin-top:10px;">base · range $1.1B–$5.4B</div>
       </div>
       <div><div class="label">De-duplicated current SAM</div><div style="font-family:var(--serif); font-size:62px; color:var(--paper); margin-top:12px;">~$300M</div><div style="font-family:var(--mono); font-size:20px; color:var(--ink-2); margin-top:8px;">base · range $160M–$490M</div></div>
-      <div><div class="label">Focused Y3 base ARR</div><div style="font-family:var(--serif); font-size:62px; color:var(--paper); margin-top:12px;">$5M–$8M</div></div>
+      <div><div class="label">Focused Y3 base ARR</div><div style="font-family:var(--serif); font-size:62px; color:var(--paper); margin-top:12px;">$5M–$8M</div><div style="font-family:var(--mono); font-size:20px; color:var(--ink-2); margin-top:8px;">≈ 200–320 organizations at ~$25K/yr</div></div>
     </div>
 
     <div style="margin-top:30px; flex:1;">
