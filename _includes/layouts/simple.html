@@ -27,9 +27,9 @@
 {%- set links = [["Products","/products"],["Research","/research"],["Explore","/explore"],["Contact","/contact"],["About","/about"]] %}
 <body class="{{ 'home' if home else 'sub' }}">
 {% if home %}
-<div id="intro" class="intro" aria-hidden="true">
-  <video muted playsinline preload="auto"></video>
-  <button type="button" class="skip">Skip</button>
+<div id="intro" class="intro" role="region" aria-label="Opening animation">
+  <video muted playsinline preload="auto" aria-hidden="true"></video>
+  <button type="button" class="skip">Skip intro</button>
 </div>
 <script>
 /* Opening: the end of the assembly video (wordmark rises and slams), then the lead slide.
@@ -60,7 +60,7 @@
   v.addEventListener('ended', done);
   v.addEventListener('error', done);
   el.querySelector('.skip').addEventListener('click', done);
-  addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') done(); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') done(); });
   var p = v.play();
   if (p && p.catch) p.catch(done);
   setTimeout(done, 9000);

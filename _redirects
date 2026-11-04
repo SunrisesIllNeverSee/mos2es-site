@@ -1,7 +1,7 @@
 # Cloudflare Pages handles pretty URLs natively (serves /page.html at /page).
-# The previous Netlify-style _redirects rules (/path -> /path.html 200) caused
-# redirect loops on Cloudflare Pages because they conflicted with the built-in
-# pretty URLs feature. This file is intentionally empty.
+# Never add Netlify-style rewrites (/path /path.html 200): they conflicted with
+# pretty URLs and caused redirect loops. 301s from retired pages to live pages
+# are fine; tests/agent-readiness.test.mjs enforces the difference.
 https://www.mos2es.org/* https://mos2es.org/:splat 301
 
 # 2026-11-04 consolidation: retired pages go to their closest live page.
@@ -66,8 +66,11 @@ https://www.mos2es.org/* https://mos2es.org/:splat 301
 /press.html /contact 301
 /resume /about 301
 /resume.html /about 301
+/blog / 301
 /blog/* / 301
+/vs / 301
 /vs/* / 301
+/alternatives / 301
 /alternatives/* / 301
 /concepts/lineage-claw /research 301
 /concepts/lineage-claw.html /research 301
