@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="An interactive three-dimensional model of neutral signal, reactive noise, governed binding geometry, and the Four Towers connected by MO§ES." name="description"/>
+<title>MO§ES — Signal, Noise &amp; Binding Geometry</title>
+<link href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Cpath d=&#39;M16 3 28 10v12L16 29 4 22V10Z&#39; fill=&#39;%230a181d&#39; stroke=&#39;%2365d6c4&#39;/%3E%3Cpath d=&#39;m4 10 12 7 12-7M16 17v12&#39; fill=&#39;none&#39; stroke=&#39;%2365d6c4&#39;/%3E%3C/svg%3E" rel="icon"/>  <script type="module" crossorigin="" src="./assets/world-6RfJVLcO.js"></script>
+  <link rel="modulepreload" crossorigin="" href="./assets/OrbitControls-NL7GUOCB.js"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/OrbitControls-DZZvtG10.css"/>
+  <link rel="stylesheet" crossorigin="" href="./assets/models-D1LdFWkH.css"/>
+<body>
+<div class="app-shell">
+<header class="topbar gallery-header">
+<div class="brand">
+<svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3 28 10v12L16 29 4 22V10Z"></path><path d="m4 10 12 7 12-7M16 17v12"></path></svg>
+<span>MO§ES <b>/</b> 3D MODELS</span>
+</div>
+<nav aria-label="3D model views" class="scene-switch">
+<a href="./index.html">01 Global</a>
+<a href="./lab.html">02 Lab</a>
+<a aria-current="page" href="./world.html">03 World</a>
+<a href="./sequence.html">04 Assembly</a>
+    </nav>
+<span class="world-status" id="world-status"><i></i>NEUTRAL START · Z = 0</span>
+</header>
+<main class="world" id="world">
+<div id="world-container"></div>
+<div class="world-heading">
+<span>THE NEUTRAL RECTANGLE</span>
+<h1>Noise rises.<br/><em>Binding deepens.</em></h1>
+<p>Both begin at zero. A governed kernel gives the negative surface its form.</p>
+</div>
+<div aria-label="Camera view" class="camera-views" role="group">
+<button aria-pressed="true" class="active" data-camera="overview" type="button">Overview</button>
+<button aria-pressed="false" data-camera="surface" type="button">Surface</button>
+<button aria-pressed="false" data-camera="towers" type="button">Towers</button>
+</div>
+<div aria-hidden="true" id="scene-labels"></div>
+<div aria-label="Vertical axis" class="vertical-key">
+<span><i></i>+Z / reactive noise</span>
+<span><i></i>0 / neutral plane</span>
+<span><i></i>−Z / binding depth</span>
+</div>
+<div class="phase-readout">
+<span id="phase-kicker">00 / NEUTRAL ORIGIN</span>
+<strong id="phase-title">Signal = 0  ·  Noise = 0</strong>
+<span id="phase-detail">A flat rectangular field. Run the transformation to introduce both regimes.</span>
+</div>
+<span class="orbit-help">DRAG TO ORBIT · SCROLL TO ZOOM · RIGHT-DRAG TO PAN</span>
+</main>
+<section aria-label="Three-dimensional model controls" class="control-deck">
+<div class="deck-row primary-controls">
+<div class="control-set">
+<span class="control-label">Field</span>
+<div aria-label="Visible field" class="segmented" role="group">
+<button aria-pressed="true" class="active" data-field="combined" type="button">Signal + noise</button>
+<button aria-pressed="false" data-field="signal" type="button">Signal</button>
+<button aria-pressed="false" data-field="noise" type="button">Noise</button>
+</div>
+</div>
+<div class="control-set geometry-set">
+<span class="control-label">Binding geometry</span>
+<div aria-label="Binding geometry" class="segmented" role="group">
+<button aria-pressed="true" class="active" data-shape="gaussian" type="button">Gaussian</button>
+<button aria-pressed="false" data-shape="bowl" type="button">Bowl</button>
+<button aria-pressed="false" data-shape="cone" type="button">Cone</button>
+</div>
+</div>
+<div class="transport">
+<button aria-label="Play transformation" aria-pressed="false" class="play-button" id="play-toggle" type="button">
+<svg aria-hidden="true" class="play-icon" viewBox="0 0 20 20"><path d="m6 3 10 7-10 7z"></path></svg>
+<svg aria-hidden="true" class="pause-icon" viewBox="0 0 20 20"><path d="M6 4h3v12H6zM12 4h3v12h-3z"></path></svg>
+<span>Run</span>
+</button>
+<button aria-label="Return to neutral zero" class="reset-button" id="neutral-reset" type="button">
+<svg aria-hidden="true" viewBox="0 0 20 20"><path d="M4 8a6 6 0 1 1 1 6M4 8V3m0 5h5"></path></svg>
+<span>Zero</span>
+</button>
+</div>
+</div>
+<div class="timeline-row">
+<span>TRANSFORMATION</span>
+<input aria-label="Transformation time" id="timeline" max="16" min="0" step="0.01" type="range" value="0"/>
+<output id="timeline-output">00.0 / 16.0 s</output>
+</div>
+<div class="deck-row parameter-row">
+<label>Noise intensity <output id="noise-output">1.2</output>
+<input id="noise-intensity" max="2.5" min="0" step="0.1" type="range" value="1.2"/>
+</label>
+<label>Maximum binding depth <output id="depth-output">−4.8</output>
+<input id="binding-depth" max="7" min="1" step="0.1" type="range" value="4.8"/>
+</label>
+<div class="model-equation"><span>LIVE GEOMETRY</span><code id="shape-equation">Z = Zgaussian + Znoise</code></div>
+<button aria-pressed="true" class="tower-toggle active" id="towers-toggle" type="button"><span></span>Four Towers + circuits</button>
+</div>
+</section>
+</div>
+<footer><span>CONCEPTUAL 3D MODEL / NOT EXPERIMENTAL EVIDENCE</span><span>MO§ES is the substrate and circuit—not a fifth tower.</span></footer>
+
+
+</body></html>
