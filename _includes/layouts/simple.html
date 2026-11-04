@@ -27,6 +27,44 @@
 {%- set links = [["About","/about"],["Products","/products"],["Research","/research"],["Explore","/explore"],["Contact","/contact"]] %}
 <body class="{{ 'home' if home else 'sub' }}">
 {% if home %}
+<div id="intro" class="intro" aria-hidden="true">
+  <video muted playsinline preload="auto"></video>
+  <button type="button" class="skip">Skip</button>
+</div>
+<script>
+/* Opening: the end of the assembly video (wordmark rises and slams), then the lead slide.
+   Plays once per browser session; skipped for reduced motion; any failure goes straight to the slide. */
+(function () {
+  var el = document.getElementById('intro');
+  var seen = false;
+  try { seen = sessionStorage.getItem('mosesIntro') === '1'; } catch (e) {}
+  if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.remove(); return; }
+  var root = document.documentElement;
+  root.classList.add('intro-on');
+  var v = el.querySelector('video');
+  var kind = innerWidth / innerHeight < 1.1 ? 'square' : 'wide';
+  el.classList.add(kind);
+  v.muted = true;
+  v.poster = '/media/intro-' + kind + '.jpg';
+  v.src = '/media/intro-' + kind + '.mp4';
+  var finished = false;
+  function done() {
+    if (finished) return;
+    finished = true;
+    try { sessionStorage.setItem('mosesIntro', '1'); } catch (e) {}
+    el.classList.add('out');
+    root.classList.remove('intro-on');
+    setTimeout(function () { el.remove(); }, 1000);
+  }
+  v.addEventListener('ended', done);
+  v.addEventListener('error', done);
+  el.querySelector('.skip').addEventListener('click', done);
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') done(); });
+  var p = v.play();
+  if (p && p.catch) p.catch(done);
+  setTimeout(done, 9000);
+})();
+</script>
 <main class="hero">
   <h1>MO§ES<sup>™</sup></h1>
   <p>Burning bushes and parting seas since c.&nbsp;1446&nbsp;BC.</p>

@@ -90,3 +90,14 @@ footer .ip { margin-top: 18px; max-width: 900px; }
   .refs li { grid-template-columns: 1fr; }
   footer:not(.mini) { padding: 32px 16px 48px; }
 }
+
+/* Opening clip on the home page (shown only when the script turns it on) */
+.intro { display: none; }
+html.intro-on .intro { display: block; position: fixed; inset: 0; z-index: 50; background: #000; transition: opacity 0.9s ease; }
+.intro.out { display: block; position: fixed; inset: 0; z-index: 50; background: #000; opacity: 0; pointer-events: none; transition: opacity 0.9s ease; }
+.intro video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.intro.square video { object-fit: contain; }
+.intro .skip { position: absolute; right: 16px; bottom: 16px; background: none; border: 1px solid #3a3f4a; color: var(--ink-2); font: 500 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 14px; cursor: pointer; }
+.intro .skip:hover { color: var(--gold); border-color: var(--gold); }
+.hero, footer.mini { transition: opacity 1s ease 0.75s; }
+html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
