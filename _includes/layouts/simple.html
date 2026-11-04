@@ -1,0 +1,57 @@
+{# _includes/layouts/simple.html — 2026-11-04 landing layout. Front matter: title, description, path, nav, home #}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="https://mos2es.com{{ path }}">
+  <meta name="theme-color" content="#0A0D12">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mos2es.com{{ path }}">
+  <meta property="og:title" content="{{ og_title or title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="https://mos2es.com/media/mo-ses-cover.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@burnmydays">
+  <meta name="twitter:image" content="https://mos2es.com/media/mo-ses-cover.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0D12'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-size='32' fill='%23C4923A' font-family='serif'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/landing.css">
+</head>
+{%- set links = [["About","/about"],["Products","/products"],["Research","/research"],["Explore","/explore"],["Contact","/contact"]] %}
+<body class="{{ 'home' if home else 'sub' }}">
+{% if home %}
+<main class="hero">
+  <h1>MO§ES<sup>™</sup></h1>
+  <p>Burning bushes and parting seas since c.&nbsp;1446&nbsp;BC.</p>
+  <nav class="menu" aria-label="Main">
+    {%- for l in links %}<a href="{{ l[1] }}">{{ l[0] }}</a>{% endfor %}
+  </nav>
+</main>
+<footer class="mini">&copy; 2026 Ello Cello LLC · <a href="/privacy">Privacy</a></footer>
+{% else %}
+<header class="bar">
+  <a class="mark" href="/" aria-label="MO§ES home">MO§ES<sup>™</sup></a>
+  <nav aria-label="Main">
+    {%- for l in links %}<a href="{{ l[1] }}"{% if nav == l[0] %} aria-current="page"{% endif %}>{{ l[0] }}</a>{% endfor %}
+  </nav>
+</header>
+<main class="page">
+{{ content | safe }}
+</main>
+<footer>
+  <div class="row">
+    <div class="copy">&copy; 2026 Ello Cello LLC · Buffalo, NY</div>
+    <nav aria-label="Footer"><a href="/">Home</a><a href="/faq">FAQ</a><a href="/deck">Deck</a><a href="/privacy">Privacy</a></nav>
+  </div>
+  <p class="ip">MO§ES™ is a trademark of Ello Cello LLC (U.S. application 99408355, pending). Patent applications 19/426,028 (utility) and 63/991,282 (provisional) are pending. Two earlier provisionals (Sept 2025) lapsed in Sept 2026; that work is published at DOI 10.5281/zenodo.20029607.</p>
+</footer>
+{% endif %}
+</body>
+</html>
