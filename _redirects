@@ -2,7 +2,6 @@
 # Never add Netlify-style rewrites (/path /path.html 200): they conflicted with
 # pretty URLs and caused redirect loops. 301s from retired pages to live pages
 # are fine; tests/agent-readiness.test.mjs enforces the difference.
-https://www.mos2es.org/* https://mos2es.org/:splat 301
 
 # 2026-11-04 consolidation: retired pages go to their closest live page.
 # The old site is frozen at tag archive/mos2es-site-2026-11-04.
