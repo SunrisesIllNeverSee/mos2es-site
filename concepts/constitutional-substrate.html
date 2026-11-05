@@ -78,7 +78,7 @@ jsonld:
     <li><strong>Rule evaluation</strong>: The gate checks whether the transformation is permitted under the governance rules. Is the signal valid? Is the transformation type allowed? Is the signal's lineage intact?</li>
     <li><strong>Threshold check</strong>: The gate measures the input signal's commitment, predicts the output's commitment, and checks whether the predicted output meets the resonance threshold. If it does not, the transformation is blocked.</li>
     <li><strong>Lineage verification</strong>: The gate verifies that the input signal has a valid hash chain tracing back to its origin compression cycle. If the lineage is broken or missing, the signal is rejected.</li>
-    <li><strong>Decision</strong>: The gate renders a permit-or-block decision. If permitted, the transformation proceeds and the output is bound to the input via the <a href="/concepts/lineage-claw">Lineage Claw</a>. If blocked, the transformation is halted and the event is logged.</li>
+    <li><strong>Decision</strong>: The gate renders a permit-or-block decision. If permitted, the transformation proceeds and the output is bound to the input via the Lineage Claw. If blocked, the transformation is halted and the event is logged.</li>
   </ol>
   <p>All of this happens before the transformation runs. The constitutional substrate is what makes MO§ES a pre-execution enforcement system rather than a post-hoc monitoring system.</p>
 
@@ -99,7 +99,6 @@ jsonld:
     <li><a href="/concepts/signal-encoding">Signal Encoding</a>: The process that applies the substrate's rules through constitutional compression</li>
     <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: The enforcement mechanisms — pre-execution gates, resonance thresholds, lineage verification — that the substrate defines</li>
     <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: The substrate makes the law operational by providing the rules and thresholds that enforcement requires</li>
-    <li><a href="/concepts/lineage-claw">Lineage Claw</a>: The substrate defines the lineage requirements that the Lineage Claw enforces</li>
     <li><a href="/concepts/origin-binding">Origin Binding</a>: The substrate defines what constitutes a valid origin compression cycle and a valid binding</li>
   </ul>
 
@@ -114,7 +113,7 @@ jsonld:
     <a href="/concepts/signal-encoding">Signal Encoding</a>
     <a href="/concepts/governance-enforcement">Governance Enforcement</a>
     <a href="/concepts/conservation-law">Conservation Law</a>
-    <a href="/concepts/lineage-claw">Lineage Claw</a>
+    Lineage Claw
     <a href="/concepts/origin-binding">Origin Binding</a>
     <a href="/architecture">Architecture</a>
     <a href="/papers">Papers & Proofs</a>

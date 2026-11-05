@@ -66,10 +66,11 @@ const organizationIdentity = {
 
 module.exports = function (eleventyConfig) {
   // ── Passthrough copies (static assets, config files) ──
-  eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("img", { filter: ["**/*", "!benchmarks/**"] });
+  eleventyConfig.addPassthroughCopy("media"); // landing video + cover (2026-11-04)
   eleventyConfig.addPassthroughCopy("uploads");
   eleventyConfig.addPassthroughCopy("assets");
-  eleventyConfig.addPassthroughCopy("docs");
+  eleventyConfig.addPassthroughCopy("3d"); // MO§ES 3D models (prebuilt three.js app, copied as-is)
   eleventyConfig.addPassthroughCopy("deck-stage.js");
   eleventyConfig.addPassthroughCopy("BingSiteAuth.xml");
   eleventyConfig.addPassthroughCopy("indexnow-key.txt");

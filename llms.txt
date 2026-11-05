@@ -1,133 +1,55 @@
 # MO§ES™ (MOS2ES)
 
-> Sovereign signal governance — the protocol layer for preserving semantic meaning at point of execution.
+> The home of Ello Cello LLC's work: measure the people who use AI, govern the agents, keep the commitments.
 
-MO§ES™ is the sovereign signal governance framework published by Ello Cello LLC. It is built around the Conservation Law of Commitment and documents commitment conservation, governance enforcement, SHA-256 audit trails, lineage-bound artifacts, and execution-layer governance for multi-agent AI operations.
+MO§ES™ is the umbrella for Ello Cello LLC's products and research. One theory, Commitment Theory and its Conservation Law, sits under four products: SignalAF, SigRank, Signomy and AQUA.
 
 ## When to use MO§ES
-Use MO§ES when an agent, researcher, or technical team needs to:
-- evaluate whether commitments survive summarization, translation, compression, delegation, or recursive AI transformation;
-- design or review execution-layer governance for agentic or multi-agent systems;
-- distinguish signal-integrity governance from model alignment, RLHF, output guardrails, or orchestration;
-- trace provenance, lineage, origin binding, or commitment drift through a transformation chain;
-- find the public research record, benchmark evidence, architecture, legal/IP references, or citable definitions behind MO§ES;
-- identify the correct MO§ES concept, guide, paper, benchmark, or related runtime before making a technical or factual claim.
+Use this site when an agent, researcher, or technical team needs to:
+- find the public research record for Commitment Theory and the Conservation Law of Commitment (DOIs, experiments, harness, specs);
+- get citable definitions of MO§ES concepts such as recursive compression, governance enforcement, constitutional substrate, signal encoding and origin binding;
+- route to the right product: SignalAF (AI operator leaderboard), SigRank (local measurement CLI and MCP server), Signomy (governed agent marketplace), AQUA (reusable application answers);
+- verify publisher identity, contact details, patent and trademark status.
 
-Do not use MO§ES as a general-purpose chatbot, model inference endpoint, content moderation service, or substitute for ordinary output-safety guardrails. For governed agent execution and the operational runtime surface, follow the Signomy links identified below.
+Do not use MO§ES as a general-purpose chatbot, model inference endpoint, content moderation service, or substitute for ordinary output-safety guardrails.
 
 ## How agents should use this site
-- Start with this file for routing or `https://mos2es.com/sitemap.xml` for the canonical public URL set.
+- Start with this file, or `https://mos2es.com/sitemap.xml` for the canonical URL set.
 - Fetch canonical content URLs with `Accept: text/markdown` when Markdown is preferred. The same canonical URL serves HTML to browsers and Markdown to clients that negotiate it.
-- Use `/concepts/*` for citable definitions, `/guides/*` for implementation guidance, `/papers` for the evidence record, `/architecture` for system structure, and `/legal` for filing and trademark references.
-- Use `/about`, `/contact`, and `/privacy` to verify publisher identity, contact information, and website data practices.
-- If a path returns HTTP 404, do not infer that a neighboring or guessed path exists. Recover through `/llms.txt` or `/sitemap.xml`.
-- When citing claims, prefer the linked Zenodo DOI, public repository, benchmark page, or legal record over paraphrased marketing copy.
+- The site was consolidated on 2026-11-04. Retired URLs return 301 to their closest live page. Do not infer that a guessed path exists; recover through `/llms.txt` or `/sitemap.xml`.
+- When citing claims, prefer the linked Zenodo DOI or public repository over paraphrased copy.
 
-## Core pages
-- [Home](https://mos2es.com/?utm_source=ai&utm_medium=answer_engine): MO§ES governance framework overview
-- [About](https://mos2es.com/about?utm_source=ai&utm_medium=answer_engine): publisher, scope, public record, and brand identity
-- [Contact](https://mos2es.com/contact?utm_source=ai&utm_medium=answer_engine): canonical business contact and mailing address
-- [Privacy](https://mos2es.com/privacy?utm_source=ai&utm_medium=answer_engine): public-site analytics and data-handling notice
-- [Architecture](https://mos2es.com/architecture?utm_source=ai&utm_medium=answer_engine): MO§ES system architecture — recursive compression, origin binding, lineage claws
-- [Benchmarks](https://mos2es.com/benchmarks?utm_source=ai&utm_medium=answer_engine): empirical results across 5 AI kernels
-- [Field Sheet](https://mos2es.com/field-sheet?utm_source=ai&utm_medium=answer_engine): operational summary and one-pager
-- [Papers & Proofs](https://mos2es.com/papers?utm_source=ai&utm_medium=answer_engine): published research and proof stack
-- [Financial Signals Paper & Review](https://mos2es.com/financial-signals-paper?utm_source=ai&utm_medium=answer_engine): commitment conservation in financial signals — paper and external review published together
-- [Legal & IP](https://mos2es.com/legal?utm_source=ai&utm_medium=answer_engine): patent portfolio and trademark
-- [Press Kit](https://mos2es.com/press?utm_source=ai&utm_medium=answer_engine): boilerplate and press resources
-- [FAQ](https://mos2es.com/faq?utm_source=ai&utm_medium=answer_engine): 20 frequently asked questions about MO§ES
+## Pages
+- [Home](https://mos2es.com/): the lead slide and menu
+- [Products](https://mos2es.com/products): SignalAF, SigRank, Signomy, AQUA, Commitment Theory, the Enterprise Intelligence Pilot and services
+- [Research](https://mos2es.com/research): papers with DOIs and the five core concepts
+- [Explore](https://mos2es.com/explore): the assembly video, demos and walkthroughs, 3D models, the commitment kernel demo and the deck
+- [Contact](https://mos2es.com/contact): Deric J. McHenry, email and mailing address
+- [About](https://mos2es.com/about): the idea, numbers, what's shipped, the founder and the record
+- [FAQ](https://mos2es.com/faq) · [Privacy](https://mos2es.com/privacy) · [Deck](https://mos2es.com/deck) · [3D models](https://mos2es.com/3d/)
 
-## Concepts (citable definitions)
-- [Conservation Law of Commitment](https://mos2es.com/concepts/conservation-law?utm_source=ai&utm_medium=answer_engine): C(T(S)) ≈ C(S) with enforcement; C(T(S)) < C(S) without it
-- [Lineage Claw](https://mos2es.com/concepts/lineage-claw?utm_source=ai&utm_medium=answer_engine): cryptographic mechanism binding transformed signals to origins
-- [Origin Binding](https://mos2es.com/concepts/origin-binding?utm_source=ai&utm_medium=answer_engine): tying artifacts to origin compression cycles
-- [Recursive Compression](https://mos2es.com/concepts/recursive-compression?utm_source=ai&utm_medium=answer_engine): the transformation operator T in the Conservation Law
-- [Governance Enforcement](https://mos2es.com/concepts/governance-enforcement?utm_source=ai&utm_medium=answer_engine): pre-execution gates and resonance thresholds
-- [Commitment Conservation](https://mos2es.com/concepts/commitment-conservation?utm_source=ai&utm_medium=answer_engine): the measured outcome the Conservation Law predicts
-- [Signal Encoding](https://mos2es.com/concepts/signal-encoding?utm_source=ai&utm_medium=answer_engine): embedding commitment using constitutional compression
-- [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate?utm_source=ai&utm_medium=answer_engine): foundational rules, thresholds, and enforcement mechanisms
-- [Sovereign Signal Governance](https://mos2es.com/concepts/sovereign-signal-governance?utm_source=ai&utm_medium=answer_engine): enforceable governance at the point of execution, not post-hoc correction
-- [Governance Vacuum](https://mos2es.com/concepts/governance-vacuum?utm_source=ai&utm_medium=answer_engine): the gap between AI deployment and governance enforcement causing commitment degradation
-- [Commitment Kernel](https://mos2es.com/concepts/commitment-kernel?utm_source=ai&utm_medium=answer_engine): the minimal identity-preserving deontic invariant of a signal — what MO§ES extracts and preserves
+## Concepts
+- [Recursive Compression](https://mos2es.com/concepts/recursive-compression)
+- [Governance Enforcement](https://mos2es.com/concepts/governance-enforcement)
+- [Constitutional Substrate](https://mos2es.com/concepts/constitutional-substrate)
+- [Signal Encoding](https://mos2es.com/concepts/signal-encoding)
+- [Origin Binding](https://mos2es.com/concepts/origin-binding)
+- [How to verify lineage](https://mos2es.com/guides/how-to-verify-lineage)
 
-## Guides (how-to)
-- [How to Enforce Commitment Conservation](https://mos2es.com/guides/how-to-enforce-commitment-conservation?utm_source=ai&utm_medium=answer_engine): implementing MO§ES governance enforcement
-- [How to Audit Multi-Agent Transformations](https://mos2es.com/guides/how-to-audit-multi-agent-transformations?utm_source=ai&utm_medium=answer_engine): auditing AI pipelines for commitment degradation
-- [How to Implement Governance at Execution](https://mos2es.com/guides/how-to-implement-governance-at-execution?utm_source=ai&utm_medium=answer_engine): moving from post-hoc to pre-execution governance
-- [How to Verify Lineage](https://mos2es.com/guides/how-to-verify-lineage?utm_source=ai&utm_medium=answer_engine): SHA-256 hash verification and origin binding
-- [How to Measure Semantic Commitment](https://mos2es.com/guides/how-to-measure-semantic-commitment?utm_source=ai&utm_medium=answer_engine): NLI bidirectional entailment and Jaccard stability
-- [How to Build a Governance Layer](https://mos2es.com/guides/how-to-build-a-governance-layer?utm_source=ai&utm_medium=answer_engine): MO§ES architecture patterns for AI systems
-- [How to Prevent Semantic Drift](https://mos2es.com/guides/how-to-prevent-semantic-drift?utm_source=ai&utm_medium=answer_engine): detecting and preventing drift in recursive transformations
+## Research record
+- A Conservation Law for Commitment in Language: https://doi.org/10.5281/zenodo.20029607
+- Experimental Record: https://doi.org/10.5281/zenodo.19105225
+- Experiment Harness: https://doi.org/10.5281/zenodo.19109397
+- TTEOP Interoperability Spec: https://doi.org/10.5281/zenodo.22180349
+- SigRank Taxonomy v3.1: https://doi.org/10.5281/zenodo.21900519
+- SSRN: https://doi.org/10.2139/ssrn.6734283
+- Commitment Theory on GitHub: https://github.com/SunrisesIllNeverSee/Commitment_Theory
 
-## Comparisons
-- [MO§ES vs Constitutional AI](https://mos2es.com/vs/constitutional-ai?utm_source=ai&utm_medium=answer_engine): execution governance vs model training
-- [MO§ES vs RLHF](https://mos2es.com/vs/rlhf?utm_source=ai&utm_medium=answer_engine): deterministic enforcement vs probabilistic alignment
-- [MO§ES vs Guardrails](https://mos2es.com/vs/guardrails?utm_source=ai&utm_medium=answer_engine): signal protection vs output checking
-- [MO§ES vs Agent Orchestration](https://mos2es.com/vs/agent-orchestration?utm_source=ai&utm_medium=answer_engine): governance vs coordination
+## Products
+- SignalAF: https://signalaf.com
+- SigRank: https://www.npmjs.com/package/sigrank (MCP Registry: com.signalaf/sigrank)
+- Signomy: https://signomy.xyz
+- AQUA: https://aquaidp.xyz
 
-## Alternatives
-- [AI Governance Frameworks](https://mos2es.com/alternatives/ai-governance-frameworks?utm_source=ai&utm_medium=answer_engine): 6 approaches compared
-- [Agent Guardrails](https://mos2es.com/alternatives/agent-guardrails?utm_source=ai&utm_medium=answer_engine): 5 guardrail approaches compared
-- [Commitment Tracking](https://mos2es.com/alternatives/commitment-tracking?utm_source=ai&utm_medium=answer_engine): 5 commitment tracking approaches compared
-
-## Topic hubs
-- [AI Governance](https://mos2es.com/ai-governance?utm_source=ai&utm_medium=answer_engine): what AI governance is and why it matters
-- [Commitment Conservation](https://mos2es.com/commitment-conservation-hub?utm_source=ai&utm_medium=answer_engine): preserving semantic meaning under transformation
-- [Multi-Agent Systems](https://mos2es.com/multi-agent-systems?utm_source=ai&utm_medium=answer_engine): governance for multi-agent AI pipelines
-- [Constitutional AI](https://mos2es.com/constitutional-ai-hub?utm_source=ai&utm_medium=answer_engine): rules-based AI governance approaches
-- [Agent Governance](https://mos2es.com/agent-governance?utm_source=ai&utm_medium=answer_engine): governing what AI agents say and do
-
-## Blog
-- [The Governance Vacuum](https://mos2es.com/blog/governance-vacuum?utm_source=ai&utm_medium=answer_engine): why most AI systems operate without governance
-- [Why AI Deployments Fail](https://mos2es.com/blog/why-ai-deployments-fail?utm_source=ai&utm_medium=answer_engine): the governance gap as a failure mode
-- [The Execution Layer](https://mos2es.com/blog/the-execution-layer?utm_source=ai&utm_medium=answer_engine): why governance must move to execution time
-
-## Academic foundation
-- Conservation Law paper (Zenodo, CC-BY-4.0): https://doi.org/10.5281/zenodo.20029607
-- Experimental Record (Zenodo): https://doi.org/10.5281/zenodo.19105225
-- Public Recursive Transformation Harness (Zenodo): https://doi.org/10.5281/zenodo.19109397
-- Propositions of Commitment Theory (Zenodo): https://doi.org/10.5281/zenodo.20031715
-- Commitment Theory (34-paper research program): https://github.com/SunrisesIllNeverSee/Commitment_Theory
-- Conservation Law repo: https://github.com/SunrisesIllNeverSee/commitment-conservation
-- ORCID: https://orcid.org/0009-0002-9904-5390
-
-## Governance ecosystem
-- MO§ES main repo: https://github.com/SunrisesIllNeverSee/MOS2ES
-- MO§ES governance framework: https://github.com/SunrisesIllNeverSee/moses-governance
-- MO§ES Constitutional Claw (OpenClaw): https://github.com/SunrisesIllNeverSee/moses-claw-gov
-- Command Engine (open-source runtime): https://github.com/SunrisesIllNeverSee/command-engine
-- Patent: Serial No. 63/877,177 (Provisional, pending)
-- Trademark: 99408355 (IC 042)
-
-## Related surfaces
-- SigRank (live data product built on Conservation Law): https://signalaf.com
-- SIGNOMY / CIVITAE (governed agent marketplace): https://signomy.xyz
-- GitHub org: https://github.com/SunrisesIllNeverSee
-
-## Citing MO§ES
-McHenry, D. J. (2026). A Conservation Law for Commitment in Language Under Transformative Compression and Recursive Application. Zenodo. https://doi.org/10.5281/zenodo.20029607
-
-## Contribution Exchange
-
-mos2es.com participates in the Contribution Exchange, a protocol for agents to propose and complete contributions to participating domains. The Exchange is hosted at signalaf.com as the central Steward — mos2es.com does not run its own Exchange server.
-
-### Two contribution paths
-
-**Unsolicited path:** An agent discovers an opportunity independently and submits a Contribution Proposal. The proposal is non-binding. If accepted, a Commitment is formed through separate bilateral terms-hash acceptance.
-
-**Exchange Signals path:** mos2es.com (via the central Steward) may publish Exchange Signals — problems, requests, challenges, bounties, verification tasks, discoveries, or experiments. Agents create attempts on signals, submit work, and may create follow-on proposals from verified attempts. Signals sit before proposals and commitments; they do not bypass bilateral Commitment formation.
-
-### Key URLs
-
-- Exchange profile: https://mos2es.com/.well-known/exchange.json
-- Domain-filtered Signals: https://signalaf.com/api/exchange/signals?domain=mos2es.com
-- Signals page (human): https://signalaf.com/exchange/signals?domain=mos2es.com
-- Contribution Exchange MCP: https://signalaf.com/api/exchange/mcp
-- MCP server card: https://signalaf.com/.well-known/exchange-mcp.json
-- Agent guide: https://signalaf.com/agents.md
-- Policy: https://signalaf.com/api/exchange/steward/mos2es.com
-- Schema: https://signalaf.com/exchange.schema.json
-
-### Human-control boundary
-
-No Exchange tool or Signal creates a Commitment, authorization, or payment obligation. Every mutation response includes `authoritative_exchange_state_advanced: false`. Commitment formation requires separate bilateral terms-hash acceptance. Agents cannot self-assert verification or advance exchange state.
+## Publisher
+Ello Cello LLC, Buffalo, New York. MO§ES™ is a trademark of Ello Cello LLC (U.S. application 99408355, pending). Patent applications 19/426,028 (utility) and 63/991,282 (provisional) are pending; two earlier provisionals (Sept 2025) lapsed in Sept 2026 and that work is published at DOI 10.5281/zenodo.20029607.

@@ -102,7 +102,10 @@ assert_status "$code" 200 "homepage HTML"
 assert_header_contains "$TMP_DIR/html-root.headers" "Content-Type" "text/html"
 assert_vary_token "$TMP_DIR/html-root.headers" "accept-encoding"
 assert_contains "$TMP_DIR/html-root.body" '"contactPoint"'
-assert_contains "$TMP_DIR/html-root.body" '"PostalAddress"'
+# PostalAddress intentionally removed from JSON-LD for privacy (P8 cleanup); see agent-readiness.test.mjs.
+if grep -q 'streetAddress' "$TMP_DIR/html-root.body"; then
+  fail "html-root.body must not expose streetAddress in JSON-LD"
+fi
 assert_contains "$TMP_DIR/html-root.body" '"MOS2ES"'
 
 # Canonical URL negotiates Markdown and honors quality values.

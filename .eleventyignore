@@ -9,6 +9,7 @@ node_modules/
 _site/
 .netlify/
 docs/
+3d/
 
 # Markdown slides (not site pages — passthrough copy handles uploads/)
 uploads/slides/
@@ -31,3 +32,49 @@ tweaks.jsx
 
 # Old poster archives (not part of the live site)
 img/benchmarks/archive/
+
+# Retired 2026-11-04 (landing consolidation). Sources kept in the repo; the full
+# old site is frozen at tag archive/mos2es-site-2026-11-04. Redirects in _redirects.
+img/benchmarks/
+media/
+.github/
+.repo/
+AGENTS.md
+AGENT_READINESS_AUDIT_2026-08-22.md
+system-devin/
+articles/
+preview.html
+architecture.html
+demovideo.html
+field-sheet.html
+commitment-conservation-hub.html
+constitutional-ai-hub.html
+agent-governance.html
+ai-governance.html
+external-governance.html
+governance-vacuum.html
+governance-vs-alignment.html
+multi-agent-systems.html
+benchmarks.html
+legal.html
+papers.html
+press.html
+resume.html
+ontology.html
+financial-signals-paper.html
+blog/
+vs/
+alternatives/
+concepts/commitment-conservation.html
+concepts/commitment-kernel.html
+concepts/conservation-law.html
+concepts/governance-vacuum.html
+concepts/persistent-governing-state.html
+concepts/sovereign-signal-governance.html
+guides/how-to-audit-multi-agent-transformations.html
+guides/how-to-build-a-governance-layer.html
+guides/how-to-enforce-commitment-conservation.html
+guides/how-to-implement-governance-at-execution.html
+guides/how-to-measure-semantic-commitment.html
+guides/how-to-prevent-semantic-drift.html
+concepts/lineage-claw.html

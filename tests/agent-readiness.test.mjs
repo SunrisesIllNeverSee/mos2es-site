@@ -89,21 +89,29 @@ test("trust anchors are substantive, routed, and indexed", async () => {
     assert.match(footer, new RegExp(`href="/${name}"`));
   }
 
-  // Cloudflare Pages handles pretty URLs natively (serves /page.html at /page),
-  // so the _redirects file should contain no Netlify-style path redirect rules
-  // (those caused redirect loops on Cloudflare Pages). The only allowed rule is
-  // the www → non-www domain redirect (cross-domain, not a path rewrite).
+  // Cloudflare Pages handles pretty URLs natively (serves /page.html at /page).
+  // Netlify-style rewrites (/path /path.html 200) caused redirect loops there, so
+  // _redirects may only hold 301/308 redirects from retired paths to live pages:
+  // no rewrites, no rule over a page that still builds, no chains or loops.
   const redirectRules = redirects
     .split("\n")
-    .filter((line) => line.trim() && !line.trim().startsWith("#"));
-  const pathRedirects = redirectRules.filter(
-    (line) => !line.startsWith("https://www."),
-  );
-  assert.equal(
-    pathRedirects.length,
-    0,
-    "_redirects should contain no path redirect rules (only www → non-www domain redirects are allowed)",
-  );
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"))
+    .map((line) => line.split(/\s+/));
+  const pathRules = redirectRules.filter(([from]) => from.startsWith("/"));
+  const sources = new Set(pathRules.map(([from]) => from));
+  const ignored = await read(".eleventyignore");
+  for (const [from, to, status] of pathRules) {
+    assert.ok(["301", "308"].includes(status), `${from}: only 301/308 redirects, no rewrites (got ${status})`);
+    assert.ok(!sources.has(to), `${from} -> ${to}: redirect chain or loop`);
+    assert.notEqual(from.replace(/\.html$/, ""), to.replace(/\.html$/, ""), `${from}: redirects to itself`);
+    if (!from.includes("*")) {
+      const file = from.replace(/^\//, "").replace(/\.html$/, "") + ".html";
+      let builds = false;
+      try { await read(file); builds = !ignored.split("\n").some((l) => l.trim() === file || (l.trim().endsWith("/") && file.startsWith(l.trim()))); } catch {}
+      assert.ok(!builds, `${from}: rule shadows a live page (${file})`);
+    }
+  }
 });
 
 test("organization identity publishes brand aliases and contact point", async () => {

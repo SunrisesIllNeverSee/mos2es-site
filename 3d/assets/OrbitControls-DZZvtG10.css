@@ -1,0 +1,143 @@
+.gallery-body {
+  background: #030a0d;
+}
+.site-header.gallery-header,
+.topbar.gallery-header {
+  min-height: 68px;
+  flex-wrap: nowrap;
+}
+.gallery-header .brand {
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+.gallery-header .scene-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  padding: 4px;
+  border: 1px solid rgba(151, 187, 192, 0.17);
+  background: #051116cc;
+}
+.gallery-header .scene-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 13px;
+  color: #769297;
+  font: 500 9px/1 var(--mono, "IBM Plex Mono", monospace);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  transition:
+    color 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+.gallery-header .scene-switch a:hover,
+.gallery-header .scene-switch a:focus-visible {
+  color: #d7f8ee;
+  background: #65d6c414;
+  outline: none;
+}
+.gallery-header .scene-switch a[aria-current="page"] {
+  color: #071512;
+  background: #65d6c4;
+  border-color: #65d6c4;
+}
+.gallery-header .edition {
+  margin-left: 20px;
+}
+.hero.gallery-hero {
+  display: block;
+  min-height: 0;
+  padding: 0;
+}
+.scene-shell.gallery-scene {
+  height: calc(100dvh - 68px);
+  min-height: 620px;
+  border-bottom: 0;
+}
+.gallery-scene .scene-stage {
+  min-height: 0;
+}
+.gallery-lab,
+.gallery-lab .latent-section {
+  padding: 0;
+}
+.gallery-lab .latent-section:before {
+  display: none;
+}
+.gallery-lab .latent-frame {
+  max-width: none;
+  border: 0;
+}
+.gallery-lab .latent-stage {
+  height: calc(100dvh - 328px);
+  min-height: 430px;
+}
+.topbar.gallery-header .scene-switch {
+  margin-left: auto;
+}
+.topbar.gallery-header .world-status {
+  margin-left: 16px;
+}
+@media (max-width: 980px) {
+  .gallery-header .edition,
+  .topbar.gallery-header .world-status {
+    display: none;
+  }
+  .gallery-lab .latent-stage {
+    height: calc(100dvh - 376px);
+  }
+}
+@media (max-width: 720px) {
+  .site-header.gallery-header,
+  .topbar.gallery-header {
+    width: 100%;
+    min-height: 68px;
+    padding: 10px 12px;
+    flex-wrap: nowrap;
+  }
+  .gallery-header .brand span {
+    font-size: 9px;
+  }
+  .gallery-header .brand svg {
+    width: 26px;
+    height: 26px;
+  }
+  .gallery-header nav.gallery-header .scene-switch {
+    order: 0;
+    width: auto;
+    margin-left: auto;
+    gap: 2px;
+    padding: 3px;
+    overflow: visible;
+  }
+  .gallery-header .scene-switch a {
+    min-height: 34px;
+    padding: 0 8px;
+    font-size: 8px;
+    letter-spacing: 0.025em;
+  }
+  .scene-shell.gallery-scene {
+    height: calc(100dvh - 68px);
+    min-height: 700px;
+  }
+  .gallery-lab .latent-stage {
+    height: 610px;
+    min-height: 610px;
+  }
+}
+@media (max-width: 440px) {
+  .gallery-header .brand span {
+    display: none;
+  }
+  .gallery-header .scene-switch a {
+    padding: 0 9px;
+  }
+}
