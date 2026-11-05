@@ -2,6 +2,8 @@
 # Never add Netlify-style rewrites (/path /path.html 200): they conflicted with
 # pretty URLs and caused redirect loops. 301s from retired pages to live pages
 # are fine; tests/agent-readiness.test.mjs enforces the difference.
+# Host redirects (www -> apex) cannot live here: Pages ignores host-matched
+# sources. They are in functions/_middleware.js.
 
 # 2026-11-04 consolidation: retired pages go to their closest live page.
 # The old site is frozen at tag archive/mos2es-site-2026-11-04.

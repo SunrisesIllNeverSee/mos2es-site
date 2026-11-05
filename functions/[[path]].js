@@ -12,7 +12,6 @@
 // is the preferred representation.
 
 import { mergeVary, negotiateRepresentation } from "./lib/accept.mjs";
-import { canonicalRedirect } from "./lib/canonical-host.mjs";
 
 const STATIC_EXT = /\.(js|css|xml|txt|json|png|jpg|jpeg|gif|svg|webp|ico|pdf|zip|jsonld|ttl)$/i;
 
@@ -53,15 +52,6 @@ function htmlToMarkdown(html) {
 
 export async function onRequest(context) {
   const { request, next } = context;
-
-  // ─── www → apex, before anything else (every method and path) ─────────
-  const canonical = canonicalRedirect(request.url);
-  if (canonical) {
-    return new Response(null, {
-      status: 301,
-      headers: { Location: canonical, "Cache-Control": "public, max-age=86400" },
-    });
-  }
 
   // ─── /api/search — proxy to analytics worker (AI Search binding) ──────
   // Handles both GET and POST before the GET/HEAD-only markdown logic.
