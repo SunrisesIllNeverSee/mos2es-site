@@ -26,7 +26,7 @@ Do not use MO§ES as a general-purpose chatbot, model inference endpoint, conten
 - [Explore](https://mos2es.com/explore): the assembly video, demos and walkthroughs, 3D models, the commitment kernel demo and the deck
 - [Contact](https://mos2es.com/contact): Deric J. McHenry, email and mailing address
 - [About](https://mos2es.com/about): the idea, numbers, what's shipped, the founder and the record
-- [FAQ](https://mos2es.com/faq) · [Privacy](https://mos2es.com/privacy) · [Deck](https://mos2es.com/deck) · [3D models](https://mos2es.com/3d/)
+- [FAQ](https://mos2es.com/faq) · [Privacy](https://mos2es.com/privacy) · [Deck](https://mos2es.com/deck) · [3D models](https://mos2es.com/3d/) ([Assembly Sequence](https://mos2es.com/3d/sequence), [World](https://mos2es.com/3d/world), [Lab](https://mos2es.com/3d/lab))
 
 ## Concepts
 - [Recursive Compression](https://mos2es.com/concepts/recursive-compression)

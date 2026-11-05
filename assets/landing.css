@@ -109,7 +109,7 @@ html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
 .shots.trio .shot:not(.feature) .meta { flex-direction: column; align-items: flex-start; gap: 6px; }
 .shots.trio .shot:not(.feature) .meta h2 { font-size: 19px; }
 @media (hover: hover) { .shots.trio .shot:not(.feature) .reveal { font-size: 15px; padding: 20px; } }
-@media (max-width: 900px) { .shots.trio { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .shots.trio { gap: 28px 16px; } }
 @media (max-width: 640px) { .shots.trio { grid-template-columns: 1fr; } }
 .shot { display: block; color: inherit; }
 .shot:hover { text-decoration: none; }

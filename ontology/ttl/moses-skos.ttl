@@ -47,10 +47,9 @@ moses:IntelligenceProvenance a skos:Concept ;
 
 moses:LineageNode a skos:Concept ;
     dct:source "prompt-specification, micro-evals.yaml" ;
-    skos:definition "The provenance chain connecting artifacts through transformations. Distinct from LineageClaw (cryptographic mechanism)."@en ;
+    skos:definition "The provenance chain connecting artifacts through transformations."@en ;
     skos:inScheme moses:concept-scheme ;
     skos:prefLabel "Lineage (node type)"@en ;
-    skos:related moses:LineageClaw ;
     moses:conceptStatus "hypothesis" ;
     moses:reviewRequired true .
 
@@ -195,7 +194,7 @@ moses:InterventionEval a skos:Concept ;
 moses:LineageCustodyClause a skos:Concept ;
     dct:source "https://mos2es.com/faq" ;
     skos:broader moses:MOSES ;
-    skos:definition "Vault artifacts cryptographically bound to origin. Implements the Lineage Claw."@en ;
+    skos:definition "Vault artifacts cryptographically bound to origin."@en ;
     skos:inScheme moses:concept-scheme ;
     skos:prefLabel "Lineage Custody Clause"@en ;
     moses:conceptStatus "site_defined" .
@@ -237,7 +236,7 @@ moses:OperatorSystemEval a skos:Concept ;
 moses:OriginBinding a skos:Concept ;
     dct:source "https://mos2es.com/concepts/origin-binding" ;
     skos:broader moses:MOSES ;
-    skos:definition "Process of cryptographically tying an artifact to its origin compression cycle. The policy that the Lineage Claw implements."@en ;
+    skos:definition "Process of cryptographically tying an artifact to its origin compression cycle."@en ;
     skos:inScheme moses:concept-scheme ;
     skos:prefLabel "Origin Binding"@en ;
     moses:conceptStatus "site_defined" .
@@ -318,14 +317,6 @@ moses:GovernedTransformation a skos:Concept ;
     skos:prefLabel "Governed Transformation"@en ;
     moses:conceptStatus "source_supported" .
 
-moses:LineageClaw a skos:Concept ;
-    dct:source "https://mos2es.com/concepts/lineage-claw" ;
-    skos:broader moses:MOSES ;
-    skos:definition "Cryptographic mechanism binding transformed signals to origins using SHA-256 hash chains. Creates a verifiable provenance trail where every transformation is recorded and every artifact is tied to its origin compression cycle."@en ;
-    skos:inScheme moses:concept-scheme ;
-    skos:prefLabel "Lineage Claw"@en ;
-    moses:conceptStatus "site_defined" .
-
 moses:UngovernedTransformation a skos:Concept ;
     skos:broader moses:CommitmentTheory ;
     skos:definition "A transformation without constitutional constraints; subject to semantic entropy and commitment degradation."@en ;
@@ -395,7 +386,6 @@ moses:MOSES a skos:Concept ;
     skos:narrower moses:BlackholeLaw,
         moses:ConstitutionalSubstrate,
         moses:GovernanceEnforcement,
-        moses:LineageClaw,
         moses:LineageCustodyClause,
         moses:McHenrysLawI,
         moses:McHenrysLawII,
