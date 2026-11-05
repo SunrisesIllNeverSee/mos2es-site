@@ -109,22 +109,22 @@ fi
 assert_contains "$TMP_DIR/html-root.body" '"MOS2ES"'
 
 # Canonical URL negotiates Markdown and honors quality values.
-code="$(request markdown /architecture 'text/markdown, text/html;q=0.5')"
-assert_status "$code" 200 "architecture Markdown"
+code="$(request markdown /products 'text/markdown, text/html;q=0.5')"
+assert_status "$code" 200 "products Markdown"
 assert_header_contains "$TMP_DIR/markdown.headers" "Content-Type" "text/markdown; charset=utf-8"
 assert_vary_token "$TMP_DIR/markdown.headers" "accept-encoding"
-assert_contains "$TMP_DIR/markdown.body" 'Sovereign Architecture'
+assert_contains "$TMP_DIR/markdown.body" 'Four products, one theory'
 if grep -Fqi '<html' "$TMP_DIR/markdown.body"; then
   fail "Markdown representation still contains an HTML document shell"
 fi
 
 # HTML remains preferred when its q-value wins.
-code="$(request html-preferred /architecture 'text/html, text/markdown;q=0.5')"
-assert_status "$code" 200 "architecture HTML preference"
+code="$(request html-preferred /products 'text/html, text/markdown;q=0.5')"
+assert_status "$code" 200 "products HTML preference"
 assert_header_contains "$TMP_DIR/html-preferred.headers" "Content-Type" "text/html"
 
 # An explicitly unsupported representation is rejected.
-code="$(request not-acceptable /architecture 'application/json')"
+code="$(request not-acceptable /products 'application/json')"
 assert_status "$code" 406 "unsupported representation"
 assert_vary_token "$TMP_DIR/not-acceptable.headers" "accept-encoding"
 
