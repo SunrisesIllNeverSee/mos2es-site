@@ -52,7 +52,7 @@ jsonld:
         name: "How does MO§ES prevent commitment degradation during recursive compression?"
         acceptedAnswer:
           "@type": "Answer"
-          text: "MO§ES applies governance enforcement at each step of the recursive compression chain. Pre-execution gates check commitment levels before a transformation is applied, resonance thresholds reject transformations that would degrade commitment below an acceptable level, and the Lineage Claw binds each output to its input, creating a verifiable audit trail."
+          text: "MO§ES applies governance enforcement at each step of the recursive compression chain. Pre-execution gates check commitment levels before a transformation is applied, resonance thresholds reject transformations that would degrade commitment below an acceptable level, and lineage binding ties each output to its input, creating a verifiable audit trail."
       - "@type": "Question"
         name: "What counts as a transformation in recursive compression?"
         acceptedAnswer:
@@ -84,7 +84,7 @@ jsonld:
   <ol>
     <li><strong>Pre-execution gating</strong>: Before a transformation is applied, the system measures the commitment of the input signal and predicts the commitment of the output. If the predicted degradation exceeds the resonance threshold, the transformation is rejected.</li>
     <li><strong>Resonance thresholding</strong>: Each transformation must preserve commitment above a defined threshold. Transformations that would push commitment below the threshold are blocked before execution.</li>
-    <li><strong>Lineage binding</strong>: The Lineage Claw binds each output to its input, creating a verifiable chain that makes degradation detectable and attributable.</li>
+    <li><strong>Lineage binding</strong>: Each output is bound to its input by a hash chain, creating a verifiable chain that makes degradation detectable and attributable.</li>
   </ol>
   <p>With enforcement, the experimental record showed commitment conserved at 80-85% of original levels across all 10 iterations — even under aggressive recursive compression. The transformation operator T is the same. The difference is governance.</p>
 
@@ -109,7 +109,6 @@ jsonld:
     <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/governance-enforcement">Governance Enforcement</a>
     <a href="/concepts/commitment-conservation">Commitment Conservation</a>
-    Lineage Claw
     <a href="/architecture">Architecture</a>
     <a href="/papers">Papers & Proofs</a>
     <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>

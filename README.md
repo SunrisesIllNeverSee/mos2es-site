@@ -1,27 +1,52 @@
-# MO§ES™ Site
+# MO§ES™ site
 
-Static landing page for `mos2es.com`.
+Source for [mos2es.com](https://mos2es.com), the home page for Ello Cello LLC's work: SignalAF, SigRank, Signomy, AQUA and Commitment Theory.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d9134f21-e3a3-4384-8b5b-bea769c8a7b9/deploy-status)](https://app.netlify.com/projects/mos2es/deploys)
+Since 2026-11-04 the site is a short landing, not a product site. The old site is frozen at tag `archive/mos2es-site-2026-11-04` and at https://d3b4511e.mos2es.pages.dev.
 
-## Netlify
+## Pages
 
-- Branch: `main`
-- Build command: `npm run build`
-- Publish directory: `_site`
+| Address | What it is |
+|---|---|
+| `/` | Lead slide and menu. Opens with the 3D wordmark intro, once per session. Doesn't scroll. |
+| `/products` | Preview cards for each product, the Enterprise Intelligence Pilot and services. |
+| `/research` | Papers with DOIs and five core concepts. |
+| `/explore` | Assembly video, demos, the four 3D models, the commitment kernel demo and the deck. |
+| `/contact` | Name, email, mailing address and links. |
+| `/about` | The idea, numbers, what's shipped, timeline, founder and the record. |
+| `/faq`, `/privacy`, `/deck` | Kept from the old site. |
+| `/3d/` | The 3D models (Global, Lab, World, Assembly Sequence). Prebuilt, copied as is. |
+| `/concepts/*`, `/guides/how-to-verify-lineage` | Five concept pages and one guide, kept from the old site. |
 
-## Local Development
+Retired pages are listed in `.eleventyignore`. Their sources stay in the repo, and `_redirects` sends each old address to its closest live page with a 301.
+
+## Build and run
 
 ```bash
-npm install        # install 11ty
-npm run dev        # local server at http://localhost:8080
-npm run build      # build to _site/
+npm install
+npm run dev      # local server with live reload
+npm run build    # writes _site/
+npm test         # agent-readiness and redirect tests
 ```
 
-## Architecture
+The site is built with Eleventy 3 (`.eleventy.js`). The new pages use `_includes/layouts/simple.html` and `assets/landing.css`. The kept concept, guide and FAQ pages use the older layouts in `_includes/`.
 
-- **11ty** static site generator (v3.1)
-- Existing pages (index, papers, legal, etc.) are hand-written HTML, copied as-is
-- New content pages (concepts, guides, vs, alternatives, blog, FAQ) use shared layouts in `_includes/`
-- Shared CSS in `_includes/css/base.css`
-- Shared nav/footer in `_includes/partials/`
+## Deploy
+
+mos2es.com is served by the Cloudflare Pages project `mos2es`. Merging to `main` does **not** deploy. Deploy by hand from a clean checkout of `main`:
+
+```bash
+npm run build
+npx wrangler pages deploy _site --project-name mos2es --branch main
+```
+
+Then check the live pages and a few redirects. `functions/` holds the Pages Function that serves Markdown to clients that send `Accept: text/markdown`. `netlify.toml` and `src/edge-functions/` are from the old Netlify setup and are no longer used.
+
+## Rules worth knowing
+
+- `_redirects` may hold 301s only. Never add `/x /x.html 200` rewrites: they caused redirect loops with Cloudflare's pretty URLs. `tests/agent-readiness.test.mjs` enforces this.
+- Spell the brand MO§ES™ (MO§ES in running text). Never MO§E§.
+- `llms.txt` and `llms-full.txt` describe the site for AI agents. Keep them in step with the pages.
+- `sitemap.xml` is written by hand. Update it when pages are added or retired.
+
+© 2026 Ello Cello LLC, Buffalo, NY.

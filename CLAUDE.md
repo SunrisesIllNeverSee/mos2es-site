@@ -1,55 +1,41 @@
 # CURRENT OPERATING STATE — read FIRST
 
-**MO§ES™ site (mos2es.com) is LIVE** — static HTML site deployed via Netlify (main branch, auto-deploy).
-**A fresh session, read in order:** this header →
-[MAIN_TODO.md](Devins_Plans/MAIN_TODO.md) (what's actually open) →
-[DECISIONS.md](Devins_Plans/DECISIONS.md) (why things are the way they are) →
-the [SCRATCHPAD.md](Devins_Plans/SCRATCHPAD.md) tail (the live bus) →
-[state/ROSTER.md](Devins_Plans/state/ROSTER.md) (who's doing what).
+Updated 2026-11-05T11:24Z.
 
-**The repos (know which surface you're touching):**
-- **mos2es-site** = this repo. Static marketing/site pages for mos2es.com. Branch `main`. HTML/CSS/JS, no build step. Deployed via Netlify (publish dir `.`).
-- **MOS2ES** (github.com/SunrisesIllNeverSee/MOS2ES) = core protocol/research repo.
-- **moses-governance** (github.com/SunrisesIllNeverSee/moses-governance) = governance layer.
-- **moses-claw-gov** (github.com/SunrisesIllNeverSee/moses-claw-gov) = claw governance tooling.
-- **signalaf.com** = sibling site (SEO/GEO/AEO playbook source).
-- **signomy.xyz** = sibling site.
+**mos2es.com is LIVE** as a short landing site (consolidated 2026-11-04, PR #13).
+It is an Eleventy 3 build served by the **Cloudflare Pages** project `mos2es`.
+Netlify is no longer used; `netlify.toml` and `src/edge-functions/` are leftovers.
 
-**Live versions:** Static site — no package manager, no build tool. Python3 `http.server` for local dev (port 8743, see `.claude/launch.json`). `jq` + `curl` required for `scripts/indexnow-ping.sh`.
+- **Pages:** `/`, `/products`, `/research`, `/explore`, `/contact`, `/about`, plus kept
+  `/faq`, `/privacy`, `/deck`, `/3d/`, five `/concepts/*` pages and one guide.
+  See README.md for the table.
+- **Retired pages:** listed in `.eleventyignore`; sources kept; `_redirects` 301s each
+  old address to its closest live page. Old site frozen at tag
+  `archive/mos2es-site-2026-11-04` and https://d3b4511e.mos2es.pages.dev.
+- **Layout:** new pages use `_includes/layouts/simple.html` and `assets/landing.css`.
+
+**Build, test, deploy:**
+
+```bash
+npm install && npm test && npm run build
+npx wrangler pages deploy _site --project-name mos2es --branch main   # owner-approved only
+```
+
+Merging to `main` does **not** deploy. A deploy is an owner-gated action: deploy only when the owner
+asks for it, from a clean `main`, then check the live pages and a few redirects.
+CI (`.github/workflows/repo-standard.yml`) runs the repo check, `npm test` and the build on PRs.
+
+**The repos:**
+- **mos2es-site** = this repo (public).
+- **MOS2ES**, **moses-governance**, **moses-claw-gov** = protocol, governance and tooling repos.
+- **signalaf.com**, **signomy.xyz**, **aquaidp.xyz** = sibling product sites.
 
 ---
 
-# SESSION COORDINATION — read FIRST (every session, every time)
+# SESSION COORDINATION
 
-This repo runs multiple parallel sessions.
-
-**Org structure:**
-- **de sit1** = primary development session. Operates out of mos2es-site.
-- **de sit2** = secondary/parallel session. Operates out of mos2es-site or sibling repos.
-- **OWNER** = Deric J. McHenry. Mediates through sessions.
-
-To stop coordination from disappearing between sessions:
-
-1. **The bus is `Devins_Plans/SCRATCHPAD.md`.** Read its tail + the COORDINATION PROTOCOL header
-   before doing anything. Append your status/decisions/questions there (format:
-   `### ⤷ <FROM> → <TO>: <subject>`). Don't start a parallel log.
-2. **Log into the activity tracker (once per session):** `bash scripts/set-role.sh <ROLE>`.
-   Then update your row in `Devins_Plans/state/ROSTER.md` (Track · Purpose · UTC). The
-   PostToolUse hook auto-appends every `Devins_Plans/*.md` edit to
-   `Devins_Plans/state/ACTIVITY.log` tagged with your role (no set-role → `UNKNOWN` — visible,
-   never silent). Run `bash scripts/status.sh` to see roster + activity side by side.
-   It's a TRACKER, not governance — it flags nothing; the human reads the gap.
-3. **Install the commit-log hook once per clone:** `bash scripts/install-hooks.sh`
-   (git hooks live in `.git/` and DON'T travel — each session/machine must install). It
-   auto-appends every commit to SCRATCHPAD's COMMIT LOG.
-4. **OKF convention:** every doc in `Devins_Plans/` carries YAML frontmatter
-   (`type/title/description/tags/timestamp`). New docs MUST include it. Code files don't.
-   Run `node scripts/check-okf.mjs` to verify. Run `node scripts/fix-okf.mjs` to auto-fix.
-5. **Acceptance test (never break):** This is a static HTML site — no build/test/lint gates.
-   Verify changes by serving locally: `python3 -m http.server 8743` and checking pages render.
-   Check for broken links after structural changes.
-6. **Devins_Plans docs** = commit to `main`. **Web code** = commit to `main` (Netlify auto-deploys).
-7. **Deploy:** Push to `main` → Netlify auto-deploys to mos2es.com. No manual deploy step.
+Multiple sessions may work in this repo. Before editing, check `git status`, the recent log and
+open branches. Stage by explicit path only. The older bus in `Devins_Plans/` is historical.
 
 ---
 
@@ -103,14 +89,12 @@ To stop coordination from disappearing between sessions:
 
 ---
 
-# ORIGINAL BUILD GOAL (HISTORICAL — completed; kept for record)
+# SITE PURPOSE
 
-> Static landing page for mos2es.com — "Sovereign Signal Governance." The protocol layer
-> for preserving semantic meaning at point of execution: commitment conservation,
-> governance enforcement, and lineage-bound artifacts. Site includes: homepage, papers,
-> benchmarks, architecture, governance-vacuum article, field sheet, demo video, press,
-> legal, resume, and pitch deck. Deployed via Netlify with SEO/GEO/AEO optimization
-> (JSON-LD structured data, llms.txt, sitemap, Bing IndexNow).
+> mos2es.com is the minimal home for Ello Cello's work: it points people to SignalAF, SigRank,
+> AQUA, Signomy and Commitment Theory, the research, the demos and 3D models, and contact.
+> The 2025 to 2026 "Sovereign Signal Governance" product site (papers, benchmarks,
+> architecture, field sheet, press, legal, resume and topic hubs) was retired on 2026-11-04.
 
 ---
 

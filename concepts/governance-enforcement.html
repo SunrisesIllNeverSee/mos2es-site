@@ -52,7 +52,7 @@ jsonld:
         name: "What is lineage verification?"
         acceptedAnswer:
           "@type": "Answer"
-          text: "Lineage verification is the process of checking that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. The Lineage Claw creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate."
+          text: "Lineage verification is the process of checking that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. Origin binding creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate."
       - "@type": "Question"
         name: "Can the Conservation Law hold without enforcement?"
         acceptedAnswer:
@@ -73,7 +73,7 @@ jsonld:
   <p>A resonance threshold is the minimum commitment level that a transformed signal must maintain relative to its original. If a transformation would produce an output whose commitment falls below the threshold, the transformation is rejected. The threshold is configurable — different applications may require different conservation levels — but it is always present. Without a threshold, there is no gating condition, and the system degrades to unenforced behavior.</p>
 
   <h3>Lineage Verification</h3>
-  <p>Lineage verification checks that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. The Lineage Claw creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate. This prevents mimic signals — outputs that resemble legitimate artifacts but carry no real provenance — from entering the system.</p>
+  <p>Lineage verification checks that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. Origin binding creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate. This prevents mimic signals — outputs that resemble legitimate artifacts but carry no real provenance — from entering the system.</p>
 
   <h2>Why Enforcement Must Be Pre-Execution</h2>
   <p>The Conservation Law predicts that commitment degrades under recursive transformation without enforcement. But enforcement that runs <em>after</em> a transformation is not enforcement — it is observation. By the time a post-hoc check detects commitment degradation, the signal has already been degraded. The damaged output is in the pipeline, and the next transformation is already consuming it.</p>
@@ -109,7 +109,6 @@ jsonld:
     <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/recursive-compression">Recursive Compression</a>
     <a href="/concepts/commitment-conservation">Commitment Conservation</a>
-    Lineage Claw
     <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>
     <a href="/architecture">Architecture</a>
     <a href="/papers">Papers & Proofs</a>

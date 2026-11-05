@@ -2,18 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mos2es.com/</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://mos2es.com/contact</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/products</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://mos2es.com/products</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://mos2es.com/research</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/explore</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/about</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/faq</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://mos2es.com/explore</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/about</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/faq</loc><lastmod>2026-11-05</lastmod></url>
   <url><loc>https://mos2es.com/privacy</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://mos2es.com/deck</loc><lastmod>2026-11-04</lastmod></url>
   <url><loc>https://mos2es.com/3d/</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/concepts/origin-binding</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/concepts/recursive-compression</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/concepts/governance-enforcement</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/concepts/signal-encoding</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/concepts/constitutional-substrate</loc><lastmod>2026-11-04</lastmod></url>
-  <url><loc>https://mos2es.com/guides/how-to-verify-lineage</loc><lastmod>2026-11-04</lastmod></url>
+  <url><loc>https://mos2es.com/3d/sequence</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/3d/world</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/3d/lab</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/concepts/origin-binding</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/concepts/recursive-compression</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/concepts/governance-enforcement</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/concepts/signal-encoding</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/concepts/constitutional-substrate</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://mos2es.com/guides/how-to-verify-lineage</loc><lastmod>2026-11-05</lastmod></url>
 </urlset>

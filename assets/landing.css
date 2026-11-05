@@ -105,6 +105,12 @@ html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
 /* Product previews: screenshot, name underneath, description on hover */
 .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 28px; margin-top: 40px; }
 .shot.feature { grid-column: 1 / -1; }
+.shots.trio { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 22px; }
+.shots.trio .shot:not(.feature) .meta { flex-direction: column; align-items: flex-start; gap: 6px; }
+.shots.trio .shot:not(.feature) .meta h2 { font-size: 19px; }
+@media (hover: hover) { .shots.trio .shot:not(.feature) .reveal { font-size: 15px; padding: 20px; } }
+@media (max-width: 900px) { .shots.trio { gap: 28px 16px; } }
+@media (max-width: 640px) { .shots.trio { grid-template-columns: 1fr; } }
 .shot { display: block; color: inherit; }
 .shot:hover { text-decoration: none; }
 .shot figure { position: relative; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--rule); background: var(--panel); }
@@ -168,6 +174,17 @@ html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
 .clip .go { display: inline-block; margin-top: 10px; font: 500 14px/1.4 var(--mono); }
 @media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
 
+/* Explore: SigRank promos (one 16:9, three 4:5) */
+.clip.wide { margin-top: 32px; }
+.reels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; margin-top: 32px; }
+.clip.tall .frame { aspect-ratio: 4 / 5; }
+.clip.tall h3 { font-size: 18px; }
+.clip.tall p { font-size: 15px; }
+.go-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 24px 0 0; font: 500 14px/1.4 var(--mono); }
+.go-row code { font: inherit; color: var(--ink-2); padding: 4px 10px; border: 1px solid var(--rule); }
+@media (max-width: 900px) { .reels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .reels { grid-template-columns: 1fr; } .clip.tall .frame { max-width: 420px; } }
+
 /* About: stats and quote */
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
 .stat { padding: 24px 22px; border: 1px solid var(--rule); background: var(--panel); display: flex; flex-direction: column; gap: 8px; }
@@ -178,3 +195,10 @@ html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
 .pull { margin: 40px 0 8px; padding: 4px 0 4px 24px; border-left: 2px solid var(--gold); font: italic 400 clamp(24px, 2.6vw, 32px)/1.3 var(--serif); color: var(--ink); }
 .pull cite { display: block; margin-top: 10px; font: 500 12px/1 var(--mono); font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
 @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* About: timeline */
+.timeline { list-style: none; margin: 8px 0 0; padding: 0; border-left: 1px solid var(--rule); }
+.timeline li { display: grid; grid-template-columns: 96px 1fr; gap: 16px; padding: 10px 0 10px 20px; position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -4px; top: 18px; width: 7px; height: 7px; background: var(--gold); }
+.timeline time { font: 500 13px/1.8 var(--mono); color: var(--gold); white-space: nowrap; }
+@media (max-width: 640px) { .timeline li { grid-template-columns: 1fr; gap: 2px; } }
