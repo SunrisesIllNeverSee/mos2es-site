@@ -174,6 +174,17 @@ html.intro-on .hero, html.intro-on footer.mini { opacity: 0; }
 .clip .go { display: inline-block; margin-top: 10px; font: 500 14px/1.4 var(--mono); }
 @media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
 
+/* Explore: SigRank promos (one 16:9, three 4:5) */
+.clip.wide { margin-top: 32px; }
+.reels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; margin-top: 32px; }
+.clip.tall .frame { aspect-ratio: 4 / 5; }
+.clip.tall h3 { font-size: 18px; }
+.clip.tall p { font-size: 15px; }
+.go-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 24px 0 0; font: 500 14px/1.4 var(--mono); }
+.go-row code { font: inherit; color: var(--ink-2); padding: 4px 10px; border: 1px solid var(--rule); }
+@media (max-width: 900px) { .reels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .reels { grid-template-columns: 1fr; } .clip.tall .frame { max-width: 420px; } }
+
 /* About: stats and quote */
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
 .stat { padding: 24px 22px; border: 1px solid var(--rule); background: var(--panel); display: flex; flex-direction: column; gap: 8px; }
