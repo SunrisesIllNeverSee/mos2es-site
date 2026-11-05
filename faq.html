@@ -44,12 +44,7 @@ jsonld:
         name: "What is lineage binding?"
         acceptedAnswer:
           "@type": "Answer"
-          text: "Lineage binding is the cryptographic mechanism that ties every transformed signal to its origin. Through the Lineage Claw mechanism, every signal carries the cryptographic signature of its origin, creating an immutable chain of custody that makes every transformation auditable and every agent accountable."
-      - "@type": "Question"
-        name: "What is the Lineage Claw?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "The Lineage Claw is the cryptographic mechanism in MO§ES that binds transformed signals to their origins. It implements the Lineage Custody Clause — one of the four MO§ES constitutional laws — by cryptographically tying vault artifacts to their origin compression cycle, creating immutable provenance for every signal."
+          text: "Lineage binding is the cryptographic mechanism that ties every transformed signal to its origin. Through a SHA-256 hash chain, every signal carries the cryptographic signature of its origin, creating an immutable chain of custody that makes every transformation auditable and every agent accountable."
       - "@type": "Question"
         name: "What is recursive compression?"
         acceptedAnswer:
@@ -151,91 +146,87 @@ jsonld:
 
   <div class="faq-item">
     <h3>5. What is lineage binding?</h3>
-    <p>Lineage binding is the cryptographic mechanism that ties every transformed signal to its origin. Through the Lineage Claw mechanism, every signal carries the cryptographic signature of its origin, creating an immutable chain of custody that makes every transformation auditable and every agent accountable. Lineage binding implements the Lineage Custody Clause — one of the four MO§ES constitutional laws.</p>
+    <p>Lineage binding is the cryptographic mechanism that ties every transformed signal to its origin. Through a SHA-256 hash chain, every signal carries the cryptographic signature of its origin, creating an immutable chain of custody that makes every transformation auditable and every agent accountable. Lineage binding implements the Lineage Custody Clause — one of the four MO§ES constitutional laws.</p>
   </div>
 
-  <div class="faq-item">
-    <h3>6. What is the Lineage Claw?</h3>
-    <p>The Lineage Claw is the cryptographic mechanism in MO§ES that binds transformed signals to their origins. It implements the Lineage Custody Clause by cryptographically tying vault artifacts to their origin compression cycle, creating immutable provenance for every signal. The Lineage Claw ensures that no signal can be produced without a verifiable origin — making agents accountable for every action they take.</p>
-  </div>
 
   <div class="faq-item">
-    <h3>7. What is recursive compression?</h3>
+    <h3>6. What is recursive compression?</h3>
     <p>Recursive compression is the transformation operator T in the Conservation Law. It represents any process that transforms, compresses, summarizes, or re-encodes a signal — including summarization, translation, agent orchestration, and multi-agent communication. Each application of recursive compression is a transformation that can degrade commitment without enforcement. Multi-agent pipelines apply recursive compression at every agent-to-agent handoff.</p>
   </div>
 
   <h2>The Constitutional Laws</h2>
 
   <div class="faq-item">
-    <h3>8. What are the MO§ES constitutional laws?</h3>
+    <h3>7. What are the MO§ES constitutional laws?</h3>
     <p>MO§ES implements four constitutional laws that are enforced at execution time: <strong>McHenry's Law I</strong> (no output without prior compression and resonance mapping), <strong>McHenry's Law II</strong> (signals must inherit their origin compression cycle), the <strong>Blackhole Law</strong> (drift beyond threshold triggers automatic collapse), and the <strong>Lineage Custody Clause</strong> (vault artifacts cryptographically bound to origin). These are computational constraints, not policy statements.</p>
   </div>
 
   <div class="faq-item">
-    <h3>9. What is the Blackhole Law?</h3>
+    <h3>8. What is the Blackhole Law?</h3>
     <p>The Blackhole Law is a MO§ES constitutional law that provides a real-time kill switch. When a signal drifts beyond an acceptable threshold from its origin, the system automatically collapses the transformation into entropy, preventing further degradation. This is a kill switch that actually works — enforced computationally at execution time, not by policy. The Blackhole Law ensures that governance drift is detected and stopped before it causes damage.</p>
   </div>
 
   <div class="faq-item">
-    <h3>10. What is McHenry's Law I?</h3>
+    <h3>9. What is McHenry's Law I?</h3>
     <p>McHenry's Law I states that no output shall be produced without prior compression and resonance mapping. This constitutional law enforces authorization and scoping — an AI system cannot produce output unless it has first compressed its input and verified resonance with its origin. This prevents unauthorized action by making it computationally impossible for an agent to act without first verifying its authorization.</p>
   </div>
 
   <div class="faq-item">
-    <h3>11. What is McHenry's Law II?</h3>
+    <h3>10. What is McHenry's Law II?</h3>
     <p>McHenry's Law II states that signals must inherit their origin compression cycle. This constitutional law enforces immutable audit trails — every signal carries the cryptographic signature of its origin, making it impossible to produce a signal without a verifiable provenance. McHenry's Law II ensures that every action an agent takes is tied to a cryptographic identity, creating accountability that cannot be forged or bypassed.</p>
   </div>
 
   <h2>Measurement and Evidence</h2>
 
   <div class="faq-item">
-    <h3>12. How is commitment measured?</h3>
+    <h3>11. How is commitment measured?</h3>
     <p>Commitment is measured using NLI (Natural Language Inference) bidirectional entailment for semantic measurement and Jaccard surface stability for lexical measurement. The experimental record uses a 20-signal canonical corpus with known commitment levels, 10 recursive iterations per signal, producing quantitative commitment scores at each iteration depth. This methodology produces reproducible, falsifiable measurements of commitment conservation.</p>
   </div>
 
   <div class="faq-item">
-    <h3>13. What evidence supports the Conservation Law?</h3>
+    <h3>12. What evidence supports the Conservation Law?</h3>
     <p>The Conservation Law was tested with seven controlled experiments (EXP-001 through EXP-007) using a 20-signal canonical corpus, 10 recursive iterations per signal, NLI bidirectional entailment, and Jaccard surface stability. With enforcement, commitment was conserved at 80-85% across all 10 iterations. Without enforcement, commitment degraded to below 20% by iteration 5 and was effectively zero by iteration 8. The full record is on <a href="https://doi.org/10.5281/zenodo.19105225">Zenodo</a>.</p>
   </div>
 
   <div class="faq-item">
-    <h3>14. Is the Conservation Law falsifiable?</h3>
+    <h3>13. Is the Conservation Law falsifiable?</h3>
     <p>Yes. The Conservation Law is a falsifiable scientific law. It makes specific, testable predictions: that commitment degrades under transformation without enforcement, and that commitment is conserved with enforcement. The law was tested with seven controlled experiments, and the experimental record is published on Zenodo with DOI 10.5281/zenodo.19105225 under CC-BY-4.0. The experiments could have disproven the law — they confirmed it.</p>
   </div>
 
   <h2>Multi-Agent Systems and Agent Governance</h2>
 
   <div class="faq-item">
-    <h3>15. How does MO§ES govern multi-agent systems?</h3>
+    <h3>14. How does MO§ES govern multi-agent systems?</h3>
     <p>MO§ES governs <a href="/multi-agent-systems">multi-agent systems</a> by enforcing commitment conservation at every agent-to-agent handoff. Pre-execution gating checks each transformation before it is applied, lineage binding ties every signal to its origin across the full pipeline, and resonance thresholding rejects transformations that would degrade commitment below an acceptable threshold. This prevents the cumulative degradation that causes multi-agent chaos.</p>
   </div>
 
   <div class="faq-item">
-    <h3>16. What is the governance vacuum?</h3>
+    <h3>15. What is the governance vacuum?</h3>
     <p>The <a href="/blog/governance-vacuum">governance vacuum</a> is the gap between AI deployment and AI governance. AI systems are being deployed at scale, but the governance mechanisms to control them — scoping, accountability, and real-time control — do not exist. Most AI systems operate without governance enforcement, and the cost is measurable commitment degradation: over 80% after 10 transformations without enforcement.</p>
   </div>
 
   <h2>Comparisons</h2>
 
   <div class="faq-item">
-    <h3>17. How does MO§ES differ from policy-based governance?</h3>
+    <h3>16. How does MO§ES differ from policy-based governance?</h3>
     <p>Policy-based governance describes desired behavior through documents that are advisory and enforced through human review. MO§ES enforces governance computationally at execution time, preventing violations before they occur. Policy can be violated; MO§ES constitutional laws cannot, because the system physically cannot perform the action the law prohibits. Policy governance is aspirational; MO§ES governance is mathematical.</p>
   </div>
 
   <div class="faq-item">
-    <h3>18. How does MO§ES differ from RLHF?</h3>
+    <h3>17. How does MO§ES differ from RLHF?</h3>
     <p>RLHF (Reinforcement Learning from Human Feedback) aligns models during training by adjusting model weights based on human preferences. MO§ES enforces governance at execution time — after the model is deployed, at the moment transformations are applied. RLHF cannot prevent commitment degradation in production because it operates at training time, not execution time. MO§ES can. They are complementary: RLHF improves model behavior; MO§ES enforces governance constraints on whatever the model produces.</p>
   </div>
 
   <h2>The MO§ES Ecosystem</h2>
 
   <div class="faq-item">
-    <h3>19. Who created MO§ES?</h3>
+    <h3>18. Who created MO§ES?</h3>
     <p>MO§ES was created by <a href="https://orcid.org/0009-0002-9904-5390">Deric J. McHenry</a> (ORCID 0009-0002-9904-5390) as part of the 34-paper Commitment Theory research program. The program builds a five-layer stack from Shannon information theory foundations (Layer 0) through commitment as a measurable property (Layer 1), the Conservation Law (Layer 2), MO§ES enforcement architecture (Layer 3), and multi-agent governance and constitutional AI (Layer 4). All papers are published under CC-BY-4.0 with Zenodo DOIs.</p>
   </div>
 
   <div class="faq-item">
-    <h3>20. Where can I read the MO§ES papers?</h3>
+    <h3>19. Where can I read the MO§ES papers?</h3>
     <p>The Conservation Law paper is published on Zenodo with DOI <a href="https://doi.org/10.5281/zenodo.20029607">10.5281/zenodo.20029607</a>. The experimental record is at DOI <a href="https://doi.org/10.5281/zenodo.19105225">10.5281/zenodo.19105225</a>. The 34-paper Commitment Theory research program is available on <a href="https://github.com/SunrisesIllNeverSee/Commitment_Theory">GitHub</a>. All papers are published under CC-BY-4.0. See the <a href="/papers">papers page</a> for a complete listing.</p>
   </div>
 </div>
@@ -244,7 +235,6 @@ jsonld:
   <h3>Related</h3>
   <div class="related-list">
     <a href="/concepts/conservation-law">Conservation Law</a>
-    Lineage Claw
     <a href="/concepts/governance-enforcement">Governance Enforcement</a>
     <a href="/ai-governance">AI Governance</a>
     <a href="/agent-governance">Agent Governance</a>

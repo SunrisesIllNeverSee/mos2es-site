@@ -72,7 +72,7 @@ jsonld:
   <ol>
     <li><strong>Commitment measurement</strong>: The original utterance is analyzed to measure its embedded commitment. This uses the commitment function C, which quantifies the semantic obligation in the signal — the "shall," "must," "required" language that carries binding force.</li>
     <li><strong>Constitutional compression</strong>: The utterance is encoded using MO§ES constitutional compression, which applies the rules, thresholds, and enforcement mechanisms defined in the <a href="/concepts/constitutional-substrate">constitutional substrate</a>. The output is a governed signal — one that carries measurable commitment and is structured for enforcement.</li>
-    <li><strong>Origin binding</strong>: The encoded signal is cryptographically bound to its origin compression cycle using <a href="/concepts/origin-binding">origin binding</a> and the Lineage Claw. This creates the provenance root from which all subsequent transformations can be verified.</li>
+    <li><strong>Origin binding</strong>: The encoded signal is cryptographically bound to its origin compression cycle using <a href="/concepts/origin-binding">origin binding</a>. This creates the provenance root from which all subsequent transformations can be verified.</li>
   </ol>
   <p>The result is a signal that is not just text but a governed artifact. It carries measurable commitment. It is bound to a verifiable origin. And it can be tracked through every subsequent transformation, so that commitment conservation can be enforced rather than merely observed.</p>
 
@@ -80,7 +80,7 @@ jsonld:
   <p>Signal encoding creates a substrate with three properties that ordinary text processing does not provide:</p>
   <ul>
     <li><strong>Measurable</strong>: The commitment in the signal is quantified. The commitment function C produces a numerical value that can be compared across transformations, tracked across iterations, and checked against thresholds. You cannot conserve what you cannot measure, and signal encoding makes commitment measurable.</li>
-    <li><strong>Verifiable</strong>: The signal's provenance is cryptographic. The origin binding and Lineage Claw create a hash chain that anyone can verify — the signal can prove where it came from, and a mimic signal that lacks binding can be detected and rejected.</li>
+    <li><strong>Verifiable</strong>: The signal's provenance is cryptographic. Origin binding creates a hash chain that anyone can verify — the signal can prove where it came from, and a mimic signal that lacks binding can be detected and rejected.</li>
     <li><strong>Enforceable</strong>: Because commitment is measurable and provenance is verifiable, the signal can be governed. Pre-execution gates can check commitment before transformation. Resonance thresholds can block degrading transformations. Lineage verification can reject unbound artifacts. Enforcement becomes structural, not observational.</li>
   </ul>
 
@@ -108,7 +108,6 @@ jsonld:
     <a href="/concepts/origin-binding">Origin Binding</a>
     <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/commitment-conservation">Commitment Conservation</a>
-    Lineage Claw
     <a href="/architecture">Architecture</a>
     <a href="/papers">Papers & Proofs</a>
     <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>

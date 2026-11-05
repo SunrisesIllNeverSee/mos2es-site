@@ -49,15 +49,15 @@ jsonld:
           "@type": "Answer"
           text: "An origin compression cycle is the initial encoding of a signal using MO§ES constitutional compression. It is the point at which a natural language utterance is transformed into a governed signal with measurable, verifiable commitment. The origin cycle is the root of the artifact's provenance — every subsequent transformation extends from it."
       - "@type": "Question"
-        name: "How does origin binding relate to the Lineage Claw?"
+        name: "How is origin binding enforced?"
         acceptedAnswer:
           "@type": "Answer"
-          text: "Origin binding is the process; the Lineage Claw is the cryptographic mechanism that implements it. The Lineage Claw uses SHA-256 hash chains to create the verifiable binding that origin binding requires. You can think of origin binding as the policy and the Lineage Claw as the cryptography that enforces it."
+          text: "Through SHA-256 hash chains. Origin binding is the policy; the hash chain is the cryptography that enforces it. Each transformation adds a link, so the binding stays verifiable."
       - "@type": "Question"
         name: "Why is recursive continuity important?"
         acceptedAnswer:
           "@type": "Answer"
-          text: "Recursive continuity means that a signal can trace an unbroken chain back to its origin, through every intermediate transformation. Without recursive continuity, there is no way to distinguish a legitimately transformed signal from a fabricated one. Origin binding establishes this continuity at the point of creation, and the Lineage Claw preserves it through every subsequent transformation."
+          text: "Recursive continuity means that a signal can trace an unbroken chain back to its origin, through every intermediate transformation. Without recursive continuity, there is no way to distinguish a legitimately transformed signal from a fabricated one. Origin binding establishes this continuity at the point of creation, and the hash chain preserves it through every subsequent transformation."
 ---
 
 <div class="prose">
@@ -72,7 +72,7 @@ jsonld:
   <ol>
     <li><strong>Signal encoding</strong>: The original utterance is encoded into a governed signal with measurable commitment. This is the origin cycle — the root of the artifact's provenance.</li>
     <li><strong>Binding creation</strong>: A cryptographic binding is created between the artifact and the origin cycle. This binding incorporates a hash of the original signal, the encoding parameters, and the cycle identifier.</li>
-    <li><strong>Continuity preservation</strong>: Every subsequent transformation extends the binding. The Lineage Claw maintains the hash chain, so the binding remains verifiable no matter how many transformations are applied.</li>
+    <li><strong>Continuity preservation</strong>: Every subsequent transformation extends the binding. Each step adds a link to the hash chain, so the binding remains verifiable no matter how many transformations are applied.</li>
   </ol>
   <p>The result is that any artifact in the system can be traced back to its origin cycle, and the chain of transformations between origin and current state can be independently verified. A broken binding — one where the chain cannot be reconstructed — is treated as a governance violation.</p>
 
@@ -99,7 +99,6 @@ jsonld:
 <div class="related">
   <h3>Related</h3>
   <div class="related-list">
-    Lineage Claw
     <a href="/concepts/signal-encoding">Signal Encoding</a>
     <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>
