@@ -33,8 +33,6 @@ const CRAWLERS = [
   ["YouBot", "You.com", "ai_search"],
   ["meta-externalfetcher", "Meta", "ai_user_fetch"],
   ["meta-externalagent", "Meta", "ai_training"],
-  ["Google-Extended", "Google", "ai_training"],
-  ["Applebot-Extended", "Apple", "ai_training"],
   ["cohere-ai", "Cohere", "ai_training"],
   ["Bytespider", "ByteDance", "ai_training"],
   ["CCBot", "Common Crawl", "ai_training"],
@@ -53,6 +51,10 @@ const CRAWLERS = [
 // which of those AI crawlers read is the point.
 const SKIPPED_EXT = /\.(?:css|js|mjs|map|png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|otf|eot|mp4|webm|mov|mp3|wav)$/i;
 
+// Only the live site is recorded, so *.pages.dev previews and local runs
+// don't mix into the dashboard.
+const PRODUCTION_HOSTS = new Set(["mos2es.com"]);
+
 // The crawler named in a User-Agent, or null for people and unknown bots.
 export function detectCrawler(userAgent) {
   if (!userAgent) return null;
@@ -66,15 +68,25 @@ export function detectCrawler(userAgent) {
   return null;
 }
 
+// Bots are known by User-Agent only, so a client can claim to be one. When
+// Cloudflare says whether the request came from a verified bot, record it.
+function verifiedBot(request) {
+  const verified = request.cf?.botManagement?.verifiedBot;
+  return typeof verified === "boolean" ? { bot_verified: verified } : {};
+}
+
 // The PostHog capture request for a crawler hit, or null when nothing should
-// be sent. The query string is never recorded.
+// be sent: people, unknown bots, methods other than GET/HEAD, hosts other
+// than mos2es.com, and assets. The query string is never recorded.
 export function crawlerCapture(request, status, env = {}) {
+  if (request.method !== "GET" && request.method !== "HEAD") return null;
   const crawler = detectCrawler(request.headers.get("user-agent"));
   if (!crawler) return null;
   const url = new URL(request.url);
+  const host = url.hostname.toLowerCase().replace(/\.$/, "");
+  if (!PRODUCTION_HOSTS.has(host)) return null;
   if (SKIPPED_EXT.test(url.pathname)) return null;
   const apiKey = env.POSTHOG_KEY || POSTHOG_PUBLIC_KEY;
-  const host = url.hostname.toLowerCase();
   const path = url.pathname;
   const body = {
     api_key: apiKey,
@@ -90,6 +102,7 @@ export function crawlerCapture(request, status, env = {}) {
       path,
       method: request.method,
       status,
+      ...verifiedBot(request),
       $host: host,
       $pathname: path,
       $current_url: `https://${host}${path}`,

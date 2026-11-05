@@ -159,6 +159,36 @@ test("a www crawler request is redirected and sends nothing", async () => {
   assert.equal(sent.length, 0);
 });
 
+test("previews, local runs and non-GET requests send nothing", async () => {
+  for (const url of ["https://abc123.mos2es.pages.dev/", "https://mos2es.pages.dev/", "http://localhost:8788/"]) {
+    const { sent } = await run(url, UA.GPTBot);
+    assert.equal(sent.length, 0, url);
+  }
+  for (const method of ["POST", "OPTIONS"]) {
+    const { sent } = await run("https://mos2es.com/", UA.GPTBot, { method });
+    assert.equal(sent.length, 0, method);
+  }
+  const { sent } = await run("https://mos2es.com/", UA.GPTBot, { method: "HEAD" });
+  assert.equal(sent.length, 1);
+});
+
+test("without waitUntil the page is still served and nothing is sent", async () => {
+  const realFetch = globalThis.fetch;
+  let calls = 0;
+  globalThis.fetch = async () => { calls += 1; return new Response("ok"); };
+  try {
+    const page = new Response("page");
+    const res = await onRequest({
+      request: new Request("https://mos2es.com/", { headers: { "User-Agent": UA.GPTBot } }),
+      next: async () => page,
+    });
+    assert.equal(res, page);
+    assert.equal(calls, 0);
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+});
+
 test("a POSTHOG_KEY Pages variable overrides the embedded public key", () => {
   const request = new Request("https://mos2es.com/", { headers: { "User-Agent": UA.GPTBot } });
   const capture = crawlerCapture(request, 200, { POSTHOG_KEY: "phc_override" });

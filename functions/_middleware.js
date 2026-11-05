@@ -13,7 +13,11 @@ export async function onRequest(context) {
   try {
     const capture = crawlerCapture(context.request, response.status, context.env);
     if (capture && typeof context.waitUntil === "function") {
-      context.waitUntil(fetch(capture.url, capture.init).catch(() => {}));
+      // Drain the PostHog response so the subrequest doesn't stall.
+      const sent = fetch(capture.url, capture.init)
+        .then((res) => res.body?.cancel())
+        .catch(() => {});
+      context.waitUntil(sent);
     }
   } catch {
     // ignore
