@@ -8,17 +8,20 @@ _site/
 # Node dependencies
 node_modules/
 
-# Claude Code internal files (keep settings.json for shared hook config)
-.claude/*
-!.claude/settings.json
-
-# Session tracker state (per-session, per-machine — don't commit)
-Devins_Plans/state/.role-*
-Devins_Plans/state/.session-current
-
-# Repository Standard — coordination should not be in product repos
+# Agent and coordination files stay out of this repo
+AGENTS.md
+CLAUDE.md
+SETUP.md
+REPO.yaml
+.claude/
+.devin/
+.ello/
+.repo/
 .coord/
-.repo/.cache/
+.agents/
+.stash/
+Devins_Plans/
+system-devin/
 
 # MOSES integration sync state (transient)
 .moses-sync-state.json
