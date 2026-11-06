@@ -29,7 +29,7 @@ npm run build    # writes _site/
 npm test         # agent-readiness and redirect tests
 ```
 
-GitHub Actions (`.github/workflows/ci.yml`) runs the tests and the build on every pull request and push to `main`, then checks the live site.
+GitHub Actions (`.github/workflows/ci.yml`) runs the tests and the build on every pull request and push to `main`, and checks the live site after each push to `main`.
 
 The site is built with Eleventy 3 (`.eleventy.js`). The new pages use `_includes/layouts/simple.html` and `assets/landing.css`. The kept concept, guide and FAQ pages use the older layouts in `_includes/`.
 
@@ -51,6 +51,5 @@ Then check the live pages and a few redirects. `functions/` holds the Pages Func
 - `llms.txt` and `llms-full.txt` describe the site for AI agents. Keep them in step with the pages.
 - `sitemap.xml` is written by hand. Update it when pages are added or retired.
 - Videos live in `media/` (promos in `media/promo/`). Encode them as H.264 MP4 with faststart and keep each file under Cloudflare's 25 MB limit.
-- Agent and coordination files (AGENTS.md, CLAUDE.md, `.claude/`, `.ello/` and the like) are kept out of this repo. `.gitignore` blocks them.
 
 © 2026 Ello Cello LLC, Buffalo, NY.

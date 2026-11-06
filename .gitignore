@@ -8,20 +8,13 @@ _site/
 # Node dependencies
 node_modules/
 
-# Agent and coordination files stay out of this repo
+# Local tool settings
 AGENTS.md
 CLAUDE.md
-SETUP.md
-REPO.yaml
 .claude/
 .devin/
-.ello/
-.repo/
-.coord/
 .agents/
-.stash/
-Devins_Plans/
-system-devin/
+.coord/
 
 # MOSES integration sync state (transient)
 .moses-sync-state.json

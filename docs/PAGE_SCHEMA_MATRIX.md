@@ -129,6 +129,5 @@ not by inspecting source files.
 - **Legacy name="MO§ES" on Organization #org:** 0 occurrences in rendered HTML
 - **Build:** `npm run build` succeeds (80 files written, 0 errors)
 - **Tests:** `npm test` — 10/10 pass
-- **Repo check:** `python3 .repo/scripts/repo_check.py --ci` — 0 errors, 22 warnings (all pre-existing OKF frontmatter)
 
 **VERDICT: PASS — 0 errors, 0 warnings**
