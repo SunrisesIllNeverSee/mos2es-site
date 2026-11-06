@@ -77,7 +77,7 @@ test("middleware returns the page response unchanged for a crawler", async () =>
   assert.equal(res.headers.get("x-page"), "1");
 });
 
-test("a crawler hit sends one ai_crawler_hit event through waitUntil, without the query string", async () => {
+test("a crawler hit sends one ai_bot_detected event through waitUntil, without the query string", async () => {
   const { sent, waited } = await run("https://mos2es.com/research?utm_source=x&token=secret", UA["ChatGPT-User"], { status: 200 });
   assert.equal(waited.length, 1);
   assert.equal(sent.length, 1);
@@ -85,7 +85,7 @@ test("a crawler hit sends one ai_crawler_hit event through waitUntil, without th
   assert.equal(sent[0].init.method, "POST");
   const body = JSON.parse(sent[0].init.body);
   assert.equal(body.event, AI_CRAWLER_EVENT);
-  assert.equal(body.event, "ai_crawler_hit");
+  assert.equal(body.event, "ai_bot_detected");
   assert.equal(body.distinct_id, "crawler:ChatGPT-User");
   assert.match(body.api_key, /^phc_/);
   assert.deepEqual(

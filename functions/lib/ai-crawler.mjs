@@ -1,11 +1,11 @@
 // AI and search crawlers don't run JavaScript, so the PostHog snippet on the
 // pages never sees them. functions/_middleware.js calls crawlerCapture() on
-// each request and, for a known crawler, sends one `ai_crawler_hit` event to
+// each request and, for a known crawler, sends one `ai_bot_detected` event to
 // PostHog after the response (context.waitUntil), so a page is never delayed
 // or broken by analytics. Same event and properties as signalaf.com, so one
 // PostHog dashboard covers both sites.
 
-export const AI_CRAWLER_EVENT = "ai_crawler_hit";
+export const AI_CRAWLER_EVENT = "ai_bot_detected";
 
 // The public project key the site's pages already embed (it is in every
 // page's HTML, so it is not a secret). A POSTHOG_KEY Pages variable overrides it.
