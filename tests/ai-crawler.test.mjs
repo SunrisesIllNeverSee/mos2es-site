@@ -194,3 +194,18 @@ test("a POSTHOG_KEY Pages variable overrides the embedded public key", () => {
   const capture = crawlerCapture(request, 200, { POSTHOG_KEY: "phc_override" });
   assert.equal(JSON.parse(capture.init.body).api_key, "phc_override");
 });
+
+test("crawler hits on /api/ routes are not recorded", () => {
+  const request = new Request("https://mos2es.com/api/search?q=x", {
+    headers: { "user-agent": "Mozilla/5.0 (compatible; GPTBot/1.2; +https://openai.com/gptbot)" },
+  });
+  assert.equal(crawlerCapture(request, 200), null);
+});
+
+test("the PostHog request carries a timeout", () => {
+  const request = new Request("https://mos2es.com/research", {
+    headers: { "user-agent": "Mozilla/5.0 (compatible; GPTBot/1.2; +https://openai.com/gptbot)" },
+  });
+  const capture = crawlerCapture(request, 200);
+  assert.ok(capture.init.signal instanceof AbortSignal);
+});

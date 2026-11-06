@@ -77,7 +77,7 @@ function verifiedBot(request) {
 
 // The PostHog capture request for a crawler hit, or null when nothing should
 // be sent: people, unknown bots, methods other than GET/HEAD, hosts other
-// than mos2es.com, and assets. The query string is never recorded.
+// than mos2es.com, assets and /api/ routes. The query string is never recorded.
 export function crawlerCapture(request, status, env = {}) {
   if (request.method !== "GET" && request.method !== "HEAD") return null;
   const crawler = detectCrawler(request.headers.get("user-agent"));
@@ -86,6 +86,7 @@ export function crawlerCapture(request, status, env = {}) {
   const host = url.hostname.toLowerCase().replace(/\.$/, "");
   if (!PRODUCTION_HOSTS.has(host)) return null;
   if (SKIPPED_EXT.test(url.pathname)) return null;
+  if (url.pathname.startsWith("/api/")) return null;
   const apiKey = env.POSTHOG_KEY || POSTHOG_PUBLIC_KEY;
   const path = url.pathname;
   const body = {
@@ -112,6 +113,12 @@ export function crawlerCapture(request, status, env = {}) {
   };
   return {
     url: POSTHOG_CAPTURE_URL,
-    init: { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) },
+    init: {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      // Never let a slow PostHog hold the request open.
+      signal: AbortSignal.timeout(5000),
+    },
   };
 }
