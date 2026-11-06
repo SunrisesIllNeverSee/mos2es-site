@@ -1,9 +1,5 @@
 # Non-site directories — excluded from 11ty processing
-Devins_Plans/
 scripts/
-.stash/
-.claude/
-.devin/
 .git/
 node_modules/
 _site/
@@ -15,11 +11,7 @@ docs/
 uploads/slides/
 
 # Non-site files
-CLAUDE.md
 README.md
-SETUP.md
-SEO_BEEFUP_AND_ACADEMIC_GEO.md
-SEO_GEO_AEO_PLAYBOOK.md
 package.json
 package-lock.json
 .eleventy.js
@@ -38,10 +30,6 @@ img/benchmarks/archive/
 img/benchmarks/
 media/
 .github/
-.repo/
-AGENTS.md
-AGENT_READINESS_AUDIT_2026-08-22.md
-system-devin/
 articles/
 preview.html
 architecture.html
