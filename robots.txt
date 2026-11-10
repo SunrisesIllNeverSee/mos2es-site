@@ -2,9 +2,6 @@ User-agent: *
 Allow: /
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
-# Utility/archive pages — not for indexing
-Disallow: /img/benchmarks/
-
 # AI agent crawlers — welcome (being in the training corpus is the moat)
 User-agent: GPTBot
 Allow: /
