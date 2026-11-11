@@ -35,17 +35,22 @@
         const resp = await fetch('/api/search?q=' + encodeURIComponent(query) + '&limit=5');
         if (resp.ok) {
           const data = await resp.json();
-          if (data.results && data.results.length > 0) {
-            const results = data.results.map(r =>
+          const live = (data.results || []).filter(r => r.url && /^(https:\/\/mos2es\.com)?\//.test(r.url));
+          if (live.length > 0) {
+            const results = live.map(r =>
               '- [score=' + r.score.toFixed(2) + '] ' + r.text.substring(0, 120) + '...' +
-              (r.url ? ' (source: https://mos2es.com/' + r.url + ')' : '')
+              ' (source: https://mos2es.com' + r.url.replace(/^https:\/\/mos2es\.com/, '') + ')'
             ).join('\n');
             return { content: [{ type: 'text', text: 'Results for "' + query + '":\n' + results }] };
           }
         }
       } catch (e) { /* fall through to keyword search */ }
       // Fallback: keyword matching
-      const q = String(query || '').toLowerCase();
+      const q = String(query || '').toLowerCase().trim();
+      if (!q) {
+        return { content: [{ type: 'text', text: 'Enter a search term. Try: research, products, governance, lineage, contact.' }] };
+      }
+      const words = q.split(/[^a-z0-9]+/).filter(Boolean);
       const pages = [
         { url: '/about', title: 'About', keywords: ['about', 'publisher', 'identity', 'brand', 'founder', 'timeline'] },
         { url: '/research', title: 'Research', keywords: ['paper', 'papers', 'research', 'doi', 'zenodo', 'evidence', 'conservation', 'law', 'commitment'] },
@@ -53,7 +58,7 @@
         { url: '/explore', title: 'Explore', keywords: ['explore', 'video', 'demo', 'walkthrough', '3d', 'deck'] },
         { url: '/faq', title: 'FAQ', keywords: ['faq', 'question', 'questions'] },
         { url: '/contact', title: 'Contact', keywords: ['contact', 'email', 'press', 'media'] },
-        { url: '/concepts/governance-enforcement', title: 'Governance Enforcement', keywords: ['governance', 'enforcement', 'agent', 'ai'] },
+        { url: '/concepts/governance-enforcement', title: 'Governance Enforcement', keywords: ['governance', 'enforcement', 'agent', 'agents'] },
         { url: '/concepts/origin-binding', title: 'Origin Binding', keywords: ['origin', 'binding', 'lineage', 'provenance'] },
         { url: '/concepts/signal-encoding', title: 'Signal Encoding', keywords: ['signal', 'encoding', 'integrity'] },
         { url: '/concepts/recursive-compression', title: 'Recursive Compression', keywords: ['recursive', 'compression', 'drift'] },
@@ -62,7 +67,7 @@
       ];
       const matches = pages.filter(p =>
         p.title.toLowerCase().includes(q) ||
-        p.keywords.some(k => k.includes(q) || q.includes(k))
+        p.keywords.some(k => words.includes(k))
       );
       if (matches.length === 0) {
         return { content: [{ type: 'text', text: 'No results found for: ' + query + '. Try: research, products, governance, lineage, contact.' }] };
@@ -90,7 +95,7 @@
     annotations: { readOnlyHint: true },
     async execute({ concept }) {
       const concepts = {
-        'conservation-law': 'The Conservation Law of Commitment: semantic meaning must be preserved at point of execution. MOSES operationalizes this law for multi-agent AI systems. See: https://mos2es.com/research',
+        'conservation-law': 'The Conservation Law of Commitment: semantic meaning must be preserved at point of execution. MOSES operationalizes this law for multi-agent AI systems. See: https://doi.org/10.5281/zenodo.20029607',
         'commitment-theory': 'Commitment Theory: a framework for tracing and enforcing commitment preservation through transformation chains. See: https://github.com/SunrisesIllNeverSee/Commitment_Theory',
         'governance-enforcement': 'Governance Enforcement: MOSES enforces governance at the execution layer, distinguishing signal-integrity governance from model alignment or output guardrails. See: https://mos2es.com/concepts/governance-enforcement',
         'lineage-binding': 'Lineage Binding: artifacts are bound to their origin and lineage, enabling provenance tracing and commitment drift detection through transformation chains. See: https://mos2es.com/concepts/origin-binding',
@@ -112,10 +117,14 @@
     annotations: { readOnlyHint: true },
     async execute() {
       const papers = [
-        { title: 'Conservation Law of Commitment', doi: 'https://doi.org/10.5281/zenodo.20029607' },
-        { title: 'MOSES Governance Framework', url: 'https://mos2es.com/research' }
+        { title: 'A Conservation Law for Commitment in Language', doi: 'https://doi.org/10.5281/zenodo.20029607' },
+        { title: 'Experimental Record', doi: 'https://doi.org/10.5281/zenodo.19105225' },
+        { title: 'Experiment Harness', doi: 'https://doi.org/10.5281/zenodo.19109397' },
+        { title: 'TTEOP Interoperability Spec', doi: 'https://doi.org/10.5281/zenodo.22180349' },
+        { title: 'SigRank Taxonomy v3.1', doi: 'https://doi.org/10.5281/zenodo.21900519' },
+        { title: 'SSRN', doi: 'https://doi.org/10.2139/ssrn.6734283' }
       ];
-      const list = papers.map(p => '- ' + p.title + ': ' + (p.doi || p.url)).join('\n');
+      const list = papers.map(p => '- ' + p.title + ': ' + p.doi).join('\n') + '\nAll papers: https://mos2es.com/research';
       return { content: [{ type: 'text', text: 'MOSES Research Papers:\n' + list }] };
     }
   });
@@ -147,11 +156,14 @@
         '3d': '/3d/',
         'contact': '/contact'
       };
-      const path = pages[page] || '/';
-      if (typeof window !== 'undefined') {
-        window.location.href = path;
+      const path = pages[page];
+      if (!path) {
+        return { content: [{ type: 'text', text: 'Unknown page: ' + page + '. Choose one of: ' + Object.keys(pages).join(', ') + '.' }] };
       }
-      return { content: [{ type: 'text', text: 'Navigating to ' + page + ' (' + path + ')' }] };
+      if (typeof window !== 'undefined') {
+        setTimeout(() => { window.location.href = path; }, 0);
+      }
+      return { content: [{ type: 'text', text: 'Navigating to ' + page + ' (https://mos2es.com' + path + ')' }] };
     }
   });
 

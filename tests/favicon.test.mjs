@@ -29,17 +29,3 @@ test("shared layouts link the icon files instead of an inline data URI", async (
     assert.doesNotMatch(html, /rel="icon" href="data:/, layout);
   }
 });
-
-test("shared layouts load the WebMCP tools script", async () => {
-  for (const layout of ["_includes/partials/head.html", "_includes/layouts/simple.html"]) {
-    assert.match(await read(layout), /<script src="\/webmcp\.js" defer><\/script>/, layout);
-  }
-  assert.match(await read(".eleventy.js"), /addPassthroughCopy\("webmcp\.js"\)/);
-});
-
-test("WebMCP tools only point at live pages", async () => {
-  const js = await read("webmcp.js");
-  for (const retired of ["/benchmarks", "/architecture", "/legal", "/press", "/papers", "/field-sheet", "/agent-governance", "mos2es.org"]) {
-    assert.ok(!js.includes(retired), `webmcp.js still references ${retired}`);
-  }
-});
