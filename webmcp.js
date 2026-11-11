@@ -17,7 +17,7 @@
   // Tool: Search MOSES content
   mc.registerTool({
     name: 'search_moses',
-    description: 'Search the MOSES governance site for concepts, papers, benchmarks, or legal references. Returns relevant page URLs and titles.',
+    description: 'Search the MOSES governance site for concepts, research, products and guides. Returns relevant page URLs and titles.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -47,24 +47,25 @@
       // Fallback: keyword matching
       const q = String(query || '').toLowerCase();
       const pages = [
-        { url: '/about', title: 'About MOSES', keywords: ['about', 'publisher', 'identity', 'brand'] },
-        { url: '/papers', title: 'Research Papers', keywords: ['paper', 'research', 'doi', 'zenodo', 'evidence'] },
-        { url: '/benchmarks', title: 'Benchmarks', keywords: ['benchmark', 'evidence', 'methodology', 'results'] },
-        { url: '/architecture', title: 'Architecture', keywords: ['architecture', 'system', 'structure', 'design'] },
-        { url: '/legal', title: 'Legal and IP', keywords: ['legal', 'trademark', 'patent', 'ip', 'filing'] },
-        { url: '/governance-vacuum', title: 'The Governance Vacuum', keywords: ['governance', 'vacuum', 'problem', 'gap'] },
-        { url: '/field-sheet', title: 'Field Sheet', keywords: ['field', 'sheet', 'reference', 'summary'] },
-        { url: '/press', title: 'Press', keywords: ['press', 'media', 'news'] },
-        { url: '/concepts/conservation-law', title: 'Conservation Law of Commitment', keywords: ['conservation', 'law', 'commitment', 'signal', 'integrity'] },
-        { url: '/agent-governance', title: 'Agent Governance', keywords: ['agent', 'governance', 'ai', 'enforcement'] },
-        { url: '/ai-governance', title: 'AI Governance', keywords: ['ai', 'governance', 'artificial', 'intelligence'] }
+        { url: '/about', title: 'About', keywords: ['about', 'publisher', 'identity', 'brand', 'founder', 'timeline'] },
+        { url: '/research', title: 'Research', keywords: ['paper', 'papers', 'research', 'doi', 'zenodo', 'evidence', 'conservation', 'law', 'commitment'] },
+        { url: '/products', title: 'Products', keywords: ['product', 'products', 'signalaf', 'sigrank', 'signomy', 'aqua', 'services', 'pilot'] },
+        { url: '/explore', title: 'Explore', keywords: ['explore', 'video', 'demo', 'walkthrough', '3d', 'deck'] },
+        { url: '/faq', title: 'FAQ', keywords: ['faq', 'question', 'questions'] },
+        { url: '/contact', title: 'Contact', keywords: ['contact', 'email', 'press', 'media'] },
+        { url: '/concepts/governance-enforcement', title: 'Governance Enforcement', keywords: ['governance', 'enforcement', 'agent', 'ai'] },
+        { url: '/concepts/origin-binding', title: 'Origin Binding', keywords: ['origin', 'binding', 'lineage', 'provenance'] },
+        { url: '/concepts/signal-encoding', title: 'Signal Encoding', keywords: ['signal', 'encoding', 'integrity'] },
+        { url: '/concepts/recursive-compression', title: 'Recursive Compression', keywords: ['recursive', 'compression', 'drift'] },
+        { url: '/concepts/constitutional-substrate', title: 'Constitutional Substrate', keywords: ['constitutional', 'substrate', 'constitution'] },
+        { url: '/guides/how-to-verify-lineage', title: 'How to Verify Lineage', keywords: ['verify', 'lineage', 'guide', 'how'] }
       ];
       const matches = pages.filter(p =>
         p.title.toLowerCase().includes(q) ||
         p.keywords.some(k => k.includes(q) || q.includes(k))
       );
       if (matches.length === 0) {
-        return { content: [{ type: 'text', text: 'No results found for: ' + query + '. Try: conservation law, governance, papers, benchmarks, legal, architecture.' }] };
+        return { content: [{ type: 'text', text: 'No results found for: ' + query + '. Try: research, products, governance, lineage, contact.' }] };
       }
       const results = matches.map(p => '- [' + p.title + '](https://mos2es.com' + p.url + ')').join('\n');
       return { content: [{ type: 'text', text: 'Results for "' + query + '":\n' + results }] };
@@ -89,11 +90,11 @@
     annotations: { readOnlyHint: true },
     async execute({ concept }) {
       const concepts = {
-        'conservation-law': 'The Conservation Law of Commitment: semantic meaning must be preserved at point of execution. MOSES operationalizes this law for multi-agent AI systems. See: https://mos2es.com/concepts/conservation-law',
+        'conservation-law': 'The Conservation Law of Commitment: semantic meaning must be preserved at point of execution. MOSES operationalizes this law for multi-agent AI systems. See: https://mos2es.com/research',
         'commitment-theory': 'Commitment Theory: a framework for tracing and enforcing commitment preservation through transformation chains. See: https://github.com/SunrisesIllNeverSee/Commitment_Theory',
-        'governance-enforcement': 'Governance Enforcement: MOSES enforces governance at the execution layer, distinguishing signal-integrity governance from model alignment or output guardrails. See: https://mos2es.com/agent-governance',
-        'lineage-binding': 'Lineage Binding: artifacts are bound to their origin and lineage, enabling provenance tracing and commitment drift detection through transformation chains. See: https://mos2es.com/architecture',
-        'signal-integrity': 'Signal Integrity: the preservation of semantic meaning across summarization, translation, compression, delegation, or recursive AI transformation. See: https://mos2es.com/governance-vacuum'
+        'governance-enforcement': 'Governance Enforcement: MOSES enforces governance at the execution layer, distinguishing signal-integrity governance from model alignment or output guardrails. See: https://mos2es.com/concepts/governance-enforcement',
+        'lineage-binding': 'Lineage Binding: artifacts are bound to their origin and lineage, enabling provenance tracing and commitment drift detection through transformation chains. See: https://mos2es.com/concepts/origin-binding',
+        'signal-integrity': 'Signal Integrity: the preservation of semantic meaning across summarization, translation, compression, delegation, or recursive AI transformation. See: https://mos2es.com/concepts/signal-encoding'
       };
       const result = concepts[concept] || 'Unknown concept: ' + concept;
       return { content: [{ type: 'text', text: result }] };
@@ -112,7 +113,7 @@
     async execute() {
       const papers = [
         { title: 'Conservation Law of Commitment', doi: 'https://doi.org/10.5281/zenodo.20029607' },
-        { title: 'MOSES Governance Framework', url: 'https://mos2es.com/papers' }
+        { title: 'MOSES Governance Framework', url: 'https://mos2es.com/research' }
       ];
       const list = papers.map(p => '- ' + p.title + ': ' + (p.doi || p.url)).join('\n');
       return { content: [{ type: 'text', text: 'MOSES Research Papers:\n' + list }] };
@@ -128,7 +129,7 @@
       properties: {
         page: {
           type: 'string',
-          enum: ['home', 'about', 'papers', 'benchmarks', 'architecture', 'legal', 'governance-vacuum', 'field-sheet', 'press', 'contact'],
+          enum: ['home', 'about', 'products', 'research', 'explore', 'faq', 'deck', '3d', 'contact'],
           description: 'The page to navigate to'
         }
       },
@@ -138,13 +139,12 @@
       const pages = {
         'home': '/',
         'about': '/about',
-        'papers': '/papers',
-        'benchmarks': '/benchmarks',
-        'architecture': '/architecture',
-        'legal': '/legal',
-        'governance-vacuum': '/governance-vacuum',
-        'field-sheet': '/field-sheet',
-        'press': '/press',
+        'products': '/products',
+        'research': '/research',
+        'explore': '/explore',
+        'faq': '/faq',
+        'deck': '/deck',
+        '3d': '/3d/',
         'contact': '/contact'
       };
       const path = pages[page] || '/';
@@ -171,7 +171,6 @@
         'SignalAF: Public distribution and platform brand',
         'Signomy (signomy.xyz): Governed AI agent marketplace',
         'SigEconomy (sigeconomy.com): Public LLM operator evals',
-        'MCP Server (mcp.mos2es.org): Enterprise AI operator evaluation, 27 tools',
         'Contribution Exchange: Agent contribution protocol via signalaf.com steward'
       ];
       return { content: [{ type: 'text', text: 'MOSES Ecosystem:\n' + ecosystem.join('\n') }] };
