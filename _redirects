@@ -75,3 +75,6 @@
 /alternatives/* / 301
 /concepts/lineage-claw /research 301
 /concepts/lineage-claw.html /research 301
+
+# Ontology entity IDs (@id in the JSON-LD files) resolve to their data file.
+/ontology/0.1/entity/:name /ontology/jsonld/:name.jsonld 301
