@@ -44,3 +44,6 @@
 
 /.well-known/http-message-signatures-directory
   Content-Type: application/http-message-signatures-directory+json; charset=utf-8
+
+/404.html
+  X-Robots-Tag: noindex
