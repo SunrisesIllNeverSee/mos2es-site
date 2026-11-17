@@ -52,4 +52,12 @@ Then check the live pages and a few redirects. `functions/` holds the Pages Func
 - `sitemap.xml` is written by hand. Update it when pages are added or retired.
 - Videos live in `media/` (promos in `media/promo/`). Encode them as H.264 MP4 with faststart and keep each file under Cloudflare's 25 MB limit.
 
+## Licensing and reuse
+
+Copyright © 2026 Ello Cello LLC. All rights reserved in original site code,
+copy, research materials, designs, and assets, except where a separate license
+or third-party attribution expressly applies. Public source visibility is not
+an open-source license or permission to reuse proprietary materials. Third-party
+materials remain subject to their respective licenses and rights.
+
 © 2026 Ello Cello LLC, Buffalo, NY.
