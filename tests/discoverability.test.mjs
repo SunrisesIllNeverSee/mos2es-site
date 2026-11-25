@@ -137,18 +137,23 @@ test("/3d pages carry a self canonical that matches the sitemap", async () => {
   }
 });
 
-test("served pages link straight to final URLs, not retired ones", async () => {
-  const retired = /href="(?:https:\/\/mos2es\.com)?\/(?:papers|architecture|ai-governance|agent-governance|multi-agent-systems|constitutional-ai-hub|commitment-conservation-hub|concepts\/conservation-law|concepts\/commitment-conservation)["#?]/;
-  for (const path of [
-    "404.html",
-    "faq.html",
-    "concepts/origin-binding.html",
-    "concepts/recursive-compression.html",
-    "concepts/governance-enforcement.html",
-    "concepts/signal-encoding.html",
-    "concepts/constitutional-substrate.html",
-    "guides/how-to-verify-lineage.html",
-  ]) {
-    assert.ok(!retired.test(await read(path)), `${path} links to a redirecting URL`);
+test("served pages never link to a URL that _redirects sends elsewhere", async () => {
+  const redirects = new Map();
+  const wildcards = [];
+  for (const line of (await read("_redirects")).split("\n")) {
+    const [from, to, status] = line.trim().split(/\s+/);
+    if (!from || from.startsWith("#") || status !== "301" || from.includes(":")) continue;
+    if (from.endsWith("*")) wildcards.push(from.slice(0, -1));
+    else redirects.set(from, to);
+  }
+  const redirected = (path) => redirects.has(path) || wildcards.some((w) => path.startsWith(w));
+  for (const file of await htmlSources()) {
+    if (file.startsWith("_includes/")) continue;
+    const page = "/" + file.replace(/\.html$/, "").replace(/\/index$/, "");
+    if (redirected(page) || redirected(page + ".html")) continue; // retired page, not served
+    const html = await read(file);
+    for (const [, href] of html.matchAll(/href="(?:https:\/\/mos2es\.com)?(\/[A-Za-z0-9_\-/]*)(?:["#?])/g)) {
+      assert.ok(!redirected(href), `${file} links to ${href}, which redirects`);
+    }
   }
 });

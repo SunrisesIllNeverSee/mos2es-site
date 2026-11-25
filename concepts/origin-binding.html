@@ -49,7 +49,7 @@ jsonld:
   <p>The result is that any artifact in the system can be traced back to its origin cycle, and the chain of transformations between origin and current state can be independently verified. A broken binding — one where the chain cannot be reconstructed — is treated as a governance violation.</p>
 
   <h2>Why It Matters</h2>
-  <p>The Conservation Law of Commitment predicts that recursive transformation degrades commitment without enforcement. But enforcement is only meaningful if the system can distinguish governed signals from ungoverned ones. Without origin binding, there is no way to know whether a signal entered the system through a legitimate origin cycle or was injected from outside.</p>
+  <p>The <a href="/concepts/conservation-law">Conservation Law of Commitment</a> predicts that recursive transformation degrades commitment without enforcement. But enforcement is only meaningful if the system can distinguish governed signals from ungoverned ones. Without origin binding, there is no way to know whether a signal entered the system through a legitimate origin cycle or was injected from outside.</p>
   <p>Origin binding is the gatekeeper. It ensures that the governance system only processes signals that can prove where they came from. This is what makes the rest of the enforcement architecture — resonance thresholds, pre-execution gates, commitment measurement — meaningful. You cannot enforce commitment conservation on a signal whose origin you cannot verify.</p>
 
   <h2>Mimic Signals and the Binding Gate</h2>
@@ -59,7 +59,7 @@ jsonld:
   <h2>Relationship to Other Concepts</h2>
   <ul>
     <li><a href="/concepts/signal-encoding">Signal Encoding</a>: The process that creates the origin compression cycle to which artifacts are bound</li>
-    <li>Conservation Law of Commitment: Origin binding is what makes enforcement of the law possible — you cannot enforce conservation on a signal whose origin you cannot verify</li>
+    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: Origin binding is what makes enforcement of the law possible — you cannot enforce conservation on a signal whose origin you cannot verify</li>
     <li><a href="/concepts/constitutional-substrate">Constitutional Substrate</a>: The foundational layer that defines the rules for what constitutes a valid origin cycle and a valid binding</li>
   </ul>
 
@@ -72,6 +72,7 @@ jsonld:
   <h3>Related</h3>
   <div class="related-list">
     <a href="/concepts/signal-encoding">Signal Encoding</a>
+    <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>
     <a href="/products">Products</a>
     <a href="/research">Papers & Proofs</a>
