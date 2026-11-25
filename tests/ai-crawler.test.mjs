@@ -212,26 +212,36 @@ test("the PostHog request carries a timeout", () => {
   assert.ok(capture.init.signal instanceof AbortSignal);
 });
 
-test("bot_verified is null and ua_only when Cloudflare gives no usable signal", () => {
+test("bot_verified follows the Cloudflare signal and the BOT_MANAGEMENT_ENABLED flag", () => {
   const mk = (cf) => {
     const r = new Request("https://mos2es.com/x", { headers: { "user-agent": UA.Googlebot } });
     if (cf) Object.defineProperty(r, "cf", { value: cf });
     return r;
   };
   const props = (r, env) => JSON.parse(crawlerCapture(r, 200, env).init.body).properties;
-  for (const cf of [undefined, {}, { botManagement: {} }, { botManagement: { verifiedBot: false } }]) {
-    const p = props(mk(cf));
-    assert.equal(p.bot_verified, null);
-    assert.equal(p.bot_verification, "ua_only");
+  const UAONLY = [null, "ua_only"], CF = (v) => [v, "cloudflare"];
+  const bm = (v) => ({ botManagement: { verifiedBot: v } });
+  const cases = [
+    [undefined, undefined, UAONLY], [{}, {}, UAONLY], [{ botManagement: {} }, { BOT_MANAGEMENT_ENABLED: "1" }, UAONLY],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "1" }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "true" }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "TRUE" }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: " Yes " }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "0" }, UAONLY],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: 1 }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: undefined }, UAONLY],
+    [bm(false), {}, UAONLY],
+    [bm(false), null, UAONLY],
+    [bm(true), { BOT_MANAGEMENT_ENABLED: "1" }, CF(true)],
+    [bm(true), {}, CF(true)],
+    [bm(true), null, CF(true)],
+  ];
+  for (const [cf, env, [verified, how]] of cases) {
+    const p = props(mk(cf), env);
+    const label = JSON.stringify([cf, env]);
+    assert.equal(p.bot_verified, verified, label);
+    assert.equal(p.bot_verification, how, label);
   }
-  // true is always a real verification
-  let p = props(mk({ botManagement: { verifiedBot: true } }));
-  assert.equal(p.bot_verified, true);
-  assert.equal(p.bot_verification, "cloudflare");
-  // false is trusted only when Bot Management is enabled
-  p = props(mk({ botManagement: { verifiedBot: false } }), { BOT_MANAGEMENT_ENABLED: "1" });
-  assert.equal(p.bot_verified, false);
-  assert.equal(p.bot_verification, "cloudflare");
 });
 
 test("distinct_id bot ids are lowercase", () => {

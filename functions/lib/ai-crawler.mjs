@@ -75,11 +75,17 @@ export function detectCrawler(userAgent) {
 // "no signal", not "fake". Rules:
 // - verifiedBot === true is always a real verification (it cannot be set by UA).
 // - verifiedBot === false is trusted only when the Pages variable
-//   BOT_MANAGEMENT_ENABLED is "1" (zone has Bot Management).
+//   BOT_MANAGEMENT_ENABLED is "1", "true" or "yes" (case-insensitive; zone has Bot Management).
 // - Otherwise bot_verified is null and bot_verification is "ua_only".
-function verifiedBot(request, env = {}) {
+function botManagementOn(env) {
+  const flag = env?.BOT_MANAGEMENT_ENABLED;
+  if (flag === undefined || flag === null) return false;
+  return ["1", "true", "yes"].includes(String(flag).trim().toLowerCase());
+}
+
+function verifiedBot(request, env) {
   const verified = request.cf?.botManagement?.verifiedBot;
-  if (verified === true || (verified === false && env.BOT_MANAGEMENT_ENABLED === "1")) {
+  if (verified === true || (verified === false && botManagementOn(env))) {
     return { bot_verified: verified, bot_verification: "cloudflare" };
   }
   return { bot_verified: null, bot_verification: "ua_only" };
@@ -88,7 +94,7 @@ function verifiedBot(request, env = {}) {
 // The PostHog capture request for a crawler hit, or null when nothing should
 // be sent: people, unknown bots, methods other than GET/HEAD, hosts other
 // than mos2es.com, assets and /api/ routes. The query string is never recorded.
-export function crawlerCapture(request, status, env = {}) {
+export function crawlerCapture(request, status, env) {
   if (request.method !== "GET" && request.method !== "HEAD") return null;
   const crawler = detectCrawler(request.headers.get("user-agent"));
   if (!crawler) return null;
@@ -97,12 +103,13 @@ export function crawlerCapture(request, status, env = {}) {
   if (!PRODUCTION_HOSTS.has(host)) return null;
   if (SKIPPED_EXT.test(url.pathname)) return null;
   if (url.pathname.startsWith("/api/")) return null;
-  const apiKey = env.POSTHOG_KEY || POSTHOG_PUBLIC_KEY;
+  const apiKey = env?.POSTHOG_KEY || POSTHOG_PUBLIC_KEY;
   const path = url.pathname;
   const body = {
     api_key: apiKey,
     event: AI_CRAWLER_EVENT,
     // One PostHog id per bot, with no person profile: bots aren't people.
+    // distinct_id is the lowercase key; bot_name keeps the display casing.
     distinct_id: `crawler:${crawler.name.toLowerCase()}`,
     timestamp: new Date().toISOString(),
     properties: {
