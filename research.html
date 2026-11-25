@@ -20,7 +20,7 @@ layout: layouts/simple.html
 </ul>
 
 <h2 class="section">The ideas behind it</h2>
-<p class="lede" style="margin-top:12px">Five concepts, in the order they matter.</p>
+<p class="lede" style="margin-top:12px">The concepts behind the research and how to apply them.</p>
 <div class="concepts">
   <a class="concept" href="/concepts/recursive-compression"><span class="n">01</span><h3>Recursive Compression</h3><p>Every summary, rewrite or handoff transforms a signal. Repeat it and commitment can leak away. This is the T in the Conservation Law.</p></a>
   <a class="concept" href="/concepts/governance-enforcement"><span class="n">02</span><h3>Governance Enforcement</h3><p>Gates, thresholds and lineage checks that run before a transformation. With them, the law says commitment holds. Without them, it degrades.</p></a>
@@ -29,3 +29,23 @@ layout: layouts/simple.html
   <a class="concept" href="/concepts/origin-binding"><span class="n">05</span><h3>Origin Binding</h3><p>Ties every artifact to the cycle that produced it with a cryptographic hash, so copies and mimics can't pass as the original.</p></a>
   <a class="concept guide" href="/guides/how-to-verify-lineage"><span class="n">Guide</span><h3>How to verify lineage</h3><p>A practical walkthrough: check an AI output's provenance chain with SHA-256 hashes and origin binding.</p></a>
 </div>
+
+<h2 class="section">Guides and perspectives</h2>
+<ul class="refs">
+  <li><a class="t" href="/concepts/conservation-law">Commitment Conservation and the Conservation Law</a><span class="d">Concept</span></li>
+  <li><a class="t" href="/guides/how-to-build-a-governance-layer">How to Build a Governance Layer</a><span class="d">Implementation guide</span></li>
+  <li><a class="t" href="/governance-vacuum">The Governance Vacuum</a><span class="d">Article by Deric J. McHenry</span></li>
+  <li><a class="t" href="/governance-vs-alignment">Governance vs. Alignment</a><span class="d">Blog post</span></li>
+</ul>
+
+<h2 class="section" id="historical-evidence">Historical benchmarks and demonstrations</h2>
+<p>The May 2026 field sheet documented a browser-based <a href="https://sunrisesillneversee.github.io/KASSA/demo/commitment_kernel_demo_v7.html">KASSA voice demonstration</a> alongside the published conservation experiments.</p>
+<p>The archived operator benchmark covered seven days of operator-assisted Claude Code and Opus 4.7 usage. The raw analysis included 98 session files and their subagents. It examined cache reuse, compression, token efficiency, throughput, and cost per line of code. The comparison used a May 14, 2026 snapshot of the <a href="https://artificialanalysis.ai/agents/coding-agents">Artificial Analysis Coding Agent Index</a>. This was an observational comparison between one operator’s sessions and an external benchmark with different workloads.</p>
+
+<dl>
+  <dt>Cache hit rate</dt><dd>94.66% for MO§ES and 90.68% in the field average.</dd>
+  <dt>Output-to-input ratio</dt><dd>17.9× for MO§ES and 0.162× in the field average, as reported in the archived poster.</dd>
+  <dt>Tokens per task</dt><dd>810,000 for MO§ES and 4.67 million in the field average.</dd>
+  <dt>Time per task</dt><dd>1.84 minutes for MO§ES and 11.92 minutes in the field average.</dd>
+  <dt>Cost per line of code</dt><dd>$0.0007 for MO§ES and $0.067 in the field average.</dd>
+</dl>

@@ -40,8 +40,6 @@ constitutional-ai-hub.html
 agent-governance.html
 ai-governance.html
 external-governance.html
-governance-vacuum.html
-governance-vs-alignment.html
 multi-agent-systems.html
 benchmarks.html
 legal.html
@@ -55,12 +53,10 @@ vs/
 alternatives/
 concepts/commitment-conservation.html
 concepts/commitment-kernel.html
-concepts/conservation-law.html
 concepts/governance-vacuum.html
 concepts/persistent-governing-state.html
 concepts/sovereign-signal-governance.html
 guides/how-to-audit-multi-agent-transformations.html
-guides/how-to-build-a-governance-layer.html
 guides/how-to-enforce-commitment-conservation.html
 guides/how-to-implement-governance-at-execution.html
 guides/how-to-measure-semantic-commitment.html

@@ -48,7 +48,7 @@ jsonld:
 ---
 
 <div class="prose">
-  <p>A governance layer is the infrastructure that enforces constitutional principles on an AI system. In <a href="/architecture">MO§ES</a>, the governance layer enforces the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> — ensuring that semantic meaning is preserved under recursive transformation. This guide walks you through building a constitutional governance layer using MO§ES architecture patterns.</p>
+  <p>A governance layer is the infrastructure that enforces constitutional principles on an AI system. In <a href="/products">MO§ES</a>, the governance layer enforces the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> — ensuring that semantic meaning is preserved under recursive transformation. This guide walks you through building a constitutional governance layer using MO§ES architecture patterns.</p>
 
   <h2>Overview</h2>
   <p>A governance layer has four components: <strong>principles</strong> (the invariants the system must uphold), <strong>thresholds</strong> (the measurable expression of those principles), <strong>enforcement</strong> (the gates that block violations), and <strong>auditability</strong> (the trail that proves compliance). Building a governance layer means designing and implementing all four components as an integrated system.</p>
@@ -61,7 +61,7 @@ jsonld:
     <li>An NLI model for commitment measurement</li>
     <li>A SHA-256 hashing library for lineage binding</li>
     <li>An append-only log store for the audit trail</li>
-    <li>Familiarity with the <a href="/architecture">MO§ES architecture</a> and <a href="/concepts/governance-enforcement">governance enforcement</a></li>
+    <li>Familiarity with the <a href="/products">MO§ES architecture</a> and <a href="/concepts/governance-enforcement">governance enforcement</a></li>
   </ul>
 
   <h2>Step 1: Define the Constitutional Principles</h2>
@@ -137,8 +137,35 @@ jsonld:
     <li><strong>Building components in isolation</strong>: The gate, the thresholds, the measurements, and the audit trail are an integrated system. Design the interfaces before implementing any component.</li>
   </ul>
 
+  <h2 id="execution-time-enforcement">Execution-time enforcement</h2>
+  <h3>Install Pre-Execution Gates</h3>
+  <p>At each enforcement point, install a gate that measures the predicted commitment of the transformation and blocks it if it falls below threshold. The gate runs synchronously, before the transformation is applied. If the gate blocks, the transformation does not happen — the signal is either passed through unchanged, retried with adjusted parameters, or escalated.</p>
+  <p>The gate is the enforcement mechanism. Without it, your thresholds are just policies — aspirations that transformations may or may not satisfy. With the gate, the thresholds are enforced at the point of execution.</p>
+
+  <h3>Wire Gates to the Audit Trail</h3>
+  <p>Every gate decision must be logged. Connect each gate to the append-only audit trail and record: the signal hash, the transformation type, the commitment measurements before and after, the threshold, and the decision (pass, block, escalate). This creates a complete record of every governance decision in your pipeline.</p>
+  <p>The audit trail serves three purposes: it provides evidence for compliance reviews, it enables post-hoc analysis of gate effectiveness, and it creates a feedback loop for threshold tuning. A gate that blocks too often may have its threshold set too high; a gate that never blocks may have its threshold set too low.</p>
+
+  <h2 id="multi-agent-auditing">Multi-agent auditing</h2>
+  <h3>Instrument Signal Tracking</h3>
+  <p>Attach a unique identifier and SHA-256 hash to every signal as it enters the pipeline. As the signal passes through each agent, record the commitment level at each hop. This creates a commitment trajectory — a record of how commitment changes across the pipeline.</p>
+  <p>The commitment trajectory is the primary diagnostic tool. A healthy pipeline shows a flat or gently declining trajectory. A degrading pipeline shows a steep decline, often accelerating with depth. The trajectory tells you not just <em>whether</em> degradation is happening, but <em>where</em>.</p>
+
+  <h3>Enable Transformation Logging</h3>
+  <p>Configure each agent to log every transformation it applies. Each log entry should include: the input signal hash, the output signal hash, the transformation type, the agent identifier, and a timestamp. Store these logs in an append-only audit trail.</p>
+  <p>The transformation log is the evidence base for your audit. It enables post-hoc reconstruction of the entire signal journey, verification that the lineage chain is intact, and identification of exactly which transformation caused any detected degradation.</p>
+  <pre><code>def log_transform(agent_id, input_signal, output_signal, transform_type):
+    entry = {
+        "agent": agent_id,
+        "input_hash": sha256(input_signal),
+        "output_hash": sha256(output_signal),
+        "transform": transform_type,
+        "timestamp": now()
+    }
+    audit_log.append(entry)  # append-only</code></pre>
+
   <h2>Next Steps</h2>
-  <p>Once your governance layer is operational, extend it with <a href="/guides/how-to-implement-governance-at-execution">execution-time enforcement</a>, <a href="/guides/how-to-audit-multi-agent-transformations">multi-agent auditing</a>, and <a href="/guides/how-to-prevent-semantic-drift">semantic drift prevention</a>. For the architectural context, see the <a href="/architecture">MO§ES architecture</a> page, and for the theoretical foundation, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the <a href="/papers">research papers</a>.</p>
+  <p>Once your governance layer is operational, extend it with <a href="/guides/how-to-build-a-governance-layer#execution-time-enforcement">execution-time enforcement</a>, <a href="/guides/how-to-build-a-governance-layer#multi-agent-auditing">multi-agent auditing</a>, and <a href="/concepts/recursive-compression">semantic drift prevention</a>. For the architectural context, see the <a href="/products">MO§ES architecture</a> page, and for the theoretical foundation, read the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> and the <a href="/research">research papers</a>.</p>
 </div>
 
 <div class="related">
@@ -146,11 +173,11 @@ jsonld:
   <div class="related-list">
     <a href="/concepts/governance-enforcement">Governance Enforcement</a>
     <a href="/concepts/conservation-law">Conservation Law of Commitment</a>
-    <a href="/concepts/lineage-claw">Lineage Claw</a>
-    <a href="/architecture">Architecture</a>
-    <a href="/papers">Papers & Proofs</a>
-    <a href="/guides/how-to-implement-governance-at-execution">How to Implement Governance at Execution</a>
-    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce Commitment Conservation</a>
-    <a href="/guides/how-to-audit-multi-agent-transformations">How to Audit Multi-Agent Transformations</a>
+    <a href="/guides/how-to-verify-lineage">Lineage Claw</a>
+    <a href="/products">Architecture</a>
+    <a href="/research">Papers & Proofs</a>
+    <a href="/guides/how-to-build-a-governance-layer#execution-time-enforcement">How to Implement Governance at Execution</a>
+    <a href="/guides/how-to-build-a-governance-layer">How to Enforce Commitment Conservation</a>
+    <a href="/guides/how-to-build-a-governance-layer#multi-agent-auditing">How to Audit Multi-Agent Transformations</a>
   </div>
 </div>
