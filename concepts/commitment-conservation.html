@@ -30,34 +30,6 @@ jsonld:
     inDefinedTermSet:
       "@type": "DefinedTermSet"
       name: "MO§ES Concepts"
-  - "@context": "https://schema.org"
-    "@type": "FAQPage"
-    mainEntity:
-      - "@type": "Question"
-        name: "What is commitment conservation?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Commitment conservation is the measured outcome that the Conservation Law of Commitment predicts. When governance enforcement is present, commitment is conserved at 80-85% of original levels across recursive transformations. Without enforcement, commitment degrades to near zero — typically below 20% by iteration 5 and effectively zero by iteration 8."
-      - "@type": "Question"
-        name: "Why is commitment conserved at 80-85% and not 100%?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Recursive transformation is inherently lossy — some semantic detail is always lost when a signal is summarized, translated, or re-encoded. The 80-85% conservation rate represents the achievable ceiling under enforcement: the resonance threshold blocks transformations that would degrade commitment below an acceptable band, but transformations within the band still produce minor, acceptable losses. 100% conservation would require blocking all transformations, which defeats the purpose."
-      - "@type": "Question"
-        name: "How is commitment conservation measured?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Commitment conservation is measured using NLI bidirectional entailment for semantic measurement and Jaccard surface stability for lexical measurement. The commitment function C compares the commitment of the transformed signal C(T(S)) to the commitment of the original C(S), producing a conservation ratio that can be tracked across iterations."
-      - "@type": "Question"
-        name: "What does commitment degradation look like in practice?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Commitment degradation manifests as the systematic erosion of obligation language. A 'shall' drifts to a 'may.' A 'must' softens to a 'should.' A contractual requirement becomes a suggestion. By iteration 5, most commitment language has been lost. By iteration 8, the signal may be fluent and well-formed but carries almost none of the original obligation."
-      - "@type": "Question"
-        name: "How does commitment conservation relate to the Conservation Law?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "The Conservation Law is the prediction; commitment conservation is the measured outcome. The law states C(T(S)) ≈ C(S) with enforcement and C(T(S)) < C(S) without it. Commitment conservation is the empirical confirmation of that prediction — the 80-85% conservation rate measured under enforcement, and the near-zero degradation measured without it."
 ---
 
 <div class="prose">

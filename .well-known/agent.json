@@ -8,7 +8,7 @@
     "url": "https://mos2es.com/about"
   },
   "capabilities": {
-    "protocols": ["a2a", "mcp"],
+    "protocols": ["a2a"],
     "discovery": [
       "https://mos2es.com/.well-known/api-catalog",
       "https://mos2es.com/.well-known/mcp/server-card.json",
@@ -53,16 +53,11 @@
   ],
   "supportedInterfaces": [
     {
-      "type": "mcp",
-      "url": "https://mcp.mos2es.org/mcp",
-      "transport": "streamable-http"
-    },
-    {
       "type": "a2a",
       "url": "https://mos2es.com/.well-known/agent-card.json"
     }
   ],
-  "contact": "pilots@mos2es.org",
+  "contact": "https://mos2es.com/contact",
   "documentation": "https://mos2es.com/llms.txt",
   "homepage": "https://mos2es.com"
 }

@@ -10,9 +10,9 @@ Agents can register for access to MOSES services. Registration is required for w
 
 ### Registration Methods
 
-1. **Anonymous**: No registration required. Connect directly to `https://mos2es.com` or `https://mcp.mos2es.org/mcp` for read-only access.
+1. **Anonymous**: No registration required. Connect directly to `https://mos2es.com` for read-only access.
 
-2. **Service Auth**: Register for enterprise pilot access by contacting pilots@mos2es.org. You will receive credentials to use for MCP server write tool access.
+2. **Service Auth**: Register for enterprise pilot access by using https://mos2es.com/contact. You will receive credentials to use for MCP server write tool access.
 
 3. **Contribution Exchange**: Register at `https://signalaf.com/exchange` to participate in the Contribution Exchange. After registration, use the identity endpoint at `https://signalaf.com/api/exchange/steward/mos2es.com` to authenticate.
 
@@ -20,14 +20,14 @@ Agents can register for access to MOSES services. Registration is required for w
 
 #### Anonymous Registration
 ```
-1. Agent sends GET request to https://mos2es.com or https://mcp.mos2es.org/mcp
+1. Agent sends GET request to https://mos2es.com
 2. No authentication headers required
 3. Agent receives public read access to all discovery endpoints and content
 ```
 
 #### Service Auth Registration
 ```
-1. Agent contacts pilots@mos2es.org to request enterprise pilot access
+1. Agent submits a request at https://mos2es.com/contact for enterprise pilot access
 2. Ello Cello LLC issues pilot credentials (bearer token)
 3. Agent sends requests with Authorization: Bearer <token> header
 4. Agent receives write tool access to MCP server (5 write tools)
@@ -77,4 +77,4 @@ Agents can register for access to MOSES services. Registration is required for w
 
 ## Contact
 
-For agent registration, enterprise pilots, API partnerships, or commercial access: contact pilots@mos2es.org
+For agent registration, enterprise pilots, API partnerships, or commercial access: contact https://mos2es.com/contact

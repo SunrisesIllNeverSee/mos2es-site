@@ -30,38 +30,10 @@ jsonld:
     inDefinedTermSet:
       "@type": "DefinedTermSet"
       name: "MO§ES Concepts"
-  - "@context": "https://schema.org"
-    "@type": "FAQPage"
-    mainEntity:
-      - "@type": "Question"
-        name: "What is recursive compression?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Recursive compression is the transformation operator T in the Conservation Law of Commitment. It is the process of repeatedly transforming, summarizing, or re-encoding a signal. Each iteration applies a transformation to the output of the previous iteration, creating a chain of transformations that the Conservation Law governs."
-      - "@type": "Question"
-        name: "Why does recursive compression degrade commitment?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Each transformation in a recursive compression chain risks losing semantic detail. A 'shall' may drift to a 'may,' a 'must' may soften to a 'should.' Without governance enforcement, this degradation is systematic and accelerates with recursion depth. The Conservation Law predicts 15-20% commitment loss per unenforced iteration."
-      - "@type": "Question"
-        name: "What is the transformation operator T?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "T is the transformation operator in the Conservation Law formula C(T(S)). T represents any process that transforms, compresses, summarizes, translates, or re-encodes a signal. In practice, T is whatever operation an AI system applies to a natural language input — summarization, translation, paraphrasing, agent-to-agent communication, or any multi-step pipeline."
-      - "@type": "Question"
-        name: "How does MO§ES prevent commitment degradation during recursive compression?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "MO§ES applies governance enforcement at each step of the recursive compression chain. Pre-execution gates check commitment levels before a transformation is applied, resonance thresholds reject transformations that would degrade commitment below an acceptable level, and lineage binding ties each output to its input, creating a verifiable audit trail."
-      - "@type": "Question"
-        name: "What counts as a transformation in recursive compression?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Any operation that changes a signal counts as a transformation: summarization, translation, paraphrasing, compression, re-encoding, agent-to-agent message passing, or any multi-step NLP pipeline. The Conservation Law applies to all of them — every transformation is an instance of T, and every instance risks commitment degradation without enforcement."
 ---
 
 <div class="prose">
-  <p><strong>Recursive compression</strong> is the transformation operator T in the <a href="/concepts/conservation-law">Conservation Law of Commitment</a>. It is the process of repeatedly transforming, summarizing, or re-encoding a signal — applying a transformation to the output of the previous transformation, creating a chain that the Conservation Law governs. Each iteration risks commitment degradation unless governance enforcement is present.</p>
+  <p><strong>Recursive compression</strong> is the transformation operator T in the <a href="/research">Conservation Law of Commitment</a>. It is the process of repeatedly transforming, summarizing, or re-encoding a signal — applying a transformation to the output of the previous transformation, creating a chain that the Conservation Law governs. Each iteration risks commitment degradation unless governance enforcement is present.</p>
 
   <h2>The Transformation Operator T</h2>
   <p>In the Conservation Law formula, T is the transformation operator: C(T(S)) is the commitment of a transformed signal. T represents <em>any</em> process that transforms, compresses, summarizes, translates, paraphrases, or re-encodes a signal. In practice, T is whatever operation an AI system applies to a natural language input:</p>
@@ -94,9 +66,9 @@ jsonld:
 
   <h2>Relationship to Other Concepts</h2>
   <ul>
-    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: Recursive compression is the transformation operator T that the law governs</li>
+    <li><a href="/research">Conservation Law of Commitment</a>: Recursive compression is the transformation operator T that the law governs</li>
     <li><a href="/concepts/governance-enforcement">Governance Enforcement</a>: The presence or absence of enforcement determines whether recursive compression degrades or conserves commitment</li>
-    <li><a href="/concepts/commitment-conservation">Commitment Conservation</a>: The measured outcome — with enforcement, recursive compression preserves 80-85% of commitment; without it, commitment degrades to near zero</li>
+    <li><a href="/research">Commitment Conservation</a>: The measured outcome — with enforcement, recursive compression preserves 80-85% of commitment; without it, commitment degrades to near zero</li>
   </ul>
 
   <h2>Practical Implications</h2>
@@ -106,11 +78,8 @@ jsonld:
 <div class="related">
   <h3>Related</h3>
   <div class="related-list">
-    <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/governance-enforcement">Governance Enforcement</a>
-    <a href="/concepts/commitment-conservation">Commitment Conservation</a>
-    <a href="/architecture">Architecture</a>
-    <a href="/papers">Papers & Proofs</a>
-    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+    <a href="/products">Architecture</a>
+    <a href="/research">Papers & Proofs</a>
   </div>
 </div>

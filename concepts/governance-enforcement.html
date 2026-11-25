@@ -30,38 +30,10 @@ jsonld:
     inDefinedTermSet:
       "@type": "DefinedTermSet"
       name: "MO§ES Concepts"
-  - "@context": "https://schema.org"
-    "@type": "FAQPage"
-    mainEntity:
-      - "@type": "Question"
-        name: "What is governance enforcement?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Governance enforcement is the presence or absence of enforcement that the Conservation Law of Commitment depends on. When enforcement is present, pre-execution gates, resonance thresholds, and lineage verification are active, and commitment is conserved. When enforcement is absent, the law predicts commitment degradation."
-      - "@type": "Question"
-        name: "What are pre-execution gates?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Pre-execution gates are checks that run before a transformation is applied to a signal. They measure the commitment of the input, predict the commitment of the output, and block any transformation that would degrade commitment below an acceptable threshold. The gate fires before execution — not after the damage is done."
-      - "@type": "Question"
-        name: "What is a resonance threshold?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "A resonance threshold is the minimum commitment level that a transformed signal must maintain relative to its original. If a transformation would produce an output whose commitment falls below the resonance threshold, the transformation is rejected. The threshold is what makes commitment conservation a gating condition rather than a post-hoc observation."
-      - "@type": "Question"
-        name: "What is lineage verification?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Lineage verification is the process of checking that every artifact in the system has a valid, unbroken hash chain tracing back to its origin compression cycle. Origin binding creates the chain; lineage verification checks it. Artifacts with broken or missing lineage are rejected at the enforcement gate."
-      - "@type": "Question"
-        name: "Can the Conservation Law hold without enforcement?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "No. The Conservation Law states that commitment is preserved under recursive transformation if and only if governance enforcement is present. Without enforcement, the law predicts — and experiments confirm — systematic commitment degradation. Enforcement is not optional; it is the condition on which the law depends."
 ---
 
 <div class="prose">
-  <p><strong>Governance enforcement</strong> is the presence or absence of enforcement that the <a href="/concepts/conservation-law">Conservation Law of Commitment</a> depends on. When enforcement is present, pre-execution gates, resonance thresholds, and lineage verification are active, and commitment is conserved across recursive transformations. When enforcement is absent, the law predicts — and experiments confirm — systematic commitment degradation. Enforcement is not an add-on; it is the condition on which the law depends.</p>
+  <p><strong>Governance enforcement</strong> is the presence or absence of enforcement that the <a href="/research">Conservation Law of Commitment</a> depends on. When enforcement is present, pre-execution gates, resonance thresholds, and lineage verification are active, and commitment is conserved across recursive transformations. When enforcement is absent, the law predicts — and experiments confirm — systematic commitment degradation. Enforcement is not an add-on; it is the condition on which the law depends.</p>
 
   <h2>The Three Enforcement Mechanisms</h2>
   <p>MO§ES implements governance enforcement through three mechanisms that operate at each step of a recursive transformation chain:</p>
@@ -93,9 +65,9 @@ jsonld:
 
   <h2>Relationship to Other Concepts</h2>
   <ul>
-    <li><a href="/concepts/conservation-law">Conservation Law of Commitment</a>: Governance enforcement is the condition the law depends on — the law holds if and only if enforcement is present</li>
+    <li><a href="/research">Conservation Law of Commitment</a>: Governance enforcement is the condition the law depends on — the law holds if and only if enforcement is present</li>
     <li><a href="/concepts/recursive-compression">Recursive Compression</a>: Enforcement is what prevents the transformation operator T from degrading commitment</li>
-    <li><a href="/concepts/commitment-conservation">Commitment Conservation</a>: The measured outcome of enforcement — 80-85% conservation with enforcement, near-zero without</li>
+    <li><a href="/research">Commitment Conservation</a>: The measured outcome of enforcement — 80-85% conservation with enforcement, near-zero without</li>
     <li><a href="/concepts/constitutional-substrate">Constitutional Substrate</a>: The foundational layer that defines the enforcement rules, thresholds, and gates</li>
   </ul>
 
@@ -106,12 +78,9 @@ jsonld:
 <div class="related">
   <h3>Related</h3>
   <div class="related-list">
-    <a href="/concepts/conservation-law">Conservation Law</a>
     <a href="/concepts/recursive-compression">Recursive Compression</a>
-    <a href="/concepts/commitment-conservation">Commitment Conservation</a>
     <a href="/concepts/constitutional-substrate">Constitutional Substrate</a>
-    <a href="/architecture">Architecture</a>
-    <a href="/papers">Papers & Proofs</a>
-    <a href="/guides/how-to-enforce-commitment-conservation">How to Enforce It</a>
+    <a href="/products">Architecture</a>
+    <a href="/research">Papers & Proofs</a>
   </div>
 </div>

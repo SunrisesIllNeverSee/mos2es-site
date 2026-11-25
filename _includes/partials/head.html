@@ -45,12 +45,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
   <!-- Google Analytics 4 (gtag.js) — measurement ID G-SDGZRVRKKS -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDGZRVRKKS"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SDGZRVRKKS');
+    (function () {
+      // Production hosts only: skip *.pages.dev previews and local hosts.
+      if (['mos2es.com', 'www.mos2es.com'].indexOf(location.hostname) === -1) return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-SDGZRVRKKS');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SDGZRVRKKS';
+      document.head.appendChild(s);
+    })();
   </script>
   <!-- Cloudflare Web Analytics -->
   <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "auto", "api": {"accountID": "8251078af351cd5b19cb73a3435e446f"}}'></script>
