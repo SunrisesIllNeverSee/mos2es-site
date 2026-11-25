@@ -86,7 +86,7 @@ test("a crawler hit sends one ai_bot_detected event through waitUntil, without t
   const body = JSON.parse(sent[0].init.body);
   assert.equal(body.event, AI_CRAWLER_EVENT);
   assert.equal(body.event, "ai_bot_detected");
-  assert.equal(body.distinct_id, "crawler:ChatGPT-User");
+  assert.equal(body.distinct_id, "crawler:chatgpt-user");
   assert.match(body.api_key, /^phc_/);
   assert.deepEqual(
     { ...body.properties },
@@ -98,6 +98,8 @@ test("a crawler hit sends one ai_bot_detected event through waitUntil, without t
       path: "/research",
       method: "GET",
       status: 200,
+      bot_verified: null,
+      bot_verification: "ua_only",
       $host: "mos2es.com",
       $pathname: "/research",
       $current_url: "https://mos2es.com/research",
@@ -208,4 +210,31 @@ test("the PostHog request carries a timeout", () => {
   });
   const capture = crawlerCapture(request, 200);
   assert.ok(capture.init.signal instanceof AbortSignal);
+});
+
+test("bot_verified is null and ua_only when Cloudflare gives no usable signal", () => {
+  const mk = (cf) => {
+    const r = new Request("https://mos2es.com/x", { headers: { "user-agent": UA.Googlebot } });
+    if (cf) Object.defineProperty(r, "cf", { value: cf });
+    return r;
+  };
+  const props = (r, env) => JSON.parse(crawlerCapture(r, 200, env).init.body).properties;
+  for (const cf of [undefined, {}, { botManagement: {} }, { botManagement: { verifiedBot: false } }]) {
+    const p = props(mk(cf));
+    assert.equal(p.bot_verified, null);
+    assert.equal(p.bot_verification, "ua_only");
+  }
+  // true is always a real verification
+  let p = props(mk({ botManagement: { verifiedBot: true } }));
+  assert.equal(p.bot_verified, true);
+  assert.equal(p.bot_verification, "cloudflare");
+  // false is trusted only when Bot Management is enabled
+  p = props(mk({ botManagement: { verifiedBot: false } }), { BOT_MANAGEMENT_ENABLED: "1" });
+  assert.equal(p.bot_verified, false);
+  assert.equal(p.bot_verification, "cloudflare");
+});
+
+test("distinct_id bot ids are lowercase", () => {
+  const r = new Request("https://mos2es.com/x", { headers: { "user-agent": UA.Amazonbot } });
+  assert.equal(JSON.parse(crawlerCapture(r, 200).init.body).distinct_id, "crawler:amazonbot");
 });

@@ -68,11 +68,21 @@ export function detectCrawler(userAgent) {
   return null;
 }
 
-// Bots are known by User-Agent only, so a client can claim to be one. When
-// Cloudflare says whether the request came from a verified bot, record it.
-function verifiedBot(request) {
+// Bots are known by User-Agent only, so a client can claim to be one.
+// Cloudflare's request.cf.botManagement is "only set when using Cloudflare Bot
+// Management" (Workers Request docs). On this zone (Free plan) the field comes
+// through as verifiedBot:false even for real Googlebot, so a false there means
+// "no signal", not "fake". Rules:
+// - verifiedBot === true is always a real verification (it cannot be set by UA).
+// - verifiedBot === false is trusted only when the Pages variable
+//   BOT_MANAGEMENT_ENABLED is "1" (zone has Bot Management).
+// - Otherwise bot_verified is null and bot_verification is "ua_only".
+function verifiedBot(request, env = {}) {
   const verified = request.cf?.botManagement?.verifiedBot;
-  return typeof verified === "boolean" ? { bot_verified: verified } : {};
+  if (verified === true || (verified === false && env.BOT_MANAGEMENT_ENABLED === "1")) {
+    return { bot_verified: verified, bot_verification: "cloudflare" };
+  }
+  return { bot_verified: null, bot_verification: "ua_only" };
 }
 
 // The PostHog capture request for a crawler hit, or null when nothing should
@@ -93,7 +103,7 @@ export function crawlerCapture(request, status, env = {}) {
     api_key: apiKey,
     event: AI_CRAWLER_EVENT,
     // One PostHog id per bot, with no person profile: bots aren't people.
-    distinct_id: `crawler:${crawler.name}`,
+    distinct_id: `crawler:${crawler.name.toLowerCase()}`,
     timestamp: new Date().toISOString(),
     properties: {
       bot_name: crawler.name,
@@ -103,7 +113,7 @@ export function crawlerCapture(request, status, env = {}) {
       path,
       method: request.method,
       status,
-      ...verifiedBot(request),
+      ...verifiedBot(request, env),
       $host: host,
       $pathname: path,
       $current_url: `https://${host}${path}`,
