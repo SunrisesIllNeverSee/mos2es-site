@@ -86,7 +86,7 @@ test("a crawler hit sends one ai_bot_detected event through waitUntil, without t
   const body = JSON.parse(sent[0].init.body);
   assert.equal(body.event, AI_CRAWLER_EVENT);
   assert.equal(body.event, "ai_bot_detected");
-  assert.equal(body.distinct_id, "crawler:ChatGPT-User");
+  assert.equal(body.distinct_id, "crawler:chatgpt-user");
   assert.match(body.api_key, /^phc_/);
   assert.deepEqual(
     { ...body.properties },
@@ -98,6 +98,8 @@ test("a crawler hit sends one ai_bot_detected event through waitUntil, without t
       path: "/research",
       method: "GET",
       status: 200,
+      bot_verified: null,
+      bot_verification: "ua_only",
       $host: "mos2es.com",
       $pathname: "/research",
       $current_url: "https://mos2es.com/research",
@@ -208,4 +210,41 @@ test("the PostHog request carries a timeout", () => {
   });
   const capture = crawlerCapture(request, 200);
   assert.ok(capture.init.signal instanceof AbortSignal);
+});
+
+test("bot_verified follows the Cloudflare signal and the BOT_MANAGEMENT_ENABLED flag", () => {
+  const mk = (cf) => {
+    const r = new Request("https://mos2es.com/x", { headers: { "user-agent": UA.Googlebot } });
+    if (cf) Object.defineProperty(r, "cf", { value: cf });
+    return r;
+  };
+  const props = (r, env) => JSON.parse(crawlerCapture(r, 200, env).init.body).properties;
+  const UAONLY = [null, "ua_only"], CF = (v) => [v, "cloudflare"];
+  const bm = (v) => ({ botManagement: { verifiedBot: v } });
+  const cases = [
+    [undefined, undefined, UAONLY], [{}, {}, UAONLY], [{ botManagement: {} }, { BOT_MANAGEMENT_ENABLED: "1" }, UAONLY],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "1" }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "true" }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "TRUE" }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: " Yes " }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: "0" }, UAONLY],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: 1 }, CF(false)],
+    [bm(false), { BOT_MANAGEMENT_ENABLED: undefined }, UAONLY],
+    [bm(false), {}, UAONLY],
+    [bm(false), null, UAONLY],
+    [bm(true), { BOT_MANAGEMENT_ENABLED: "1" }, CF(true)],
+    [bm(true), {}, CF(true)],
+    [bm(true), null, CF(true)],
+  ];
+  for (const [cf, env, [verified, how]] of cases) {
+    const p = props(mk(cf), env);
+    const label = JSON.stringify([cf, env]);
+    assert.equal(p.bot_verified, verified, label);
+    assert.equal(p.bot_verification, how, label);
+  }
+});
+
+test("distinct_id bot ids are lowercase", () => {
+  const r = new Request("https://mos2es.com/x", { headers: { "user-agent": UA.Amazonbot } });
+  assert.equal(JSON.parse(crawlerCapture(r, 200).init.body).distinct_id, "crawler:amazonbot");
 });
