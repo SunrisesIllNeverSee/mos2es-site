@@ -2,13 +2,6 @@
   "linkset": [
     {
       "anchor": "https://mos2es.com",
-      "service-desc": [
-        {
-          "href": "https://mos2es.com/.well-known/mcp/server-card.json",
-          "type": "application/json",
-          "title": "MCP Server Card"
-        }
-      ],
       "service-doc": [
         {
           "href": "https://mos2es.com/llms.txt",

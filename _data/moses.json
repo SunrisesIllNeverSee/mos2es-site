@@ -284,7 +284,7 @@
       "entity_type": "product",
       "aliases": [],
       "canonical_urls": [
-        "https://mos2es.org"
+        "https://mos2es.com"
       ],
       "same_as": [],
       "description": "Commercial measurement engine / enterprise product. Upsilon consumes privacy-preserving AI usage telemetry (input tokens, output tokens, cache creation/write, cache read) and produces diagnostic measures of AI processing behavior. Governed by the MO\u00a7ES\u2122 framework. The enterprise pilot is an Upsilon pilot. Upsilon is NOT an alias for SigRank and NOT an alias for Yield.",
@@ -298,7 +298,7 @@
       "status": "owner_approved",
       "schema_org_type": "SoftwareApplication",
       "schema_org_properties": {
-        "url": "https://mos2es.org",
+        "url": "https://mos2es.com",
         "applicationCategory": "AIOperatorMeasurement"
       },
       "source_system": "search-authority",
@@ -314,7 +314,7 @@
         "Yield metric"
       ],
       "canonical_urls": [
-        "https://mos2es.org"
+        "https://mos2es.com"
       ],
       "same_as": [],
       "description": "Flagship metric inside Upsilon. Formula \u03a5 = (R \u00d7 O) / I\u00b2 where I = input tokens, O = output tokens, R = cache read. Equivalent Yield = Leverage \u00d7 Velocity. Yield is a METRIC, not a product. Upsilon is the product; Yield is one metric within it.",

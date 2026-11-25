@@ -12,7 +12,7 @@ Agents can register for access to MOSES services. Registration is required for w
 
 1. **Anonymous**: No registration required. Connect directly to `https://mos2es.com` for read-only access.
 
-2. **Service Auth**: Register for enterprise pilot access by using https://mos2es.com/contact. You will receive credentials to use for MCP server write tool access.
+2. **Service Auth**: Register for enterprise pilot access by using https://mos2es.com/contact.
 
 3. **Contribution Exchange**: Register at `https://signalaf.com/exchange` to participate in the Contribution Exchange. After registration, use the identity endpoint at `https://signalaf.com/api/exchange/steward/mos2es.com` to authenticate.
 
@@ -30,7 +30,7 @@ Agents can register for access to MOSES services. Registration is required for w
 1. Agent submits a request at https://mos2es.com/contact for enterprise pilot access
 2. Ello Cello LLC issues pilot credentials (bearer token)
 3. Agent sends requests with Authorization: Bearer <token> header
-4. Agent receives write tool access to MCP server (5 write tools)
+4. Agent receives the access agreed for the pilot
 ```
 
 #### Contribution Exchange Registration
@@ -58,7 +58,7 @@ Agents can register for access to MOSES services. Registration is required for w
 ## Identity and Credential Types
 
 - **Anonymous**: No identity required for public access
-- **Pilot credentials**: Bearer token issued by Ello Cello LLC for enterprise pilot MCP access
+- **Pilot credentials**: Bearer token issued by Ello Cello LLC for enterprise pilot access
 - **SignalAF account**: OAuth credentials for Contribution Exchange participation
 
 ## Prerequisites

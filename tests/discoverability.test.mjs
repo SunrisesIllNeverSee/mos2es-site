@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
+import vm from "node:vm";
 import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
@@ -8,7 +9,6 @@ const DISCOVERY_FILES = [
   ".well-known/agent.json",
   ".well-known/agent-card.json",
   ".well-known/api-catalog",
-  ".well-known/mcp/server-card.json",
   ".well-known/auth.md",
   "auth.md",
 ];
@@ -36,24 +36,80 @@ test("agent cards declare no MCP endpoint", async () => {
     for (const iface of card.supportedInterfaces) assert.notEqual(iface.type, "mcp", path);
     assert.ok(!card.capabilities.protocols.includes("mcp"), path);
   }
-  const serverCard = JSON.parse(await read(".well-known/mcp/server-card.json"));
-  assert.equal(serverCard.remotes, undefined);
+  // No MCP endpoint exists for this host, so the retired server card must not be advertised.
+  await assert.rejects(read(".well-known/mcp/server-card.json"));
+  for (const path of ["_headers", ".well-known/ai-catalog.json", ".well-known/api-catalog", ".well-known/agent.json", ".well-known/agent-card.json", "auth.md", ".well-known/auth.md"]) {
+    assert.ok(!/server-card|MCP server|mcp-server/i.test(await read(path)), `${path} still advertises an MCP server`);
+  }
 });
 
-const ANALYTICS_FILES = ["_includes/partials/head.html", "_includes/layouts/content-page.html", "deck.html"];
-
-test("GA4 and PostHog only start on the production hostnames", async () => {
-  for (const path of ANALYTICS_FILES) {
-    const html = await read(path);
-    if (html.includes("G-SDGZRVRKKS")) {
-      // No static gtag.js tag: it is injected only after the hostname check.
-      assert.ok(!/<script[^>]+googletagmanager\.com\/gtag\/js/.test(html), `${path} loads gtag.js unconditionally`);
-      assert.match(html, /\['mos2es\.com', 'www\.mos2es\.com'\]\.indexOf\(location\.hostname\) === -1\) return/, path);
-    }
-    if (html.includes("posthog.init")) {
-      assert.match(html, /<script>if\(\["mos2es\.com","www\.mos2es\.com"\]\.indexOf\(location\.hostname\)>-1\)\{!function/, path);
+// Every HTML source that can reach the live site (pages, layouts, partials).
+async function htmlSources() {
+  const skip = new Set(["node_modules", "_site", ".git", "docs", "img", "3d", "assets", "uploads", "tools", "scripts", "system-devin", "Devins_Plans", "keys"]);
+  const out = [];
+  async function walk(dir) {
+    for (const entry of await readdir(new URL(`../${dir}`, import.meta.url), { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        if (!skip.has(entry.name)) await walk(`${dir}${entry.name}/`);
+      } else if (entry.name.endsWith(".html")) {
+        out.push(`${dir}${entry.name}`);
+      }
     }
   }
+  await walk("");
+  return out;
+}
+
+function runAnalytics(scripts, hostname) {
+  const appended = [];
+  const el = () => ({ set src(v) { appended.push(v); }, get src() { return ""; }, parentNode: { insertBefore: (n) => appended.push(n.src) } });
+  const document = {
+    createElement: el,
+    getElementsByTagName: () => [el()],
+    head: { appendChild: (n) => appended.push(n.src) },
+  };
+  // The sandbox is its own window, so bare globals like `posthog` and `gtag` resolve as in a browser.
+  const window = { location: { hostname }, document, console };
+  window.window = window;
+  const ctx = vm.createContext(window);
+  for (const code of scripts) vm.runInContext(code, ctx);
+  return { window, appended, ctx };
+}
+
+test("no served HTML names a retired domain", async () => {
+  for (const file of await htmlSources()) {
+    const html = await read(file);
+    assert.ok(!/mos2es\.(org|xyz)\b|sigeconomy\.com/.test(html), `${file} names a retired domain`);
+  }
+});
+
+test("GA4 and PostHog only start on production hosts, and stay safe elsewhere", async () => {
+  let checked = 0;
+  for (const file of await htmlSources()) {
+    const html = await read(file);
+    const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((m) => m[1]).filter((c) => /gtag|posthog/.test(c));
+    if (!scripts.length) continue;
+    checked++;
+    // No static tag may load gtag.js before any hostname check.
+    assert.ok(!/<script[^>]+googletagmanager\.com\/gtag\/js/.test(html), `${file} loads gtag.js unconditionally`);
+    for (const host of ["mos2es.com", "www.mos2es.com"]) {
+      const { window, appended } = runAnalytics(scripts, host);
+      assert.equal(typeof window.gtag === "function" || !html.includes("gtag"), true, `${file} gtag on ${host}`);
+      if (html.includes("googletagmanager")) assert.ok(appended.some((u) => /googletagmanager\.com\/gtag\/js/.test(u)), `${file} should load gtag.js on ${host}`);
+      if (html.includes("posthog.init")) assert.equal(window.posthog._i.length, 1, `${file} should init PostHog on ${host}`);
+    }
+    for (const host of ["d3b4511e.mos2es.pages.dev", "mos2es.pages.dev", "127.0.0.1", "localhost"]) {
+      const { window, appended } = runAnalytics(scripts, host);
+      // The queue and stubs exist so page code never throws...
+      if (html.includes("googletagmanager")) assert.equal(typeof window.gtag, "function", `${file} gtag stub on ${host}`);
+      if (html.includes("posthog.init")) assert.ok(window.posthog, `${file} posthog stub on ${host}`);
+      // ...but nothing is loaded or sent.
+      assert.ok(!appended.some((u) => /googletagmanager|posthog/.test(u)), `${file} loads analytics on ${host}`);
+      if (html.includes("posthog.init")) assert.equal(window.posthog._i.length, 0, `${file} should not init PostHog on ${host}`);
+      if (html.includes("googletagmanager")) assert.equal((window.dataLayer || []).length, 0, `${file} queued GA events on ${host}`);
+    }
+  }
+  assert.ok(checked >= 3, "expected to find analytics scripts");
 });
 
 test("FAQPage JSON-LD is only on /faq among the concept pages", async () => {
