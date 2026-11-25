@@ -20,21 +20,6 @@
       ]
     },
     {
-      "identifier": "urn:air:mos2es.com:server:mcp",
-      "displayName": "MOSES MCP Server",
-      "type": "application/mcp-server-card+json",
-      "mediaType": "application/mcp-server-card+json",
-      "url": "https://mos2es.com/.well-known/mcp/server-card.json",
-      "capabilities": ["evaluate_operator", "benchmark_operator", "diagnose_gaps", "design_intervention", "compare_cohorts"],
-      "description": "Enterprise AI operator evaluation MCP server powered by the Upsilon measurement engine. 27 tools for measuring, benchmarking, diagnosing, and intervening on how human operators use AI tools.",
-      "representativeQueries": [
-        "evaluate an AI operator's performance metrics",
-        "benchmark operators against reference populations",
-        "diagnose capability gaps in AI workflows",
-        "design interventions for underperforming operators"
-      ]
-    },
-    {
       "identifier": "urn:air:mos2es.com:skills:governance",
       "displayName": "MOSES Governance Skills",
       "type": "application/json",

@@ -29,7 +29,7 @@
   "sourceSystem": "search-authority",
   "canonBacked": true,
   "authorityApprovalRef": "APPROVAL-UPSILON-ARCH-001 (ID-UPSILON-001)",
-  "url": "https://mos2es.org",
+  "url": "https://mos2es.com",
   "applicationCategory": "AIOperatorMeasurement",
   "disambiguatingDescription": "Upsilon is the measurement engine / commercial product, NOT the leaderboard (that is SigRank). Upsilon is NOT the same as Yield. Yield is a metric inside Upsilon. Upsilon does not require prompt text or code contents to calculate core token-derived measures. Upsilon is governed by MO§ES™ — it is not interchangeable with MO§ES™. Claims like 'higher Yield causes faster shipping' are HYPOTHESIS, not canon, unless separately supported by evidence.",
   "governedBy": "https://mos2es.com/ontology/0.1/entity/moses",

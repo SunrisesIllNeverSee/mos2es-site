@@ -2,13 +2,6 @@
   "linkset": [
     {
       "anchor": "https://mos2es.com",
-      "service-desc": [
-        {
-          "href": "https://mos2es.com/.well-known/mcp/server-card.json",
-          "type": "application/json",
-          "title": "MCP Server Card"
-        }
-      ],
       "service-doc": [
         {
           "href": "https://mos2es.com/llms.txt",
@@ -50,30 +43,6 @@
           "href": "https://mos2es.com/.well-known/agent.json",
           "type": "application/json",
           "title": "A2A Agent Card"
-        }
-      ]
-    },
-    {
-      "anchor": "https://mcp.mos2es.org",
-      "service-desc": [
-        {
-          "href": "https://mcp.mos2es.org/.well-known/mcp/server-card.json",
-          "type": "application/json",
-          "title": "MCP Server Card (live)"
-        }
-      ],
-      "service-doc": [
-        {
-          "href": "https://mos2es.org/docs",
-          "type": "text/html",
-          "title": "MOSES Enterprise docs"
-        }
-      ],
-      "status": [
-        {
-          "href": "https://mcp.mos2es.org/",
-          "type": "application/json",
-          "title": "MCP server health"
         }
       ]
     }
