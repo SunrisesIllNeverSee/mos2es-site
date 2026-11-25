@@ -26,29 +26,6 @@ jsonld:
     inDefinedTermSet:
       "@type": "DefinedTermSet"
       name: "MO§ES Concepts"
-  - "@context": "https://schema.org"
-    "@type": "FAQPage"
-    mainEntity:
-      - "@type": "Question"
-        name: "What is the difference between governance and alignment?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Alignment encourages desired behavior through training, rules, policies, filters, and preferences — the system learns to produce correct outputs through training-time shaping. Governance preserves the chain that makes an action legitimate during operation — state, lineage, continuity, self-evaluation, and decision integrity. An aligned system can behave correctly without knowing why its current action remains legitimate. A governed system must preserve the chain that makes the action valid."
-      - "@type": "Question"
-        name: "Is MO§ES an alignment technique?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "No. MO§ES is an execution-layer governance framework, not an alignment technique. It does not compete with RLHF, constitutional AI, or guardrails. It addresses a different problem: whether the system can preserve governing continuity through its own operations. Alignment and governance are complementary, not alternatives."
-      - "@type": "Question"
-        name: "Why does alignment degrade over time?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Alignment is set at training time and degrades through distribution shift, context length, and recursive transformation. As the system moves away from the conditions under which it was trained, the training-time shaping becomes less reliable. Governance operates at execution time and must be maintained continuously, which is why the two are complementary rather than redundant."
-      - "@type": "Question"
-        name: "Can a system be aligned but not governed?"
-        acceptedAnswer:
-          "@type": "Answer"
-          text: "Yes. A system can be aligned — producing behavior that matches training-time preferences — without preserving the chain that makes its current action legitimate. It behaves correctly without knowing why the action remains valid. Governance adds the continuity layer: the system must maintain the state, lineage, and commitments that make the action legitimate at the moment it is taken."
 ---
 
 <div class="prose">
