@@ -124,6 +124,7 @@ test("FAQPage JSON-LD is only on /faq among the concept pages", async () => {
   ]) {
     assert.ok(!(await read(`concepts/${name}.html`)).includes("FAQPage"), name);
   }
+  assert.ok(!(await read("governance-vs-alignment.html")).includes("FAQPage"), "governance-vs-alignment");
   assert.ok((await read("faq.html")).includes("FAQPage"));
 });
 
